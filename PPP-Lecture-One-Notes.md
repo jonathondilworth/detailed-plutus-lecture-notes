@@ -24,6 +24,31 @@
 ### WHO IS RESPONSIBLE FOR PROVIDING THE SCRIPT, REDEEMER AND DATUM?
  
  In Plutus, it's the spending transaction has to do that; whereas the producing transaction only has to provide hashes (hash of the script and the hash of the datum that belongs to the transaction). OPTIONAL: can include script and datum FULLY.
- 
+
+### Getting up and running with the development environment
+
+*Note: still working on this, written haskell in university - Manchester, Edinburgh, some experience, but reminding myself with the required tooling is going to take some time. For me, downloading haskellstack, compiling programmes with GHC, that's all okay - but dependency management, I'll need to add an extra 20 hours per week to catch back up to where I need to be... Which is doable, right now.*
+
+I've been compiling basic Haskell programmes:
+
+	main = print $ map (+125) [1, 2, 3]
+	
+Resulting in:
+
+	[126, 127, 128]
+	
+Very basic stuff; but I need to do some extra reading on the additional tooling required, and pulling in new dependencies each week, it's going to be hard to keep up, but I'll be doing my best. Worst comes to worst, I'll concentrate mainly on the concepts and get to the implementations of the homeworks when possible.
+
 -
 
+*Authors Notes: But so far, the (E)UTxO model makes a lot of sense. I believe the implementation of smart contracts with limited scope is the only real way to implement a highly reliable, fairly easily testable and generally attractive system for adoption. Haskell is a good choice of language (it's safe, in fact - I remember watching Simon Patyen Jones taking the piss out of it a good few years ago when I was in uni, "a black box that turns on and heats up" - thankfully, it has a little more utility at this point). I would say that everything is looking good for Cardano - but as far as what has been successfully implemented, there is a way to go, a lot of work to be done. That being said, taking a methodical approach to writing academic papers, having them peer-reviewed, the unique approach being taken here is one that requires a high degree of merrit to succeed. So far, it's looking good.*
+
+-
+
+### HOMEWORK
+
+- Clone Plutus-Pioneer-Repo [COMPLETE]
+- Get it to build with Cabal [IN PROGRESS] (although, I am also taking other haskell refresher courses, I have been able to compile basic haskell programmes)
+- NIX [IN PROGRESS]
+- PLUTUS PLAYGROUND [IN PROGRESS]
+- SIMULATE AUCTION SCENARIOS [IN PROGRESS]
