@@ -48,7 +48,7 @@ Very basic stuff; but I need to do some extra reading on the additional tooling 
 ### HOMEWORK
 
 - Clone Plutus-Pioneer-Repo [COMPLETE]
-- Get it to build with Cabal [IN PROGRESS] (although, I am also taking other haskell refresher courses, I have been able to compile basic haskell programmes)
-- NIX [IN PROGRESS]
+- Get it to build with Cabal [COMPLETE] (although, I am also taking other haskell refresher courses, I have been able to compile basic haskell programmes)
+- NIX [COMPLETE]
 - PLUTUS PLAYGROUND [IN PROGRESS]
 - SIMULATE AUCTION SCENARIOS [IN PROGRESS]
