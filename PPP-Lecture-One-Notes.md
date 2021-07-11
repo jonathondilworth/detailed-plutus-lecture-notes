@@ -51,5 +51,5 @@ Very basic stuff; but I need to do some extra reading on the additional tooling 
 - Get it to build with Cabal [COMPLETE] 
 - *Note: although, I am also taking other haskell refresher courses, I have been able to compile basic haskell programmes.*
 - NIX [COMPLETE] - *note: rather a lot of dependencies...*
-- PLUTUS PLAYGROUND [IN PROGRESS]
-- SIMULATE AUCTION SCENARIOS [IN PROGRESS]
+- PLUTUS PLAYGROUND [COMPLETE]
+- SIMULATE AUCTION SCENARIOS [COMPLETE]
