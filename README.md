@@ -61,7 +61,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 ### BLN: Table of Contents
 
- - [Lecture One](lec-one.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
+ - [Lecture One](1.\ Lecture\ One\ -\ Introduction.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
  - Lecture Two: 
  - Lecture Three: 
 
