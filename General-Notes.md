@@ -91,7 +91,7 @@ EUTXO
 * Native Multi-asset Support
 * Plutus Core (see §x.x)
 
-### "And God Said: Let There Be (E)UTxO"
+### And God Said Let There Be (E)UTxO
 
 Firstly, we need to introduce UTxO (as implemented by BTC).
 

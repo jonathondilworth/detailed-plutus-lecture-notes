@@ -4,7 +4,7 @@
 
 ### BLN: Authors Note
 
-I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognative ability to solve problems [REFERENCE: The Psychology Of Writing, Ronald T Kellogg], Plutus is a new platform, plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies [FOOTNOTE: Distributed Ledgers and Blockchain Consensus Algorithms] are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
+I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognative ability to solve problems [[1]](#1), Plutus is a new platform, plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup>[1](#fn1)</sup>. are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
 
 I've been using distributed ledgers and blockchain consensus algorithms for over ten years. I remember buying BTC at \$3 and seeing it hit \$7 was mind blowing for me (at the time). It's a shame I never held on to many, but I just look back and laugh. Why? Because it's not about money, although most people would disagree (this is one of the reasons why I feel somewhat at home within the Cardano community). It's about technology and ultimately: changing the world. It's a strange thought: we are individuals, we have choices, and if we decide to do so, we can make a real difference here. If there is anything worth pursuing, it's making a difference. This is why I decided to devote as much time as possible to the difficult task of participating within the Plutus Pioneer Program and brushing up on Haskell.
 
@@ -25,15 +25,19 @@ I believe I can speak for the entire community when I extend my sincerest thanks
 As these are technical notes, the format for each set of lecture notes will be written to a pseudo-technical specification. This means each set of notes should follow a template, making it easier for readers to break down and understand. Each set of notes will be presented in accordance with the following schema:
 
 * Introducary Lecture Information
-* Incremental Sections (§1.0 → §N.N)
-* Subsections (§1.1 → §N.X)
-* Possible *Coffee Time* Sections — Thought Experiments, or Exercises (These Will Be Italicized)
+* Incremental Sections (1. → N.)
+* Subsections (1.1 → N.X)
+* Possible *Coffee Time* Sections — Thought Experiments, or Exercises (These Will Be Italicized) and will be specified as 'COFFEE TIME!'
 * End Of Section Notes — Optional, Only If Required
 * Exercises and Associated Comments
 * Questions and Comments on Possible Problems (Things I May Be Uncertain Of)
 * Lecture Summary
 
 I will be doing my best to keep to the above schema for each set of notes, but this isn't a publishable book or formal technical documentation, so expect a degree of variance in style.
+
+*Note: both footnotes and references will be used within this document set, which may seem confusing at times. However, please be aware that footnotes are formatted as enumerated superscript values, whereas footnotes are enumerated bracketed values.*
+
+*Quotes: You will see various quotes throughout the text, this is simply how I like to write.*
 
 ### BLN: Content Within This Repo
 
@@ -71,7 +75,16 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 *In Progress*
 
+<a id="1">[1]</a>
+Kellogg, R.T., 1999.
+The psychology of writing.
+Oxford University Press.
+
 - https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/
+
+### BLN: Footnotes
+
+<a href="#fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — 'cryptocurrencies'
 
 ### BLN: Nomenclature
 
