@@ -56,7 +56,7 @@ Within this set of notes the following information will be presented. Firstly, t
 * Plutus-core is compiled down from Haskell, Haskell is fairly difficult.
 * It is recommended that you spend 40 hours per week, for 10 weeks to gain a solid understanding of Haskell before or whilst undertaking this course.
 * Plutus is BRAND new - we are the first people **ever in the world to write plutus code**.
-* This means: no quick answers from stackoverflow or google...
+* This means: no quick answers from StackOverflow or google...
 
 However,
 

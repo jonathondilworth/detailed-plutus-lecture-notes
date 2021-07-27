@@ -18,7 +18,7 @@ I believe I can speak for the entire community when I extend my sincerest thanks
 
 ### BLN: Foreword
 
-*To any and all IOHK employees: feel free to contibute by adding a foreword via a pull request.*
+*To any and all IOHK employees: feel free to contribute by adding a foreword via a pull request.*
 
 ### BLN: Formatting
 
@@ -62,7 +62,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 ### BLN: Table of Contents
 
  - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
- - Lecture Two: 
+ - [Lecture Two](2-Lecture-Two.md): (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
  - Lecture Three: 
 
 *In Progress*
@@ -70,6 +70,10 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 ### BLN: Summary
 
 *In Progress*
+
+### BLN: StackExchange (Cardano) Answers:
+
+1. [What exactly is a redeemer?](https://cardano.stackexchange.com/questions/471/what-exactly-is-a-redeemer/2208#2208)
 
 ### BLN: References
 
