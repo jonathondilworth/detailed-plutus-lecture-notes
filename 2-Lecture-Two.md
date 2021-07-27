@@ -1,4 +1,4 @@
-# Lecture Two (Unfinished)
+# Lecture Two
 
 > "Haskell is useless"
 > — Simon Peyton Jones
@@ -540,12 +540,121 @@ Then feel free to play around with the give and grab functions an of course the 
 
 -
 
-# To Be Continued
+# Homework 1 - Implementation One & 2:
 
+During Homework 1, the validator that we're creating will return True if and only if the redeemer is a tuple that consists of two matching boolean values. For example: <pre><code>(True, True)</code></pre> or <pre><code>(False, False)</code></pre>
+
+It turns out (to the Haskell novice) that this can be implemented in at least two ways. The first way is, sloppy...
+
+	-- This should validate if and only if the two Booleans in the redeemer are equal!
+	-- JD: mkValidator taes three parameters (dataum, redeemer and the Context) and returns, in this 	-- case a boolean value (as I imagine it often would).
+	mkValidator :: () -> (Bool, Bool) -> ScriptContext -> Bool
+	-- now we can call mkValidator with a unit datum, a tuple redeemer (bool, bool), and an empty 	-- context (ScriptContext = _ )
+	-- each | (pipe) is essentially an 'else if statement'
+	-- otherwise is the final else stateent
+	-- the equals sign is the return value
+	-- Thus, if the redeemer evaluates to (True, True) else if (False, False), the redeemer returns
+	-- True
+	-- otherwise the redeemer returns false
+	-- note that if the redeemer returns True, the UTxO is consumed, otherwise it is not
+	mkValidator () (a, b) _
+	  | (a, b) == (True, True) = True
+	  | (a, b) == (False, False) = True
+	  | otherwise = False
+	  
+However, there is a much nicer way of implementing this, in 'shortform'
+
+	-- we retain the same line of code as previously written at the top
+	mkValidator :: () -> (Bool, Bool) -> ScriptContext -> Bool
+	-- traceIfFalse is a Plutus function that will return false under the condition
+	-- that a !== b, think of it like this:
+	-- traceIfFalse: Check The Condition ($) a == b (return the evaluation of a == b)
+	-- also, throw an 'exception' of sorts that is described as "Wrong Redeemer"
+	-- this is much nicer and much more concise
+	mkValidator () (a, b) _ = traceIfFalse "Wrong Redeemer" $ a == b
 	
+To re-iterate, the nicer way of writing this redeemer is as follows:
 
+	mkValidator :: () -> (Bool, Bool) -> ScriptContext -> Bool
+	mkValidator () (a, b) _ = traceIfFalse "Wrong Redeemer" $ a == b
+	
+Then, we do have to set the redeemer type and the datum type (Haskell is strongly typed)
+This does, however, enable PlutusTx to compile our Haskell down into plutus-core code to be execute on chain.
 
+	mkValidator :: () -> (Bool, Bool) -> ScriptContext -> Bool
+	mkValidator () (a, b) _ = traceIfFalse "Wrong Redeemer" $ a == b
 
+	data Typed
+	instance Scripts.ValidatorTypes Typed where
+	-- ! DatumType is of type unit
+	  type instance DatumType Typed = ()
+	-- ! RedeemType is of type tuple (Bool, Bool)
+	  type instance RedeemerType Typed = (Bool, Bool)
 
+	-- ! compile validator to plutus-core
+	typedValidator :: Scripts.TypedValidator Typed
+	typedValidator = Scripts.mkTypedValidator @Typed
+	    $$(PlutusTx.compile [|| mkValidator ||])
+	    $$(PlutusTx.compile [|| wrap ||])
+	  where
+	    wrap = Scripts.wrapValidator @() @(Bool, Bool)
+	
+	-- ! drop plutus-core validator script into a validator instance
+	validator :: Validator
+	validator = Scripts.validatorScript typedValidator
+	
+	-- ! create a validator hash
+	valHash :: Ledger.ValidatorHash
+	valHash = Scripts.validatorHash typedValidator
+	
+	-- ! create a script address for the validator
+	scrAddress :: Ledger.Address
+	scrAddress = scriptAddress validator
 
+	-- ! now we can use the validator on-chain to validate or invalidate (E)UTxOs
+	
+See Images:
 
+Implementation Two:
+
+![./img/l2-h1-i0.jpg](./img/l2-h1-i0.jpg)
+
+Compiled and Running on Local Test Blockchain:
+
+![./img/l2-h1-i2.jpg](./img/l2-h1-i2.jpg)
+
+Implementation One -- Shabby:
+
+![./img/l2-h1-i1.jpg](./img/l2-h1-i1.jpg)
+
+Transactional Data 1:
+
+![./img/l2-h1-i4.jpg](./img/l2-h1-i4.jpg)
+
+Transaction Data 2:
+
+![./img/l2-h1-i5.jpg](./img/l2-h1-i5.jpg)
+
+Transaction Data 3:
+
+![./img/l2-h1-i6.jpg](./img/l2-h1-i6.jpg)
+
+Transaction Data 4:
+
+![./img/l2-h1-i7.jpg](./img/l2-h1-i7.jpg)
+
+Transaction Data 5:
+
+![./img/l2-h1-i8.jpg](./img/l2-h1-i8.jpg)
+
+Transaction Data 6:
+
+![./img/l2-h1-i9.jpg](./img/l2-h1-i9.jpg)
+
+Log Data:
+
+![./img/l2-h1-i10.jpg](./img/l2-h1-i10.jpg)
+
+# Homework 2: To Be Continued...
+
+...
