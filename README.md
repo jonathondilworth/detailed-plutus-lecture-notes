@@ -63,7 +63,8 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
  - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
  - [Lecture Two](2-Lecture-Two.md): (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
- - Lecture Three: 
+ - Lecture Three: *Catching Up*
+ - Lecture Four: *Catching Up*
 
 *In Progress*
 
