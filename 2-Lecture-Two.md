@@ -5,6 +5,11 @@
 
 So, let's learn how to write smart contracts in Haskell! [Watch this video](https://youtu.be/iSmkqocn0oQ), it makes sense.
 
+###### Status
+
+* Currently implemented gift smart contract, need to move on to burn.
+* Then, need to implement homework.
+
 ### 1. Introduction
 
 Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program and ...
@@ -233,8 +238,6 @@ Haskell data type: Data (at least at the low level implementation of Plutus (plu
 	      Just n  -> decodeSequenceLenN     (flip (:)) [] reverse (n-1) decodeData
 	    pure $ Constr (fromIntegral i) xs
 
--
-
 If we would like to see information about the various Data constructors, we can do so by:
 
 1. opening up a terminal window.
@@ -247,7 +250,7 @@ If we would like to see information about the various Data constructors, we can 
 8. navigating back to week02
 9. starting cabal repl & entering the following code:
 
--
+<br />
 
 	import PlutusTx
 	:i Data
@@ -297,13 +300,9 @@ Setting a data value (of type Bytestring):
 
 --
 
---
+### 4. Week02 Exercises
 
---
-
-### Week02 Exercises
-
-### Writing Gift.hs
+**Writing Gift.hs**
 
 You'll want to start writing your Haskell program with the following template:
 
@@ -360,7 +359,46 @@ Then switch to the repl:
 
 	:t mkValidatorScript
 	
+###### Explaination
 
+Right, so I'm no Haskell superman, so I'll do my best to explain here...
+
+* When creating (constructing) a validator, you need to specify the three parameters as mentioned above (the redeemer, the datum and the context).
+* mkValidator is a fairly self-explanatory function (make validator), we're saying that the three arguments being passed to the constructor (::) are of type data, data and data. Furthermore the return type is of type 'unit'.
+* When we assign the parameters to mkValidator, we leave them blank. In this simple example we do not care about the redeemer (as we're creating a gift script that anybody can 'grab' the ADA from the address we eventually generate), the datum or the context (as it is a very simple smart contract).
+* Now that our 'mkValidator' function is defined, we can use it to construct a validator (of type Validator: validator :: Validator).
+* We produce the validator by compiling mkValidator to Plutus using PlutusTx (the Plutus Compiler).
+* This uses a Haskell template to achieve this (essentially a program that writes another program).
+
+<pre><code>validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])</code></pre>
+	
+Now that we have our validator defined as a function which will compile our mkValidator function (which I suppose you can think of as an object), via a Haskell template using PlutusTx, we can run it within the repl:
+
+	:t mkValidatorScript
+	
+This will assign the output from the compiler to the validator (if I understand correctly).
+
+Now when we check what type 'validator' is in the repl, we see it is of type script. So it would appear it has compiled. But to give you peace of mind, you can check by running:
+
+	unScript \$ getValidator validator
+
+And you should see an output such as:
+
+	Program () (Version () 1 0 0) (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Apply () (Apply () (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 5})))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1})))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 5})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 4})) (Var () (DeBruijn {dbnIndex = 7}))) (Var () (DeBruijn {dbnIndex = 6})))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 3})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 2})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 2}))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 4}))) (Var () (DeBruijn {dbnIndex = 3})))))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 3}))) (Var () (DeBruijn {dbnIndex = 2})))))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))
+	
+I believe this is the plutus-core language: System F Omega with Recursive Data Types (?)
+
+So we know it's compiled, now we need to generate an address for the script. Which is actually pretty easy and self-explanatory:
+
+	valHash :: Ledger.ValidatorHash
+	valHash = Scripts.validatorHash validator
+	
+	scrAddress :: Ledger.Address
+	scrAddress = scriptAddress validator
+	
+Now when you reload the script in the repl, you'll see you have a hash and an scrAddress.
+
+*Lars then goes on to gloss over the off-chain code..*
 
 ### Gift.hs | Whole Programme
 	
@@ -441,11 +479,7 @@ Then switch to the repl:
 	
 	mkKnownCurrencies []
 
-
-
-
-
-### Exercises
+### Testing In The Playground
 
 Similarly to the first week, we need to start a couple of nix-shells. If you've not done so already, go ahead and checkout to the required branch for Week02:
 
@@ -484,8 +518,29 @@ Now you can spin up a couple of nix-shells and run the Week02 code:
 	
 -
 
-Now we're going to start writing our Haskell programme: Gift.hs
+Now we're going to start testing our Haskell program: Gift.hs
 
+First, copy and paste the code from you editor into the playground, compile and simulate.
+
+Then feel free to play around with the give and grab functions an of course the wait functions:
+
+-
+
+![./img/l2-0.jpg](./img/l2-0.jpg)
+
+![./img/l2-1.jpg](./img/l2-1.jpg)
+
+![./img/l2-3.jpg](./img/l2-3.jpg)
+
+![./img/l2-4.jpg](./img/l2-4.jpg)
+
+![./img/l2-5.jpg](./img/l2-5.jpg)
+
+![./img/l2-6.jpg](./img/l2-6.jpg)
+
+-
+
+# To Be Continued
 
 	
 
