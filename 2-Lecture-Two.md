@@ -1,4 +1,4 @@
-# Lecture Two
+# Lecture Two (Unfinished)
 
 > "Haskell is useless"
 > — Simon Peyton Jones
@@ -294,6 +294,201 @@ Setting a data value (of type Bytestring):
 *You Get The Idea...*
 
 *Very similar to JSON apparently...*
+
+--
+
+--
+
+--
+
+### Week02 Exercises
+
+### Writing Gift.hs
+
+You'll want to start writing your Haskell program with the following template:
+
+	{-# LANGUAGE DataKinds           #-}
+	{-# LANGUAGE FlexibleContexts    #-}
+	{-# LANGUAGE NoImplicitPrelude   #-}
+	{-# LANGUAGE ScopedTypeVariables #-}
+	{-# LANGUAGE TemplateHaskell     #-}
+	{-# LANGUAGE TypeApplications    #-}
+	{-# LANGUAGE TypeFamilies        #-}
+	{-# LANGUAGE TypeOperators       #-}
+	
+	module Week02.Gift where
+	
+	import           Control.Monad       hiding (fmap)
+	import           Data.Map            as Map
+	import           Data.Text           (Text)
+	import           Data.Void           (Void)
+	import           Plutus.Contract
+	import           PlutusTx            (Data (..))
+	import qualified PlutusTx
+	import           PlutusTx.Prelude    hiding (Semigroup(..), unless)
+	import           Ledger              hiding (singleton)
+	import           Ledger.Constraints  as Constraints
+	import qualified Ledger.Scripts      as Scripts
+	import           Ledger.Ada          as Ada
+	import           Playground.Contract (printJson, printSchemas, ensureKnownCurrencies, stage)
+	import           Playground.TH       (mkKnownCurrencies, mkSchemaDefinitions)
+	import           Playground.Types    (KnownCurrency (..))
+	import           Prelude             (IO, Semigroup (..), String)
+	import           Text.Printf         (printf)
+	
+	{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+	
+	{-# INLINABLE mkValidator #-}
+	
+Now, you'll be able to easily import, compile and run it in the repl by simply typing (from the week02 directory):
+
+	:l /src/Week02/Gift.hs
+	import Leger.Scripts
+	import PlutusTx
+	
+	-- | This is where we call functions from our script
+	
+For example, to create a basic validator:
+
+	mkValidator :: Data -> Data -> Data -> ()
+	mkValidator _ _ _ = ()
+	
+	validator :: Validator
+	validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])
+	
+Then switch to the repl:
+
+	:t mkValidatorScript
+	
+
+
+### Gift.hs | Whole Programme
+	
+	{-# LANGUAGE DataKinds           #-}
+	{-# LANGUAGE FlexibleContexts    #-}
+	{-# LANGUAGE NoImplicitPrelude   #-}
+	{-# LANGUAGE ScopedTypeVariables #-}
+	{-# LANGUAGE TemplateHaskell     #-}
+	{-# LANGUAGE TypeApplications    #-}
+	{-# LANGUAGE TypeFamilies        #-}
+	{-# LANGUAGE TypeOperators       #-}
+	
+	module Week02.Gift where
+	
+	import           Control.Monad       hiding (fmap)
+	import           Data.Map            as Map
+	import           Data.Text           (Text)
+	import           Data.Void           (Void)
+	import           Plutus.Contract
+	import           PlutusTx            (Data (..))
+	import qualified PlutusTx
+	import           PlutusTx.Prelude    hiding (Semigroup(..), unless)
+	import           Ledger              hiding (singleton)
+	import           Ledger.Constraints  as Constraints
+	import qualified Ledger.Scripts      as Scripts
+	import           Ledger.Ada          as Ada
+	import           Playground.Contract (printJson, printSchemas, ensureKnownCurrencies, stage)
+	import           Playground.TH       (mkKnownCurrencies, mkSchemaDefinitions)
+	import           Playground.Types    (KnownCurrency (..))
+	import           Prelude             (IO, Semigroup (..), String)
+	import           Text.Printf         (printf)
+	
+	{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+	
+	{-# INLINABLE mkValidator #-}
+	mkValidator :: Data -> Data -> Data -> ()
+	mkValidator _ _ _ = ()
+	
+	validator :: Validator
+	validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])
+	
+	valHash :: Ledger.ValidatorHash
+	valHash = Scripts.validatorHash validator
+	
+	scrAddress :: Ledger.Address
+	scrAddress = scriptAddress validator
+	
+	type GiftSchema =
+	            Endpoint "give" Integer
+	        .\/ Endpoint "grab" ()
+	
+	give :: AsContractError e => Integer -> Contract w s e ()
+	give amount = do
+	    let tx = mustPayToOtherScript valHash (Datum $ Constr 0 []) $ Ada.lovelaceValueOf amount
+	    ledgerTx <- submitTx tx
+	    void $ awaitTxConfirmed $ txId ledgerTx
+	    logInfo @String $ printf "made a gift of %d lovelace" amount
+	
+	grab :: forall w s e. AsContractError e => Contract w s e ()
+	grab = do
+	    utxos <- utxoAt scrAddress
+	    let orefs   = fst <$> Map.toList utxos
+	        lookups = Constraints.unspentOutputs utxos      <>
+	                  Constraints.otherScript validator
+	        tx :: TxConstraints Void Void
+	        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ I 17 | oref <- orefs]
+	    ledgerTx <- submitTxConstraintsWith @Void lookups tx
+	    void $ awaitTxConfirmed $ txId ledgerTx
+	    logInfo @String $ "collected gifts"
+	
+	endpoints :: Contract () GiftSchema Text ()
+	endpoints = (give' `select` grab') >> endpoints
+	  where
+	    give' = endpoint @"give" >>= give
+	    grab' = endpoint @"grab" >>  grab
+	
+	mkSchemaDefinitions ''GiftSchema
+	
+	mkKnownCurrencies []
+
+
+
+
+
+### Exercises
+
+Similarly to the first week, we need to start a couple of nix-shells. If you've not done so already, go ahead and checkout to the required branch for Week02:
+
+	cd ~/code/plutus-pioneer-program/code/week02
+	less cabal.project
+	
+Now you're looking for the tag under the 'source-repository-package':
+
+In this case I believe it's: **81ba78edb1d634a13371397d8c8b19829345ce0d**
+
+Go ahead and copy the tag, change directory to ~/code/plutus and checkout to that branch / commit
+
+	git checkout 81ba78edb1d634a13371397d8c8b19829345ce0d
+	
+Now you can spin up a couple of nix-shells and run the Week02 code:
+
+	cd ~/code/plutus
+	nix-shell
+	cd plutus-playground-client
+	plutus-playground-server
+	...
+	// open a new shell
+	...
+	cd ~/code/plutus-pioneer-program
+	cabal build
+	...
+	project builds
+	...
+	cd ~/code/plutus/plutus-pioneer-client
+	npm start
+	...
+	// if it throws an error, you may have to run something like:
+	npm install && plutus-playground-generate-purs && npm run purs:compile && npm run webpack:server
+	...
+	// at this point the app should be viewable @ localhost:8009
+	
+-
+
+Now we're going to start writing our Haskell programme: Gift.hs
+
+
+	
+
 
 
 
