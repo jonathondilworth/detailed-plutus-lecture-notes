@@ -11,6 +11,10 @@ So, let's learn how to write smart contracts in Haskell! [Watch this video](http
 
 *I may just leave this, as I've already done the homework, seems fairly trivial...*
 
+* Add references and footnotes.
+* Add Summary.
+* Spellcheck.
+
 ### 1. Introduction
 
 Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program. This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it's called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses.

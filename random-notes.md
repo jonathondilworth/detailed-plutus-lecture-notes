@@ -1,5 +1,7 @@
 Important General Cardano Notes
 
+**These Notes Are All Over The Shop**
+
 Plutus
 
 Nomenclature
@@ -23,9 +25,6 @@ Plutus is made up of multiple components:
 
 Cardify finds that only 16.9% of investors who have bought crypto “fully understand” the value and potential of cryptocurrency, while 33.5% of buyers have either zero knowledge about the space or would call their level of understanding “emerging.”
 
-
-
-
 What would happen if a close endpoint is not programmed into a smart contract (script)?
 
 In order to change the state of the blockchain, there must be a new Tx that consume UTxO and create new ones.
@@ -45,11 +44,6 @@ However, wallet logic (off-chain) can do sophisticated logic
 On-chain part - about validation - is it allowed to consume a given UTxO
 
 off-chain - lives in wallet - constructs and subits transactions (both are IMPOrtANANT)
-
-
-
-
-
 
 Redeemers (arbtrary paramaters / pieces of data)
 
