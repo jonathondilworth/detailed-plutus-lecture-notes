@@ -8,7 +8,8 @@ So, let's learn how to write smart contracts in Haskell! [Watch this video](http
 ###### Status
 
 * Currently implemented gift smart contract, need to move on to burn.
-* Then, need to implement homework.
+* Homework 2, still to be implemented and documented.
+* Finish Introduction.
 
 ### 1. Introduction
 
@@ -25,12 +26,9 @@ Previously a pioneer brought up the notion of "what if we didn't add any kind of
 * On-chain Logic is about Validation (can a UTxO be consumed?)
 * Off-chain logic is about initating transactions that effect the state of any given UTxO for which you hold the required redeemer (think of it somewhat like a key to sign a digital signature, except, it's not..)
 
-
 ### 2. The Difference: (E)UTxO VS UTxO
 
 A simple UTxO model usually takes a hash of some form of public key and uses this as the address. The redeemer for the UTxO model can then simply derive the public key and then sign the transaction using the paired private key (ensuring they are in fact the person who holds the private key in their wallet; and so a UTxO is consumed by signing the UTxO and a new UTxO is created with inputs and outputs.
-
--
 
 (Extended)UTxOs have a number of address types, one of which is a script addresses. At this address a smart contract can exist on-chain that can run arbitrary logic.
 
@@ -55,8 +53,6 @@ Three pieces of data required to create a valid Plutus script:
 1. Redeemer
 2. Datum
 3. Context
-
--
 
 ### 3. Data Types In Plutus (as implemented in Haskell)
 
@@ -359,7 +355,7 @@ Then switch to the repl:
 
 	:t mkValidatorScript
 	
-###### Explaination
+##### Explaination
 
 Right, so I'm no Haskell superman, so I'll do my best to explain here...
 
@@ -516,7 +512,7 @@ Now you can spin up a couple of nix-shells and run the Week02 code:
 	...
 	// at this point the app should be viewable @ localhost:8009
 	
--
+<br />
 
 Now we're going to start testing our Haskell program: Gift.hs
 
@@ -524,7 +520,7 @@ First, copy and paste the code from you editor into the playground, compile and 
 
 Then feel free to play around with the give and grab functions an of course the wait functions:
 
--
+<br />
 
 ![./img/l2-0.jpg](./img/l2-0.jpg)
 
@@ -538,7 +534,7 @@ Then feel free to play around with the give and grab functions an of course the 
 
 ![./img/l2-6.jpg](./img/l2-6.jpg)
 
--
+<br />
 
 # Homework 1 - Implementation One & 2:
 
