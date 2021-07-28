@@ -98,3 +98,14 @@ Oxford University Press.
 ### BLN: Appendix
 
 *In Progress*
+
+### BLN: TODO
+
+*In Progress*
+
+1. Finish up second homework.
+2. Tidy up repo.
+3. Update HTML files.
+4. Update PDF files.
+5. Scan and upload annotated papers from IOHK.
+6. Catch up to Lecture four ASAP.
