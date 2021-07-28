@@ -7,13 +7,13 @@ So, let's learn how to write smart contracts in Haskell! [Watch this video](http
 
 ###### Status
 
-* Currently implemented gift smart contract, need to move on to burn.
-* Homework 2, still to be implemented and documented.
-* Finish Introduction.
+* Implement a redeemer that always evaluates to False...
+
+*I may just leave this, as I've already done the homework, seems fairly trivial...*
 
 ### 1. Introduction
 
-Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program and ...
+Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program. This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it's called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses.
 
 #### 1.1 Catch Up | EUTxO - Additional Information
 
@@ -536,7 +536,7 @@ Then feel free to play around with the give and grab functions an of course the 
 
 <br />
 
-# Homework 1 - Implementation One & 2:
+# 5. Homework 1 - Implementation One & 2:
 
 During Homework 1, the validator that we're creating will return True if and only if the redeemer is a tuple that consists of two matching boolean values. For example: <pre><code>(True, True)</code></pre> or <pre><code>(False, False)</code></pre>
 
@@ -651,6 +651,151 @@ Log Data:
 
 ![./img/l2-h1-i10.jpg](./img/l2-h1-i10.jpg)
 
-# Homework 2: To Be Continued...
+# 6. Homework 2: Completed - Essentially Same As HW1
 
-...
+See My comments for additional details...
+
+	{-# LANGUAGE DataKinds           #-}
+	{-# LANGUAGE DeriveAnyClass      #-}
+	{-# LANGUAGE DeriveGeneric       #-}
+	{-# LANGUAGE FlexibleContexts    #-}
+	{-# LANGUAGE NoImplicitPrelude   #-}
+	{-# LANGUAGE OverloadedStrings   #-}
+	{-# LANGUAGE ScopedTypeVariables #-}
+	{-# LANGUAGE TemplateHaskell     #-}
+	{-# LANGUAGE TypeApplications    #-}
+	{-# LANGUAGE TypeFamilies        #-}
+	{-# LANGUAGE TypeOperators       #-}
+	
+	{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+	
+	module Week02.Homework2 where
+	
+	import           Control.Monad        hiding (fmap)
+	import           Data.Aeson           (FromJSON, ToJSON)
+	import           Data.Map             as Map
+	import           Data.Text            (Text)
+	import           Data.Void            (Void)
+	import           GHC.Generics         (Generic)
+	import           Plutus.Contract
+	import qualified PlutusTx
+	import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+	import           Ledger               hiding (singleton)
+	import           Ledger.Constraints   as Constraints
+	import qualified Ledger.Typed.Scripts as Scripts
+	import           Ledger.Ada           as Ada
+	import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+	import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+	import           Playground.Types     (KnownCurrency (..))
+	import           Prelude              (IO, Semigroup (..), String, undefined)
+	import           Text.Printf          (printf)
+	
+	data MyRedeemer = MyRedeemer
+	    { flag1 :: Bool
+	    , flag2 :: Bool
+	    } deriving (Generic, FromJSON, ToJSON, ToSchema)
+	
+	PlutusTx.unstableMakeIsData ''MyRedeemer
+	
+	{-# INLINABLE mkValidator #-}
+	
+	-- This should validate if and only if the two Booleans in the redeemer are equal!
+	
+	mkValidator :: () -> MyRedeemer -> ScriptContext -> Bool
+	
+	-- J.D: Implementing parameters for mkValidator
+	-- Datum: of type unit ... this can be empty
+	-- Redeemer: of type data ... contains this is our own record type containing two bools
+	-- Context: of type ScriptContext ... we can leave this as undefined for the purposes of this smart contract ...
+	
+	mkValidator () (MyRedeemer x y) _ = traceIfFalse "Wrong Redeemer" $ x == y
+	
+	-- J.D: Similarly to the previous homework, the Datum parameter instance is of type DatumType, and is an empty unit
+	-- This time, MyRedeemer is an instance of type: RedeemerType
+	
+	data Typed
+	instance Scripts.ValidatorTypes Typed where
+	    type instance DatumType Typed = ()
+	    type instance RedeemerType Typed = MyRedeemer
+	
+	-- We're essentially just doing the same as before...
+	-- except instead of (bool, bool) tuple, we're using @MyRedeemer to compile the Validator
+	
+	typedValidator :: Scripts.TypedValidator Typed
+	typedValidator = Scripts.mkTypedValidator @Typed
+	    $$(PlutusTx.compile [|| mkValidator ||])
+	    $$(PlutusTx.compile [|| wrap ||])
+	  where
+	    wrap = Scripts.wrapValidator @() @MyRedeemer
+	
+	-- exactly the same as Homework01
+	
+	validator :: Validator
+	validator = Scripts.validatorScript typedValidator
+	
+	valHash :: Ledger.ValidatorHash
+	valHash = Scripts.validatorHash typedValidator
+	
+	scrAddress :: Ledger.Address
+	scrAddress = scriptAddress validator
+	
+	-- Lars was kind enough to implement the remainder! Thank you! I hope this compiles...
+	
+	type GiftSchema =
+	            Endpoint "give" Integer
+	        .\/ Endpoint "grab" MyRedeemer
+	
+	give :: AsContractError e => Integer -> Contract w s e ()
+	give amount = do
+	    let tx = mustPayToTheScript () $ Ada.lovelaceValueOf amount
+	    ledgerTx <- submitTxConstraints typedValidator tx
+	    void $ awaitTxConfirmed $ txId ledgerTx
+	    logInfo @String $ printf "made a gift of %d lovelace" amount
+	
+	grab :: forall w s e. AsContractError e => MyRedeemer -> Contract w s e ()
+	grab r = do
+	    utxos <- utxoAt scrAddress
+	    let orefs   = fst <$> Map.toList utxos
+	        lookups = Constraints.unspentOutputs utxos      <>
+	                  Constraints.otherScript validator
+	        tx :: TxConstraints Void Void
+	        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData r | oref <- orefs]
+	    ledgerTx <- submitTxConstraintsWith @Void lookups tx
+	    void $ awaitTxConfirmed $ txId ledgerTx
+	    logInfo @String $ "collected gifts"
+	
+	endpoints :: Contract () GiftSchema Text ()
+	endpoints = (give' `select` grab') >> endpoints
+	  where
+	    give' = endpoint @"give" >>= give
+	    grab' = endpoint @"grab" >>= grab
+	
+	mkSchemaDefinitions ''GiftSchema
+	
+	mkKnownCurrencies []
+	
+### 6.1 Images:
+
+**Simulation:**
+
+![./img/l2-h2-2.jpg](./img/l2-h2-2.jpg)
+
+**Tx0:**
+
+![./img/l2-h2-3.jpg](./img/l2-h2-3.jpg)
+
+**Tx4:**
+
+![./img/l2-h2-4.jpg](./img/l2-h2-4.jpg)
+
+**Balances, Logs:**
+
+![./img/l2-h2-5.jpg](./img/l2-h2-5.jpg)
+
+**Trace:**
+
+![./img/l2-h2-6.jpg](./img/l2-h2-6.jpg)
+
+### 7. Summary:
+
+To be completed...
