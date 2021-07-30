@@ -103,7 +103,6 @@ Oxford University Press.
 
 *In Progress*
 
-1. Finish up second homework.
 2. Tidy up repo.
 3. Update HTML files.
 4. Update PDF files.
