@@ -1,4 +1,8 @@
-# 3. Lecture Three: Introduction
+# 3. Lecture Three: Introduction (In Progress - currently in random note form!)
+
+*I take notes whilst listing to the lectures and doing the exercises / homeworks, then I format them nicely.*
+
+**This Document Is Under Construction!**
 
 in order to unloc a script address - Tx to run - 3 paras: datum, redeemer, context
 
