@@ -45,6 +45,8 @@ I will be doing my best to keep to the above schema for each set of notes, but t
 
 *In Progress*
 
+[[2]](#2)
+
 ### BLN: Intended Audience
 
 These notes are for anybody and everybody (somewhat vague, I know), but the audience could range from those who are current Plutus Pioneers, individuals who are just following the programme, developers from other communities, or even legislators (however, I highly doubt they would be reading my notes / documentation on Cardano). But ultimately, we are all here for the same reason, we believe in what we're building and the best way to approach adoption is to allow everybody to see what you're doing, at least, that would be my intuition.
@@ -85,11 +87,14 @@ Kellogg, R.T., 1999.
 The psychology of writing.
 Oxford University Press.
 
-- https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/
+<a id="2">[2]</a>
+Jones, M.P., 2021.
+Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021.
+<https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/>
 
 ### BLN: Footnotes
 
-<a href="#fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — 'cryptocurrencies'
+<a id="fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — 'cryptocurrencies'
 
 ### BLN: Nomenclature
 
