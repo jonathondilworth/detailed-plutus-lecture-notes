@@ -1,8 +1,4 @@
-# 3. Lecture Three: Introduction (In Progress - currently in random note form!)
-
-*I take notes whilst listing to the lectures and doing the exercises / homeworks, then I format them nicely.*
-
-**This Document Is Under Construction!**
+# 3. Lecture Three: Introduction
 
 ### Introduction
 
