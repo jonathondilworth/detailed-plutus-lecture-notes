@@ -1,10 +1,14 @@
 # 3. Lecture Three
 
-### Introduction
+### 1. Introduction
 
-* Playground Memory Issues (Hardcoded Timeout)
+*Note: typically you write the introduction last...*
 
-##### 1. Playground Memory Issues
+Within this set of lecture notes, the following will be discussed. Firstly, memory issues associated with the local 'Playground' server (where our Haskell smart contracts are being ran) are addressed. Secondly, a reintroduction to the extended unspent transaction output model (EUTxO) is provided. Furthermore, minting tokens, certifying and (stake-related) rewarding is discussed. This is followed by a description of the parameters that validator scripts are provided. Then on-chain and off-chain code is briefly discussed.
+
+*Note: introduction is unfinished, once I get the chance to work through the whole lecture, the introduction will be completed and a summary will be provided at the end, as is typical within this type of documentation.*
+
+##### 2. Playground Memory Issues
 
 You are now able to modify the timeout in the Plutus Playground Server (located within the Plutus Playground Client folder) to any number of minutes. This is accomplished by running the following command:
 
@@ -14,7 +18,7 @@ Note that you can modify the value of 120s to any amount, this will set the time
 
 -
 
-##### 2. Quick Refresh On The (E)UTxO Model
+##### 3. Quick Refresh On The (E)UTxO Model
 
 (E)UTxO stands for **Extended Unspent Transaction Output Model**.
 
@@ -28,7 +32,7 @@ Given a simple UTxO, there is a **redeemer** and a **validator**. In order to sp
 
 Furthermore, the (E)UTxO model has the ability to facilitate ownership of multiple types of asset (for example non fungible tokens can exist within a (E)UTxO model. Even the ownership of other coins can be transferred from one wallet to another given the EUTxO model).
 
-##### 2.1 EUTxO Scripts
+##### 3.1 EUTxO Scripts
 
 EUTxO scripts are held at a script address. During lecture two we saw a low level implementation of a validator within a script where all three arguments were defined as the Haskell type: <code>Data</code>:
 
@@ -56,7 +60,7 @@ The most important purpose for us is the <code>Spending TxOutRef</code>, this is
 
 This is when a script is run to validate spending input for a transaction.
 
-##### 2.1 Other Important Purposes
+##### 3.2 Other Important Purposes
 
 **Minting**: This is important for when you want to define a native token. For example, the ScriptPurpose may use the Minting constructor to create a native token which describes under which condition the token may be minted or burned.
 
@@ -66,7 +70,7 @@ This is when a script is run to validate spending input for a transaction.
 
 *For now, we are concentrating on the spending purpose.*
 
-##### 2.2 Context - TxInfo (Acronym for Transaction Info) — **Possibily Outdated**
+##### 3.3 Context - TxInfo (Acronym for Transaction Info) — **Possibily Outdated**
 
 The TxInfo Data Type describes the transaction<sup>[1](#ft1)</sup>, which is to say it has fields for:
 
@@ -82,7 +86,7 @@ The TxInfo Data Type describes the transaction<sup>[1](#ft1)</sup>, which is to 
 But Producing Transactions Can Optionally Do That.</code></pre>
 * txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)
 
-##### 2.3 Context - TxInfo (Current)
+##### 3.4 Context - TxInfo (Current)
 
 * txInfoInputs :: [TxInInfo] — Transaction inputs
 * txInfoOutputs :: [TxOutInfo] — Transaction outputs
@@ -94,7 +98,7 @@ But Producing Transactions Can Optionally Do That.</code></pre>
 * txInfoData :: [(DatumHash, Datum)]	 
 * txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)
 
-##### 2.4 On-Chain VS Off-Chain Validation
+##### 3.5 On-Chain VS Off-Chain Validation
 
 One of the nice things about Cardano is that validation can be tested and verified as spendable off-chain. However, due to time — well latency [[2]](#2)[[3]](#3), there is always a chance that a given UTxO that you — well, the wallet trying to consume said UTxO — has already been spent by another transaction on-chain, causing a reversal. You don't, however loose any funds.
 
