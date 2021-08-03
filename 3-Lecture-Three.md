@@ -1,4 +1,4 @@
-# 3. Lecture Three: Introduction
+# 3. Lecture Three
 
 ### Introduction
 
@@ -40,7 +40,89 @@ validator = mkValidatorScript $\$(PlutusTx.compile [|| mkValidator ||])
 
 In practice this is **not used**. We instead use the typed version. This is where data and redeemer can be custom types, as long as they implement the <code>IsData</code> type class. The third argument (the Context) is must be of type <code>ScriptContext</code>.
 
-In the examples we have seen so far, we've only been examining the data and the redeemer.
+In the examples we have seen so far, we've only been examining the data and the redeemer. We have never given much thought to the context, but the context is of course very important. It can support a given state, allowing us to create types of state machines within 
+
+The <code>Context</code> is of type: <code>ScriptContext</code> and can be found within:
+
+<pre><code>plutus-ledger-api</code></pre>
+
+This is a package that, until now, we have not needed. But now, we do need it, so it has been included within the cabal.project file for the third week. The Context can be found within:
+
+<pre></code>Plutus.V1.Ledger.Contexts</code></pre>
+
+The <code>ScriptContext</code> is a record type with two fields: <code>TxInfo</code> and <code>ScriptPurpose</code>. The <code>ScriptPurpose</code> is defined within the same module and it (rather obviously) describes for which purpose the script is run. For example, to spend, to certify, to reward or to mint (an NFT for example), etc.
+
+The most important purpose for us is the <code>Spending TxOutRef</code>, this is what we have mostly talked about within the Extended UTxO model.
+
+This is when a script is run to validate spending input for a transaction.
+
+##### 2.1 Other Important Purposes
+
+**Minting**: This is important for when you want to define a native token. For example, the ScriptPurpose may use the Minting constructor to create a native token which describes under which condition the token may be minted or burned.
+
+**Rewarding**: Related to staking (in some manner, yet to be explained).
+
+**Certifying:** Related to certificates, like delegation certification.
+
+*For now, we are concentrating on the spending purpose.*
+
+##### 2.2 Context - TxInfo (Acronym for Transaction Info) — **Possibily Outdated**
+
+The TxInfo Data Type describes the transaction<sup>[1](#ft1)</sup>, which is to say it has fields for:
+
+* txInfoInputs :: **[TxInInfo]** — ALL the inputs of the transaction.
+* txInfoOutputs :: **[TxOut]** — ALL the outputs of the transaction.
+* txInfoFee :: **Value** — The fee paid to consume the transaction.
+* TxInfoForge :: **value** — Either the number of newly created (forged) Native Tokens [[2]](#2) or if negative, the amount of newly burned Native Tokens.
+* txInfoDCert :: ***[TxInfoDCert]*** — List of certificates, such as delegation certificates. ***(Possibly Deprecated)***
+* txInfoWdrl :: **[(StakingCredential, Integer)]** — Staking Reward Withdrawal ***(Possibly Deprecated)***
+* txInfoValidRange :: **POSIXTimeRange** — Time range in which the transaction is valid. ***(Possibly Modified)***
+* txInfoSignatories :: [PubKeyHash] — List of public keys that have signed the transaction.
+* txInfoData :: [(DatumHash, Datum)] — The output value of the Tx which have been spent (required), Lars uses the phrase: <pre><code>Spending Transactions Have To Include The Datum Of The Transactions They've Spent.
+But Producing Transactions Can Optionally Do That.</code></pre>
+* txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)
+
+##### 2.3 Context - TxInfo (Current)
+
+* txInfoInputs :: [TxInInfo] — Transaction inputs
+* txInfoOutputs :: [TxOutInfo] — Transaction outputs
+* txInfoFee :: Value — The fee paid by this transaction.
+* txInfoForge :: Value — The Value forged by this transaction.
+* txInfoValidRange :: SlotRange — The valid range for the transaction.
+* txInfoForgeScripts :: [MonetaryPolicyHash]
+* txInfoSignatories :: [PubKeyHash] — Signatures provided with the transaction
+* txInfoData :: [(DatumHash, Datum)]	 
+* txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)
+
+##### 2.4 On-Chain VS Off-Chain Validation
+
+One of the nice things about Cardano is that validation can be tested and verified as spendable off-chain. However, due to time — well latency [[2]](#2)[[3]](#3), there is always a chance that a given UTxO that you — well, the wallet trying to consume said UTxO — has already been spent by another transaction on-chain, causing a reversal. You don't, however loose any funds.
+
+Furthermore, there is always a chance that the time that the off-chain code is executed and the contract is found to be valid, if the txValidRange *(time)* fell inside the time of validation off-chain but outside the time of validation on-chain, the validation will fail **on-chain** and the contract will not be executed. However, if the time does fall into the txValidRange, then the contract is completely deterministic. The only non-deterministic property of these contracts is the time at which it may or may not be executed, as time is continuous and impossible to test for. When writing scripts and testing, it is likely the case that you will have to assume that the function for checking if the time is valid or not is TRUE. You may also write cases where it is FALSE to be exhaustive, but you know (in this case) the script will simply fail and the UTxO will not be consumed.
+
+**By default, if this parameter is not set manually, the time slot / POSIXTIME is set to 'infinite', and as such - this initial check will always pass.**
+
+# References
+
+<a id="1">[1]</a>
+Plutus Development Team, 2021.
+plutus-ledger-api-0.1.0.0: Interface to the Plutus ledger for the Cardano ledger. Plutus.V1.Ledger.Contexts, section: Pending transactions and related types
+<https://playground.plutus.iohkdev.io/tutorial/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Contexts.html>
+
+<a id="2">[2]</a>
+Manish Jain and Constantinos Dovrolis. 2004. Ten fallacies and pitfalls on end-to-end available bandwidth estimation. In Proceedings of the 4th ACM SIGCOMM conference on Internet measurement (IMC '04). Association for Computing Machinery, New York, NY, USA, 272–277. DOI: https://doi.org/10.1145/1028788.1028825
+
+<a id="3">[3]</a>
+Learn Cloud Native Development Team, 2019.
+The Basics - Fallacies of Distributed Systems
+<https://www.learncloudnative.com/blog/2019-11-26-fallacies_of_distributed_systems>
+
+
+# Footnotes
+
+<a id="ft1">1.</a> The description is that of a pending transaction. This is the view as seen by validator scripts, so some details are stripped out. [[1]](#1)
+
+
 
 -
 
