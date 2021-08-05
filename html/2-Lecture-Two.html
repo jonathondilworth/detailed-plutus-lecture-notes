@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>2-Lecture-Two</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Lecture Two</h1>
+
+<blockquote>
+<p>&quot;Haskell is useless&quot;
+— Simon Peyton Jones</p>
+</blockquote>
+
+<p>So, let&#39;s learn how to write smart contracts in Haskell! <a href="https://youtu.be/iSmkqocn0oQ">Watch this video</a>, it makes sense.</p>
+
+<h6 id="toc_1">TODOS.</h6>
+
+<ul>
+<li>Add references and footnotes.</li>
+</ul>
+
+<h3 id="toc_2">1. Introduction</h3>
+
+<p>Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program. This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it&#39;s called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses.</p>
+
+<h4 id="toc_3">1.1 Catch Up | EUTxO - Additional Information</h4>
+
+<p>Previously a pioneer brought up the notion of &quot;what if we didn&#39;t add any kind of &#39;end-point&#39; to our smart contract? Would the funds just get stuck within the contract?&quot;. Unfortunately, that would appear to be the case (if the script was coded in such a manner that there was no stopping criteria implemented&quot;. This is to say that: in order to change the state of the blockchain (to consume any given UTxO) a transaction must be executed on-chain (and validated), such that the previous UTxO is consumed and the next UTxO is created. UTxOs will never spring into action themselves.</p>
+
+<ul>
+<li>New transactions are generated (initiated) by a wallet (which is essentially a collection of keys, as your wallet has the private key to some UTxOs outputs &#39;public&#39; key (which are thought of as scripts and redeemers).</li>
+<li>The state of any given UTxO can only be changed if the outputs are verified by satisfying the arbitrary logic held at the script address, using the required redeemer (input parameters).</li>
+<li>You NEED to have some kind of &#39;close clause&#39; - that could even just be &#39;expire after X blocks&#39;.</li>
+<li>However, off-chain (wallet) logic can do some sophisticated stuff (but we&#39;ll get to that later).</li>
+<li>On-chain Logic is about Validation (can a UTxO be consumed?)</li>
+<li>Off-chain logic is about initiating transactions that effect the state of any given UTxO for which you hold the required redeemer (think of it somewhat like a key to sign a digital signature, except, it&#39;s not..)</li>
+</ul>
+
+<h3 id="toc_4">2. The Difference: (E)UTxO VS UTxO</h3>
+
+<p>A simple UTxO model usually takes a hash of some form of public key and uses this as the address. The redeemer for the UTxO model can then simply derive the public key and then sign the transaction using the paired private key (ensuring they are in fact the person who holds the private key in their wallet; and so a UTxO is consumed by signing the UTxO and a new UTxO is created with inputs and outputs.</p>
+
+<p>(Extended)UTxOs have a number of address types, one of which is a script addresses. At this address a smart contract can exist on-chain that can run arbitrary logic.</p>
+
+<p>Transactions that want to consume an (E)UTxO sitting at a script address are validated by a node, the node will run the script and depending on the result of the script (typically TRUE / FALSE, but other more complicated outputs can exist I believe) consumption is permitted or non-permitted.</p>
+
+<h3 id="toc_5">2.1 Redeemers</h3>
+
+<p>A redeemer is an arbitrary piece of data that is fed to the script (similar to a set of parameters), a the script requires this data to satisfy the constraints and reach a deterministic outcome (if the script has been written properly).</p>
+
+<h3 id="toc_6">2.2 Datum</h3>
+
+<p>Datum is a &#39;string&#39;, a piece of data that sits at the output of any given (E)UTxO. It&#39;s great for providing an area to store the output state of a UTxO script or possibly even a &#39;linked-list&#39; of (E)UTxOs.</p>
+
+<h3 id="toc_7">2.3 Context</h3>
+
+<p>This is essentially the scope of the script. Do we allow the script to see almost nothing, or do we allow it to see the entire blockchain? In the case of Cardano, it can see the the scope of the current UTxO, it&#39;s inputs and it&#39;s outputs.</p>
+
+<h3 id="toc_8">2.4 Plutus Script</h3>
+
+<p>Three pieces of data required to create a valid Plutus script:</p>
+
+<ol>
+<li>Redeemer</li>
+<li>Datum</li>
+<li>Context</li>
+</ol>
+
+<h3 id="toc_9">3. Data Types In Plutus (as implemented in Haskell)</h3>
+
+<p>Haskell data type: Data (at least at the low level implementation of Plutus (plutus-core), in real life nobody uses Data as the data type in a script, as there are better alternatives. But it is better to learn from first principals.</p>
+
+<h5 id="toc_10">Haskell Data Type: Data</h5>
+
+<div><pre><code class="language-none">{-# LANGUAGE BangPatterns       #-}
+{-# LANGUAGE DeriveAnyClass     #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE MultiWayIf         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE ViewPatterns       #-}
+
+-- | Notes - JD
+-- This is a low level &#39;data type&#39; within PlutusCore (somewhat confusing since plutus-core
+-- is actually System F Omega + Recerive Data Types, whilst PlutusCore is the high level
+-- implementation in Haskell which uses plutus-tx to compile to System F. So, PlutusCore is
+-- actually just Plutus?
+
+module PlutusCore.Data (Data (..)) where
+
+import           Codec.CBOR.Decoding       (Decoder)
+import qualified Codec.CBOR.Decoding       as CBOR
+import qualified Codec.CBOR.Term           as CBOR
+import           Codec.Serialise           (Serialise (decode, encode))
+import           Codec.Serialise.Decoding  (decodeSequenceLenIndef, decodeSequenceLenN)
+import           Control.DeepSeq           (NFData)
+import           Control.Monad.Except
+import           Data.Bifunctor            (bimap)
+import qualified Data.ByteString           as BS
+import           Data.Text.Prettyprint.Doc
+import           GHC.Generics
+import           Prelude
+
+-- | A generic &quot;data&quot; type.
+--
+-- The main constructor &#39;Constr&#39; represents a datatype value in sum-of-products
+-- form: @Constr i args@ represents a use of the @i@th constructor along with its arguments.
+--
+-- The other constructors are various primitives.
+
+-- | J.D Notes: Map [(Data, Data)] are key-value pairs which represent tuples of (data, data)
+-- If I understand correctly, a list of key-value pairs = map
+-- Each of these | are constructors.
+
+
+data Data =
+      Constr Integer [Data]
+    | Map [(Data, Data)]
+    | List [Data]
+    | I Integer
+    | B BS.ByteString
+    deriving stock (Show, Eq, Ord, Generic)
+    deriving anyclass (NFData)
+
+instance Pretty Data where
+    pretty = \case
+        Constr _ ds -&gt; angles (sep (punctuate comma (fmap pretty ds)))
+        Map entries -&gt; braces (sep (punctuate comma (fmap (\(k, v) -&gt; pretty k &lt;&gt; &quot;:&quot; &lt;+&gt; pretty v) entries)))
+        List ds     -&gt; brackets (sep (punctuate comma (fmap pretty ds)))
+        I i         -&gt; pretty i
+        B b         -&gt; viaShow b
+
+{- Note [Encoding via Term]
+We want to write a custom encoder/decoder for Data (i.e. not use the Generic version), but actually
+doing this is a pain. So instead we go via the CBOR &#39;Term&#39; representation, which lets us process a
+more structured representation, which is a lot easier.
+-}
+
+instance Serialise Data where
+    -- See Note [Encoding via Term]
+    encode = CBOR.encodeTerm . toTerm
+    decode = decodeData
+
+{- Note [CBOR alternative tags]
+We&#39;ve proposed to add additional tags to the CBOR standard to cover (essentially) sum types.
+This is exactly what we need to encode the &#39;Constr&#39; constructor of &#39;Data&#39; in an unambiguous way.
+The tags aren&#39;t *quite* accepted yet, but they&#39;re clearly going to accept so we might as well
+start using them.
+The scheme is:
+- Alternatives 0-6 -&gt; tags 121-127
+- Alternatives 7-127 -&gt; tags 1280-1400
+- Any alternatives, including those that don&#39;t fit in the above -&gt; tag 102 followed by an integer for the actual alternative.
+-}
+
+-- | Turn Data into a CBOR Term.
+toTerm :: Data -&gt; CBOR.Term
+toTerm = \case
+    -- See Note [CBOR alternative tags]
+    Constr i ds | 0 &lt;= i &amp;&amp; i &lt; 7   -&gt; CBOR.TTagged (fromIntegral (121 + i)) (CBOR.TList $ fmap toTerm ds)
+    Constr i ds | 7 &lt;= i &amp;&amp; i &lt; 128 -&gt; CBOR.TTagged (fromIntegral (1280 + (i - 7))) (CBOR.TList $ fmap toTerm ds)
+    Constr i ds | otherwise         -&gt; CBOR.TTagged 102 (CBOR.TList $ CBOR.TInteger i : fmap toTerm ds)
+    Map es                          -&gt; CBOR.TMap (fmap (bimap toTerm toTerm) es)
+    List ds                         -&gt; CBOR.TList $ fmap toTerm ds
+    I i                             -&gt; CBOR.TInteger i
+    B b                             -&gt; CBOR.TBytes b
+
+{- Note [Definite and indefinite forms of CBOR]
+CBOR is annoying and you can have both definite (with a fixed length) and indefinite lists, maps, etc.
+So we have to be careful to handle both cases when decoding. When encoding we simply don&#39;t make
+the indefinite kinds.
+-}
+
+-- | Turn a CBOR Term into Data if possible.
+decodeData :: forall s. Decoder s Data
+decodeData = CBOR.peekTokenType &gt;&gt;= \case
+  CBOR.TypeUInt         -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeUInt64       -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeNInt         -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeNInt64       -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeInteger      -&gt; decodeBoundedInteger
+
+  CBOR.TypeBytes        -&gt; decodeBoundedBytes
+  CBOR.TypeBytesIndef   -&gt; decodeBoundedBytes
+
+  CBOR.TypeListLen      -&gt; decodeList
+  CBOR.TypeListLen64    -&gt; decodeList
+  CBOR.TypeListLenIndef -&gt; decodeList
+
+  CBOR.TypeMapLen       -&gt; decodeMap
+  CBOR.TypeMapLen64     -&gt; decodeMap
+  CBOR.TypeMapLenIndef  -&gt; decodeMap
+
+  CBOR.TypeTag          -&gt; decodeConstr
+  CBOR.TypeTag64        -&gt; decodeConstr
+
+  t                     -&gt; fail (&quot;Unrecognized value of type &quot; ++ show t)
+
+decodeBoundedInteger :: Decoder s Data
+decodeBoundedInteger = do
+  i &lt;- CBOR.decodeInteger
+  unless (inBounds i) $ fail &quot;Integer exceeds 64 bytes&quot;
+  pure $ I i
+  where
+  bound :: Integer
+  -- The maximum value of a 64 byte unsigned integer
+  bound = 2 ^ (64 * 8 :: Integer) - 1
+  inBounds x = (x &lt;= bound) &amp;&amp; (x &gt;= -1 - bound)
+
+decodeBoundedBytes :: Decoder s Data
+decodeBoundedBytes =  do
+  b &lt;- CBOR.decodeBytes
+  if BS.length b &lt;= 64
+    then pure $ B b
+    else fail $ &quot;ByteString exceeds 64 bytes&quot;
+
+decodeList :: Decoder s Data
+decodeList = List &lt;$&gt; decodeListOf decodeData
+
+decodeListOf :: Decoder s x -&gt; Decoder s [x]
+decodeListOf decoder = CBOR.decodeListLenOrIndef &gt;&gt;= \case
+  Nothing -&gt; decodeSequenceLenIndef (flip (:)) [] reverse   decoder
+  Just n  -&gt; decodeSequenceLenN     (flip (:)) [] reverse n decoder
+
+decodeMap :: Decoder s Data
+decodeMap = CBOR.decodeMapLenOrIndef &gt;&gt;= \case
+  Nothing -&gt; Map &lt;$&gt; decodeSequenceLenIndef (flip (:)) [] reverse   decodePair
+  Just n  -&gt; Map &lt;$&gt; decodeSequenceLenN     (flip (:)) [] reverse n decodePair
+  where
+  decodePair = (,) &lt;$&gt; decodeData &lt;*&gt; decodeData
+
+-- See note [CBOR alternative tags] for the encoding scheme.
+decodeConstr :: Decoder s Data
+decodeConstr = CBOR.decodeTag64 &gt;&gt;= \case
+  102 -&gt; decodeConstrExtended
+  t | 121 &lt;= t &amp;&amp; t &lt; 128 -&gt;
+         Constr (fromIntegral t - 121) &lt;$&gt; decodeListOf decodeData
+  t | 1280 &lt;= t &amp;&amp; t &lt; 1401 -&gt;
+         Constr ((fromIntegral t - 1280) + 7) &lt;$&gt; decodeListOf decodeData
+  t -&gt; fail (&quot;Unrecognized tag &quot; ++ show t)
+  where
+  decodeConstrExtended = do
+    lenOrIndef &lt;- CBOR.decodeListLenOrIndef
+    i &lt;- CBOR.decodeWord64
+    xs &lt;- case lenOrIndef of
+      Nothing -&gt; decodeSequenceLenIndef (flip (:)) [] reverse       decodeData
+      Just n  -&gt; decodeSequenceLenN     (flip (:)) [] reverse (n-1) decodeData
+    pure $ Constr (fromIntegral i) xs</code></pre></div>
+
+<p>If we would like to see information about the various Data constructors, we can do so by:</p>
+
+<ol>
+<li>opening up a terminal window.</li>
+<li>navigating to plutus-pioneer-program</li>
+<li>opening the cabal.project file</li>
+<li>grabbing the current git checkout key for Plutus,</li>
+<li>then navigating to the Plutus repo</li>
+<li>git checkout <key></li>
+<li>starting a nix-shell,</li>
+<li>navigating back to week02</li>
+<li>starting cabal repl &amp; entering the following code:</li>
+</ol>
+
+<p><br /></p>
+
+<div><pre><code class="language-none">import PlutusTx
+:i Data
+
+Return Value:
+
+Prelude PlutusTx Week02.Burn&gt; :i Data
+type Data :: *
+data Data
+  = Constr Integer [Data]
+  | Map [(Data, Data)]
+  | List [Data]
+  | I Integer
+  | B bytestring-0.10.12.0:Data.ByteString.Internal.ByteString
+    -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance Eq Data
+  -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance Ord Data
+  -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance Show Data
+  -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance IsData Data -- Defined in ‘PlutusTx.IsData.Class’</code></pre></div>
+
+<p>Setting a Data value (simple Integer):</p>
+
+<div><pre><code class="language-none">import PlutusTx
+I 42
+-- | What type is our new piece of data I, which is = to 42?
+:t I 42
+-- | Return Value:
+I 42 :: Data
+-- | As we can see it is of type Data</code></pre></div>
+
+<p>Setting a data value (of type Bytestring):</p>
+
+<div><pre><code class="language-none">-- | Normal strings in Haskell are just sequences of characters
+-- to use bytestrings, we need to import a module call XOverloadedStrings
+import PlutusTx
+set -XOverloadedStrings
+B &quot;Hell&quot;
+:t B &quot;Hello&quot;
+&gt;&gt; B &quot;Hello&quot; :: Data</code></pre></div>
+
+<p><em>You Get The Idea...</em></p>
+
+<p><em>Very similar to JSON apparently...</em></p>
+
+<h2 id="toc_11"></h2>
+
+<h3 id="toc_12">4. Week02 Exercises</h3>
+
+<p><strong>Writing Gift.hs</strong></p>
+
+<p>You&#39;ll want to start writing your Haskell program with the following template:</p>
+
+<div><pre><code class="language-none">{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+module Week02.Gift where
+
+import           Control.Monad       hiding (fmap)
+import           Data.Map            as Map
+import           Data.Text           (Text)
+import           Data.Void           (Void)
+import           Plutus.Contract
+import           PlutusTx            (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude    hiding (Semigroup(..), unless)
+import           Ledger              hiding (singleton)
+import           Ledger.Constraints  as Constraints
+import qualified Ledger.Scripts      as Scripts
+import           Ledger.Ada          as Ada
+import           Playground.Contract (printJson, printSchemas, ensureKnownCurrencies, stage)
+import           Playground.TH       (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types    (KnownCurrency (..))
+import           Prelude             (IO, Semigroup (..), String)
+import           Text.Printf         (printf)
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{-# INLINABLE mkValidator #-}</code></pre></div>
+
+<p>Now, you&#39;ll be able to easily import, compile and run it in the repl by simply typing (from the week02 directory):</p>
+
+<div><pre><code class="language-none">:l /src/Week02/Gift.hs
+import Leger.Scripts
+import PlutusTx
+
+-- | This is where we call functions from our script</code></pre></div>
+
+<p>For example, to create a basic validator:</p>
+
+<div><pre><code class="language-none">mkValidator :: Data -&gt; Data -&gt; Data -&gt; ()
+mkValidator _ _ _ = ()
+
+validator :: Validator
+validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])</code></pre></div>
+
+<p>Then switch to the repl:</p>
+
+<div><pre><code class="language-none">:t mkValidatorScript</code></pre></div>
+
+<h5 id="toc_13">Explaination</h5>
+
+<p>Right, so I&#39;m no Haskell superman, so I&#39;ll do my best to explain here...</p>
+
+<ul>
+<li>When creating (constructing) a validator, you need to specify the three parameters as mentioned above (the redeemer, the datum and the context).</li>
+<li>mkValidator is a fairly self-explanatory function (make validator), we&#39;re saying that the three arguments being passed to the constructor (::) are of type data, data and data. Furthermore the return type is of type &#39;unit&#39;.</li>
+<li>When we assign the parameters to mkValidator, we leave them blank. In this simple example we do not care about the redeemer (as we&#39;re creating a gift script that anybody can &#39;grab&#39; the ADA from the address we eventually generate), the datum or the context (as it is a very simple smart contract).</li>
+<li>Now that our &#39;mkValidator&#39; function is defined, we can use it to construct a validator (of type Validator: validator :: Validator).</li>
+<li>We produce the validator by compiling mkValidator to Plutus using PlutusTx (the Plutus Compiler).</li>
+<li>This uses a Haskell template to achieve this (essentially a program that writes another program).</li>
+</ul>
+
+<pre><code>validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])</code></pre>
+
+<p>Now that we have our validator defined as a function which will compile our mkValidator function (which I suppose you can think of as an object), via a Haskell template using PlutusTx, we can run it within the repl:</p>
+
+<div><pre><code class="language-none">:t mkValidatorScript</code></pre></div>
+
+<p>This will assign the output from the compiler to the validator (if I understand correctly).</p>
+
+<p>Now when we check what type &#39;validator&#39; is in the repl, we see it is of type script. So it would appear it has compiled. But to give you peace of mind, you can check by running:</p>
+
+<div><pre><code class="language-none">unScript \$ getValidator validator</code></pre></div>
+
+<p>And you should see an output such as:</p>
+
+<div><pre><code class="language-none">Program () (Version () 1 0 0) (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Apply () (Apply () (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 5})))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1})))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 5})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 4})) (Var () (DeBruijn {dbnIndex = 7}))) (Var () (DeBruijn {dbnIndex = 6})))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 3})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 2})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 2}))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 4}))) (Var () (DeBruijn {dbnIndex = 3})))))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 3}))) (Var () (DeBruijn {dbnIndex = 2})))))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))</code></pre></div>
+
+<p><em>I believe this is the plutus-core language: System F Omega with Recursive Data Types (?)</em></p>
+
+<p>So we know it&#39;s compiled, now we need to generate an address for the script. Which is actually pretty easy and self-explanatory:</p>
+
+<div><pre><code class="language-none">valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash validator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator</code></pre></div>
+
+<p>Now when you reload the script in the repl, you&#39;ll see you have a hash and an scrAddress.</p>
+
+<p><em>Lars then goes on to gloss over the off-chain code..</em></p>
+
+<h3 id="toc_14">Gift.hs | Whole Programme</h3>
+
+<div><pre><code class="language-none">{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+module Week02.Gift where
+
+import           Control.Monad       hiding (fmap)
+import           Data.Map            as Map
+import           Data.Text           (Text)
+import           Data.Void           (Void)
+import           Plutus.Contract
+import           PlutusTx            (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude    hiding (Semigroup(..), unless)
+import           Ledger              hiding (singleton)
+import           Ledger.Constraints  as Constraints
+import qualified Ledger.Scripts      as Scripts
+import           Ledger.Ada          as Ada
+import           Playground.Contract (printJson, printSchemas, ensureKnownCurrencies, stage)
+import           Playground.TH       (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types    (KnownCurrency (..))
+import           Prelude             (IO, Semigroup (..), String)
+import           Text.Printf         (printf)
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{-# INLINABLE mkValidator #-}
+mkValidator :: Data -&gt; Data -&gt; Data -&gt; ()
+mkValidator _ _ _ = ()
+
+validator :: Validator
+validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])
+
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash validator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+type GiftSchema =
+            Endpoint &quot;give&quot; Integer
+        .\/ Endpoint &quot;grab&quot; ()
+
+give :: AsContractError e =&gt; Integer -&gt; Contract w s e ()
+give amount = do
+    let tx = mustPayToOtherScript valHash (Datum $ Constr 0 []) $ Ada.lovelaceValueOf amount
+    ledgerTx &lt;- submitTx tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf &quot;made a gift of %d lovelace&quot; amount
+
+grab :: forall w s e. AsContractError e =&gt; Contract w s e ()
+grab = do
+    utxos &lt;- utxoAt scrAddress
+    let orefs   = fst &lt;$&gt; Map.toList utxos
+        lookups = Constraints.unspentOutputs utxos      &lt;&gt;
+                  Constraints.otherScript validator
+        tx :: TxConstraints Void Void
+        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ I 17 | oref &lt;- orefs]
+    ledgerTx &lt;- submitTxConstraintsWith @Void lookups tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ &quot;collected gifts&quot;
+
+endpoints :: Contract () GiftSchema Text ()
+endpoints = (give&#39; `select` grab&#39;) &gt;&gt; endpoints
+  where
+    give&#39; = endpoint @&quot;give&quot; &gt;&gt;= give
+    grab&#39; = endpoint @&quot;grab&quot; &gt;&gt;  grab
+
+mkSchemaDefinitions &#39;&#39;GiftSchema
+
+mkKnownCurrencies []</code></pre></div>
+
+<h3 id="toc_15">Testing In The Playground</h3>
+
+<p>Similarly to the first week, we need to start a couple of nix-shells. If you&#39;ve not done so already, go ahead and checkout to the required branch for Week02:</p>
+
+<div><pre><code class="language-none">cd ~/code/plutus-pioneer-program/code/week02
+less cabal.project</code></pre></div>
+
+<p>Now you&#39;re looking for the tag under the &#39;source-repository-package&#39;:</p>
+
+<p>In this case I believe it&#39;s: <strong>81ba78edb1d634a13371397d8c8b19829345ce0d</strong></p>
+
+<p>Go ahead and copy the tag, change directory to ~/code/plutus and checkout to that branch / commit</p>
+
+<div><pre><code class="language-none">git checkout 81ba78edb1d634a13371397d8c8b19829345ce0d</code></pre></div>
+
+<p>Now you can spin up a couple of nix-shells and run the Week02 code:</p>
+
+<div><pre><code class="language-none">cd ~/code/plutus
+nix-shell
+cd plutus-playground-client
+plutus-playground-server
+...
+// open a new shell
+...
+cd ~/code/plutus-pioneer-program
+cabal build
+...
+project builds
+...
+cd ~/code/plutus/plutus-pioneer-client
+npm start
+...
+// if it throws an error, you may have to run something like:
+npm install &amp;&amp; plutus-playground-generate-purs &amp;&amp; npm run purs:compile &amp;&amp; npm run webpack:server
+...
+// at this point the app should be viewable @ localhost:8009</code></pre></div>
+
+<p><br /></p>
+
+<p>Now we&#39;re going to start testing our Haskell program: Gift.hs</p>
+
+<p>First, copy and paste the code from you editor into the playground, compile and simulate.</p>
+
+<p>Then feel free to play around with the give and grab functions an of course the wait functions:</p>
+
+<p><br /></p>
+
+<p><img src="../img/l2-0.jpg" alt="./img/l2-0.jpg"></p>
+
+<p><img src="../img/l2-1.jpg" alt="./img/l2-1.jpg"></p>
+
+<p><img src="../img/l2-3.jpg" alt="./img/l2-3.jpg"></p>
+
+<p><img src="../img/l2-4.jpg" alt="./img/l2-4.jpg"></p>
+
+<p><img src="../img/l2-5.jpg" alt="./img/l2-5.jpg"></p>
+
+<p><img src="../img/l2-6.jpg" alt="./img/l2-6.jpg"></p>
+
+<p><br /></p>
+
+<h1 id="toc_16">5. Homework 1 - Implementation One &amp; 2:</h1>
+
+<p>During Homework 1, the validator that we&#39;re creating will return True if and only if the redeemer is a tuple that consists of two matching boolean values. For example: <pre><code>(True, True)</code></pre> or <pre><code>(False, False)</code></pre></p>
+
+<p>It turns out (to the Haskell novice) that this can be implemented in at least two ways. The first way is, sloppy...</p>
+
+<div><pre><code class="language-none">-- This should validate if and only if the two Booleans in the redeemer are equal!
+-- JD: mkValidator taes three parameters (dataum, redeemer and the Context) and returns, in this    -- case a boolean value (as I imagine it often would).
+mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+-- now we can call mkValidator with a unit datum, a tuple redeemer (bool, bool), and an empty   -- context (ScriptContext = _ )
+-- each | (pipe) is essentially an &#39;else if statement&#39;
+-- otherwise is the final else stateent
+-- the equals sign is the return value
+-- Thus, if the redeemer evaluates to (True, True) else if (False, False), the redeemer returns
+-- True
+-- otherwise the redeemer returns false
+-- note that if the redeemer returns True, the UTxO is consumed, otherwise it is not
+mkValidator () (a, b) _
+  | (a, b) == (True, True) = True
+  | (a, b) == (False, False) = True
+  | otherwise = False</code></pre></div>
+
+<p>However, there is a much nicer way of implementing this, in &#39;short-form&#39;</p>
+
+<div><pre><code class="language-none">-- we retain the same line of code as previously written at the top
+mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+-- traceIfFalse is a Plutus function that will return false under the condition
+-- that a !== b, think of it like this:
+-- traceIfFalse: Check The Condition ($) a == b (return the evaluation of a == b)
+-- also, throw an &#39;exception&#39; of sorts that is described as &quot;Wrong Redeemer&quot;
+-- this is much nicer and much more concise
+mkValidator () (a, b) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ a == b</code></pre></div>
+
+<p>To re-iterate, the nicer way of writing this redeemer is as follows:</p>
+
+<div><pre><code class="language-none">mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+mkValidator () (a, b) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ a == b</code></pre></div>
+
+<p>Then, we do have to set the redeemer type and the datum type (Haskell is strongly typed)
+This does, however, enable PlutusTx to compile our Haskell down into plutus-core code to be execute on chain.</p>
+
+<div><pre><code class="language-none">mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+mkValidator () (a, b) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ a == b
+
+data Typed
+instance Scripts.ValidatorTypes Typed where
+-- ! DatumType is of type unit
+  type instance DatumType Typed = ()
+-- ! RedeemType is of type tuple (Bool, Bool)
+  type instance RedeemerType Typed = (Bool, Bool)
+
+-- ! compile validator to plutus-core
+typedValidator :: Scripts.TypedValidator Typed
+typedValidator = Scripts.mkTypedValidator @Typed
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @() @(Bool, Bool)
+
+-- ! drop plutus-core validator script into a validator instance
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+-- ! create a validator hash
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash typedValidator
+
+-- ! create a script address for the validator
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+-- ! now we can use the validator on-chain to validate or invalidate (E)UTxOs</code></pre></div>
+
+<p>See Images:</p>
+
+<p>Implementation Two:</p>
+
+<p><img src="../img/l2-h1-i0.jpg" alt="./img/l2-h1-i0.jpg"></p>
+
+<p>Compiled and Running on Local Test Blockchain:</p>
+
+<p><img src="../img/l2-h1-i2.jpg" alt="./img/l2-h1-i2.jpg"></p>
+
+<p>Implementation One -- Shabby:</p>
+
+<p><img src="../img/l2-h1-i1.jpg" alt="./img/l2-h1-i1.jpg"></p>
+
+<p>Transactional Data 1:</p>
+
+<p><img src="../img/l2-h1-i4.jpg" alt="./img/l2-h1-i4.jpg"></p>
+
+<p>Transaction Data 2:</p>
+
+<p><img src="../img/l2-h1-i5.jpg" alt="./img/l2-h1-i5.jpg"></p>
+
+<p>Transaction Data 3:</p>
+
+<p><img src="../img/l2-h1-i6.jpg" alt="./img/l2-h1-i6.jpg"></p>
+
+<p>Transaction Data 4:</p>
+
+<p><img src="../img/l2-h1-i7.jpg" alt="./img/l2-h1-i7.jpg"></p>
+
+<p>Transaction Data 5:</p>
+
+<p><img src="../img/l2-h1-i8.jpg" alt="./img/l2-h1-i8.jpg"></p>
+
+<p>Transaction Data 6:</p>
+
+<p><img src="../img/l2-h1-i9.jpg" alt="./img/l2-h1-i9.jpg"></p>
+
+<p>Log Data:</p>
+
+<p><img src="../img/l2-h1-i10.jpg" alt="./img/l2-h1-i10.jpg"></p>
+
+<h1 id="toc_17">6. Homework 2: Completed - Essentially Same As HW1</h1>
+
+<p>See My comments for additional details...</p>
+
+<div><pre><code class="language-none">{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE DeriveAnyClass      #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week02.Homework2 where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (FromJSON, ToJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Semigroup (..), String, undefined)
+import           Text.Printf          (printf)
+
+data MyRedeemer = MyRedeemer
+    { flag1 :: Bool
+    , flag2 :: Bool
+    } deriving (Generic, FromJSON, ToJSON, ToSchema)
+
+PlutusTx.unstableMakeIsData &#39;&#39;MyRedeemer
+
+{-# INLINABLE mkValidator #-}
+
+-- This should validate if and only if the two Booleans in the redeemer are equal!
+
+mkValidator :: () -&gt; MyRedeemer -&gt; ScriptContext -&gt; Bool
+
+-- J.D: Implementing parameters for mkValidator
+-- Datum: of type unit ... this can be empty
+-- Redeemer: of type data ... contains this is our own record type containing two bools
+-- Context: of type ScriptContext ... we can leave this as undefined for the purposes of this smart contract ...
+
+mkValidator () (MyRedeemer x y) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ x == y
+
+-- J.D: Similarly to the previous homework, the Datum parameter instance is of type DatumType, and is an empty unit
+-- This time, MyRedeemer is an instance of type: RedeemerType
+
+data Typed
+instance Scripts.ValidatorTypes Typed where
+    type instance DatumType Typed = ()
+    type instance RedeemerType Typed = MyRedeemer
+
+-- We&#39;re essentially just doing the same as before...
+-- except instead of (bool, bool) tuple, we&#39;re using @MyRedeemer to compile the Validator
+
+typedValidator :: Scripts.TypedValidator Typed
+typedValidator = Scripts.mkTypedValidator @Typed
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @() @MyRedeemer
+
+-- exactly the same as Homework01
+
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash typedValidator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+-- Lars was kind enough to implement the remainder! Thank you! I hope this compiles...
+
+type GiftSchema =
+            Endpoint &quot;give&quot; Integer
+        .\/ Endpoint &quot;grab&quot; MyRedeemer
+
+give :: AsContractError e =&gt; Integer -&gt; Contract w s e ()
+give amount = do
+    let tx = mustPayToTheScript () $ Ada.lovelaceValueOf amount
+    ledgerTx &lt;- submitTxConstraints typedValidator tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf &quot;made a gift of %d lovelace&quot; amount
+
+grab :: forall w s e. AsContractError e =&gt; MyRedeemer -&gt; Contract w s e ()
+grab r = do
+    utxos &lt;- utxoAt scrAddress
+    let orefs   = fst &lt;$&gt; Map.toList utxos
+        lookups = Constraints.unspentOutputs utxos      &lt;&gt;
+                  Constraints.otherScript validator
+        tx :: TxConstraints Void Void
+        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData r | oref &lt;- orefs]
+    ledgerTx &lt;- submitTxConstraintsWith @Void lookups tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ &quot;collected gifts&quot;
+
+endpoints :: Contract () GiftSchema Text ()
+endpoints = (give&#39; `select` grab&#39;) &gt;&gt; endpoints
+  where
+    give&#39; = endpoint @&quot;give&quot; &gt;&gt;= give
+    grab&#39; = endpoint @&quot;grab&quot; &gt;&gt;= grab
+
+mkSchemaDefinitions &#39;&#39;GiftSchema
+
+mkKnownCurrencies []</code></pre></div>
+
+<h3 id="toc_18">6.1 Images:</h3>
+
+<p><strong>Simulation:</strong></p>
+
+<p><img src="../img/l2-h2-2.jpg" alt="./img/l2-h2-2.jpg"></p>
+
+<p><strong>Tx0:</strong></p>
+
+<p><img src="../img/l2-h2-3.jpg" alt="./img/l2-h2-3.jpg"></p>
+
+<p><strong>Tx4:</strong></p>
+
+<p><img src="../img/l2-h2-4.jpg" alt="./img/l2-h2-4.jpg"></p>
+
+<p><strong>Balances, Logs:</strong></p>
+
+<p><img src="../img/l2-h2-5.jpg" alt="./img/l2-h2-5.jpg"></p>
+
+<p><strong>Trace:</strong></p>
+
+<p><img src="../img/l2-h2-6.jpg" alt="./img/l2-h2-6.jpg"></p>
+
+<h3 id="toc_19">7. Catch Up On TODOs</h3>
+
+<h5 id="toc_20">TODO: 1. Implement a redeemer that always evaluates to False...</h5>
+
+<p><em>I may just leave this, as I&#39;ve already done the homework, seems fairly trivial...</em></p>
+
+<p><strong>I did come back to this and give it some more thought</strong>, as initially it seemed fairly trivial (which it is, but still, given a couple of days of being away from the course, it&#39;s good to do a quick catch up.). The validator which is compiled by PlutuxTx is essentially laying out the conditions under which the UTxO may be spent. The Redeemer can be of many different types, but it is typical to use a &#39;record&#39; type (self-defined) so long as it implements: isData. To have your redeemer always evaluate to false would simply require (and this is untested, but I assumed it works) some code, such as the following:</p>
+
+<div><pre><code class="language-none">mkValidator () (a) _
+| (a) == (True) = False
+| (a) == (False) = False
+| otherwise = False</code></pre></div>
+
+<p><em>I&#39;m not super familiar with Haskell, but I assume the following will also work:</em></p>
+
+<div><pre><code class="language-none">mkValidator () () _ = traceIfFalse &quot;Wrong Redeemer&quot; $ False == True
+-- | I imagine, even though there are no parameters within the redeemer
+-- | This would always evaluate to False.</code></pre></div>
+
+<h3 id="toc_21">8. Summary:</h3>
+
+<p>During this lecture and the homework excises we learnt about the differences between a UTxO model and an EUTxO Model, but these were interceded during last lecture too. We leant about redeemers, datum and context (and by proxy: validators). However, we went into much more detail during this lecture. For example we implemented our own validators with our own redeemer types. These were very basic redeemers, and essentially just checked a simple expression: that X == Y using basic data types initially, but then we also did create our own record types that implemented isData. Furthermore, we also learnt about the compiler that processes Haskell and turns it into Plutus-core (Plutus-tx) and that essentially everything ends up being Lambda Calculus (System F Omega with Recursive Data Types). Finally, we completed two home-works.</p>
+
+
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>README</title>
+<title>Plutus Pioneer Notes | Jonathon Dilworth</title>
 
 
 <style type="text/css">
@@ -305,7 +305,7 @@ kbd {
 }
 
 * {
-	-webkit-print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 @media screen and (min-width: 914px) {
     body {
@@ -314,35 +314,38 @@ kbd {
     }
 }
 @media print {
-	table, pre {
-		page-break-inside: avoid;
-	}
-	pre {
-		word-wrap: break-word;
-	}
+  table, pre {
+    page-break-inside: avoid;
+  }
+  pre {
+    word-wrap: break-word;
+  }
   body {
     padding: 2cm; 
   }
 }
 </style>
 
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
 <body>
 
-<h1 id="toc_0">Blockchain Lectures Notes (BLN) - README.md | IN PROGRESS</h1>
+<h1 id="toc_0">Blockchain Lectures Notes (BLN) - README.md</h1>
 
 <p><em>The Second Cohort Of The Plutus Pioneer Programme</em></p>
 
 <h3 id="toc_1">BLN: Authors Note</h3>
 
-<p>I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognative ability to solve problems <a href="#1">[1]</a>, Plutus is a new platform, plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup><a href="#fn1">1</a></sup>. are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.</p>
+<p>
+  For a more up to date version, please see: <a href="https://github.com/jonathondilworth/blockchain-notes" target="_blank">https://github.com/jonathondilworth/blockchain-notes</a>
+</p>
+
+<p>I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems <a href="#1">[1]</a>, Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup><a href="#fn1">1</a></sup>. are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.</p>
 
 <p>I&#39;ve been using distributed ledgers and blockchain consensus algorithms for over ten years. I remember buying BTC at $3 and seeing it hit $7 was mind blowing for me (at the time). It&#39;s a shame I never held on to many, but I just look back and laugh. Why? Because it&#39;s not about money, although most people would disagree (this is one of the reasons why I feel somewhat at home within the Cardano community). It&#39;s about technology and ultimately: changing the world. It&#39;s a strange thought: we are individuals, we have choices, and if we decide to do so, we can make a real difference here. If there is anything worth pursuing, it&#39;s making a difference. This is why I decided to devote as much time as possible to the difficult task of participating within the Plutus Pioneer Program and brushing up on Haskell.</p>
 
-<p>I would like to express my graditude to IOHK for constructing this program and accepting me as a canidate. Furthermore, I would like to thank my family for their continual support in my efforts to pursue a career path which isn&#39;t thought to be conventional.</p>
+<p>I would like to express my gratitude to IOHK for constructing this program and accepting me as a candidate. Furthermore, I would like to thank my family for their continual support in my efforts to pursue a career path which isn&#39;t thought to be conventional.</p>
 
 <p>I believe I can speak for the entire community when I extend my sincerest thanks to the world class engineers and scientists who have contributed to building Cardano as of current. Charles, you will are and will continue to be an inspiration to us all and to the world. I hope we can all collectively strive to make positive societal change.</p>
 
@@ -352,17 +355,17 @@ kbd {
 
 <h3 id="toc_3">BLN: Foreword</h3>
 
-<p><em>To any and all IOHK employees: feel free to contibure by adding a foreword via a pull request.</em></p>
+<p><em>To any and all IOHK employees: feel free to contribute by adding a foreword via a pull request.</em></p>
 
 <h3 id="toc_4">BLN: Formatting</h3>
 
 <p>As these are technical notes, the format for each set of lecture notes will be written to a pseudo-technical specification. This means each set of notes should follow a template, making it easier for readers to break down and understand. Each set of notes will be presented in accordance with the following schema:</p>
 
 <ul>
-<li>Introducary Lecture Information</li>
+<li>Introductory Lecture Information</li>
 <li>Incremental Sections (1. → N.)</li>
 <li>Subsections (1.1 → N.X)</li>
-<li>Possible <em>Coffee Time</em> Sections — Thought Experiments, or Exercises (These Will Be Italicized) and will be specified as &#39;COFFEE TIME!&#39;</li>
+<li>Possible <em>Coffee Time</em> Sections — Thought Experiments, or Exercises (These Will Be Italicised) and will be specified as &#39;COFFEE TIME!&#39;</li>
 <li>End Of Section Notes — Optional, Only If Required</li>
 <li>Exercises and Associated Comments</li>
 <li>Questions and Comments on Possible Problems (Things I May Be Uncertain Of)</li>
@@ -381,9 +384,11 @@ kbd {
 
 <p><em>In Progress</em></p>
 
+<p><a href="#2">[2]</a></p>
+
 <h3 id="toc_6">BLN: Intended Audience</h3>
 
-<p>These notes are for anybody and everybody (somewhat vauge, I know), but the audience could range from those who are current Plutus Pioneers, individuals who are just following the programme, developers from other communities, or even legislators (however, I highly doubt they would be reading my notes / documentation on Cardano). But ultimately, we are all here for the same reason, we believe in what we&#39;re building and the best way to approach adoption is to allow everybody to see what you&#39;re doing, at least, that would be my intuition.</p>
+<p>These notes are for anybody and everybody (somewhat vague, I know), but the audience could range from those who are current Plutus Pioneers, individuals who are just following the programme, developers from other communities, or even legislators (however, I highly doubt they would be reading my notes / documentation on Cardano). But ultimately, we are all here for the same reason, we believe in what we&#39;re building and the best way to approach adoption is to allow everybody to see what you&#39;re doing, at least, that would be my intuition.</p>
 
 <p>But, to reduce the scope a little bit and be somewhat more realistic, the intended audience is really for those who are looking to develop on Cardano.</p>
 
@@ -398,18 +403,31 @@ kbd {
 <h3 id="toc_9">BLN: Table of Contents</h3>
 
 <ul>
-<li><a href="lec-one.md">Lecture One</a>: BTC: UTxO and Cardanos&#39; (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts</li>
-<li>Lecture Two: </li>
-<li>Lecture Three: </li>
+<li><a href="1-Lecture-One.md">Lecture One</a>: BTC: UTxO and Cardanos&#39; (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts</li>
+<li><a href="2-Lecture-Two.md">Lecture Two</a>: (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts</li>
+<li><a href="3-Lecture-Three.md">Lecture Three</a>: Problems in the Playground, EUTxO Refresh, TxInf &amp; ScriptPurpose, On-Chain, Off-chain, Time, Examples</li>
+<li><a href="4-Lecture-Four.md">Lecture Four</a>: <em>In Progress</em></li>
+<li><a href="">Lecture Five</a>: -</li>
+<li><a href="">Lecture Six</a>: -</li>
+<li><a href="">Lecture Seven</a>: -</li>
+<li><a href="">Lecture Eight</a>: -</li>
+<li><a href="">Lecture Nine</a>: -</li>
+<li><a href="">Lecture Ten</a>: -</li>
 </ul>
 
-<p><em>In Progress</em></p>
+<p><em>Note: Currently Writing Notes On All Lectures Marked With &#39;-&#39;</em></p>
 
 <h3 id="toc_10">BLN: Summary</h3>
 
 <p><em>In Progress</em></p>
 
-<h3 id="toc_11">BLN: References</h3>
+<h3 id="toc_11">BLN: StackExchange (Cardano) Answers:</h3>
+
+<ol>
+<li><a href="https://cardano.stackexchange.com/questions/471/what-exactly-is-a-redeemer/2208#2208">What exactly is a redeemer?</a></li>
+</ol>
+
+<h3 id="toc_12">BLN: References</h3>
 
 <p><em>In Progress</em></p>
 
@@ -418,59 +436,56 @@ Kellogg, R.T., 1999.
 The psychology of writing.
 Oxford University Press.</p>
 
-<ul>
-<li>https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/</li>
-</ul>
+<p><a id="2">[2]</a>
+Jones, M.P., 2021.
+Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021.
+<a href="https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/">https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/</a></p>
 
-<h3 id="toc_12">BLN: Footnotes</h3>
+<h3 id="toc_13">BLN: Footnotes</h3>
 
-<p><a href="#fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — &#39;cryptocurrencies&#39;</p>
+<p><a id="fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — &#39;cryptocurrencies&#39;</p>
 
-<h3 id="toc_13">BLN: Nomenclature</h3>
-
-<p><em>In Progress</em></p>
-
-<h3 id="toc_14">BLN: Appendix</h3>
+<h3 id="toc_14">BLN: Nomenclature</h3>
 
 <p><em>In Progress</em></p>
 
+<h3 id="toc_15">BLN: Appendix</h3>
+
+<p><em>In Progress</em></p>
+
+<h3 id="toc_16">BLN: TODO</h3>
+
+<p><em>In Progress</em></p>
+
+<ol>
+<li>Tidy up repo.</li>
+<li>Update HTML files.</li>
+<li>Update PDF files.</li>
+<li>Scan and upload annotated papers from IOHK.</li>
+<li>Catch up to Lecture four ASAP.</li>
+</ol>
+
+<hr>
 
 
-<script type="text/x-mathjax-config">
-(function () {
+<h1 id="toc_0">Lecture One</h1>
 
-MathJax.Hub.Config({
-	'showProcessingMessages': false,
-	'messageStyle': 'none'
-});
+<h3 id="toc_1">1. Introduction</h3>
 
-if (typeof MathJaxListener !== 'undefined') {
-	MathJax.Hub.Register.StartupHook('End', function () {
-		MathJaxListener.invokeCallbackForKey_('End');
-	});
-}
-
-})();
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<h1 id="toc_0">1. Lecture One: Introduction</h1>
-
-<p>Within this set of notes the following information will be presented. Firstly, the courses administration details are provied. Secondly, a coverage of the course content is outlined. Shortly thereafter, details about Plutus, the difficulty of the program and the (pseudo-optional) pre-requisites are given. Furthermore, an extensive explaination of the (E)UTxO model (which facilitates the possibility of transactions on the Cardano network - <strong>Cardanos unqiue accounting model</strong>) is fully explained. In addition, building an example contract is presented, which includes how to setup a NIX shell, how to start plutus-playground-server and enable it to be locally accessible from the browser. Smart Contract compilation is demonstrated and an example of how to use the plutus platform in whole is shown. As pioneers we are then encouraged to try this ourselves.</p>
+<p>Within this set of notes the following information will be presented. Firstly, the courses administration details are provided. Secondly, a coverage of the course content is outlined. Shortly thereafter, details about Plutus, the difficulty of the program and the (pseudo-optional) pre-requisites are given. Furthermore, an extensive explanation of the (E)UTxO model (which facilitates the possibility of transactions on the Cardano network - <strong>Cardanos unique accounting model</strong>) is fully explained. In addition, building an example contract is presented, which includes how to setup a NIX shell, how to start Plutus-playground-server and enable it to be locally accessible from the browser. Smart Contract compilation is demonstrated and an example of how to use the Plutus platform in whole is shown. As pioneers we are then encouraged to try this ourselves.</p>
 
 <p><em>Note: this document contains information pulled in from the Plutus Pioneer Lecture series in addition to information provided by reliable sources, such as videos, papers and statements made by employees of IOHK. Furthermore, to provide some background information on models such as UTxO (unextended), other academic sources (papers and books) have also been referenced.</em></p>
 
-<h2 id="toc_1">1.1 Administration</h2>
+<h3 id="toc_2">1.1 Administration</h3>
 
 <ul>
 <li>Lectures on every Thursday.</li>
 <li>Q&amp;A Sessions Every Tuesday.</li>
-<li>Oaccional Guest Lectures.</li>
+<li>Occasional Guest Lectures.</li>
 <li>Use the Discord server (and slack) to help one another when possible.</li>
 </ul>
 
-<h2 id="toc_2">1.2 Course Coverage</h2>
+<h3 id="toc_3">1.2 Course Coverage</h3>
 
 <p><strong>The Plutus Platform:</strong></p>
 
@@ -505,7 +520,7 @@ if (typeof MathJaxListener !== 'undefined') {
 
 <p><strong>Writing Backends for Plutus Contracts</strong></p>
 
-<h2 id="toc_3">1.3 Plutus Platform</h2>
+<h3 id="toc_4">1.3 Plutus Platform</h3>
 
 <blockquote>
 <p>&quot;Plutus Platform Learning is Difficult&quot; - Lars Brünjes</p>
@@ -522,9 +537,9 @@ if (typeof MathJaxListener !== 'undefined') {
 <li>Difficult to Build Plutus (It&#39;s likely best to use NIX)</li>
 <li>The Docker Image for the Plutus Platform is not yet ready.</li>
 <li>Plutus-core is compiled down from Haskell, Haskell is fairly difficult.</li>
-<li>It is reccomended that you spend 40 hours per week, for 10 weeks to gain a solid understanding of Haskell before or whilst undertaing this course.</li>
+<li>It is recommended that you spend 40 hours per week, for 10 weeks to gain a solid understanding of Haskell before or whilst undertaking this course.</li>
 <li>Plutus is BRAND new - we are the first people <strong>ever in the world to write plutus code</strong>.</li>
-<li>This means: no quick answers from stackoverflow or google...</li>
+<li>This means: no quick answers from StackOverflow or google...</li>
 </ul>
 
 <p>However,</p>
@@ -533,18 +548,18 @@ if (typeof MathJaxListener !== 'undefined') {
 <li>Haskell courses and documentation has been made available to help pioneers learn.</li>
 </ul>
 
-<h1 id="toc_4">2. The (E)UTxO Model</h1>
+<h3 id="toc_5">2. The (E)UTxO Model</h3>
 
 <blockquote>
 <p>“Any fool can know. The point is to understand.”
 — Albert Einstein <a href="#1">[1]</a></p>
 </blockquote>
 
-<h2 id="toc_5">2.1 What is (E)UTxO?</h2>
+<h3 id="toc_6">2.1 What is (E)UTxO?</h3>
 
 <p>(E)UTxO abbreviates: &quot;Extended Unspent Transaction Output&quot;, but to understand the extended model, we must first examine the unextended model (UTxO, firstly implemented by BitCoin <a href="#2">[2]</a>).</p>
 
-<h2 id="toc_6"> 2.2 UTxO Explained</h2>
+<h3 id="toc_7"> 2.2 UTxO Explained</h3>
 
 <blockquote>
 <p>&quot;If you want to get money, you have to consume an output that is laying around and in turn you get more outputs.&quot;
@@ -553,41 +568,41 @@ if (typeof MathJaxListener !== 'undefined') {
 
 <p><em>What are unspent transaction outputs? Simply put: They are outputs - which can be thought of as remaining financial change - from previous transactions on the Blockchain that are still currently &#39;unspent&#39; - Imagine you go to a shop, you buy a drink, you give the shopkeeper a £20 note, and you are given £19 back in change. That £19 is an unspent transaction output from the original transaction of the purchase of a drink.</em></p>
 
-<p>UTxO is a model of accounting and is used to identify how much &#39;money&#39; (in this case: a digital &#39;currency&#39;) any &#39;wallet&#39; <sup><a href="#ft1">1</a></sup> on a blockchain data structure contains within it <sup><a href="#ft2">2</a></sup>. Each wallet address on a permissionless blockchain such as BTC is associted to a set of cryptographic &#39;tools&#39; which lock any funds (BTC, Digital Currency) that are tied to the above mentioned wallet. Spending funds (e.g. sending BTC from one wallet to another) equates to the transfer of ownership of BTC from one private key owner to another <a href="#3">[3]</a>. This is accomplished by signing a transaction with the initiators private key, which can only be confirmed by verifying the signature using the initators public key.</p>
+<p>UTxO is a model of accounting and is used to identify how much &#39;money&#39; (in this case: a digital &#39;currency&#39;) any &#39;wallet&#39; <sup><a href="#ft1">1</a></sup> on a blockchain data structure contains within it <sup><a href="#ft2">2</a></sup>. Each wallet address on a permission-less blockchain such as BTC is associated to a set of cryptographic &#39;tools&#39; which lock any funds (BTC, Digital Currency) that are tied to the above mentioned wallet. Spending funds (e.g. sending BTC from one wallet to another) equates to the transfer of ownership of BTC from one private key owner to another <a href="#3">[3]</a>. This is accomplished by signing a transaction with the initiators private key, which can only be confirmed by verifying the signature using the initiators public key.</p>
 
 <p><strong>It is important to note that you can only use complete UTxOs as input. So, if Alice has 100 BTC and wishes to send 10 BTC to bob, Alice creates a transaction which consumes 100 BTC as input and creates two outputs, 90 BTC (for Alice) and 10 BTC (for Bob). This is similar to the example mentioned above regarding the use of a £20 note.</strong></p>
 
 <p>You would therefore think that the sum of all input for any give Tx must equal the output, such that:</p>
 
-<p>\[ \sum_{i=0}^{X} Tx_{i} = \sum_{o=0}^{Y} Tx_{o} \]</p>
+<p><img src="https://latex.codecogs.com/svg.latex?\sum_{i=0}^{X}%20Tx_{i}%20=%20\sum_{o=0}^{Y}%20Tx_{o}"></p>
 
 <p>However, this is not the case. Firstly, transaction fees must be considered. <em>Furthermore, on Cardano (that implements the (E)UTxO model, uses ADA and not BTC) native tokens have been rolled out. Thus, minting and burning of native tokens creates an imbalance between the cumulative inputs and resulting outputs of a transaction. However, this is content for later lecture (according to Lars).</em></p>
 
 <p><em>Note: This is all accomplished through the use of a software wallets implementing transaction algorithms <sup><a href="#ft3">3</a></sup>. Furthermore, technically BTC does implement basic &#39;smart contracts&#39;, which is to say, the transactional algorithms may utilise BitCoin Script (which includes a validator for identifying addresses and a redeemer to unlock the ability to spend funds<a href="5">[5]</a>). As far as I understand, BitCoin Script is essentially a wrapper for managing public-private key cryptographic implementation and unlocking funds to spend through the use of digital signatures <a href="6">[6]</a>.</em></p>
 
-<h2 id="toc_7">2.3 Advanced Transactions Using UTxO</h2>
+<h3 id="toc_8">2.3 Advanced Transactions Using UTxO</h3>
 
-<p>The extended implementation of UTxO as proposed by IOHK, developed and implemented by Cardano is much more powerful than BitCoins UTxO model. However, there exists &#39;advanced&#39; payment system elements implementated by &#39;basic&#39; UTxO. It is important to understand how multiple unspent transaction outputs from different wallets (essentially: different owners of BTC) can combine their UTxOs together to create a transaction output to be sent to an individual address.</p>
+<p>The extended implementation of UTxO as proposed by IOHK, developed and implemented by Cardano is much more powerful than BitCoins UTxO model. However, there exists &#39;advanced&#39; payment system elements implemented by &#39;basic&#39; UTxO. It is important to understand how multiple unspent transaction outputs from different wallets (essentially: different owners of BTC) can combine their UTxOs together to create a transaction output to be sent to an individual address.</p>
 
 <p>Consider the scenario where Bob has 60 BTC (in the form of two UTxOs: 50 BTC and 10 BTC) and Alice has 90 BTC in the form of a single UTxO. However, they wish to send 110 BTC to Tom. Alice must consume her (only) UTxO and Bob must consume both his UTxOs to meet the required amount to be sent to Tom (creating three transaction inputs from two owners with three unspent transaction outputs).</p>
 
-<p>Within this &#39;simple advanced&#39; transaction, the outputs generated by the initiated transaction ensures Tom recieves 110 BTC and all other parties (Alice and Bob) recieve their change by splitting the resulting output such that they recieve the following <a href="7">[7]</a>:</p>
+<p>Within this &#39;simple advanced&#39; transaction, the outputs generated by the initiated transaction ensures Tom receives 110 BTC and all other parties (Alice and Bob) receive their change by splitting the resulting output such that they receive the following <a href="7">[7]</a>:</p>
 
-<p>\[ Given: Tx^{Alice} = \ 90 \ BTC\ \ and \  \sum_{i=0}^{X} Tx_{i}^{Bob} = 60 \ BTC \]</p>
+<p><img src="https://latex.codecogs.com/svg.latex?Given:%20Tx^{Alice}%20=%20\%2090%20\%20BTC\%20\%20and%20\%20%20\sum_{i=0}^{X}%20Tx_{i}^{Bob}%20=%2060%20\%20BTC"></p>
 
-<p>\[ Alice \ And \ Bob \ Pay \ Tom \ 110 \ BTC \ | \ Thus \ Change \ Recieved \ By \ Alice \ and \ Bob \]</p>
+<p><img src="https://latex.codecogs.com/svg.latex?Alice%20\%20And%20\%20Bob%20\%20Pay%20\%20Tom%20\%20110%20\%20BTC%20\%20|%20\%20Thus%20\%20Change%20\%20Recieved%20\%20By%20\%20Alice%20\%20and%20\%20Bob"></p>
 
-<p>\[ = \]</p>
+<div style="height: 1px;"></div>
 
-<p>\[ \big(Alice \ | \ Tx^{Alice} - (110 \div 2) \ \big) = 35 \ BTC \]</p>
+<p><img src="https://latex.codecogs.com/svg.latex?\big(Alice%20\%20|%20\%20Tx^{Alice}%20-%20(110%20\div%202)%20\%20\big)%20=%2035%20\%20BTC"></p>
 
-<p>\[ \big(Bob \ | { \ \Big[ \sum_{i=0}^{X} Tx_{i}^{Bob} \Big]\ - (110 \div 2) } \ \big) = 5 \ BTC\]</p>
+<p><img src="https://latex.codecogs.com/svg.latex?\big(Bob%20\%20|%20{%20\%20\Big[%20\sum_{i=0}^{X}%20Tx_{i}^{Bob}%20\Big]\%20-%20(110%20\div%202)%20}%20\%20\big)%20=%205%20\%20BTC"></p>
 
-<h2 id="toc_8">2.4 And God Said Let There Be (E)UTxO</h2>
+<h3 id="toc_9">2.4 And God Said Let There Be (E)UTxO</h3>
 
-<p>Cardano implements an extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifcations allow for more general transactions through the use of arbitrary logic.</p>
+<p>Cardano implements an extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic.</p>
 
-<p>Firstly, Cardano implements addresses differently to other cryptocurrencies (blockchains and distributed ledger technologies). Instead of using a simple hash-based derived address (using a public key as input), addresses in Cardano are generated using a derivation scheme outlined <a href="https://developers.cardano.org/docs/get-started/cardano-serialization-lib/generating-keys/">here</a>.<sup><a href="#fn4">4</a></sup> These addresses are referential in nature and point to scripts containing arbitrary logic. These scripts are programmes which are (ideally) deterministic, pure, replayable state-machines. Somewhat similar to the aforementioned \(validators\), but are far more general in nature. They are, however, still used to determine whether a given UTxO may be consumed based on the \(redeemer\) input, which is now also arbitray in nature and has replaced simple digital signature based input.</p>
+<p>Firstly, Cardano implements addresses differently to other cryptocurrencies (blockchains and distributed ledger technologies). Instead of using a simple hash-based derived address (using a public key as input), addresses in Cardano are generated using a derivation scheme outlined <a href="https://developers.cardano.org/docs/get-started/cardano-serialization-lib/generating-keys/">here</a>.<sup><a href="#fn4">4</a></sup> These addresses are referential in nature and point to scripts containing arbitrary logic. These scripts are programmes which are (ideally) deterministic, pure, replay-able state-machines. Somewhat similar to the aforementioned \(validators\), but are far more general in nature. They are, however, still used to determine whether a given UTxO may be consumed based on the \(redeemer\) input, which is now also arbitrary in nature and has replaced simple digital signature based input.</p>
 
 <p>Secondly, transaction outputs also contains a component called \(datum\) <em>(which is the singular noun for data)</em>. \(Datum\) is useful for identifying state. This means that the (E)UTxO is at least as powerful as the ETH model.</p>
 
@@ -597,13 +612,13 @@ if (typeof MathJaxListener !== 'undefined') {
 
 <p><strong>However, Simultaneous UTxO Consumption Is Possible</strong></p>
 
-<p>Unspent transaction outputs can be consumed by others before your transaction has the oppurtunity to reach the chain (after beng verified by your wallet software). In this instance, your transaction will simply be dropped back into the pool of transactions to be verified (so long as all the inputs are still there) and attempts to verify your transaction will continue.</p>
+<p>Unspent transaction outputs can be consumed by others before your transaction has the opportunity to reach the chain (after being verified by your wallet software). In this instance, your transaction will simply be dropped back into the pool of transactions to be verified (so long as all the inputs are still there) and attempts to verify your transaction will continue.</p>
 
 <p><strong>Scope: (E)UTxO Model Scripts, Redeemers and Datam</strong></p>
 
 <p>The implementation of scripts within the (E)UTxO model ensures that the scope is limited to the transaction (or a small chain or transactions) that are attempting to be facilitated by a user. This means the state of the entire blockchain does not need to be known (as is the case with ETH). Furthermore, there is an appropriate degree of scope that enables to ability to create smart contracts which are (ideally) deterministic in nature, meaning: the output is predictable. This makes it more difficult to introduce bugs into the software.</p>
 
-<h2 id="toc_9">3. Plutus Platform, Smart Contracts &amp; Nix</h2>
+<h3 id="toc_10">3. Plutus Platform, Smart Contracts &amp; Nix</h3>
 
 <p>During the first week of this program, we have been asked to:</p>
 
@@ -622,7 +637,7 @@ if (typeof MathJaxListener !== 'undefined') {
 <li>Play Around With The Interface Via The Browser</li>
 </ul>
 
-<h2 id="toc_10">3.1 Cloning Repos</h2>
+<h3 id="toc_11">3.1 Cloning Repos</h3>
 
 <p>I would hope that if you were enrolled in this program, you can skip this chapter. But, in the interest of being exhaustive the process of cloning the repos is outlined below.</p>
 
@@ -638,7 +653,7 @@ git clone git@github.com:input-output-hk/plutus.git</code></pre></div>
 
 <p>Congratulations, we&#39;re on your way to getting started!</p>
 
-<h2 id="toc_11">3.2 Building Plutus | Installing Nix (MacOS) | Cabal | Nix-Shell</h2>
+<h3 id="toc_12">3.2 Building Plutus | Installing Nix (MacOS) | Cabal | Nix-Shell</h3>
 
 <p>In order to build Plutus you&#39;re most likely going to need Nix (you can install Nix within a VM using nixOS, or you can install on MacOS or Windows. Be aware on MacOS you need xtools and potentially various other dependencies. Installing via Homebrew was suggested to me, but I found simply building the binaries easier.</p>
 
@@ -667,7 +682,7 @@ trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
 
 <p>Check the current builds project hash, it&#39;s displayed via the &#39;tag&#39;, now checkout to that branch in the Plutus github repo and begin a nix-shell:</p>
 
-<p><img src="./img/git-project-hash.png" alt="./img/git-project-hash.png"></p>
+<p><img src="../img/git-project-hash.png" alt="./img/git-project-hash.png"></p>
 
 <div><pre><code class="language-none">cd ~/code/plutus-pioneer-program
 cd ~/code/plutus
@@ -679,7 +694,7 @@ git checkout ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4</code></pre></div>
 cd code/week01
 cabal build</code></pre></div>
 
-<p>This may take some time, but be patient! When it&#39;s done, change directory to the plutus playground client folder and start the plutus playground server, open a new nix-shell and then npm start to be able to view the application in the browser:</p>
+<p>This may take some time, but be patient! When it&#39;s done, change directory to the Plutus playground client folder and start the Plutus playground server, open a new nix-shell and then npm start to be able to view the application in the browser:</p>
 
 <div><pre><code class="language-none">cd ~/code/plutus/plutus-playground-client
 plutus-playground-server
@@ -692,19 +707,19 @@ npm start</code></pre></div>
 
 <p>But, you should end up with something like this, where the playground is being hosted locally @ localhost, port 8009:</p>
 
-<p><img src="./img/npm.png" alt="./img/npm.png"></p>
+<p><img src="../img/npm.png" alt="./img/npm.png"></p>
 
 <p>So, head on over to localhost @ port 8009 (http://localhost:8009). It looks so pretty! Doesn&#39;t it?</p>
 
-<p><img src="./img/playground.png" alt="./img/playground.png"></p>
+<p><img src="../img/playground.png" alt="./img/playground.png"></p>
 
-<p>Hit compile, and then hit simulate. You should see the interface to the Haskell program running as a smart contract on the plutus pioneer playground server (locally), you should see (and play around with the following):</p>
+<p>Hit compile, and then hit simulate. You should see the interface to the Haskell program running as a smart contract on the Plutus pioneer playground server (locally), you should see (and play around with the following):</p>
 
-<p><img src="./img/eval.png" alt="./img/eval.png"></p>
+<p><img src="../img/eval.png" alt="./img/eval.png"></p>
 
-<p><img src="./img/sim.png" alt="./img/sim.png"></p>
+<p><img src="../img/sim.png" alt="./img/sim.png"></p>
 
-<h2 id="toc_12">4. Exercise: Auction</h2>
+<h3 id="toc_13">4. Exercise: Auction</h3>
 
 <p>During the first week of the Plutus program the only real &#39;homework&#39; we were assigned was to get the playground up and running via Nix, mess about with it and simulate an NFT auction. This was all shown to us during the lecture, so it&#39;s pretty easy to follow.</p>
 
@@ -721,9 +736,9 @@ npm start</code></pre></div>
 
 <p>Copy and paste this into the Plutus Playground within your browser and hit compile. You should no be able to simulate something that looks like the following:</p>
 
-<p><img src="./img/auction.png" alt="./img/auction.png"></p>
+<p><img src="../img/auction.png" alt="./img/auction.png"></p>
 
-<h2 id="toc_13">4.1 Simulating</h2>
+<h3 id="toc_14">4.1 Simulating</h3>
 
 <p>As an NFT auction, we&#39;re using the T parameter in the wallets to represent an NFT. Go ahead and add an additional wallet and add some ADA to them. Now, when you go to add the start of the auction, you&#39;ll require an expiry time. The problem is, time is measured in POSIXTime. However, you can open the repl and run the following:</p>
 
@@ -732,33 +747,33 @@ slotToPOSIXTime 10</code></pre></div>
 
 <p>This generates a time value for slot 10, as is shown below:</p>
 
-<p><img src="./img/posix.png" alt="./img/posix.png"></p>
+<p><img src="../img/posix.png" alt="./img/posix.png"></p>
 
 <p>Now you can start filling in the auction that we&#39;re about to simulate (I used some random values for ADA, etc, so the number of my Txs may be different to yours, but typically you should have at least three or so, with the first being the genesis transaction, which fills individuals wallets:</p>
 
-<p><img src="./img/auction-eval.png" alt="./img/auction-eval.png"></p>
+<p><img src="../img/auction-eval.png" alt="./img/auction-eval.png"></p>
 
 <p><strong>Transaction, Slot Zero</strong></p>
 
-<p><img src="./img/auction-1.png" alt="./img/auction-1.png"></p>
+<p><img src="../img/auction-1.png" alt="./img/auction-1.png"></p>
 
 <p><strong>Transaction, Slot One</strong></p>
 
-<p><img src="./img/auction-2.png" alt="./img/auction-1.png"></p>
+<p><img src="../img/auction-2.png" alt="./img/auction-1.png"></p>
 
 <p><strong>Transaction, Slot Two</strong></p>
 
-<p><img src="./img/auction-3.png" alt="./img/auction-1.png"></p>
+<p><img src="../img/auction-3.png" alt="./img/auction-1.png"></p>
 
-<h2 id="toc_14">4.2 Simulation Issue (Resolved)</h2>
+<h3 id="toc_15">4.2 Simulation Issue (Resolved)</h3>
 
-<p>So, I noticed the NFT was not transfering from wallet one to wallet three. It turns out I hadn&#39;t put enough ADA into wallet three to bid for the NFT in addition to paying the transaction fee. All in all, good learning experience. See below:</p>
+<p>So, I noticed the NFT was not transferring from wallet one to wallet three. It turns out I hadn&#39;t put enough ADA into wallet three to bid for the NFT in addition to paying the transaction fee. All in all, good learning experience. See below:</p>
 
-<p><img src="./img/auction-4.png" alt="./img/auction-1.png"></p>
+<p><img src="../img/auction-4.png" alt="./img/auction-1.png"></p>
 
-<h2 id="toc_15">5. Possible Problems &amp; Uncertainties</h2>
+<h3 id="toc_16">5. Possible Problems &amp; Uncertainties</h3>
 
-<h6 id="toc_16">The Following Paragraphs are sections that I removed, as I wasn&#39;t 100% sure as to whether they were accurate or not.</h6>
+<h6 id="toc_17">The Following Paragraphs are sections that I removed, as I wasn&#39;t 100% sure as to whether they were accurate or not.</h6>
 
 <p>Firstly, the \(validator\) in Cardano is extended to also implement the aforementioned arbitrary logic and is no longer a simple transactional algorithm which returns a boolean value based on the input from the \(redeemer\). Therefore, the \(validator\) is a programmable.</p>
 
@@ -766,15 +781,15 @@ slotToPOSIXTime 10</code></pre></div>
 
 <p><em>(From the video by Michael Peyton Jones)</em></p>
 
-<p>As you have most likely identified by now, the \(validator\) is required to (rather self-evidently) validate the entire transaction on-chain. In order for it to perform this function, it must have the appropriate scope such that it can evaluate the entire context of the transaction. This is why an additional component is added to all Cardano transactions called \(context\). The \(validator\) can now see all inputs and ouputs for the transaction that it is validating and can be re-used within a chain of potential transactions. A chain of transactions can be thought of as a state machine.</p>
+<p>As you have most likely identified by now, the \(validator\) is required to (rather self-evidently) validate the entire transaction on-chain. In order for it to perform this function, it must have the appropriate scope such that it can evaluate the entire context of the transaction. This is why an additional component is added to all Cardano transactions called \(context\). The \(validator\) can now see all inputs and outputs for the transaction that it is validating and can be re-used within a chain of potential transactions. A chain of transactions can be thought of as a state machine.</p>
 
 <p><em>(Information on Context and State Machines which may be outdated? They were not in the first lecture)</em></p>
 
-<p>Secondly, transaction outputs also contains a component called \(datum\) <em>(which is the singular noun for data)</em>. \(Datum\) is useful for identifying state (this is important for the implementaton of state machines, as is explained in the next paragraph).</p>
+<p>Secondly, transaction outputs also contains a component called \(datum\) <em>(which is the singular noun for data)</em>. \(Datum\) is useful for identifying state (this is important for the implementation of state machines, as is explained in the next paragraph).</p>
 
 <p><em>(Again, this may be useful later, but it wasn&#39;t really present in the firt lecture, state machines that is)</em></p>
 
-<h1 id="toc_17">References</h1>
+<h1 id="toc_18">References</h1>
 
 <p><a id="1">[1]</a> 
 Simmons, G.F., 2003. 
@@ -811,7 +826,7 @@ Antonopoulos, A.M., 2017.
 Mastering Bitcoin: Programming the open blockchain.
 O&#39;Reilly Media, Inc.</p>
 
-<h1 id="toc_18">Footnotes</h1>
+<h1 id="toc_19">Footnotes</h1>
 
 <p><a name="fn1">1</a>. The use of the word: wallet can be misleading (and this may be why UTxO models are not hugely intuitive). A wallet is simply the stored set of cryptographic &#39;elements&#39; generated through the use of ECC Public-Private Key cryptograpy <a href="#2">[2]</a> and hashing algorithms. In the case of BitCoin, a user generates a public-private key pair, and their &#39;wallet&#39; address is generated using the following hashing algorithm: \(ADDR = RIPEMD160(SHA256(K))\), where K represents their public key and is then shortened further using additional functions that you can read about <a href="">here</a>. These keys (or &#39;cryptograhic elements&#39;) are stored within their wallet, which, if they are managing themselves (and not through the use of a central exchange or central online wallet) are kept offline (and are always off-chain). However, wallet addresses (which are tied to a wallet computer program) are available on-chain (they have to be in order to initiate a Tx).</p>
 
@@ -820,6 +835,866 @@ O&#39;Reilly Media, Inc.</p>
 <p><a name="fn3">3</a>. Transaction algorithms such as: P2PKH: &quot;Pay To Public Key Hash&quot;, P2PK: &quot;Pay To Public Key&quot;, P2SH: &quot;Pay To Script Hash&quot;, P2WPKH: &quot;Pay To Witness Public Key Hash&quot; <a href="#4">[4]</a>.</p>
 
 <p><a name="fn4">4</a>. You can view the implementation of addresses here: <a href="https://github.com/input-output-hk/cardano-addresses/blob/master/core/lib/Cardano/Address.hs">https://github.com/input-output-hk/cardano-addresses/blob/master/core/lib/Cardano/Address.hs</a></p>
+
+<hr>
+
+
+<h1 id="toc_0">Lecture Two</h1>
+
+<blockquote>
+<p>&quot;Haskell is useless&quot;
+— Simon Peyton Jones</p>
+</blockquote>
+
+<p>So, let&#39;s learn how to write smart contracts in Haskell! <a href="https://youtu.be/iSmkqocn0oQ">Watch this video</a>, it makes sense.</p>
+
+<h6 id="toc_1">TODOS.</h6>
+
+<ul>
+<li>Add references and footnotes.</li>
+</ul>
+
+<h3 id="toc_2">1. Introduction</h3>
+
+<p>Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program. This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it&#39;s called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses.</p>
+
+<h4 id="toc_3">1.1 Catch Up | EUTxO - Additional Information</h4>
+
+<p>Previously a pioneer brought up the notion of &quot;what if we didn&#39;t add any kind of &#39;end-point&#39; to our smart contract? Would the funds just get stuck within the contract?&quot;. Unfortunately, that would appear to be the case (if the script was coded in such a manner that there was no stopping criteria implemented&quot;. This is to say that: in order to change the state of the blockchain (to consume any given UTxO) a transaction must be executed on-chain (and validated), such that the previous UTxO is consumed and the next UTxO is created. UTxOs will never spring into action themselves.</p>
+
+<ul>
+<li>New transactions are generated (initiated) by a wallet (which is essentially a collection of keys, as your wallet has the private key to some UTxOs outputs &#39;public&#39; key (which are thought of as scripts and redeemers).</li>
+<li>The state of any given UTxO can only be changed if the outputs are verified by satisfying the arbitrary logic held at the script address, using the required redeemer (input parameters).</li>
+<li>You NEED to have some kind of &#39;close clause&#39; - that could even just be &#39;expire after X blocks&#39;.</li>
+<li>However, off-chain (wallet) logic can do some sophisticated stuff (but we&#39;ll get to that later).</li>
+<li>On-chain Logic is about Validation (can a UTxO be consumed?)</li>
+<li>Off-chain logic is about initiating transactions that effect the state of any given UTxO for which you hold the required redeemer (think of it somewhat like a key to sign a digital signature, except, it&#39;s not..)</li>
+</ul>
+
+<h3 id="toc_4">2. The Difference: (E)UTxO VS UTxO</h3>
+
+<p>A simple UTxO model usually takes a hash of some form of public key and uses this as the address. The redeemer for the UTxO model can then simply derive the public key and then sign the transaction using the paired private key (ensuring they are in fact the person who holds the private key in their wallet; and so a UTxO is consumed by signing the UTxO and a new UTxO is created with inputs and outputs.</p>
+
+<p>(Extended)UTxOs have a number of address types, one of which is a script addresses. At this address a smart contract can exist on-chain that can run arbitrary logic.</p>
+
+<p>Transactions that want to consume an (E)UTxO sitting at a script address are validated by a node, the node will run the script and depending on the result of the script (typically TRUE / FALSE, but other more complicated outputs can exist I believe) consumption is permitted or non-permitted.</p>
+
+<h3 id="toc_5">2.1 Redeemers</h3>
+
+<p>A redeemer is an arbitrary piece of data that is fed to the script (similar to a set of parameters), a the script requires this data to satisfy the constraints and reach a deterministic outcome (if the script has been written properly).</p>
+
+<h3 id="toc_6">2.2 Datum</h3>
+
+<p>Datum is a &#39;string&#39;, a piece of data that sits at the output of any given (E)UTxO. It&#39;s great for providing an area to store the output state of a UTxO script or possibly even a &#39;linked-list&#39; of (E)UTxOs.</p>
+
+<h3 id="toc_7">2.3 Context</h3>
+
+<p>This is essentially the scope of the script. Do we allow the script to see almost nothing, or do we allow it to see the entire blockchain? In the case of Cardano, it can see the the scope of the current UTxO, it&#39;s inputs and it&#39;s outputs.</p>
+
+<h3 id="toc_8">2.4 Plutus Script</h3>
+
+<p>Three pieces of data required to create a valid Plutus script:</p>
+
+<ol>
+<li>Redeemer</li>
+<li>Datum</li>
+<li>Context</li>
+</ol>
+
+<h3 id="toc_9">3. Data Types In Plutus (as implemented in Haskell)</h3>
+
+<p>Haskell data type: Data (at least at the low level implementation of Plutus (plutus-core), in real life nobody uses Data as the data type in a script, as there are better alternatives. But it is better to learn from first principals.</p>
+
+<h5 id="toc_10">Haskell Data Type: Data</h5>
+
+<div><pre><code class="language-none">{-# LANGUAGE BangPatterns       #-}
+{-# LANGUAGE DeriveAnyClass     #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE MultiWayIf         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE ViewPatterns       #-}
+
+-- | Notes - JD
+-- This is a low level &#39;data type&#39; within PlutusCore (somewhat confusing since plutus-core
+-- is actually System F Omega + Recerive Data Types, whilst PlutusCore is the high level
+-- implementation in Haskell which uses plutus-tx to compile to System F. So, PlutusCore is
+-- actually just Plutus?
+
+module PlutusCore.Data (Data (..)) where
+
+import           Codec.CBOR.Decoding       (Decoder)
+import qualified Codec.CBOR.Decoding       as CBOR
+import qualified Codec.CBOR.Term           as CBOR
+import           Codec.Serialise           (Serialise (decode, encode))
+import           Codec.Serialise.Decoding  (decodeSequenceLenIndef, decodeSequenceLenN)
+import           Control.DeepSeq           (NFData)
+import           Control.Monad.Except
+import           Data.Bifunctor            (bimap)
+import qualified Data.ByteString           as BS
+import           Data.Text.Prettyprint.Doc
+import           GHC.Generics
+import           Prelude
+
+-- | A generic &quot;data&quot; type.
+--
+-- The main constructor &#39;Constr&#39; represents a datatype value in sum-of-products
+-- form: @Constr i args@ represents a use of the @i@th constructor along with its arguments.
+--
+-- The other constructors are various primitives.
+
+-- | J.D Notes: Map [(Data, Data)] are key-value pairs which represent tuples of (data, data)
+-- If I understand correctly, a list of key-value pairs = map
+-- Each of these | are constructors.
+
+
+data Data =
+      Constr Integer [Data]
+    | Map [(Data, Data)]
+    | List [Data]
+    | I Integer
+    | B BS.ByteString
+    deriving stock (Show, Eq, Ord, Generic)
+    deriving anyclass (NFData)
+
+instance Pretty Data where
+    pretty = \case
+        Constr _ ds -&gt; angles (sep (punctuate comma (fmap pretty ds)))
+        Map entries -&gt; braces (sep (punctuate comma (fmap (\(k, v) -&gt; pretty k &lt;&gt; &quot;:&quot; &lt;+&gt; pretty v) entries)))
+        List ds     -&gt; brackets (sep (punctuate comma (fmap pretty ds)))
+        I i         -&gt; pretty i
+        B b         -&gt; viaShow b
+
+{- Note [Encoding via Term]
+We want to write a custom encoder/decoder for Data (i.e. not use the Generic version), but actually
+doing this is a pain. So instead we go via the CBOR &#39;Term&#39; representation, which lets us process a
+more structured representation, which is a lot easier.
+-}
+
+instance Serialise Data where
+    -- See Note [Encoding via Term]
+    encode = CBOR.encodeTerm . toTerm
+    decode = decodeData
+
+{- Note [CBOR alternative tags]
+We&#39;ve proposed to add additional tags to the CBOR standard to cover (essentially) sum types.
+This is exactly what we need to encode the &#39;Constr&#39; constructor of &#39;Data&#39; in an unambiguous way.
+The tags aren&#39;t *quite* accepted yet, but they&#39;re clearly going to accept so we might as well
+start using them.
+The scheme is:
+- Alternatives 0-6 -&gt; tags 121-127
+- Alternatives 7-127 -&gt; tags 1280-1400
+- Any alternatives, including those that don&#39;t fit in the above -&gt; tag 102 followed by an integer for the actual alternative.
+-}
+
+-- | Turn Data into a CBOR Term.
+toTerm :: Data -&gt; CBOR.Term
+toTerm = \case
+    -- See Note [CBOR alternative tags]
+    Constr i ds | 0 &lt;= i &amp;&amp; i &lt; 7   -&gt; CBOR.TTagged (fromIntegral (121 + i)) (CBOR.TList $ fmap toTerm ds)
+    Constr i ds | 7 &lt;= i &amp;&amp; i &lt; 128 -&gt; CBOR.TTagged (fromIntegral (1280 + (i - 7))) (CBOR.TList $ fmap toTerm ds)
+    Constr i ds | otherwise         -&gt; CBOR.TTagged 102 (CBOR.TList $ CBOR.TInteger i : fmap toTerm ds)
+    Map es                          -&gt; CBOR.TMap (fmap (bimap toTerm toTerm) es)
+    List ds                         -&gt; CBOR.TList $ fmap toTerm ds
+    I i                             -&gt; CBOR.TInteger i
+    B b                             -&gt; CBOR.TBytes b
+
+{- Note [Definite and indefinite forms of CBOR]
+CBOR is annoying and you can have both definite (with a fixed length) and indefinite lists, maps, etc.
+So we have to be careful to handle both cases when decoding. When encoding we simply don&#39;t make
+the indefinite kinds.
+-}
+
+-- | Turn a CBOR Term into Data if possible.
+decodeData :: forall s. Decoder s Data
+decodeData = CBOR.peekTokenType &gt;&gt;= \case
+  CBOR.TypeUInt         -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeUInt64       -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeNInt         -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeNInt64       -&gt; I &lt;$&gt; CBOR.decodeInteger
+  CBOR.TypeInteger      -&gt; decodeBoundedInteger
+
+  CBOR.TypeBytes        -&gt; decodeBoundedBytes
+  CBOR.TypeBytesIndef   -&gt; decodeBoundedBytes
+
+  CBOR.TypeListLen      -&gt; decodeList
+  CBOR.TypeListLen64    -&gt; decodeList
+  CBOR.TypeListLenIndef -&gt; decodeList
+
+  CBOR.TypeMapLen       -&gt; decodeMap
+  CBOR.TypeMapLen64     -&gt; decodeMap
+  CBOR.TypeMapLenIndef  -&gt; decodeMap
+
+  CBOR.TypeTag          -&gt; decodeConstr
+  CBOR.TypeTag64        -&gt; decodeConstr
+
+  t                     -&gt; fail (&quot;Unrecognized value of type &quot; ++ show t)
+
+decodeBoundedInteger :: Decoder s Data
+decodeBoundedInteger = do
+  i &lt;- CBOR.decodeInteger
+  unless (inBounds i) $ fail &quot;Integer exceeds 64 bytes&quot;
+  pure $ I i
+  where
+  bound :: Integer
+  -- The maximum value of a 64 byte unsigned integer
+  bound = 2 ^ (64 * 8 :: Integer) - 1
+  inBounds x = (x &lt;= bound) &amp;&amp; (x &gt;= -1 - bound)
+
+decodeBoundedBytes :: Decoder s Data
+decodeBoundedBytes =  do
+  b &lt;- CBOR.decodeBytes
+  if BS.length b &lt;= 64
+    then pure $ B b
+    else fail $ &quot;ByteString exceeds 64 bytes&quot;
+
+decodeList :: Decoder s Data
+decodeList = List &lt;$&gt; decodeListOf decodeData
+
+decodeListOf :: Decoder s x -&gt; Decoder s [x]
+decodeListOf decoder = CBOR.decodeListLenOrIndef &gt;&gt;= \case
+  Nothing -&gt; decodeSequenceLenIndef (flip (:)) [] reverse   decoder
+  Just n  -&gt; decodeSequenceLenN     (flip (:)) [] reverse n decoder
+
+decodeMap :: Decoder s Data
+decodeMap = CBOR.decodeMapLenOrIndef &gt;&gt;= \case
+  Nothing -&gt; Map &lt;$&gt; decodeSequenceLenIndef (flip (:)) [] reverse   decodePair
+  Just n  -&gt; Map &lt;$&gt; decodeSequenceLenN     (flip (:)) [] reverse n decodePair
+  where
+  decodePair = (,) &lt;$&gt; decodeData &lt;*&gt; decodeData
+
+-- See note [CBOR alternative tags] for the encoding scheme.
+decodeConstr :: Decoder s Data
+decodeConstr = CBOR.decodeTag64 &gt;&gt;= \case
+  102 -&gt; decodeConstrExtended
+  t | 121 &lt;= t &amp;&amp; t &lt; 128 -&gt;
+         Constr (fromIntegral t - 121) &lt;$&gt; decodeListOf decodeData
+  t | 1280 &lt;= t &amp;&amp; t &lt; 1401 -&gt;
+         Constr ((fromIntegral t - 1280) + 7) &lt;$&gt; decodeListOf decodeData
+  t -&gt; fail (&quot;Unrecognized tag &quot; ++ show t)
+  where
+  decodeConstrExtended = do
+    lenOrIndef &lt;- CBOR.decodeListLenOrIndef
+    i &lt;- CBOR.decodeWord64
+    xs &lt;- case lenOrIndef of
+      Nothing -&gt; decodeSequenceLenIndef (flip (:)) [] reverse       decodeData
+      Just n  -&gt; decodeSequenceLenN     (flip (:)) [] reverse (n-1) decodeData
+    pure $ Constr (fromIntegral i) xs</code></pre></div>
+
+<p>If we would like to see information about the various Data constructors, we can do so by:</p>
+
+<ol>
+<li>opening up a terminal window.</li>
+<li>navigating to plutus-pioneer-program</li>
+<li>opening the cabal.project file</li>
+<li>grabbing the current git checkout key for Plutus,</li>
+<li>then navigating to the Plutus repo</li>
+<li>git checkout <key></li>
+<li>starting a nix-shell,</li>
+<li>navigating back to week02</li>
+<li>starting cabal repl &amp; entering the following code:</li>
+</ol>
+
+<p><br /></p>
+
+<div><pre><code class="language-none">import PlutusTx
+:i Data
+
+Return Value:
+
+Prelude PlutusTx Week02.Burn&gt; :i Data
+type Data :: *
+data Data
+  = Constr Integer [Data]
+  | Map [(Data, Data)]
+  | List [Data]
+  | I Integer
+  | B bytestring-0.10.12.0:Data.ByteString.Internal.ByteString
+    -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance Eq Data
+  -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance Ord Data
+  -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance Show Data
+  -- Defined in ‘plutus-core-0.1.0.0:PlutusCore.Data’
+instance IsData Data -- Defined in ‘PlutusTx.IsData.Class’</code></pre></div>
+
+<p>Setting a Data value (simple Integer):</p>
+
+<div><pre><code class="language-none">import PlutusTx
+I 42
+-- | What type is our new piece of data I, which is = to 42?
+:t I 42
+-- | Return Value:
+I 42 :: Data
+-- | As we can see it is of type Data</code></pre></div>
+
+<p>Setting a data value (of type Bytestring):</p>
+
+<div><pre><code class="language-none">-- | Normal strings in Haskell are just sequences of characters
+-- to use bytestrings, we need to import a module call XOverloadedStrings
+import PlutusTx
+set -XOverloadedStrings
+B &quot;Hell&quot;
+:t B &quot;Hello&quot;
+&gt;&gt; B &quot;Hello&quot; :: Data</code></pre></div>
+
+<p><em>You Get The Idea...</em></p>
+
+<p><em>Very similar to JSON apparently...</em></p>
+
+<h2 id="toc_11"></h2>
+
+<h3 id="toc_12">4. Week02 Exercises</h3>
+
+<p><strong>Writing Gift.hs</strong></p>
+
+<p>You&#39;ll want to start writing your Haskell program with the following template:</p>
+
+<div><pre><code class="language-none">{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+module Week02.Gift where
+
+import           Control.Monad       hiding (fmap)
+import           Data.Map            as Map
+import           Data.Text           (Text)
+import           Data.Void           (Void)
+import           Plutus.Contract
+import           PlutusTx            (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude    hiding (Semigroup(..), unless)
+import           Ledger              hiding (singleton)
+import           Ledger.Constraints  as Constraints
+import qualified Ledger.Scripts      as Scripts
+import           Ledger.Ada          as Ada
+import           Playground.Contract (printJson, printSchemas, ensureKnownCurrencies, stage)
+import           Playground.TH       (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types    (KnownCurrency (..))
+import           Prelude             (IO, Semigroup (..), String)
+import           Text.Printf         (printf)
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{-# INLINABLE mkValidator #-}</code></pre></div>
+
+<p>Now, you&#39;ll be able to easily import, compile and run it in the repl by simply typing (from the week02 directory):</p>
+
+<div><pre><code class="language-none">:l /src/Week02/Gift.hs
+import Leger.Scripts
+import PlutusTx
+
+-- | This is where we call functions from our script</code></pre></div>
+
+<p>For example, to create a basic validator:</p>
+
+<div><pre><code class="language-none">mkValidator :: Data -&gt; Data -&gt; Data -&gt; ()
+mkValidator _ _ _ = ()
+
+validator :: Validator
+validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])</code></pre></div>
+
+<p>Then switch to the repl:</p>
+
+<div><pre><code class="language-none">:t mkValidatorScript</code></pre></div>
+
+<h5 id="toc_13">Explaination</h5>
+
+<p>Right, so I&#39;m no Haskell superman, so I&#39;ll do my best to explain here...</p>
+
+<ul>
+<li>When creating (constructing) a validator, you need to specify the three parameters as mentioned above (the redeemer, the datum and the context).</li>
+<li>mkValidator is a fairly self-explanatory function (make validator), we&#39;re saying that the three arguments being passed to the constructor (::) are of type data, data and data. Furthermore the return type is of type &#39;unit&#39;.</li>
+<li>When we assign the parameters to mkValidator, we leave them blank. In this simple example we do not care about the redeemer (as we&#39;re creating a gift script that anybody can &#39;grab&#39; the ADA from the address we eventually generate), the datum or the context (as it is a very simple smart contract).</li>
+<li>Now that our &#39;mkValidator&#39; function is defined, we can use it to construct a validator (of type Validator: validator :: Validator).</li>
+<li>We produce the validator by compiling mkValidator to Plutus using PlutusTx (the Plutus Compiler).</li>
+<li>This uses a Haskell template to achieve this (essentially a program that writes another program).</li>
+</ul>
+
+<pre><code>validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])</code></pre>
+
+<p>Now that we have our validator defined as a function which will compile our mkValidator function (which I suppose you can think of as an object), via a Haskell template using PlutusTx, we can run it within the repl:</p>
+
+<div><pre><code class="language-none">:t mkValidatorScript</code></pre></div>
+
+<p>This will assign the output from the compiler to the validator (if I understand correctly).</p>
+
+<p>Now when we check what type &#39;validator&#39; is in the repl, we see it is of type script. So it would appear it has compiled. But to give you peace of mind, you can check by running:</p>
+
+<div><pre><code class="language-none">unScript \$ getValidator validator</code></pre></div>
+
+<p>And you should see an output such as:</p>
+
+<div><pre><code class="language-none">Program () (Version () 1 0 0) (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Apply () (Apply () (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 5})))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1})))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 5})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 4})) (Var () (DeBruijn {dbnIndex = 7}))) (Var () (DeBruijn {dbnIndex = 6})))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 3})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 2})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 6}))))))))))) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 2}))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 4}))) (Var () (DeBruijn {dbnIndex = 3})))))))))) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (LamAbs () (DeBruijn {dbnIndex = 0}) (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Apply () (Apply () (Var () (DeBruijn {dbnIndex = 1})) (Var () (DeBruijn {dbnIndex = 3}))) (Var () (DeBruijn {dbnIndex = 2})))))))))) (Delay () (Delay () (LamAbs () (DeBruijn {dbnIndex = 0}) (Var () (DeBruijn {dbnIndex = 1}))))))</code></pre></div>
+
+<p><em>I believe this is the plutus-core language: System F Omega with Recursive Data Types (?)</em></p>
+
+<p>So we know it&#39;s compiled, now we need to generate an address for the script. Which is actually pretty easy and self-explanatory:</p>
+
+<div><pre><code class="language-none">valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash validator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator</code></pre></div>
+
+<p>Now when you reload the script in the repl, you&#39;ll see you have a hash and an scrAddress.</p>
+
+<p><em>Lars then goes on to gloss over the off-chain code..</em></p>
+
+<h3 id="toc_14">Gift.hs | Whole Programme</h3>
+
+<div><pre><code class="language-none">{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+module Week02.Gift where
+
+import           Control.Monad       hiding (fmap)
+import           Data.Map            as Map
+import           Data.Text           (Text)
+import           Data.Void           (Void)
+import           Plutus.Contract
+import           PlutusTx            (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude    hiding (Semigroup(..), unless)
+import           Ledger              hiding (singleton)
+import           Ledger.Constraints  as Constraints
+import qualified Ledger.Scripts      as Scripts
+import           Ledger.Ada          as Ada
+import           Playground.Contract (printJson, printSchemas, ensureKnownCurrencies, stage)
+import           Playground.TH       (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types    (KnownCurrency (..))
+import           Prelude             (IO, Semigroup (..), String)
+import           Text.Printf         (printf)
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{-# INLINABLE mkValidator #-}
+mkValidator :: Data -&gt; Data -&gt; Data -&gt; ()
+mkValidator _ _ _ = ()
+
+validator :: Validator
+validator = mkValidatorScript $$(PlutusTx.compile [|| mkValidator ||])
+
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash validator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+type GiftSchema =
+            Endpoint &quot;give&quot; Integer
+        .\/ Endpoint &quot;grab&quot; ()
+
+give :: AsContractError e =&gt; Integer -&gt; Contract w s e ()
+give amount = do
+    let tx = mustPayToOtherScript valHash (Datum $ Constr 0 []) $ Ada.lovelaceValueOf amount
+    ledgerTx &lt;- submitTx tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf &quot;made a gift of %d lovelace&quot; amount
+
+grab :: forall w s e. AsContractError e =&gt; Contract w s e ()
+grab = do
+    utxos &lt;- utxoAt scrAddress
+    let orefs   = fst &lt;$&gt; Map.toList utxos
+        lookups = Constraints.unspentOutputs utxos      &lt;&gt;
+                  Constraints.otherScript validator
+        tx :: TxConstraints Void Void
+        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ I 17 | oref &lt;- orefs]
+    ledgerTx &lt;- submitTxConstraintsWith @Void lookups tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ &quot;collected gifts&quot;
+
+endpoints :: Contract () GiftSchema Text ()
+endpoints = (give&#39; `select` grab&#39;) &gt;&gt; endpoints
+  where
+    give&#39; = endpoint @&quot;give&quot; &gt;&gt;= give
+    grab&#39; = endpoint @&quot;grab&quot; &gt;&gt;  grab
+
+mkSchemaDefinitions &#39;&#39;GiftSchema
+
+mkKnownCurrencies []</code></pre></div>
+
+<h3 id="toc_15">Testing In The Playground</h3>
+
+<p>Similarly to the first week, we need to start a couple of nix-shells. If you&#39;ve not done so already, go ahead and checkout to the required branch for Week02:</p>
+
+<div><pre><code class="language-none">cd ~/code/plutus-pioneer-program/code/week02
+less cabal.project</code></pre></div>
+
+<p>Now you&#39;re looking for the tag under the &#39;source-repository-package&#39;:</p>
+
+<p>In this case I believe it&#39;s: <strong>81ba78edb1d634a13371397d8c8b19829345ce0d</strong></p>
+
+<p>Go ahead and copy the tag, change directory to ~/code/plutus and checkout to that branch / commit</p>
+
+<div><pre><code class="language-none">git checkout 81ba78edb1d634a13371397d8c8b19829345ce0d</code></pre></div>
+
+<p>Now you can spin up a couple of nix-shells and run the Week02 code:</p>
+
+<div><pre><code class="language-none">cd ~/code/plutus
+nix-shell
+cd plutus-playground-client
+plutus-playground-server
+...
+// open a new shell
+...
+cd ~/code/plutus-pioneer-program
+cabal build
+...
+project builds
+...
+cd ~/code/plutus/plutus-pioneer-client
+npm start
+...
+// if it throws an error, you may have to run something like:
+npm install &amp;&amp; plutus-playground-generate-purs &amp;&amp; npm run purs:compile &amp;&amp; npm run webpack:server
+...
+// at this point the app should be viewable @ localhost:8009</code></pre></div>
+
+<p><br /></p>
+
+<p>Now we&#39;re going to start testing our Haskell program: Gift.hs</p>
+
+<p>First, copy and paste the code from you editor into the playground, compile and simulate.</p>
+
+<p>Then feel free to play around with the give and grab functions an of course the wait functions:</p>
+
+<p><br /></p>
+
+<p><img src="../img/l2-0.jpg" alt="./img/l2-0.jpg"></p>
+
+<p><img src="../img/l2-1.jpg" alt="./img/l2-1.jpg"></p>
+
+<p><img src="../img/l2-3.jpg" alt="./img/l2-3.jpg"></p>
+
+<p><img src="../img/l2-4.jpg" alt="./img/l2-4.jpg"></p>
+
+<p><img src="../img/l2-5.jpg" alt="./img/l2-5.jpg"></p>
+
+<p><img src="../img/l2-6.jpg" alt="./img/l2-6.jpg"></p>
+
+<p><br /></p>
+
+<h1 id="toc_16">5. Homework 1 - Implementation One &amp; 2:</h1>
+
+<p>During Homework 1, the validator that we&#39;re creating will return True if and only if the redeemer is a tuple that consists of two matching boolean values. For example: <pre><code>(True, True)</code></pre> or <pre><code>(False, False)</code></pre></p>
+
+<p>It turns out (to the Haskell novice) that this can be implemented in at least two ways. The first way is, sloppy...</p>
+
+<div><pre><code class="language-none">-- This should validate if and only if the two Booleans in the redeemer are equal!
+-- JD: mkValidator taes three parameters (dataum, redeemer and the Context) and returns, in this    -- case a boolean value (as I imagine it often would).
+mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+-- now we can call mkValidator with a unit datum, a tuple redeemer (bool, bool), and an empty   -- context (ScriptContext = _ )
+-- each | (pipe) is essentially an &#39;else if statement&#39;
+-- otherwise is the final else stateent
+-- the equals sign is the return value
+-- Thus, if the redeemer evaluates to (True, True) else if (False, False), the redeemer returns
+-- True
+-- otherwise the redeemer returns false
+-- note that if the redeemer returns True, the UTxO is consumed, otherwise it is not
+mkValidator () (a, b) _
+  | (a, b) == (True, True) = True
+  | (a, b) == (False, False) = True
+  | otherwise = False</code></pre></div>
+
+<p>However, there is a much nicer way of implementing this, in &#39;short-form&#39;</p>
+
+<div><pre><code class="language-none">-- we retain the same line of code as previously written at the top
+mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+-- traceIfFalse is a Plutus function that will return false under the condition
+-- that a !== b, think of it like this:
+-- traceIfFalse: Check The Condition ($) a == b (return the evaluation of a == b)
+-- also, throw an &#39;exception&#39; of sorts that is described as &quot;Wrong Redeemer&quot;
+-- this is much nicer and much more concise
+mkValidator () (a, b) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ a == b</code></pre></div>
+
+<p>To re-iterate, the nicer way of writing this redeemer is as follows:</p>
+
+<div><pre><code class="language-none">mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+mkValidator () (a, b) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ a == b</code></pre></div>
+
+<p>Then, we do have to set the redeemer type and the datum type (Haskell is strongly typed)
+This does, however, enable PlutusTx to compile our Haskell down into plutus-core code to be execute on chain.</p>
+
+<div><pre><code class="language-none">mkValidator :: () -&gt; (Bool, Bool) -&gt; ScriptContext -&gt; Bool
+mkValidator () (a, b) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ a == b
+
+data Typed
+instance Scripts.ValidatorTypes Typed where
+-- ! DatumType is of type unit
+  type instance DatumType Typed = ()
+-- ! RedeemType is of type tuple (Bool, Bool)
+  type instance RedeemerType Typed = (Bool, Bool)
+
+-- ! compile validator to plutus-core
+typedValidator :: Scripts.TypedValidator Typed
+typedValidator = Scripts.mkTypedValidator @Typed
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @() @(Bool, Bool)
+
+-- ! drop plutus-core validator script into a validator instance
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+-- ! create a validator hash
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash typedValidator
+
+-- ! create a script address for the validator
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+-- ! now we can use the validator on-chain to validate or invalidate (E)UTxOs</code></pre></div>
+
+<p>See Images:</p>
+
+<p>Implementation Two:</p>
+
+<p><img src="../img/l2-h1-i0.jpg" alt="./img/l2-h1-i0.jpg"></p>
+
+<p>Compiled and Running on Local Test Blockchain:</p>
+
+<p><img src="../img/l2-h1-i2.jpg" alt="./img/l2-h1-i2.jpg"></p>
+
+<p>Implementation One -- Shabby:</p>
+
+<p><img src="../img/l2-h1-i1.jpg" alt="./img/l2-h1-i1.jpg"></p>
+
+<p>Transactional Data 1:</p>
+
+<p><img src="../img/l2-h1-i4.jpg" alt="./img/l2-h1-i4.jpg"></p>
+
+<p>Transaction Data 2:</p>
+
+<p><img src="../img/l2-h1-i5.jpg" alt="./img/l2-h1-i5.jpg"></p>
+
+<p>Transaction Data 3:</p>
+
+<p><img src="../img/l2-h1-i6.jpg" alt="./img/l2-h1-i6.jpg"></p>
+
+<p>Transaction Data 4:</p>
+
+<p><img src="../img/l2-h1-i7.jpg" alt="./img/l2-h1-i7.jpg"></p>
+
+<p>Transaction Data 5:</p>
+
+<p><img src="../img/l2-h1-i8.jpg" alt="./img/l2-h1-i8.jpg"></p>
+
+<p>Transaction Data 6:</p>
+
+<p><img src="../img/l2-h1-i9.jpg" alt="./img/l2-h1-i9.jpg"></p>
+
+<p>Log Data:</p>
+
+<p><img src="../img/l2-h1-i10.jpg" alt="./img/l2-h1-i10.jpg"></p>
+
+<h1 id="toc_17">6. Homework 2: Completed - Essentially Same As HW1</h1>
+
+<p>See My comments for additional details...</p>
+
+<div><pre><code class="language-none">{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE DeriveAnyClass      #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week02.Homework2 where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (FromJSON, ToJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Semigroup (..), String, undefined)
+import           Text.Printf          (printf)
+
+data MyRedeemer = MyRedeemer
+    { flag1 :: Bool
+    , flag2 :: Bool
+    } deriving (Generic, FromJSON, ToJSON, ToSchema)
+
+PlutusTx.unstableMakeIsData &#39;&#39;MyRedeemer
+
+{-# INLINABLE mkValidator #-}
+
+-- This should validate if and only if the two Booleans in the redeemer are equal!
+
+mkValidator :: () -&gt; MyRedeemer -&gt; ScriptContext -&gt; Bool
+
+-- J.D: Implementing parameters for mkValidator
+-- Datum: of type unit ... this can be empty
+-- Redeemer: of type data ... contains this is our own record type containing two bools
+-- Context: of type ScriptContext ... we can leave this as undefined for the purposes of this smart contract ...
+
+mkValidator () (MyRedeemer x y) _ = traceIfFalse &quot;Wrong Redeemer&quot; $ x == y
+
+-- J.D: Similarly to the previous homework, the Datum parameter instance is of type DatumType, and is an empty unit
+-- This time, MyRedeemer is an instance of type: RedeemerType
+
+data Typed
+instance Scripts.ValidatorTypes Typed where
+    type instance DatumType Typed = ()
+    type instance RedeemerType Typed = MyRedeemer
+
+-- We&#39;re essentially just doing the same as before...
+-- except instead of (bool, bool) tuple, we&#39;re using @MyRedeemer to compile the Validator
+
+typedValidator :: Scripts.TypedValidator Typed
+typedValidator = Scripts.mkTypedValidator @Typed
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @() @MyRedeemer
+
+-- exactly the same as Homework01
+
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash typedValidator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+-- Lars was kind enough to implement the remainder! Thank you! I hope this compiles...
+
+type GiftSchema =
+            Endpoint &quot;give&quot; Integer
+        .\/ Endpoint &quot;grab&quot; MyRedeemer
+
+give :: AsContractError e =&gt; Integer -&gt; Contract w s e ()
+give amount = do
+    let tx = mustPayToTheScript () $ Ada.lovelaceValueOf amount
+    ledgerTx &lt;- submitTxConstraints typedValidator tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf &quot;made a gift of %d lovelace&quot; amount
+
+grab :: forall w s e. AsContractError e =&gt; MyRedeemer -&gt; Contract w s e ()
+grab r = do
+    utxos &lt;- utxoAt scrAddress
+    let orefs   = fst &lt;$&gt; Map.toList utxos
+        lookups = Constraints.unspentOutputs utxos      &lt;&gt;
+                  Constraints.otherScript validator
+        tx :: TxConstraints Void Void
+        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData r | oref &lt;- orefs]
+    ledgerTx &lt;- submitTxConstraintsWith @Void lookups tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ &quot;collected gifts&quot;
+
+endpoints :: Contract () GiftSchema Text ()
+endpoints = (give&#39; `select` grab&#39;) &gt;&gt; endpoints
+  where
+    give&#39; = endpoint @&quot;give&quot; &gt;&gt;= give
+    grab&#39; = endpoint @&quot;grab&quot; &gt;&gt;= grab
+
+mkSchemaDefinitions &#39;&#39;GiftSchema
+
+mkKnownCurrencies []</code></pre></div>
+
+<h3 id="toc_18">6.1 Images:</h3>
+
+<p><strong>Simulation:</strong></p>
+
+<p><img src="../img/l2-h2-2.jpg" alt="./img/l2-h2-2.jpg"></p>
+
+<p><strong>Tx0:</strong></p>
+
+<p><img src="../img/l2-h2-3.jpg" alt="./img/l2-h2-3.jpg"></p>
+
+<p><strong>Tx4:</strong></p>
+
+<p><img src="../img/l2-h2-4.jpg" alt="./img/l2-h2-4.jpg"></p>
+
+<p><strong>Balances, Logs:</strong></p>
+
+<p><img src="../img/l2-h2-5.jpg" alt="./img/l2-h2-5.jpg"></p>
+
+<p><strong>Trace:</strong></p>
+
+<p><img src="../img/l2-h2-6.jpg" alt="./img/l2-h2-6.jpg"></p>
+
+<h3 id="toc_19">7. Catch Up On TODOs</h3>
+
+<h5 id="toc_20">TODO: 1. Implement a redeemer that always evaluates to False...</h5>
+
+<p><em>I may just leave this, as I&#39;ve already done the homework, seems fairly trivial...</em></p>
+
+<p><strong>I did come back to this and give it some more thought</strong>, as initially it seemed fairly trivial (which it is, but still, given a couple of days of being away from the course, it&#39;s good to do a quick catch up.). The validator which is compiled by PlutuxTx is essentially laying out the conditions under which the UTxO may be spent. The Redeemer can be of many different types, but it is typical to use a &#39;record&#39; type (self-defined) so long as it implements: isData. To have your redeemer always evaluate to false would simply require (and this is untested, but I assumed it works) some code, such as the following:</p>
+
+<div><pre><code class="language-none">mkValidator () (a) _
+| (a) == (True) = False
+| (a) == (False) = False
+| otherwise = False</code></pre></div>
+
+<p><em>I&#39;m not super familiar with Haskell, but I assume the following will also work:</em></p>
+
+<div><pre><code class="language-none">mkValidator () () _ = traceIfFalse &quot;Wrong Redeemer&quot; $ False == True
+-- | I imagine, even though there are no parameters within the redeemer
+-- | This would always evaluate to False.</code></pre></div>
+
+<h3 id="toc_21">8. Summary:</h3>
+
+<p>During this lecture and the homework excises we learnt about the differences between a UTxO model and an EUTxO Model, but these were interceded during last lecture too. We leant about redeemers, datum and context (and by proxy: validators). However, we went into much more detail during this lecture. For example we implemented our own validators with our own redeemer types. These were very basic redeemers, and essentially just checked a simple expression: that X == Y using basic data types initially, but then we also did create our own record types that implemented isData. Furthermore, we also learnt about the compiler that processes Haskell and turns it into Plutus-core (Plutus-tx) and that essentially everything ends up being Lambda Calculus (System F Omega with Recursive Data Types). Finally, we completed two home-works.</p>
+
+<hr>
+
+<p>
+  To Be Continued...
+</p>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+  'showProcessingMessages': false,
+  'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+  MathJax.Hub.Register.StartupHook('End', function () {
+    MathJaxListener.invokeCallbackForKey_('End');
+  });
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
 </body>
 
