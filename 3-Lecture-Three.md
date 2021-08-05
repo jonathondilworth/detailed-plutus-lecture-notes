@@ -188,6 +188,172 @@ False
 
 *Note: this stuff takes a long time to digest and make notes on...*
 
+### 4. Finally Some Interesting Stuff!
+
+Now that we understand the basics of smart contracts on Cardano, we understand the notion of a redeemer, of datum and of context (at least, we kind of do<sup><a href="#ft2">2</a></sup>). Time to implement some interesting stuff baby!
+
+### 4.1 Example: Releasing ADA to a 'beneficiary' Sometime In The Future
+
+<pre><code>{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE DeriveAnyClass      #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week03.Vesting where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import           PlutusTx             (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Semigroup (..), Show (..), String)
+import           Text.Printf          (printf)
+</code></pre>
+
+Implementing VestingDatum as a record with the following fields: A beneficiary, who will receive an amount to be provided given: the UTxO may be signed by the beneficiary and the deadline has been surpassed.
+
+<pre><code>data VestingDatum = VestingDatum
+    { beneficiary :: PubKeyHash
+    , deadline    :: POSIXTime
+    } deriving Show
+
+PlutusTx.unstableMakeIsData ''VestingDatum
+
+{-# INLINABLE mkValidator #-}
+</code></pre>
+
+J.D Our validator will take as its datum argument a parameter <code>VestingDatum</code>. The redeemer is simply left as type: unit Data, The context parameter is <code>ScriptContext</code>.
+
+We then define the validator with shorthand arguments: <code>dat</code>, <code>()</code>, and <code>ctx</code> provide the exception if false: "beneficiary's signature missing" AND (shouldn't this be or?) "deadlined not reached" where we assign <code>ctx</code> all the properties of the transaction info (TxInfo).
+
+We also define the two constraints: signedByBeneficiary (boolean) = TxInfo.txSignedBy (who has this UTxO been signed by?) AND it must equate to the PubKeyHash provided within the Datum...
+
+Furthermore, the deadlineReached boolean uses a a convention as described in §3.5.1 (essentially: the valid transaction time range must be contained within the deadline as defined by the datum).
+
+This is then essentially all wrapped up and compiled down into Plutus-core.
+
+<pre><code>mkValidator :: VestingDatum -> () -> ScriptContext -> Bool
+mkValidator dat () ctx = traceIfFalse "beneficiary's signature missing" signedByBeneficiary &&
+                         traceIfFalse "deadline not reached" deadlineReached
+  where
+    info :: TxInfo
+    info = scriptContextTxInfo ctx
+
+    signedByBeneficiary :: Bool
+    signedByBeneficiary = txSignedBy info $ beneficiary dat
+
+    deadlineReached :: Bool
+    deadlineReached = contains (from $ deadline dat) $ txInfoValidRange info
+
+data Vesting
+instance Scripts.ValidatorTypes Vesting where
+    type instance DatumType Vesting = VestingDatum
+    type instance RedeemerType Vesting = ()
+
+typedValidator :: Scripts.TypedValidator Vesting
+typedValidator = Scripts.mkTypedValidator @Vesting
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @VestingDatum @()
+
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash typedValidator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+</code></pre>
+
+Now for the wallet logic? Which is off-chain! So, Lars tells me not to worry! **(QUITE YET!)**. Thus, I won't!
+
+<pre><code>data GiveParams = GiveParams
+    { gpBeneficiary :: !PubKeyHash
+    , gpDeadline    :: !POSIXTime
+    , gpAmount      :: !Integer
+    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+
+type VestingSchema =
+            Endpoint "give" GiveParams
+        .\/ Endpoint "grab" ()
+
+give :: AsContractError e => GiveParams -> Contract w s e ()
+give gp = do
+    let dat = VestingDatum
+                { beneficiary = gpBeneficiary gp
+                , deadline    = gpDeadline gp
+                }
+        tx  = mustPayToTheScript dat $ Ada.lovelaceValueOf $ gpAmount gp
+    ledgerTx <- submitTxConstraints typedValidator tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf "made a gift of %d lovelace to %s with deadline %s"
+        (gpAmount gp)
+        (show $ gpBeneficiary gp)
+        (show $ gpDeadline gp)
+
+grab :: forall w s e. AsContractError e => Contract w s e ()
+grab = do
+    now   <- currentTime
+    pkh   <- pubKeyHash <$> ownPubKey
+    utxos <- Map.filter (isSuitable pkh now) <$> utxoAt scrAddress
+    if Map.null utxos
+        then logInfo @String $ "no gifts available"
+        else do
+            let orefs   = fst <$> Map.toList utxos
+                lookups = Constraints.unspentOutputs utxos  <>
+                          Constraints.otherScript validator
+                tx :: TxConstraints Void Void
+                tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData () | oref <- orefs] <>
+                          mustValidateIn (from now)
+            ledgerTx <- submitTxConstraintsWith @Void lookups tx
+            void $ awaitTxConfirmed $ txId ledgerTx
+            logInfo @String $ "collected gifts"
+  where
+    isSuitable :: PubKeyHash -> POSIXTime -> TxOutTx -> Bool
+    isSuitable pkh now o = case txOutDatumHash $ txOutTxOut o of
+        Nothing -> False
+        Just h  -> case Map.lookup h $ txData $ txOutTxTx o of
+            Nothing        -> False
+            Just (Datum e) -> case PlutusTx.fromData e of
+                Nothing -> False
+                Just d  -> beneficiary d == pkh && deadline d <= now
+
+endpoints :: Contract () VestingSchema Text ()
+endpoints = (give' `select` grab') >> endpoints
+  where
+    give' = endpoint @"give" >>= give
+    grab' = endpoint @"grab" >>  grab
+
+mkSchemaDefinitions ''VestingSchema
+
+mkKnownCurrencies []
+</code></pre>
+
+
+
 # References
 
 <a id="1">[1]</a>
@@ -212,50 +378,4 @@ plutus-ledger-api-0.1.0.0: Interface to the Plutus ledger for the Cardano ledger
 
 <a id="ft1">1.</a> The description is that of a pending transaction. This is the view as seen by validator scripts, so some details are stripped out. [[1]](#1)
 
--
-
-# OLD NOTES CAN DISREGARD:
-
-the process verifying the chain of ownership by passing the appropriate keys to the validator 
-
-
-in order to unloc a script address - Tx to run - 3 paras: datum, redeemer, context
-
-Data can be used
-
-but we need to use types:
-
-* Data and Redeemer can be custom types, so long as they implement the IsData type
-* Context uses ScriptContext
-
-So far we've only looked at the data and redeemer and ignored the context:
-
-Example:
-
-	mkValidator :: () -> MyRedeemer -> ScriptContext -> Bool
-	-- we can add a condition when we're creating the validator, in this case: x must == y
-	mkValidator () (MyRedeemer x y) _ = traceIfFalse "Wrong Redeemer" $ x == y
-
-However, we have ignored the context...
-
-In this lecture we're looking at the context
-
-Plutus-Ledger-api
-
-This is a package we didn't neccesarily need - but it's been included in this weeks cabal file
-
-module-plutus.v1.Ledger.Contexts
-
-
-
-Data Type = Typed Version (Custom Types As long as it 
-
-third argument = ScriptContext
-
-
-Datum
-
-Redeemer
-
-Context: plutus-ldger-api
-
+<a id="ft2">2.</a> In order to produce a validator, which, in turn may consume any given UTxO (or not consume it!), we must provide (even if they're empty arguments) a datum (typically of type 'record' & implements isData), a redeemer (typically a set of functions or executable code which makes checks against unspent transaction output details) and the context (is of type: ScriptContext). We also understand that empty arguments must be in the form of unit data: <code>()</code> and if we're doing something useful, we'll likely be providing genuine arguments. Thus, the datum will likely contain some data (as you may expect) to be used in conjunction with the redeemer, which will be defined as a set of functions to likely draw from the ScriptContext; the compiled product of which (the validator) may then decide as to whether or not to spend the (E)UTxO in consideration. At least, this is **my understanding thus far.**
