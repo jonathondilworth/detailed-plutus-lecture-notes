@@ -114,8 +114,4 @@ Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021.
 
 *In Progress*
 
-2. Tidy up repo.
-3. Update HTML files.
-4. Update PDF files.
-5. Scan and upload annotated papers from IOHK.
-6. Catch up to Lecture four ASAP.
+1. Catch up to and finish Lecture Seven ASAP.
