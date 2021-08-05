@@ -40,7 +40,7 @@ EUTxO scripts are held at a script address. During lecture two we saw a low leve
 mkValidator _ _ _ = ()	
 validator :: Validator
 validator = mkValidatorScript $\$(PlutusTx.compile [|| mkValidator ||])
-</pre></code>
+</code></pre>
 
 In practice this is **not used**. We instead use the typed version. This is where data and redeemer can be custom types, as long as they implement the <code>IsData</code> type class. The third argument (the Context) is must be of type <code>ScriptContext</code>.
 
@@ -82,8 +82,15 @@ The TxInfo Data Type describes the transaction<sup>[1](#ft1)</sup>, which is to 
 * txInfoWdrl :: **[(StakingCredential, Integer)]** — Staking Reward Withdrawal ***(Possibly Deprecated)***
 * txInfoValidRange :: **POSIXTimeRange** — Time range in which the transaction is valid. ***(Possibly Modified)***
 * txInfoSignatories :: [PubKeyHash] — List of public keys that have signed the transaction.
-* txInfoData :: [(DatumHash, Datum)] — The output value of the Tx which have been spent (required), Lars uses the phrase: <pre><code>Spending Transactions Have To Include The Datum Of The Transactions They've Spent.
-But Producing Transactions Can Optionally Do That.</code></pre>
+* txInfoData :: [(DatumHash, Datum)] — The output value of the Tx which have been spent (required), Lars uses the phrase:
+
+
+<pre><code>Spending Transactions Have To Include The Datum Of The Transactions They've Spent (The Script Output).
+
+Producing transactions that have spent any given output only have to include the hash (Which hash exactly?) - dictionary of 'datum-hash' to hash to full datum values to a given hash?
+
+However, Producing Transactions Can Optionally Do That.</code></pre>
+
 * txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)
 
 ### 3.4 Context - TxInfo (Current)
@@ -112,6 +119,75 @@ Furthermore, there is always a chance that the time that the off-chain code is e
 
 As it stands in lecture three, we're still using POSIXTime, apparently it is easy to move between POSIXTime and Slot 'Time'. This is simply a slight complication between Plutus and Ouroboros. We know that if a parameter change occurs, we will always know 36 hours in the future (we'll know if there is a hard fork or changes to be made within 36 hours).
 
+*Note: it would appear now that POSIXTime has changed to SlotRange for the reasoning Lars outlines about time? General observation, may be wrong.*
+
+### 3.5.1 General Checks (Summary)
+
+* All the inputs are present.
+* The balances add up.
+* The fees are included.
+* The 'time-range' is checked (node checks the current time and compares it to the time-range specified by the transaction. If the current time does not fall into this time range, then then validation fails immediately, without ever running the validator scripts.
+
+However, if the time-range does fall into this interval, then validation is completely deterministic again. This is just a static piece of data attached to the transaction. Thus, the result of validation **does not** depend on when it is run.
+
+* By default, all transactions use an infinite time interval.
+
+### 3.6 Time Intervals
+
+Specifying a time interval in Haskell can be done in the following manner (using one of many types of constructors, which can be found within the documentation) [[4]](#4) as is outlined using the repl:
+
+<pre><code>> cabal repl
+...
+> import Plutus.V1.Ledger.Interval
+-- Interval from a to b
+> interval (10 :: Integer) 20
+Interval {ivFrom = LowerBound (Finite 10) True, ivTo = UpperBound (Finite 20) True}
+> member 9 $ interval (10 :: Integer) 20
+False
+> member 10 $ interval (10 :: Integer) 20
+True
+> member 11 $ interval (10 :: Integer) 20
+True
+> member 20 $ interval (10 :: Integer) 20
+True
+> member 21 $ interval (10 :: Integer) 20
+False
+-- Interval from 30 to +
+> 21 $ from (30 :: Integer)
+False
+> 30 $ from (30 :: Integer)
+True
+> 30000 $ from (30 :: Integer)
+True
+-- Interval to 30 from -
+> 30000 $ to (30 :: Integer)
+False
+> 31 $ to (30 :: Integer)
+False
+> 30 $ to (30 :: Integer)
+True
+> 7 $ to (30 :: Integer)
+True
+-- Intersection
+> intersection (interval (10 :: Integer) 20) $ interval 18 30
+Interval {ivFrom = LowerBound (Finite 18) True, ivTo = UpperBound (Finite 20) True}
+> contains (to (100 :: Integer)) $ interval 30 80
+True
+-- This means the interval between 30 and 80 is fully contained within -inf to 100
+> contains (to (100 :: Integer)) $ interval 30 100
+True
+> contains (to (100 :: Integer)) $ interval 30 101
+False
+> overlaps (to (100 :: Integer)) $ interval 30 101
+True
+-- Because the interval does in fact overlap the range -inf to 100, however
+> overlaps (to (100 :: Integer)) $ interval 101 110
+False
+-- as there is zero overlap
+</code></pre>
+
+*Note: this stuff takes a long time to digest and make notes on...*
+
 # References
 
 <a id="1">[1]</a>
@@ -127,17 +203,14 @@ Learn Cloud Native Development Team, 2019.
 The Basics - Fallacies of Distributed Systems
 <https://www.learncloudnative.com/blog/2019-11-26-fallacies_of_distributed_systems>
 
+<a id="4">[4]</a>
+Plutus Engineering Team, IOHK.
+plutus-ledger-api-0.1.0.0: Interface to the Plutus ledger for the Cardano ledger.
+<https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Contexts.html>
 
 # Footnotes
 
 <a id="ft1">1.</a> The description is that of a pending transaction. This is the view as seen by validator scripts, so some details are stripped out. [[1]](#1)
-
-
-
-
-
-
-
 
 -
 
