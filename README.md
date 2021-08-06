@@ -14,7 +14,16 @@ I believe I can speak for the entire community when I extend my sincerest thanks
 
 ### BLN: Preface
 
-*In Progress*
+This set if notes, written in a casual, formal, yet creative style has been cultivated through the activity of participating within the second cohort of the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/). I felt it to be important to document my own experience with the program in order to gain the most from it. Furthermore, it is my hope that the notes themselves (and perhaps even through the contribution of others) will be able to help other aspiring developers for time to come.
+
+To be completely honest, I'm not hugely qualified to write any of this! Which is why I would hugely appreciate any corrections via contribution. I do however hold the following qualifications:
+
+* A First Class Honours Degree in Computer Science from the University of Manchester.
+* A Postgraduate Diploma in Artificial Intelligence / Informatics (I hope to write my thesis on this very subject after COVID-19 has 'blown over', thus obtaining my MSc) from the University of Edinburgh.
+
+*Note: for what it's worth I hold a good few years experience in industry writing web applications... Not exactly what you would call academic.*
+
+I wrote this set of notes in an ad-hoc style manner. As the lectures were released, I've done my best to keep up with work, in addition to following the lectures, implementing the homework's and keeping these detailed notes.
 
 ### BLN: Foreword
 
@@ -66,7 +75,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
  - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
  - [Lecture Two](2-Lecture-Two.md): (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
  - [Lecture Three](3-Lecture-Three.md): Problems in the Playground, EUTxO Refresh, TxInf & ScriptPurpose, On-Chain, Off-chain, Time, Examples
- - [Lecture Four](4-Lecture-Four.md): *In Progress*
+ - [Lecture Four](4-Lecture-Four.md): Monads, The EmulatorTrace Monad, Contract Monad, Homework
  - [Lecture Five](): -
  - [Lecture Six](): -
  - [Lecture Seven](): -
