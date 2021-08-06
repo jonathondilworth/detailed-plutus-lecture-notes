@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>3-Lecture-Three</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">3. Lecture Three</h1>
+
+<h3 id="toc_1">1. Introduction</h3>
+
+<p><em>Note: typically you write the introduction last...</em></p>
+
+<p>Within this set of lecture notes, the following will be discussed. Firstly, memory issues associated with the local &#39;Playground&#39; server (where our Haskell smart contracts are being ran) are addressed. Secondly, a reintroduction to the extended unspent transaction output model (EUTxO) is provided. Furthermore, minting tokens, certifying and (stake-related) rewarding is discussed. This is followed by a description of the parameters that validator scripts are provided. Then on-chain and off-chain code is briefly discussed.</p>
+
+<p><em>Note: introduction is unfinished, once I get the chance to work through the whole lecture, the introduction will be completed and a summary will be provided at the end, as is typical within this type of documentation.</em></p>
+
+<h3 id="toc_2">2. Playground Memory Issues</h3>
+
+<p>You are now able to modify the timeout in the Plutus Playground Server (located within the Plutus Playground Client folder) to any number of minutes. This is accomplished by running the following command:</p>
+
+<div><pre><code class="language-none">plutus-playground-server -i 120s</code></pre></div>
+
+<p>Note that you can modify the value of 120s to any amount, this will set the timeout in XXX seconds <code>XXXs</code>.</p>
+
+<h2 id="toc_3"></h2>
+
+<h3 id="toc_4">3. Quick Refresh On The (E)UTxO Model</h3>
+
+<p>(E)UTxO stands for <strong>Extended Unspent Transaction Output Model</strong>.</p>
+
+<p><em>Let me just bring you back up to speed on UTxO...</em></p>
+
+<p>This model is similar to how BitCoin (BTC) manages unspent digital assets held by any given wallet (<em>these assets can be thought of as money...</em> in BTCs case, these assets would be BitCoin). However, with BTC, the model is simply built through very simple UTxOs (unextended).</p>
+
+<p>Given a simple UTxO, there is a <strong>redeemer</strong> and a <strong>validator</strong>. In order to spend any unspent transaction output, the redeemer can be thought of as a cryptographic key which is passed to the validator. Once any given UTxO is attempted to be spent, the validator is then responsible for verifying the chain of ownership by using the redeemer to verify that the UTxO belongs to whichever wallet is attempting to create a new UTxO.</p>
+
+<p><strong><em>With an (E)UTxO model, you have a script at a given address, a redeemer, context and datum...</em></strong> Validation must still occur in order to spend any given (E)UTxO. However, the script address is contains a reference to a set of instructions. The instructions <strong>(the script)</strong> contains arbitrary logic, some of which is responsible for creating a validator (plus a possible set of numerous constraints under which the validator may or may not verify the chain of ownership of any given (E)UTxO).</p>
+
+<p>Furthermore, the (E)UTxO model has the ability to facilitate ownership of multiple types of asset (for example non fungible tokens can exist within a (E)UTxO model. Even the ownership of other coins can be transferred from one wallet to another given the EUTxO model).</p>
+
+<h3 id="toc_5">3.1 EUTxO Scripts</h3>
+
+<p>EUTxO scripts are held at a script address. During lecture two we saw a low level implementation of a validator within a script where all three arguments were defined as the Haskell type: <code>Data</code>:</p>
+
+<pre><code>mkValidator :: Data -> Data -> Data -> ()
+mkValidator _ _ _ = ()  
+validator :: Validator
+validator = mkValidatorScript $\$(PlutusTx.compile [|| mkValidator ||])
+</code></pre>
+
+<p>In practice this is <strong>not used</strong>. We instead use the typed version. This is where data and redeemer can be custom types, as long as they implement the <code>IsData</code> type class. The third argument (the Context) is must be of type <code>ScriptContext</code>.</p>
+
+<p>In the examples we have seen so far, we&#39;ve only been examining the data and the redeemer. We have never given much thought to the context, but the context is of course very important. It can support a given state, allowing us to create types of state machines within </p>
+
+<p>The <code>Context</code> is of type: <code>ScriptContext</code> and can be found within:</p>
+
+<pre><code>plutus-ledger-api</code></pre>
+
+<p>This is a package that, until now, we have not needed. But now, we do need it, so it has been included within the cabal.project file for the third week. The Context can be found within:</p>
+
+<pre></code>Plutus.V1.Ledger.Contexts</code></pre>
+
+<p>The <code>ScriptContext</code> is a record type with two fields: <code>TxInfo</code> and <code>ScriptPurpose</code>. The <code>ScriptPurpose</code> is defined within the same module and it (rather obviously) describes for which purpose the script is run. For example, to spend, to certify, to reward or to mint (an NFT for example), etc.</p>
+
+<p>The most important purpose for us is the <code>Spending TxOutRef</code>, this is what we have mostly talked about within the Extended UTxO model.</p>
+
+<p>This is when a script is run to validate spending input for a transaction.</p>
+
+<h3 id="toc_6">3.2 Other Important Purposes</h3>
+
+<p><strong>Minting</strong>: This is important for when you want to define a native token. For example, the ScriptPurpose may use the Minting constructor to create a native token which describes under which condition the token may be minted or burned.</p>
+
+<p><strong>Rewarding</strong>: Related to staking (in some manner, yet to be explained).</p>
+
+<p><strong>Certifying:</strong> Related to certificates, like delegation certification.</p>
+
+<p><em>For now, we are concentrating on the spending purpose.</em></p>
+
+<h3 id="toc_7">3.3 Context - TxInfo (Acronym for Transaction Info) — <strong>Possibily Outdated</strong></h3>
+
+<p>The TxInfo Data Type describes the transaction<sup><a href="#ft1">1</a></sup>, which is to say it has fields for:</p>
+
+<ul>
+<li>txInfoInputs :: <strong>[TxInInfo]</strong> — ALL the inputs of the transaction.</li>
+<li>txInfoOutputs :: <strong>[TxOut]</strong> — ALL the outputs of the transaction.</li>
+<li>txInfoFee :: <strong>Value</strong> — The fee paid to consume the transaction.</li>
+<li>TxInfoForge :: <strong>value</strong> — Either the number of newly created (forged) Native Tokens <a href="#2">[2]</a> or if negative, the amount of newly burned Native Tokens.</li>
+<li>txInfoDCert :: <strong><em>[TxInfoDCert]</em></strong> — List of certificates, such as delegation certificates. <strong><em>(Possibly Deprecated)</em></strong></li>
+<li>txInfoWdrl :: <strong>[(StakingCredential, Integer)]</strong> — Staking Reward Withdrawal <strong><em>(Possibly Deprecated)</em></strong></li>
+<li>txInfoValidRange :: <strong>POSIXTimeRange</strong> — Time range in which the transaction is valid. <strong><em>(Possibly Modified)</em></strong></li>
+<li>txInfoSignatories :: [PubKeyHash] — List of public keys that have signed the transaction.</li>
+<li>txInfoData :: [(DatumHash, Datum)] — The output value of the Tx which have been spent (required), Lars uses the phrase:</li>
+</ul>
+
+<pre><code>Spending Transactions Have To Include The Datum Of The Transactions They've Spent (The Script Output).
+
+Producing transactions that have spent any given output only have to include the hash (Which hash exactly?) - dictionary of 'datum-hash' to hash to full datum values to a given hash?
+
+However, Producing Transactions Can Optionally Do That.</code></pre>
+
+<ul>
+<li>txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)</li>
+</ul>
+
+<h3 id="toc_8">3.4 Context - TxInfo (Current)</h3>
+
+<ul>
+<li>txInfoInputs :: [TxInInfo] — Transaction inputs</li>
+<li>txInfoOutputs :: [TxOutInfo] — Transaction outputs</li>
+<li>txInfoFee :: Value — The fee paid by this transaction.</li>
+<li>txInfoForge :: Value — The Value forged by this transaction.</li>
+<li>txInfoValidRange :: SlotRange — The valid range for the transaction.</li>
+<li>txInfoForgeScripts :: [MonetaryPolicyHash]</li>
+<li>txInfoSignatories :: [PubKeyHash] — Signatures provided with the transaction</li>
+<li>txInfoData :: [(DatumHash, Datum)]<br></li>
+<li>txInfoId :: TxId — Hash of the pending transaction (excluding witnesses)</li>
+</ul>
+
+<h3 id="toc_9">3.5 On-Chain VS Off-Chain Validation</h3>
+
+<p>One of the nice things about Cardano is that validation can be tested and verified as spendable off-chain. However, due to time — well latency <a href="#2">[2]</a><a href="#3">[3]</a>, there is always a chance that a given UTxO that you — well, the wallet trying to consume said UTxO — has already been spent by another transaction on-chain, causing a reversal. You don&#39;t, however loose any funds.</p>
+
+<p>Furthermore, there is always a chance that the time that the off-chain code is executed and the contract is found to be valid, if the txValidRange <em>(time)</em> fell inside the time of validation off-chain but outside the time of validation on-chain, the validation will fail <strong>on-chain</strong> and the contract will not be executed. However, if the time does fall into the txValidRange, then the contract is completely deterministic. The only non-deterministic property of these contracts is the time at which it may or may not be executed, as time is continuous and impossible to test for. When writing scripts and testing, it is likely the case that you will have to assume that the function for checking if the time is valid or not is TRUE. You may also write cases where it is FALSE to be exhaustive, but you know (in this case) the script will simply fail and the UTxO will not be consumed.</p>
+
+<p><strong>By default, if this parameter is not set manually, the time slot / POSIXTIME is set to &#39;infinite&#39;, and as such - this initial check will always pass.</strong></p>
+
+<p><em>In short: &quot;The trick is&quot; to do a time check before attempting to validate the transaction (initially off-chain), then when you attempt to spend some UTxO on-chain, ideally it&#39;ll validate, but there is always the possibility (due to time latency) that validation is not possible. So, there is time on one hand and determinism on the other, essentially.</em></p>
+
+<p><strong>IMPORTANT: The consensus algorithm uses SLOT time, not POSIXTIME; which is probably why the current TxInfo uses SlotRange, rather than POSIXTimeRange.</strong></p>
+
+<p>As it stands in lecture three, we&#39;re still using POSIXTime, apparently it is easy to move between POSIXTime and Slot &#39;Time&#39;. This is simply a slight complication between Plutus and Ouroboros. We know that if a parameter change occurs, we will always know 36 hours in the future (we&#39;ll know if there is a hard fork or changes to be made within 36 hours).</p>
+
+<p><em>Note: it would appear now that POSIXTime has changed to SlotRange for the reasoning Lars outlines about time? General observation, may be wrong.</em></p>
+
+<h3 id="toc_10">3.5.1 General Checks (Summary)</h3>
+
+<ul>
+<li>All the inputs are present.</li>
+<li>The balances add up.</li>
+<li>The fees are included.</li>
+<li>The &#39;time-range&#39; is checked (node checks the current time and compares it to the time-range specified by the transaction. If the current time does not fall into this time range, then then validation fails immediately, without ever running the validator scripts.</li>
+</ul>
+
+<p>However, if the time-range does fall into this interval, then validation is completely deterministic again. This is just a static piece of data attached to the transaction. Thus, the result of validation <strong>does not</strong> depend on when it is run.</p>
+
+<ul>
+<li>By default, all transactions use an infinite time interval.</li>
+</ul>
+
+<h3 id="toc_11">3.6 Time Intervals</h3>
+
+<p>Specifying a time interval in Haskell can be done in the following manner (using one of many types of constructors, which can be found within the documentation) <a href="#4">[4]</a> as is outlined using the repl:</p>
+
+<pre><code>> cabal repl
+...
+> import Plutus.V1.Ledger.Interval
+-- Interval from a to b
+> interval (10 :: Integer) 20
+Interval {ivFrom = LowerBound (Finite 10) True, ivTo = UpperBound (Finite 20) True}
+> member 9 $ interval (10 :: Integer) 20
+False
+> member 10 $ interval (10 :: Integer) 20
+True
+> member 11 $ interval (10 :: Integer) 20
+True
+> member 20 $ interval (10 :: Integer) 20
+True
+> member 21 $ interval (10 :: Integer) 20
+False
+-- Interval from 30 to +
+> 21 $ from (30 :: Integer)
+False
+> 30 $ from (30 :: Integer)
+True
+> 30000 $ from (30 :: Integer)
+True
+-- Interval to 30 from -
+> 30000 $ to (30 :: Integer)
+False
+> 31 $ to (30 :: Integer)
+False
+> 30 $ to (30 :: Integer)
+True
+> 7 $ to (30 :: Integer)
+True
+-- Intersection
+> intersection (interval (10 :: Integer) 20) $ interval 18 30
+Interval {ivFrom = LowerBound (Finite 18) True, ivTo = UpperBound (Finite 20) True}
+> contains (to (100 :: Integer)) $ interval 30 80
+True
+-- This means the interval between 30 and 80 is fully contained within -inf to 100
+> contains (to (100 :: Integer)) $ interval 30 100
+True
+> contains (to (100 :: Integer)) $ interval 30 101
+False
+> overlaps (to (100 :: Integer)) $ interval 30 101
+True
+-- Because the interval does in fact overlap the range -inf to 100, however
+> overlaps (to (100 :: Integer)) $ interval 101 110
+False
+-- as there is zero overlap
+</code></pre>
+
+<p><em>Note: this stuff takes a long time to digest and make notes on...</em></p>
+
+<h3 id="toc_12">4. Finally Some Interesting Stuff!</h3>
+
+<p>Now that we understand the basics of smart contracts on Cardano, we understand the notion of a redeemer, of datum and of context (at least, we kind of do<sup><a href="#ft2">2</a></sup>). Time to implement some interesting stuff baby!</p>
+
+<h3 id="toc_13">4.1 Example: Releasing ADA to a &#39;beneficiary&#39; Sometime In The Future</h3>
+
+<pre><code>{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE DeriveAnyClass      #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week03.Vesting where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import           PlutusTx             (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Semigroup (..), Show (..), String)
+import           Text.Printf          (printf)
+</code></pre>
+
+<p>Implementing VestingDatum as a record with the following fields: A beneficiary, who will receive an amount to be provided given: the UTxO may be signed by the beneficiary and the deadline has been surpassed.</p>
+
+<pre><code>data VestingDatum = VestingDatum
+    { beneficiary :: PubKeyHash
+    , deadline    :: POSIXTime
+    } deriving Show
+
+PlutusTx.unstableMakeIsData ''VestingDatum
+
+{-# INLINABLE mkValidator #-}
+</code></pre>
+
+<p>J.D Our validator will take as its datum argument a parameter <code>VestingDatum</code>. The redeemer is simply left as type: unit Data, The context parameter is <code>ScriptContext</code>.</p>
+
+<p>We then define the validator with shorthand arguments: <code>dat</code>, <code>()</code>, and <code>ctx</code> provide the exception if false: &quot;beneficiary&#39;s signature missing&quot; AND (shouldn&#39;t this be or?) &quot;deadlined not reached&quot; where we assign <code>ctx</code> all the properties of the transaction info (TxInfo).</p>
+
+<p>We also define the two constraints: signedByBeneficiary (boolean) = TxInfo.txSignedBy (who has this UTxO been signed by?) AND it must equate to the PubKeyHash provided within the Datum...</p>
+
+<p>Furthermore, the deadlineReached boolean uses a a convention as described in §3.5.1 (essentially: the valid transaction time range must be contained within the deadline as defined by the datum).</p>
+
+<p>This is then essentially all wrapped up and compiled down into Plutus-core.</p>
+
+<pre><code>mkValidator :: VestingDatum -> () -> ScriptContext -> Bool
+mkValidator dat () ctx = traceIfFalse "beneficiary's signature missing" signedByBeneficiary &&
+                         traceIfFalse "deadline not reached" deadlineReached
+  where
+    info :: TxInfo
+    info = scriptContextTxInfo ctx
+
+    signedByBeneficiary :: Bool
+    signedByBeneficiary = txSignedBy info $ beneficiary dat
+
+    deadlineReached :: Bool
+    deadlineReached = contains (from $ deadline dat) $ txInfoValidRange info
+
+data Vesting
+instance Scripts.ValidatorTypes Vesting where
+    type instance DatumType Vesting = VestingDatum
+    type instance RedeemerType Vesting = ()
+
+typedValidator :: Scripts.TypedValidator Vesting
+typedValidator = Scripts.mkTypedValidator @Vesting
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @VestingDatum @()
+
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+valHash :: Ledger.ValidatorHash
+valHash = Scripts.validatorHash typedValidator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+</code></pre>
+
+<p>Now for the wallet logic? Which is off-chain! So, Lars tells me not to worry! <strong>(QUITE YET!)</strong>. Thus, I won&#39;t!</p>
+
+<pre><code>data GiveParams = GiveParams
+    { gpBeneficiary :: !PubKeyHash
+    , gpDeadline    :: !POSIXTime
+    , gpAmount      :: !Integer
+    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+
+type VestingSchema =
+            Endpoint "give" GiveParams
+        .\/ Endpoint "grab" ()
+
+give :: AsContractError e => GiveParams -> Contract w s e ()
+give gp = do
+    let dat = VestingDatum
+                { beneficiary = gpBeneficiary gp
+                , deadline    = gpDeadline gp
+                }
+        tx  = mustPayToTheScript dat $ Ada.lovelaceValueOf $ gpAmount gp
+    ledgerTx <- submitTxConstraints typedValidator tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf "made a gift of %d lovelace to %s with deadline %s"
+        (gpAmount gp)
+        (show $ gpBeneficiary gp)
+        (show $ gpDeadline gp)
+
+grab :: forall w s e. AsContractError e => Contract w s e ()
+grab = do
+    now   <- currentTime
+    pkh   <- pubKeyHash <$> ownPubKey
+    utxos <- Map.filter (isSuitable pkh now) <$> utxoAt scrAddress
+    if Map.null utxos
+        then logInfo @String $ "no gifts available"
+        else do
+            let orefs   = fst <$> Map.toList utxos
+                lookups = Constraints.unspentOutputs utxos  <>
+                          Constraints.otherScript validator
+                tx :: TxConstraints Void Void
+                tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData () | oref <- orefs] <>
+                          mustValidateIn (from now)
+            ledgerTx <- submitTxConstraintsWith @Void lookups tx
+            void $ awaitTxConfirmed $ txId ledgerTx
+            logInfo @String $ "collected gifts"
+  where
+    isSuitable :: PubKeyHash -> POSIXTime -> TxOutTx -> Bool
+    isSuitable pkh now o = case txOutDatumHash $ txOutTxOut o of
+        Nothing -> False
+        Just h  -> case Map.lookup h $ txData $ txOutTxTx o of
+            Nothing        -> False
+            Just (Datum e) -> case PlutusTx.fromData e of
+                Nothing -> False
+                Just d  -> beneficiary d == pkh && deadline d <= now
+
+endpoints :: Contract () VestingSchema Text ()
+endpoints = (give' `select` grab') >> endpoints
+  where
+    give' = endpoint @"give" >>= give
+    grab' = endpoint @"grab" >>  grab
+
+mkSchemaDefinitions ''VestingSchema
+
+mkKnownCurrencies []
+</code></pre>
+
+<h3 id="toc_14">4.2 Parameterised Contracts</h3>
+
+<p>Up until this point we have always compiled our &#39;on-chain&#39; validators using <code>typedValidator</code> (a compile-time constant). However, you may define a &#39;family of scripts&#39; that are parametrised such that you obtain a set of different typedValidator(s).</p>
+
+<p>We can do this by prepending an additional parameter to our validator template:</p>
+
+<pre><code>mkValidator validator :: AnyNameParam -> () -> () -> ScriptContext -> bool</code></pre>
+
+<p>For our purposes, we&#39;ll use the same script as shown in §4.1:</p>
+
+<pre><code>
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveAnyClass         #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE MultiParamTypeClasses  #-}
+{-# LANGUAGE NoImplicitPrelude      #-}
+{-# LANGUAGE OverloadedStrings      #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TypeApplications           #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE TypeOperators              #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week03.Vesting where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import           PlutusTx             (Data (..))
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Semigroup (..), Show (..), String)
+import           Text.Printf          (printf)
+
+data VestingParam = VestingParam
+    { beneficiary :: PubKeyHash
+    , deadline    :: POSIXTime
+    } deriving Show
+
+PlutusTx.makeLift ''VestingParam
+
+{-# INLINABLE mkValidator #-}
+mkValidator :: VestingParam -> () -> () -> ScriptContext -> Bool
+mkValidator p () () ctx = traceIfFalse "beneficiary's signature missing" signedByBeneficiary &&
+                         traceIfFalse "deadline not reached" deadlineReached
+  where
+    info :: TxInfo
+    info = scriptContextTxInfo ctx
+
+    signedByBeneficiary :: Bool
+    signedByBeneficiary = txSignedBy info $ beneficiary p
+
+    deadlineReached :: Bool
+    deadlineReached = contains (from $ deadline p) $ txInfoValidRange info
+
+data Vesting
+instance Scripts.ValidatorTypes Vesting where
+    type instance DatumType Vesting = ()
+    type instance RedeemerType Vesting = ()
+
+typedValidator :: VestingParam -> Scripts.TypedValidator Vesting
+typedValidator p = Scripts.mkTypedValidator @Vesting
+    ($$(PlutusTx.compile [|| mkValidator ||]) `PlutusTx.applyCode` PlutusTx.liftCode p)
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @() @()
+
+validator :: VestingParam -> Validator
+validator p = Scripts.validatorScript $ typedValidator p
+
+valHash :: VestingParam -> Ledger.ValidatorHash
+valHash p = Scripts.validatorHash $ typedValidator p
+
+scrAddress :: VestingParam -> Ledger.Address
+scrAddress p = scriptAddress $ validator p
+
+data GiveParams = GiveParams
+    { gpBeneficiary :: !PubKeyHash
+    , gpDeadline    :: !POSIXTime
+    , gpAmount      :: !Integer
+    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+
+type VestingSchema =
+            Endpoint "give" GiveParams
+        .\/ Endpoint "grab" POSIXTime
+
+give :: AsContractError e => GiveParams -> Contract w s e ()
+give gp = do
+    let p = VestingParam
+                { beneficiary = gpBeneficiary gp
+                , deadline    = gpDeadline gp
+                }
+        tx  = mustPayToTheScript () $ Ada.lovelaceValueOf $ gpAmount gp
+    ledgerTx <- submitTxConstraints (typedValidator p) tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf "made a gift of %d lovelace to %s with deadline %s"
+        (gpAmount gp)
+        (show $ gpBeneficiary gp)
+        (show $ gpDeadline gp)
+
+grab :: forall w s e. AsContractError e => POSIXTime -> Contract w s e ()
+grab d = do
+    now   <- currentTime
+    pkh   <- pubKeyHash <$> ownPubKey
+    if now < d
+        then logInfo @String $ "too early"
+        else do
+            let p = VestingParam
+                        { beneficiary = pkh
+                        , deadline    = d
+                        }
+            utxos <- utxoAt $ scrAddress p
+            if Map.null utxos
+                then logInfo @String $ "no gifts available"
+                else do
+                    let orefs   = fst <$> Map.toList utxos
+                        lookups = Constraints.unspentOutputs utxos      <>
+                                  Constraints.otherScript (validator p)
+                        tx :: TxConstraints Void Void
+                        tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData () | oref <- orefs] <>
+                                  mustValidateIn (from now)
+                    ledgerTx <- submitTxConstraintsWith @Void lookups tx
+                    void $ awaitTxConfirmed $ txId ledgerTx
+                    logInfo @String $ "collected gifts"
+
+endpoints :: Contract () VestingSchema Text ()
+endpoints = (give' `select` grab') >> endpoints
+  where
+    give' = endpoint @"give" >>= give
+    grab' = endpoint @"grab" >>= grab
+
+mkSchemaDefinitions ''VestingSchema
+
+mkKnownCurrencies []</code></pre>
+
+<p>Adding a parameter or parameters is not as easy as it may have originally seemed for the following reasons:</p>
+
+<ul>
+<li>Parameters are not known at compile-time.</li>
+<li>The template Haskell used to compile down to Plutus via Plutus-tx cannot accept parameters at run-time.</li>
+<li>This means we have to use something called liftCode in order to pass individual parameters through as compiled parameters and essentially inject them into the compiled code.</li>
+<li>There are also a bunch of syntax changes that are required, simply because we&#39;re essentially injecting an additional parameter, from what I understand.</li>
+</ul>
+
+<h3 id="toc_15">5. Homework 1.0</h3>
+
+<p><em>THIS HAS BEEN A LOT TO TAKE IN, IN ONE SHORT SITTING... Solution One...</em></p>
+
+<pre><code>{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE DeriveAnyClass      #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week03.Solution1 where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Show (..), String)
+import qualified Prelude              as P
+import           Text.Printf          (printf)
+
+data VestingDatum = VestingDatum
+    { beneficiary1 :: PubKeyHash
+    , beneficiary2 :: PubKeyHash
+    , deadline     :: POSIXTime
+    } deriving Show
+
+PlutusTx.unstableMakeIsData ''VestingDatum
+
+{-# INLINABLE mkValidator #-}
+mkValidator :: VestingDatum -> () -> ScriptContext -> Bool
+mkValidator dat () ctx
+    | (beneficiary1 dat `elem` sigs) && (to       (deadline dat) `contains` range) = True
+    | (beneficiary2 dat `elem` sigs) && (from (1 + deadline dat) `contains` range) = True
+    | otherwise                                                                    = False
+  where
+    info :: TxInfo
+    info = scriptContextTxInfo ctx
+
+    sigs :: [PubKeyHash]
+    sigs = txInfoSignatories info
+
+    range :: POSIXTimeRange
+    range = txInfoValidRange info
+
+data Vesting
+instance Scripts.ValidatorTypes Vesting where
+    type instance DatumType Vesting = VestingDatum
+    type instance RedeemerType Vesting = ()
+
+typedValidator :: Scripts.TypedValidator Vesting
+typedValidator = Scripts.mkTypedValidator @Vesting
+    $$(PlutusTx.compile [|| mkValidator ||])
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @VestingDatum @()
+
+validator :: Validator
+validator = Scripts.validatorScript typedValidator
+
+scrAddress :: Ledger.Address
+scrAddress = scriptAddress validator
+
+data GiveParams = GiveParams
+    { gpBeneficiary :: !PubKeyHash
+    , gpDeadline    :: !POSIXTime
+    , gpAmount      :: !Integer
+    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+
+type VestingSchema =
+            Endpoint "give" GiveParams
+        .\/ Endpoint "grab" ()
+
+give :: AsContractError e => GiveParams -> Contract w s e ()
+give gp = do
+    pkh <- pubKeyHash <$> ownPubKey
+    let dat = VestingDatum
+                { beneficiary1 = gpBeneficiary gp
+                , beneficiary2 = pkh
+                , deadline     = gpDeadline gp
+                }
+        tx  = mustPayToTheScript dat $ Ada.lovelaceValueOf $ gpAmount gp
+    ledgerTx <- submitTxConstraints typedValidator tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf "made a gift of %d lovelace to %s with deadline %s"
+        (gpAmount gp)
+        (show $ gpBeneficiary gp)
+        (show $ gpDeadline gp)
+
+grab :: forall w s e. AsContractError e => Contract w s e ()
+grab = do
+    now    <- currentTime
+    pkh    <- pubKeyHash <$> ownPubKey
+    utxos  <- utxoAt scrAddress
+    let utxos1 = Map.filter (isSuitable $ \dat -> beneficiary1 dat == pkh && now <= deadline dat) utxos
+        utxos2 = Map.filter (isSuitable $ \dat -> beneficiary2 dat == pkh && now >  deadline dat) utxos
+    logInfo @String $ printf "found %d gift(s) to grab" (Map.size utxos1 P.+ Map.size utxos2)
+    unless (Map.null utxos1) $ do
+        let orefs   = fst <$> Map.toList utxos1
+            lookups = Constraints.unspentOutputs utxos1 P.<>
+                      Constraints.otherScript validator
+            tx :: TxConstraints Void Void
+            tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData () | oref <- orefs] P.<>
+                      mustValidateIn (to now)
+        void $ submitTxConstraintsWith @Void lookups tx
+    unless (Map.null utxos2) $ do
+        let orefs   = fst <$> Map.toList utxos2
+            lookups = Constraints.unspentOutputs utxos2 P.<>
+                      Constraints.otherScript validator
+            tx :: TxConstraints Void Void
+            tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData () | oref <- orefs] P.<>
+                      mustValidateIn (from now)
+        void $ submitTxConstraintsWith @Void lookups tx
+  where
+    isSuitable :: (VestingDatum -> Bool) -> TxOutTx -> Bool
+    isSuitable p o = case txOutDatumHash $ txOutTxOut o of
+        Nothing -> False
+        Just h  -> case Map.lookup h $ txData $ txOutTxTx o of
+            Nothing        -> False
+            Just (Datum e) -> maybe False p $ PlutusTx.fromData e
+
+endpoints :: Contract () VestingSchema Text ()
+endpoints = (give' `select` grab') >> endpoints
+  where
+    give' = endpoint @"give" >>= give
+    grab' = endpoint @"grab" >>  grab
+
+mkSchemaDefinitions ''VestingSchema
+
+mkKnownCurrencies []</code></pre>
+
+<h3 id="toc_16">6. Homework 2.0</h3>
+
+<p><em>THIS HAS BEEN A LOT TO TAKE IN, IN ONE SHORT SITTING... Solution Two...</em></p>
+
+<pre><code>{-# LANGUAGE DataKinds             #-}
+{-# LANGUAGE DeriveAnyClass        #-}
+{-# LANGUAGE DeriveGeneric         #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE ScopedTypeVariables   #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeApplications      #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE TypeOperators         #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+module Week03.Solution2 where
+
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (ToJSON, FromJSON)
+import           Data.Map             as Map
+import           Data.Text            (Text)
+import           Data.Void            (Void)
+import           GHC.Generics         (Generic)
+import           Plutus.Contract
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Playground.Contract  (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types     (KnownCurrency (..))
+import           Prelude              (IO, Semigroup (..), Show (..), String)
+import           Text.Printf          (printf)
+
+{-# INLINABLE mkValidator #-}
+mkValidator :: PubKeyHash -> POSIXTime -> () -> ScriptContext -> Bool
+mkValidator pkh s () ctx =
+    traceIfFalse "beneficiary's signature missing" checkSig      &&
+    traceIfFalse "deadline not reached"            checkDeadline
+  where
+    info :: TxInfo
+    info = scriptContextTxInfo ctx
+
+    checkSig :: Bool
+    checkSig = pkh `elem` txInfoSignatories info
+
+    checkDeadline :: Bool
+    checkDeadline = from s `contains` txInfoValidRange info
+
+data Vesting
+instance Scripts.ValidatorTypes Vesting where
+    type instance DatumType Vesting = POSIXTime
+    type instance RedeemerType Vesting = ()
+
+typedValidator :: PubKeyHash -> Scripts.TypedValidator Vesting
+typedValidator p = Scripts.mkTypedValidator @Vesting
+    ($$(PlutusTx.compile [|| mkValidator ||]) `PlutusTx.applyCode` PlutusTx.liftCode p)
+    $$(PlutusTx.compile [|| wrap ||])
+  where
+    wrap = Scripts.wrapValidator @POSIXTime @()
+
+validator :: PubKeyHash -> Validator
+validator = Scripts.validatorScript . typedValidator
+
+scrAddress :: PubKeyHash -> Ledger.Address
+scrAddress = scriptAddress . validator
+
+data GiveParams = GiveParams
+    { gpBeneficiary :: !PubKeyHash
+    , gpDeadline    :: !POSIXTime
+    , gpAmount      :: !Integer
+    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+
+type VestingSchema =
+            Endpoint "give" GiveParams
+        .\/ Endpoint "grab" ()
+
+give :: AsContractError e => GiveParams -> Contract w s e ()
+give gp = do
+    let p  = gpBeneficiary gp
+        d  = gpDeadline gp
+        tx = mustPayToTheScript d $ Ada.lovelaceValueOf $ gpAmount gp
+    ledgerTx <- submitTxConstraints (typedValidator p) tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    logInfo @String $ printf "made a gift of %d lovelace to %s with deadline %s"
+        (gpAmount gp)
+        (show $ gpBeneficiary gp)
+        (show $ gpDeadline gp)
+
+grab :: forall w s e. AsContractError e => Contract w s e ()
+grab = do
+    now   <- currentTime
+    pkh   <- pubKeyHash <$> ownPubKey
+    utxos <- Map.filter (isSuitable now) <$> utxoAt (scrAddress pkh)
+    if Map.null utxos
+        then logInfo @String $ "no gifts available"
+        else do
+            let orefs   = fst <$> Map.toList utxos
+                lookups = Constraints.unspentOutputs utxos        <>
+                          Constraints.otherScript (validator pkh)
+                tx :: TxConstraints Void Void
+                tx      = mconcat [mustSpendScriptOutput oref $ Redeemer $ PlutusTx.toData () | oref <- orefs] <>
+                          mustValidateIn (from now)
+            ledgerTx <- submitTxConstraintsWith @Void lookups tx
+            void $ awaitTxConfirmed $ txId ledgerTx
+            logInfo @String $ "collected gifts"
+  where
+    isSuitable :: POSIXTime -> TxOutTx -> Bool
+    isSuitable now o = case txOutDatumHash $ txOutTxOut o of
+        Nothing -> False
+        Just h  -> case Map.lookup h $ txData $ txOutTxTx o of
+            Nothing        -> False
+            Just (Datum e) -> case PlutusTx.fromData e of
+                Nothing -> False
+                Just d  -> d <= now
+
+endpoints :: Contract () VestingSchema Text ()
+endpoints = (give' `select` grab') >> endpoints
+  where
+    give' = endpoint @"give" >>= give
+    grab' = endpoint @"grab" >>  grab
+
+mkSchemaDefinitions ''VestingSchema
+
+mkKnownCurrencies []</code></pre>
+
+<h3 id="toc_17">7. Summary</h3>
+
+<p>To summarise what has been discussed within this lecture:</p>
+
+<ul>
+<li>Playground Memory Issues</li>
+<li>Quick Refresh On The (E)UTxO Model</li>
+<li>EUTxO Scripts</li>
+<li>Other Important Purposes of ScriptPurpose</li>
+<li>Context - TxInfo (Acronym for Transaction Info)</li>
+<li>Current Context (Updated)</li>
+<li>On-Chain VS Off-Chain Validation</li>
+<li>General Checks</li>
+<li>Time Intervals</li>
+<li>Interesting Use Cases: Smart Contracts</li>
+<li>Homework 1.0</li>
+<li>Homework 2.0</li>
+</ul>
+
+<h1 id="toc_18">References</h1>
+
+<p><a id="1">[1]</a>
+Plutus Development Team, 2021.
+plutus-ledger-api-0.1.0.0: Interface to the Plutus ledger for the Cardano ledger. Plutus.V1.Ledger.Contexts, section: Pending transactions and related types
+<a href="https://playground.plutus.iohkdev.io/tutorial/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Contexts.html">https://playground.plutus.iohkdev.io/tutorial/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Contexts.html</a></p>
+
+<p><a id="2">[2]</a>
+Manish Jain and Constantinos Dovrolis. 2004. Ten fallacies and pitfalls on end-to-end available bandwidth estimation. In Proceedings of the 4th ACM SIGCOMM conference on Internet measurement (IMC &#39;04). Association for Computing Machinery, New York, NY, USA, 272–277. DOI: https://doi.org/10.1145/1028788.1028825</p>
+
+<p><a id="3">[3]</a>
+Learn Cloud Native Development Team, 2019.
+The Basics - Fallacies of Distributed Systems
+<a href="https://www.learncloudnative.com/blog/2019-11-26-fallacies_of_distributed_systems">https://www.learncloudnative.com/blog/2019-11-26-fallacies_of_distributed_systems</a></p>
+
+<p><a id="4">[4]</a>
+Plutus Engineering Team, IOHK.
+plutus-ledger-api-0.1.0.0: Interface to the Plutus ledger for the Cardano ledger.
+<a href="https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Contexts.html">https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Contexts.html</a></p>
+
+<h1 id="toc_19">Footnotes</h1>
+
+<p><a id="ft1">1.</a> The description is that of a pending transaction. This is the view as seen by validator scripts, so some details are stripped out. <a href="#1">[1]</a></p>
+
+<p><a id="ft2">2.</a> In order to produce a validator, which, in turn may consume any given UTxO (or not consume it!), we must provide (even if they&#39;re empty arguments) a datum (typically of type &#39;record&#39; &amp; implements isData), a redeemer (typically a set of functions or executable code which makes checks against unspent transaction output details) and the context (is of type: ScriptContext). We also understand that empty arguments must be in the form of unit data: <code>()</code> and if we&#39;re doing something useful, we&#39;ll likely be providing genuine arguments. Thus, the datum will likely contain some data (as you may expect) to be used in conjunction with the redeemer, which will be defined as a set of functions to likely draw from the ScriptContext; the compiled product of which (the validator) may then decide as to whether or not to spend the (E)UTxO in consideration. At least, this is <strong>my understanding thus far.</strong></p>
+
+
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
