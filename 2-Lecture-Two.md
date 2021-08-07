@@ -5,17 +5,13 @@
 
 So, let's learn how to write smart contracts in Haskell! [Watch this video](https://youtu.be/iSmkqocn0oQ), it makes sense.
 
-###### TODOS.
-
-* Add references and footnotes.
-
 ### 1. Introduction
 
-Within this set of lecture notes, some information about UTxO (or extended UTxOs if you prefer) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program. This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it's called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses.
+Within this set of lecture notes, some information about UTxO [[1]](#1) (and extended UTxOs [[2]](#2)) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program [[3]](#3). This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it's called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses [[4]](#4).
 
 #### 1.1 Catch Up | EUTxO - Additional Information
 
-Previously a pioneer brought up the notion of "what if we didn't add any kind of 'end-point' to our smart contract? Would the funds just get stuck within the contract?". Unfortunately, that would appear to be the case (if the script was coded in such a manner that there was no stopping criteria implemented". This is to say that: in order to change the state of the blockchain (to consume any given UTxO) a transaction must be executed on-chain (and validated), such that the previous UTxO is consumed and the next UTxO is created. UTxOs will never spring into action themselves.
+Previously a pioneer brought up the notion of "what if we didn't add any kind of 'end-point' to our smart contract? Would the funds just get stuck within the contract?" [[5]](#5). Unfortunately, that would appear to be the case (if the script was coded in such a manner that there was no stopping criteria implemented". This is to say that: in order to change the state of the blockchain (to consume any given UTxO) a transaction must be executed on-chain (and validated), such that the previous UTxO is consumed and the next UTxO is created. UTxOs will never spring into action themselves.
 
 * New transactions are generated (initiated) by a wallet (which is essentially a collection of keys, as your wallet has the private key to some UTxOs outputs 'public' key (which are thought of as scripts and redeemers).
 * The state of any given UTxO can only be changed if the outputs are verified by satisfying the arbitrary logic held at the script address, using the required redeemer (input parameters).
@@ -26,9 +22,9 @@ Previously a pioneer brought up the notion of "what if we didn't add any kind of
 
 ### 2. The Difference: (E)UTxO VS UTxO
 
-A simple UTxO model usually takes a hash of some form of public key and uses this as the address. The redeemer for the UTxO model can then simply derive the public key and then sign the transaction using the paired private key (ensuring they are in fact the person who holds the private key in their wallet; and so a UTxO is consumed by signing the UTxO and a new UTxO is created with inputs and outputs.
+A simple UTxO model [[1]](#1) usually takes a hash of some form of public key and uses this as the address. The redeemer for the UTxO model can then simply derive the public key and then sign the transaction using the paired private key (ensuring they are in fact the person who holds the private key in their wallet; and so a UTxO is consumed by signing the UTxO and a new UTxO is created with inputs and outputs.
 
-(Extended)UTxOs have a number of address types, one of which is a script addresses. At this address a smart contract can exist on-chain that can run arbitrary logic.
+(Extended)UTxOs have a number of address types, one of which is a script addresses. At this address a smart contract can exist on-chain that can run arbitrary logic [[2]](#2).
 
 Transactions that want to consume an (E)UTxO sitting at a script address are validated by a node, the node will run the script and depending on the result of the script (typically TRUE / FALSE, but other more complicated outputs can exist I believe) consumption is permitted or non-permitted.
 
@@ -298,7 +294,7 @@ Setting a data value (of type Bytestring):
 
 **Writing Gift.hs**
 
-You'll want to start writing your Haskell program with the following template:
+You'll want to start writing your Haskell program with the following template [[6]](#6):
 
 	{-# LANGUAGE DataKinds           #-}
 	{-# LANGUAGE FlexibleContexts    #-}
@@ -395,6 +391,8 @@ Now when you reload the script in the repl, you'll see you have a hash and an sc
 *Lars then goes on to gloss over the off-chain code..*
 
 ### Gift.hs | Whole Programme
+
+You may find a reference to the whole programme [here](#6).
 	
 	{-# LANGUAGE DataKinds           #-}
 	{-# LANGUAGE FlexibleContexts    #-}
@@ -816,3 +814,21 @@ See My comments for additional details...
 ### 8. Summary:
 
 During this lecture and the homework excises we learnt about the differences between a UTxO model and an EUTxO Model, but these were interceded during last lecture too. We leant about redeemers, datum and context (and by proxy: validators). However, we went into much more detail during this lecture. For example we implemented our own validators with our own redeemer types. These were very basic redeemers, and essentially just checked a simple expression: that X == Y using basic data types initially, but then we also did create our own record types that implemented isData. Furthermore, we also learnt about the compiler that processes Haskell and turns it into Plutus-core (Plutus-tx) and that essentially everything ends up being Lambda Calculus (System F Omega with Recursive Data Types). Finally, we completed two home-works.
+
+# References
+
+<a href="#1" id="1">1.</a> Delgado-Segura, S., Pérez-Sola, C., Navarro-Arribas, G. and Herrera-Joancomartí, J., 2018, February. Analysis of the bitcoin utxo set. In International Conference on Financial Cryptography and Data Security (pp. 78-91). Springer, Berlin, Heidelberg.
+
+<a href="#2" id="2">2.</a> Chakravarty, M.M., Chapman, J., MacKenzie, K., Melkonian, O., Jones, M.P. and Wadler, P., 2020, February. The extended UTXO model. In International Conference on Financial Cryptography and Data Security (pp. 525-539). Springer, Cham.
+
+<a href="#3" id="3">3.</a> The Cardano Foundation. IOHK. Last Updated: Early July 2021. <https://testnets.cardano.org/en/plutus-pioneer-program/>
+
+<a href="#4" id="4">4.</a> The Cardano Foundation. IOHK. Marlowe, Haddock, version 2.24.0. <https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Address.html>
+
+<a href="#5" id="5">5.</a> Video Lecture Two, Plutus Pioneer Program. IOHK. <https://youtu.be/sN3BIa3GAOc>
+
+<a href="#6" id=6">6.</a> Plutus Pioneer Program, Week Two, Gift.hs. Lars Brünjes, George Flerovsky. Latest commit 4a09b7e on 7 Jul. <https://github.com/input-output-hk/plutus-pioneer-program/blob/main/code/week02/src/Week02/Gift.hs>
+
+# Footnotes
+
+*Nothing To Declare...*

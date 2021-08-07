@@ -2,7 +2,7 @@
 
 *The Second Cohort Of The Plutus Pioneer Programme*
 
-### BLN: Authors Note
+### 1. Authors Note
 
 I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems [[1]](#1), Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup>[1](#fn1)</sup>. are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
 
@@ -12,7 +12,7 @@ I would like to express my gratitude to IOHK for constructing this program and a
 
 I believe I can speak for the entire community when I extend my sincerest thanks to the world class engineers and scientists who have contributed to building Cardano as of current. Charles, you will are and will continue to be an inspiration to us all and to the world. I hope we can all collectively strive to make positive societal change.
 
-### BLN: Preface
+### 2. Preface
 
 This set if notes, written in a casual, formal, yet creative style has been cultivated through the activity of participating within the second cohort of the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/). I felt it to be important to document my own experience with the program in order to gain the most from it. Furthermore, it is my hope that the notes themselves (and perhaps even through the contribution of others) will be able to help other aspiring developers for time to come.
 
@@ -25,11 +25,11 @@ To be completely honest, I'm not hugely qualified to write any of this! Which is
 
 I wrote this set of notes in an ad-hoc style manner. As the lectures were released, I've done my best to keep up with work, in addition to following the lectures, implementing the homework's and keeping these detailed notes.
 
-### BLN: Foreword
+### 3. Foreword
 
 *To any and all IOHK employees: feel free to contribute by adding a foreword via a pull request.*
 
-### BLN: Formatting
+### 4. Formatting
 
 As these are technical notes, the format for each set of lecture notes will be written to a pseudo-technical specification. This means each set of notes should follow a template, making it easier for readers to break down and understand. Each set of notes will be presented in accordance with the following schema:
 
@@ -48,13 +48,11 @@ I will be doing my best to keep to the above schema for each set of notes, but t
 
 *Quotes: You will see various quotes throughout the text, this is simply how I like to write.*
 
-### BLN: Content Within This Repo
+### 5. Content Within This Repo
 
-*See Table Of Contents*
+The contents of this repo is two-fold. Firstly (and most importantly), the content is a set of pseudo-academically written notes for the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/) [[3]](#3), which follow the formatting as outlined in §5. Secondly, a set of academic papers which I have deemed to be of greatest importance **to me** is also provided. In addition, these papers will (slowly, but surly) be printed out, annotated and scanned. Shortly thereafter, these scans will be re-uploaded to this repo.
 
-*In Progress*
-
-[[2]](#2)
+This repo will **forever and always** remain open, unless instructed otherwise by a member of the Cardano organisation or by an employee of IOHK.
 
 ### BLN: Intended Audience
 
@@ -95,8 +93,6 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 ### BLN: References
 
-*In Progress*
-
 <a id="1">[1]</a>
 Kellogg, R.T., 1999.
 The psychology of writing.
@@ -106,6 +102,13 @@ Oxford University Press.
 Jones, M.P., 2021.
 Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021.
 <https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/>
+
+<a href="#3" id="3">[3]</a> 
+The Cardano Foundation. 
+IOHK. 
+Last Updated: Early July 2021. 
+<https://testnets.cardano.org/en/plutus-pioneer-program/>
+
 
 ### BLN: Footnotes
 
@@ -121,6 +124,7 @@ Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021.
 
 ### BLN: TODO
 
-*In Progress*
-
-1. Catch up to and finish Lecture Seven ASAP.
+1. Correct any errors within any of my current lecture notes.
+2. Continue to include references and footnotes within all lecture notes.
+3. Finish the *In Progress* sections within this README.md.
+4. Catch up to and finish Lecture Seven ASAP.
