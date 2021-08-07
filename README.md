@@ -54,21 +54,21 @@ The contents of this repo is two-fold. Firstly (and most importantly), the conte
 
 This repo will **forever and always** remain open, unless instructed otherwise by a member of the Cardano organisation or by an employee of IOHK.
 
-### BLN: Intended Audience
+### 6. Intended Audience
 
 These notes are for anybody and everybody (somewhat vague, I know), but the audience could range from those who are current Plutus Pioneers, individuals who are just following the programme, developers from other communities, or even legislators (however, I highly doubt they would be reading my notes / documentation on Cardano). But ultimately, we are all here for the same reason, we believe in what we're building and the best way to approach adoption is to allow everybody to see what you're doing, at least, that would be my intuition.
 
 But, to reduce the scope a little bit and be somewhat more realistic, the intended audience is really for those who are looking to develop on Cardano.
 
-### BLN: Why These Notes May Be Helpful
+### 7. Why These Notes May Be Helpful
 
 *In Progress*
 
-### BLN: Contributing
+### 8. Contributing
 
 *Anyone is free to contribute via a pull request.*
 
-### BLN: Table of Contents
+### 9. Table of Contents
 
  - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
  - [Lecture Two](2-Lecture-Two.md): (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
@@ -83,15 +83,15 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 *Note: Currently Writing Notes On All Lectures Marked With '-'*
 
-### BLN: Summary
+### 10. Summary
 
 *In Progress*
 
-### BLN: StackExchange (Cardano) Answers:
+### 11. StackExchange (Cardano) Answers:
 
 1. [What exactly is a redeemer?](https://cardano.stackexchange.com/questions/471/what-exactly-is-a-redeemer/2208#2208)
 
-### BLN: References
+### 12. References
 
 <a id="1">[1]</a>
 Kellogg, R.T., 1999.
@@ -110,19 +110,19 @@ Last Updated: Early July 2021.
 <https://testnets.cardano.org/en/plutus-pioneer-program/>
 
 
-### BLN: Footnotes
+### 13. Footnotes
 
 <a id="fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — 'cryptocurrencies'
 
-### BLN: Nomenclature
+### 14. Nomenclature
 
 *In Progress*
 
-### BLN: Appendix
+### 15. Appendix
 
 *In Progress*
 
-### BLN: TODO
+### 16. TODO
 
 1. Correct any errors within any of my current lecture notes.
 2. Continue to include references and footnotes within all lecture notes.
