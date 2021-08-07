@@ -87,42 +87,93 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 *In Progress*
 
-### 11. StackExchange (Cardano) Answers:
+### 11. Nomenclature
+
+* UTxO: A model of accounting used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' has access to (in the context of 'cryptocurrencies'<sup><a href="#fn1">1</a></sup>.
+* (E)UTxO: An extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic [[8]](8).
+* Plutus-Platform: an application development platform for developing distributed applications using the Cardano blockchain [[5]](5).
+* Compiler: A compiler takes some source code, and produces an output in another language, while the retaining meaning of the source. <code>Source -> (analysis) -> Compiler -> (Synthesis) -> Target.</code> [[4]](4)
+* plutus-tx: The compiler which is responsible for transforming Plutus (which is a subset of Haskell) into Plutus-core [[6]](6).
+* plutus-core: What high level languages are to assembly language, Plutus is to Plutus-core [[7]](7). From what I understand, plutus-core is essentially: System F omega with (equi-)recursive types.
+
+*More Items Are Continued To Be Added As Time Elapses.*
+
+### 12. StackExchange (Cardano) Answers:
 
 1. [What exactly is a redeemer?](https://cardano.stackexchange.com/questions/471/what-exactly-is-a-redeemer/2208#2208)
 
-### 12. References
+### 13. References
 
 <a id="1">[1]</a>
-Kellogg, R.T., 1999.
-The psychology of writing.
-Oxford University Press.
+Kellogg, R.T., 1999. <br />
+The psychology of writing. <br />
+Oxford University Press. <br />
 
 <a id="2">[2]</a>
-Jones, M.P., 2021.
-Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021.
-<https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/>
+Jones, M.P., 2021. <br />
+Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021. <br />
+<https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/> <br />
 
-<a href="#3" id="3">[3]</a> 
-The Cardano Foundation. 
-IOHK. 
-Last Updated: Early July 2021. 
-<https://testnets.cardano.org/en/plutus-pioneer-program/>
+<a href="#3" id="3">[3]</a>
+The Cardano Foundation, July 2021. <br />
+Input Output Hong Kong (IOHK). <br />
+<small>Last Updated: Early July 2021.</small> <br />
+<https://testnets.cardano.org/en/plutus-pioneer-program/> <br />
+
+<a href="#4" id=4">[4]</a>
+Jonathon Dilworth, 18 May 2015. <br />
+The University of Manchester Alumni. <br />
+<small>Last Updated: 18 May 2015. </small> <br />
+<https://github.com/jonathondilworth/compilers>
+
+<a href="#5" id=5">[5]</a> 
+IOHK GitHub. <br />
+Input Output Hong Kong (IOHK). <br />
+<https://github.com/input-output-hk/plutus> <br />
 
 
-### 13. Footnotes
+<a href="#6" id=6">[6]</a>
+IOHK GitHub. <br />
+Input Output Hong Kong (IOHK). <br />
+<https://github.com/input-output-hk/plutus/tree/master/plutus-tx> <br />
 
-<a id="fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — 'cryptocurrencies'
+<a href="#7" id=7">[7]</a>
+IOHK GitHub. <br />
+Input Output Hong Kong (IOHK). <br />
+<https://github.com/input-output-hk/plutus/tree/master/plutus-core> <br />
 
-### 14. Nomenclature
+<a href="#8" id=7">[8]</a>
+Chakravarty, M.M., Chapman, J., MacKenzie, K., Melkonian, O., Jones, M.P. and Wadler, P., 2020, February.  <br />
+The extended UTXO model. <br />
+In International Conference on Financial Cryptography and Data Security (pp. 525-539). Springer, Cham. <br />
+
+### 14. Footnotes
+
+<a id="fn1">1.</a> The technologies I am referencing are Distributed Ledgers and Blockchain Consensus Algorithms — 'cryptocurrencies'.
+
+### 15. Appendix A
+
+15.1: Plutus-Platform: The 'on-chain' and 'off-chain' portion of Cardano's smart(er) contract implementation (from this point onwards, smart contracts simply refer to the extended UTxO model that implements Plutus). This facilitates smart contract transactions (which may be complex in nature) using off-chain code (implemented in 'raw' Haskell, plus some libraries made available via Cardano. *note: it does not require compiling to Plutus-core*). Off-chain code performs transactional validation checks (some of which are time-based) to ensure any such transaction can be legitimately executed (or the UTxO can be 'spent,' or as it were, 'not-spent'). Furthermore, on-chain code performs the execution of transaction via active nodes operating on the network (when prompted to) and writes to the (collective) Blockchain accordingly.
+
+15.2: Contracts can remain 'stale' forever (if nobody changes their state by initiating a change of state at that 'script' or EUTxO address).
+
+### 16. Appendix B
 
 *In Progress*
 
-### 15. Appendix
+### 17. Appendix: Additional Images
 
 *In Progress*
 
-### 16. TODO
+### 18. Appendix: Additional Tables
+
+*In Progress*
+
+### 19. Appendix: Additional Literature
+
+*In Progress*
+
+### 20. TODO
 
 1. Correct any errors within any of my current lecture notes.
 2. Continue to include references and footnotes within all lecture notes.

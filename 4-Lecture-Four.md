@@ -186,8 +186,16 @@ foo = ...
 let x = foo in ... x ... x ...
 ... foo ... foo
 </code></pre>
-	
-Regardless of what is executed during the ... we know that the output from the Haskell script is always going to be the same. Once you declare a function or a value, Haskell knows that you're not a liar, so it keeps you to your word! This is explained in §2.3 as referential transparency.
+
+*Note: Haskell is a pure functional language*
+
+*Now I'm going to assume you also are clued up on your basic philosophy:*
+
+Premise 1: Given that the value of calling <code>foo</code> is unknown, and <br />
+Premise 2: Assuming foo has been assigned a return value<sup><a href="#fn4">4</a></sup> <br />
+Conclusion: Then foo will **always**<sup><a href="#fn5">5</a></sup> return the same value [[1]](1) <br />
+
+**Haskell knows that you're not a liar, so it keeps you to your word! This is explained in §2.3 as referential transparency.**
 
 ### 2.3 Referential Transparency
 
