@@ -120,29 +120,29 @@ Input Output Hong Kong (IOHK). <br />
 <small>Last Updated: Early July 2021.</small> <br />
 <https://testnets.cardano.org/en/plutus-pioneer-program/> <br />
 
-<a href="#4" id=4">[4]</a>
+<a href="#4" id="4">[4]</a>
 Jonathon Dilworth, 18 May 2015. <br />
 The University of Manchester Alumni. <br />
 <small>Last Updated: 7 August 2021. </small> <br />
-<https://github.com/jonathondilworth/compilers>
+<https://github.com/jonathondilworth/compilers> <br />
 
-<a href="#5" id=5">[5]</a> 
+<a href="#5" id="5">[5]</a>
 IOHK GitHub. <br />
 Input Output Hong Kong (IOHK). <br />
 <https://github.com/input-output-hk/plutus> <br />
 
 
-<a href="#6" id=6">[6]</a>
+<a href="#6" id="6">[6]</a>
 IOHK GitHub. <br />
 Input Output Hong Kong (IOHK). <br />
 <https://github.com/input-output-hk/plutus/tree/master/plutus-tx> <br />
 
-<a href="#7" id=7">[7]</a>
+<a href="#7" id="7">[7]</a>
 IOHK GitHub. <br />
 Input Output Hong Kong (IOHK). <br />
 <https://github.com/input-output-hk/plutus/tree/master/plutus-core> <br />
 
-<a href="#8" id=7">[8]</a>
+<a href="#8" id="8">[8]</a>
 Chakravarty, M.M., Chapman, J., MacKenzie, K., Melkonian, O., Jones, M.P. and Wadler, P., 2020, February.  <br />
 The extended UTXO model. <br />
 In International Conference on Financial Cryptography and Data Security (pp. 525-539). Springer, Cham. <br />
