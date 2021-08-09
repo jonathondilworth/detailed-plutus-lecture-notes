@@ -4,7 +4,7 @@
 
 ### 1. Authors Note
 
-I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems [[1]](#1), Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup>[1](#fn1)</sup>. are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
+I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems [[1]](#1), Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup>[1](#fn1)</sup> are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
 
 I've been using distributed ledgers and blockchain consensus algorithms for over ten years. I remember buying BTC at \$3 and seeing it hit \$7 was mind blowing for me (at the time). It's a shame I never held on to many, but I just look back and laugh. Why? Because it's not about money, although most people would disagree (this is one of the reasons why I feel somewhat at home within the Cardano community). It's about technology and ultimately: changing the world. It's a strange thought: we are individuals, we have choices, and if we decide to do so, we can make a real difference here. If there is anything worth pursuing, it's making a difference. This is why I decided to devote as much time as possible to the difficult task of participating within the Plutus Pioneer Program and brushing up on Haskell.
 
@@ -72,7 +72,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
  - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
  - [Lecture Two](2-Lecture-Two.md): (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
- - [Lecture Three](3-Lecture-Three.md): Problems in the Playground, EUTxO Refresh, TxInf & ScriptPurpose, On-Chain, Off-chain, Time, Examples
+ - [Lecture Three](3-Lecture-Three.md): Problems in the Playground, EUTxO Refresh, TxInfo & ScriptPurpose, On-Chain, Off-chain, Time, Examples
  - [Lecture Four](4-Lecture-Four.md): Monads, The EmulatorTrace Monad, Contract Monad, Homework
  - [Lecture Five](): -
  - [Lecture Six](): -
@@ -104,12 +104,12 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 ### 13. References
 
-<a id="1">[1]</a>
+<a href="#1" id="1">[1]</a>
 Kellogg, R.T., 1999. <br />
 The psychology of writing. <br />
 Oxford University Press. <br />
 
-<a id="2">[2]</a>
+<a href="#2" id="2">[2]</a>
 Jones, M.P., 2021. <br />
 Plutus Tx: compiling Haskell into Plutus Core. Viewed 2nd August 2021. <br />
 <https://iohk.io/en/blog/posts/2021/02/02/plutus-tx-compiling-haskell-into-plutus-core/> <br />
@@ -161,17 +161,25 @@ In International Conference on Financial Cryptography and Data Security (pp. 525
 
 *In Progress*
 
+ 
+
 ### 17. Appendix: Additional Images
 
 *In Progress*
+
+ 
 
 ### 18. Appendix: Additional Tables
 
 *In Progress*
 
+ 
+
 ### 19. Appendix: Additional Literature
 
 *In Progress*
+
+ 
 
 ### 20. TODO
 

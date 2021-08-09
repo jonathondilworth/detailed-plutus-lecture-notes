@@ -1,8 +1,13 @@
 # Lecture One
 
+>"Anyone not shocked by quantum mechanics has not yet understood it." <br />
+> — Niels Bohr
+
+You could *possibly* say the same about *distributed ledger technologies* and *blockchain consensus algorithms*.
+
 ### 1. Introduction
 
-Within this set of notes the following information will be presented. Firstly, the courses administration details are provided. Secondly, a coverage of the course content is outlined. Shortly thereafter, details about Plutus, the difficulty of the program and the (pseudo-optional) pre-requisites are given. Furthermore, an extensive explanation of the (E)UTxO model (which facilitates the possibility of transactions on the Cardano network - **Cardanos unique accounting model**) is fully explained. In addition, building an example contract is presented, which includes how to setup a NIX shell, how to start Plutus-playground-server and enable it to be locally accessible from the browser. Smart Contract compilation is demonstrated and an example of how to use the Plutus platform in whole is shown. As pioneers we are then encouraged to try this ourselves.
+Within this set of notes the following information will be presented. Firstly, the courses administration details are provided. Secondly, a coverage of the course content is outlined. Shortly thereafter, details about Plutus, the difficulty of the program and the (pseudo-optional) pre-requisites are given. Furthermore, an extensive explanation of the (E)UTxO model (which facilitates the possibility of transactions on the Cardano network — **Cardanos unique accounting model**) is fully explained. In addition, building an example contract is presented, which includes how to setup a NIX shell, how to start Plutus-playground-server and enable it to be locally accessible from the browser. Smart Contract compilation is demonstrated and an example of how to use the Plutus platform in whole is shown. As pioneers we are then encouraged to try this ourselves.
 
 *Note: this document contains information pulled in from the Plutus Pioneer Lecture series in addition to information provided by reliable sources, such as videos, papers and statements made by employees of IOHK. Furthermore, to provide some background information on models such as UTxO (unextended), other academic sources (papers and books) have also been referenced.*
 
@@ -44,11 +49,12 @@ Within this set of notes the following information will be presented. Firstly, t
 
 ### 1.3 Plutus Platform
 
-> "Plutus Platform Learning is Difficult" - Lars Brünjes
+> "Plutus Platform Learning is Difficult" <br />
+> — Lars Brünjes
 
 *Why So Difficult?*
 
-* Using (E)UTxO Model - Less intuitive than other similar technological implementations (E.G. ETH Accounting Model).
+* Using (E)UTxO Model — Less intuitive than other similar technological implementations (E.G. ETH Accounting Model).
 * Plutus is brand new and under rapid development, thus is changing all the time.
 * Due to constant changes, we're required to regularly update project dependencies.
 * Tooling is not ideal...
@@ -57,7 +63,7 @@ Within this set of notes the following information will be presented. Firstly, t
 * The Docker Image for the Plutus Platform is not yet ready.
 * Plutus-core is compiled down from Haskell, Haskell is fairly difficult.
 * It is recommended that you spend 40 hours per week, for 10 weeks to gain a solid understanding of Haskell before or whilst undertaking this course.
-* Plutus is BRAND new - we are the first people **ever in the world to write plutus code**.
+* Plutus is BRAND new — we are the first people **ever in the world to write plutus code**.
 * This means: no quick answers from StackOverflow or google...
 
 However,
@@ -71,14 +77,16 @@ However,
 
 ### 2.1 What is (E)UTxO?
 
-(E)UTxO abbreviates: "Extended Unspent Transaction Output", but to understand the extended model, we must first examine the unextended model (UTxO, firstly implemented by BitCoin [[2]](#2)).
+(E)UTxO abbreviates: "Extended Unspent Transaction Output", but to understand the extended model, we must first examine the unextended model: UTxO, firstly implemented by BitCoin [[2]](#2).
+
+Within the next section I flip between the simple UTxO model that BTC implements and will specify when switching to talk about the extended version, as implemented by Cardano. 
 
 ### 2.2 UTxO Explained
 
 >"If you want to get money, you have to consume an output that is laying around and in turn you get more outputs."
 > — Michael Peyton-Jones
 
-*What are unspent transaction outputs? Simply put: They are outputs - which can be thought of as remaining financial change - from previous transactions on the Blockchain that are still currently 'unspent' - Imagine you go to a shop, you buy a drink, you give the shopkeeper a £20 note, and you are given £19 back in change. That £19 is an unspent transaction output from the original transaction of the purchase of a drink.*
+*What are unspent transaction outputs? Simply put: They are outputs — which can be thought of as remaining financial change — from previous transactions on the Blockchain that are still currently 'unspent' — Imagine you go to a shop, you buy a drink, you give the shopkeeper a £20 note, and you are given £19 back in change. That £19 is an unspent transaction output from the original transaction of the purchase of a drink.*
 
 UTxO is a model of accounting and is used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' <sup>[1](#ft1)</sup> on a blockchain data structure has access to <sup>[2](#ft2)</sup>. Each wallet address on a permission-less blockchain such as BTC is associated to a set of cryptographic 'tools' which lock any funds (BTC, Digital Currency) that are tied to the above mentioned wallet. Spending funds (e.g. sending BTC from one wallet to another) equates to the transfer of ownership of BTC from one private key owner to another [[3]](#3). This is accomplished by signing a transaction with the initiators private key, which can only be confirmed by verifying the signature using the initiators public key.
 
@@ -90,7 +98,7 @@ You would therefore think that the sum of all input for any give Tx must equal t
 
 However, this is not the case. Firstly, transaction fees must be considered. *Furthermore, on Cardano (that implements the (E)UTxO model, uses ADA and not BTC) native tokens have been rolled out. Thus, minting and burning of native tokens creates an imbalance between the cumulative inputs and resulting outputs of a transaction. However, this is content for later lecture (according to Lars).*
 
-*Note: This is all accomplished through the use of a software wallets implementing transaction algorithms <sup>[3](#ft3)</sup>. Furthermore, technically BTC does implement basic 'smart contracts', which is to say, the transactional algorithms may utilise BitCoin Script (which includes a validator for identifying addresses and a redeemer to unlock the ability to spend funds[[5]](5)). As far as I understand, BitCoin Script is essentially a wrapper for managing public-private key cryptographic implementation and unlocking funds to spend through the use of digital signatures [[6]](6).*
+*Note: This is all accomplished through the use of a software wallets implementing transaction algorithms <sup>[3](#ft3)</sup>. Furthermore, technically BTC does implement basic 'smart contracts', which is to say, the transactional algorithms may utilise BitCoin Script (which includes a validator for identifying addresses and a redeemer to unlock the ability to spend funds[[5]](#5)). As far as I understand, BitCoin Script is essentially a wrapper for managing public-private key cryptographic implementation and unlocking funds to spend through the use of digital signatures [[6]](#6).*
 
 ### 2.3 Advanced Transactions Using UTxO
 
@@ -98,7 +106,7 @@ The extended implementation of UTxO as proposed by IOHK, developed and implement
 
 Consider the scenario where Bob has 60 BTC (in the form of two UTxOs: 50 BTC and 10 BTC) and Alice has 90 BTC in the form of a single UTxO. However, they wish to send 110 BTC to Tom. Alice must consume her (only) UTxO and Bob must consume both his UTxOs to meet the required amount to be sent to Tom (creating three transaction inputs from two owners with three unspent transaction outputs).
 
-Within this 'simple advanced' transaction, the outputs generated by the initiated transaction ensures Tom receives 110 BTC and all other parties (Alice and Bob) receive their change by splitting the resulting output such that they receive the following [[7]](7):
+Within this 'simple advanced' transaction, the outputs generated by the initiated transaction ensures Tom receives 110 BTC and all other parties (Alice and Bob) receive their change by splitting the resulting output such that they receive the following [[7]](#7):
 
 <img src="https://latex.codecogs.com/svg.latex?Given:%20Tx^{Alice}%20=%20\%2090%20\%20BTC\%20\%20and%20\%20%20\sum_{i=0}^{X}%20Tx_{i}^{Bob}%20=%2060%20\%20BTC">
 
@@ -283,19 +291,19 @@ So, I noticed the NFT was not transferring from wallet one to wallet three. It t
 
 ###### The Following Paragraphs are sections that I removed, as I wasn't 100% sure as to whether they were accurate or not.
 
-Firstly, the $validator$ in Cardano is extended to also implement the aforementioned arbitrary logic and is no longer a simple transactional algorithm which returns a boolean value based on the input from the $redeemer$. Therefore, the $validator$ is a programmable.
+Firstly, the <code>validator</code> in Cardano is extended to also implement the aforementioned arbitrary logic and is no longer a simple transactional algorithm which returns a boolean value based on the input from the <code>redeemer</code>. Therefore, the <code>validator</code> is a programmable.
 
-Furthermore, the $validator$ ultimately remains unmodified (recall that the $validator$ determines the address of the transaction output. Thus, it's not a great idea to add too much complexity to the on-chain validation script).
+Furthermore, the <code>validator</code> ultimately remains unmodified (recall that the <code>validator</code> determines the address of the transaction output. Thus, it's not a great idea to add too much complexity to the on-chain validation script).
 
 *(From the video by Michael Peyton Jones)*
 
-As you have most likely identified by now, the $validator$ is required to (rather self-evidently) validate the entire transaction on-chain. In order for it to perform this function, it must have the appropriate scope such that it can evaluate the entire context of the transaction. This is why an additional component is added to all Cardano transactions called $context$. The $validator$ can now see all inputs and outputs for the transaction that it is validating and can be re-used within a chain of potential transactions. A chain of transactions can be thought of as a state machine.
+As you have most likely identified by now, the <code>validator</code> is required to (rather self-evidently) validate the entire transaction on-chain. In order for it to perform this function, it must have the appropriate scope such that it can evaluate the entire context of the transaction. This is why an additional component is added to all Cardano transactions called <code>context</code>. The <code>validator</code> can now see all inputs and outputs for the transaction that it is validating and can be re-used within a chain of potential transactions. A chain of transactions can be thought of as a state machine.
 
 *(Information on Context and State Machines which may be outdated? They were not in the first lecture)*
 
-Secondly, transaction outputs also contains a component called $datum$ *(which is the singular noun for data)*. $Datum$ is useful for identifying state (this is important for the implementation of state machines, as is explained in the next paragraph).
+Secondly, transaction outputs also contains a component called <code>datum</code> *(which is the singular noun for data)*. <code>Datum</code> is useful for identifying state (this is important for the implementation of state machines, as is explained in the next paragraph).
 
-*(Again, this may be useful later, but it wasn't really present in the firt lecture, state machines that is)*
+*(Again, this may be useful later, but it wasn't really present in the first lecture, state machines that is)*
 
 # References
 
@@ -336,7 +344,7 @@ O'Reilly Media, Inc.
 
 # Footnotes
 
-<a name="fn1">1</a>. The use of the word: wallet can be misleading (and this may be why UTxO models are not hugely intuitive). A wallet is simply the stored set of cryptographic 'elements' generated through the use of ECC Public-Private Key cryptograpy [[2]](#2) and hashing algorithms. In the case of BitCoin, a user generates a public-private key pair, and their 'wallet' address is generated using the following hashing algorithm: $ADDR = RIPEMD160(SHA256(K))$, where K represents their public key and is then shortened further using additional functions that you can read about [here](). These keys (or 'cryptograhic elements') are stored within their wallet, which, if they are managing themselves (and not through the use of a central exchange or central online wallet) are kept offline (and are always off-chain). However, wallet addresses (which are tied to a wallet computer program) are available on-chain (they have to be in order to initiate a Tx).
+<a name="fn1">1</a>. The use of the word: wallet can be misleading (and this may be why UTxO models are not hugely intuitive). A wallet is simply the stored set of cryptographic 'elements' generated through the use of ECC Public-Private Key cryptograpy [[2]](#2) and hashing algorithms. In the case of BitCoin, a user generates a public-private key pair, and their 'wallet' address is generated using the following hashing algorithm: <code>ADDR = RIPEMD160(SHA256(K))</code>, where K represents their public key and is then shortened further using additional functions that you can read about [here](). These keys (or 'cryptograhic elements') are stored within their wallet, which, if they are managing themselves (and not through the use of a central exchange or central online wallet) are kept offline (and are always off-chain). However, wallet addresses (which are tied to a wallet computer program) are available on-chain (they have to be in order to initiate a Tx).
 
 <a name="fn2">2</a>. Wallets can contain hundreds of public-private key pairs and the owner for X amount of BTC can in turn have hundreds of unspent transaction outputs. However, it must be noted that when such a user creates a new transaction, the set of their unspent transaction outputs will be used as inputs into the following transaction.
 

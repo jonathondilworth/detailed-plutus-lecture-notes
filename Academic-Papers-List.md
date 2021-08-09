@@ -67,5 +67,5 @@ I will be printing out each paper, reading and annotating it. At which point I w
 63. [Consistency for Functional Encryption](https://eprint.iacr.org/2020/137.pdf)
 64. [Kachina - Foundations of Private Smart Contracts](https://eprint.iacr.org/2020/543.pdf)
 65. [Mithril: Stake-based Threshold Multisignatures](https://api.zotero.org/groups/478201/items/B67DKLEL/file/view?key=Qcjdk4erSuUZ8jvAah59Asef)
-66. [Probability of double spend attack for network with non-zero synchronization time](https://api.zotero.org/groups/478201/items/V4UMYXH8/file/view?key=Qcjdk4erSuUZ8jvAah59Asef)
+66. ~~[Probability of double spend attack for network with non-zero synchronization time](https://api.zotero.org/groups/478201/items/V4UMYXH8/file/view?key=Qcjdk4erSuUZ8jvAah59Asef)~~
 67. [Conclave: A Collective Stake Pool Protocol](https://eprint.iacr.org/2021/742.pdf)

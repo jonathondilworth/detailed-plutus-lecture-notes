@@ -1,6 +1,6 @@
 # Lecture Two
 
-> "Haskell is useless"
+> "Haskell is useless" <br />
 > — Simon Peyton Jones
 
 So, let's learn how to write smart contracts in Haskell! [Watch this video](https://youtu.be/iSmkqocn0oQ), it makes sense.

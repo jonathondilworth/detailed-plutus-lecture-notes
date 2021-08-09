@@ -1,12 +1,11 @@
 # 3. Lecture Three
 
+> "My brain just exploded." <br />
+> — ehird
+
 ### 1. Introduction
 
-*Note: typically you write the introduction last...*
-
-Within this set of lecture notes, the following will be discussed. Firstly, memory issues associated with the local 'Playground' server (where our Haskell smart contracts are being ran) are addressed. Secondly, a reintroduction to the extended unspent transaction output model (EUTxO) is provided. Furthermore, minting tokens, certifying and (stake-related) rewarding is discussed. This is followed by a description of the parameters that validator scripts are provided. Then on-chain and off-chain code is briefly discussed.
-
-*Note: introduction is unfinished, once I get the chance to work through the whole lecture, the introduction will be completed and a summary will be provided at the end, as is typical within this type of documentation.*
+Within this set of lecture notes, the following will be discussed. Firstly, memory issues associated with the local 'Playground' server (where our Haskell smart contracts are being ran) are addressed. Secondly, a reintroduction to the extended unspent transaction output model (EUTxO) is provided. Furthermore, minting tokens, certifying and (stake-related) rewarding is discussed. This is followed by a description of the parameters that validator scripts are provided. Then on-chain and off-chain code is briefly discussed. Finally, time intervals, examples and homework's are presented.
 
 ### 2. Playground Memory Issues
 
@@ -16,7 +15,7 @@ You are now able to modify the timeout in the Plutus Playground Server (located 
 	
 Note that you can modify the value of 120s to any amount, this will set the timeout in XXX seconds <code>XXXs</code>.
 
--
+<hr>
 
 ### 3. Quick Refresh On The (E)UTxO Model
 

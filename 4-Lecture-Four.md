@@ -2,29 +2,9 @@
 
 ### 1. Introduction
 
-*Currently Being Written... In Progress... I'm doing my best!*
+*Currently Being Written...*
 
-* On-Chain
-	* Validation Logic
-	* Compiled to Plutus Script
-	* Lives 'on-chain'
-	* Executed by Network Nodes
-	* Not yet looked at complex examples
-	* Context
-	* Inputs and Outputs
-	* Native Tokens (Minting and Burning)
-* Off-Chain
-	* Let's not neglect the off-chain part
-	* In order to get on-chain validation to... validate, we need to build Tx and submit to on-chain UTxOs
-	* Don't have to worry about compiling...
-	* Writing plain old Haskell
-	* This = We use sophisticated Haskell
-	* We use a special Monad, called the Contract Monad
-	* Thus we begin with an 'advanced' Haskell Primer
-	* Effects Systems
-	* Streaming
-	* Monads
-	* Contract Monads
+During this lecture, we're going to cover *a lot*. Firstly, we'll be briefly discussing the possibility and extent of on-chain arbitrary logic (even though this lecture focuses on a Haskell Primer and off-chain logic). So, we'll have a quick chat about: validation logic, plutus script, network nodes, context, IO and native tokens. When it comes to the meat and potatoes, the off-chain code and the Haskell primer... We're going to examine what monads are, specifically the contract monad, as implemented by the wallet. Furthermore, we'll review some off-chain checks / validation, then building the transactions themselves too (to be deployed to our own / nearest node). Oh yes, how did I forget. We'll also be discussing safe vs unsafe and useful vs non-useful. Lastly, IO (that stands for Input Output, just in case you didn't know) and the effects that can be had using Haskell IO.
 
 ### 2. An 'Advanced' Haskell Primer
 
@@ -32,12 +12,11 @@
 
 Summary:
 
-* Monads = Burritos (Ask Lars).
+* Monads = Burritos (Ask Lars????).
 * Monads are usually the first stumbling block for people who are not use to Haskell.
 * Brief introduction to Monads.
 * Before we get to Haskell, let's look at Java (Unsafe and Useful!)
 * Haskell: IO Monad.
-* 
 
 ### 2.1 Imagine: Mainstream A "Unsafe" "Useful" Language: Java
 
@@ -74,6 +53,7 @@ import java.util.regex.Matcher;
 
 class Unsafe
 {
+	// Yes - code should be refactored, it's an example.
 	/**
 	 * Get the HTTP repsonse body (in string format) at a spec'd URL
 	 * 
@@ -96,8 +76,8 @@ class Unsafe
 			{
 				throw new IOException("Error: Sorry, but the connection was unsuccessful.");
 			}
-		    BufferedReader someMemReader = new BufferedReader(new InputStreamReader(webConnection.getInputStream()));
-		    return someMemReader.readLine();
+			BufferedReader someMemReader = new BufferedReader(new InputStreamReader(webConnection.getInputStream()));
+			return someMemReader.readLine();
 		}
 		catch(MalformedURLException malformedException)
 		{
@@ -198,23 +178,88 @@ Conclusion: Then foo will **always**<sup><a href="#fn5">5</a></sup> return the s
 **Haskell knows that you're not a liar, so it keeps you to your word! This is explained in §2.3 as referential transparency.**
 
 ### 2.3 Referential Transparency
-
+<span id="rt23"></span>
 The following is an extract from a very well known Haskell tutorial / book:
 
 > In purely functional programming you don't tell the computer what to do as such but rather you tell it what stuff is. The factorial of a number is the product of all the numbers from 1 to that number, the sum of a list of numbers is the first number plus the sum of all the other numbers, and so on. You express that in the form of functions. You also can't set a variable to something and then set it to something else later. If you say that a is 5, you can't say it's something else later because you just said it was 5. What are you, some kind of liar? So in purely functional languages, a function has no side-effects. The only thing a function can do is calculate something and return it as a result. At first, this seems kind of limiting but it actually has some very nice consequences: if a function is called twice with the same parameters, it's guaranteed to return the same result. That's called referential transparency and not only does it allow the compiler to reason about the program's behaviour, but it also allows you to easily deduce (and even prove) that a function is correct and then build more complex functions by gluing simple functions together. [[1]](#1)
 
-### 2.4 The IO Type Constructor
+*Too Long Didn't Read?* Essentially, **referential transparency** is a property that does its best to maintain consistency in a value of an expression if the other components of the program **can change whilst maintaining** the value of such an expression.
 
-IO is a type constructor, such that you can define something such as:
+### 2.4 Breaking Down The Haskell Example Some More...
+
+> "The Hacker Way is an approach to building that involves continuous improvement and iteration. Hackers believe that something can always be better, and that nothing is ever complete." <br />
+> — Mark Zuckerberg
+
+*I Believe that's a perfectionist Mr Zuckerberg, haven't you ever encountered a manager before? They're of a polar opposite nature. Anyway, this section only exists because I forgot where I was during the lecture notes, so feel free to skip over it!*
+
+##### Consider the following Haskell code:
+
+<pre><code>1. foo :: Int
+2. foo = ...
+3. ...
+4. foo
+5. ...
+6. foo
+</pre></code>
+
+To break it down outside of comments (since it's so simple):
+
+1. initially we declare foo as type Int.
+2. Then, we initialise foo to return a value of, let's say, 27 (for a laugh).
+3. Right, so between lines 2. and 4. (Via the power of deduction: line 3!) some things happen... 
+4. Now, **no matter what happened prior, when we call foo**<sup><a href="#fn6">6</a></sup> (on line 4 and 6), it will always return the same value. **That value is: 27 of type Int and this property is known as referential transparency** [§2.3](#rt23).
+
+### 2.5 Some More Referential Transparency
+
+As if we haven't covered enough. We're documenting everything here... Thus, consider the following.
+
+<pre><code>1. let x = foo in ... x ... x ...
+2. ... foo ... foo ...
+</code></pre>
+
+During the first line, we're declaring assigning foo to x. Shortly thereafter, we're referencing foo via x. Then on line 2, we're also calling foo (there are intervals of 'other-worldly' program behaviour between these statements); but, due to referential transparency, we can be certain that (assuming foo still equals the value we set it to return) foo and x are going to provide the same value.
+
+### 3. Input Output: Haskell Finally Has An Effect On The World!
+
+*Why do we write programs?*
+
+*Why do programmers exist?*
+
+**These are some of the most profound questions oneself can ask oneself.**
+
+Presupposition: Programmers exist in order to write programs (primarily).
+Premise 1: Programs must be useful.
+Premise 2: For programs to be useful, they must effect the world.
+Conclusion: only programs that can effect the world are useful.
+
+> "Us geeky Haskell guys started with a completely useless language, in the end a program with no effect, there is no point in running it is there? You have this black box, you press go and it gets hot! There's no output, why did you run the program? The reason you run a program is to have an effect! But, nevertheless, we put up with that embarrassment for many years!" [[2]](#2) <br />
+> — Simon Peyton Jones
+
+**Finally!** We've managed to implement something in Haskell that **ACTUALLY DOES SOMETHNG!** How, you ask? Well, we use something called *the magic* of the **Type System**. Since Haskell is statically typed [[4]](#4) since every expression in Haskell must have a type. Thus, it is possible to create a type constructor (for the compiler) that indicates that the type that it pre-fixes is to construct input and/or output (IO) of the post-fixed type. For example: <code>hello :: IO String</code> and <code>world :: IO Int</code> are of different types. This is because the <code>IO</code> *type constructor* is of type <code>IO String</code> with respect to <code>hello</code>. However, <code>world</code> has the type constructor <code>IO int</code>.
+
+**Consider the following.**
+
+<pre><code>import Data.Char
+main :: IO ()
+main = do
+        putStrLn "Hey! What's your name?"
+        name <- getLine
+        let bigName = map toUpper name
+        putStrLn $ "hey " ++ bigName ++ ", how are you?!"
+</code></pre>
+	
+<hr>
+
+IO is a type constructor...
 
 	foobar :: IO Int
 	foobar = ...
 	
-The IO type constructor is described as by Lars as a 'recipe' to produce an Int. He insists that it does not break referential transparency, so I can only assume that by recipe he essentially means: some code exists, which may be assigned to a variable of type (constructor) IO Int. The code itself never changes, in fact, nothing can possibly change, the only thing that can change is the actual Input (or/and Output, depending on what the function that uses IO Int does). It is, however, important to note that the function cannot do much insofar as, it cannot actually do anything except accept input, perform a function and then, possibly display output; and THUS: referential transparency is maintained. I may need to do some more reading...
+The IO type constructor is described as by Lars as a 'recipe' to produce an Int. He insists that it does not break referential transparency, so I can only assume that by recipe he essentially means: some code exists, which may be pre-fixed to a data-type of type *(INSERT TYPE HERE)*. The code / behaviour of the program outside of this arbitrary IO itself never changes, in fact, nothing can possibly change, the only thing that can change is the actual Input (or/and Output, depending on what the function that uses IO does).
 
-*But first... Let it be known that I wrote about 21 lines of Haskell in my entire career before this course, so please don't judge me too harshly if I get something wrong! These notes are here for my own sake and if they are helpful for others, that's great too!*
+**THUS: referential transparency is maintained, I believe?**
 
-*May need to revisit this after I've slept...*
+# Continue with this tomorrow / later.
 
 ### References
 
@@ -229,3 +274,9 @@ The IO type constructor is described as by Lars as a 'recipe' to produce an Int.
 <a href="#fn2" id="fn2">2.</a> Making them fairly difficult to test to the same level of scrutiny as say something such as a mathematical function<sup><a href="fn3">3</a></sup>. Since Haskell is a functional programming language, this makes Haskell pretty darn easy to test. Thus, pretty darn safe (once again, thank you Simon [[2]](2)).
 
 <a href="#fn3" id="fn3">3.</a> To my limited mathematical knowledge: A mathematical function is defined (almost as though it is some kind of constant) as having an input and facilitating an output. A 'fruity' question I had to ask myself was: how exactly can you implement a mathematical, functional programming language within a discrete system? The obvious answer being: discrete mathematics... However, now we have to apply a **whole bunch** of constraints to such a language, which is probably why it's so safe? At least, perhaps one reason why? These are my notes, so take them for what they're worth, which may be absolutely nothing.
+
+<a href="#fn4" id="fn4">4.</a>
+
+<a href="#fn5" id="fn5">5.</a>
+
+<a href="#fn6" id="fn6">6.</a> Although there may be some edge cases that we're not going to worry about for now about how we call foo which ***may*** change its value.

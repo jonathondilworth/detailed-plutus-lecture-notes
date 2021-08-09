@@ -1,8 +1,8 @@
 **Really Random Notes**
 
--
+<hr>
 
-Additional Terms:
+**Additional Terms:**
 
 * Tx - Transaction.
 * Distributed Ledger - You may have a ledger (not implemented as a Blockchain) in a distributed manner.
@@ -11,9 +11,9 @@ Additional Terms:
 * Proof of Work - The use of physical resources to ensure cryptographic immutability of data within a distributed ledger (Blockchain).
 * Proof of Stake - Various types of PoS algorithms exist, but the central idea is to remove physical resources and replace them with virtual resources.
 
--
+<hr>
 
-Interesting Statements:
+**Interesting Statements:**
 
 * Cardify finds that only 16.9% of investors who have bought crypto “fully understand” the value and potential of cryptocurrency, while 33.5% of buyers have either zero knowledge about the space or would call their level of understanding “emerging.”
 * In order to change the state of the blockchain, there must be a new Tx that consume UTxO and create new ones.
