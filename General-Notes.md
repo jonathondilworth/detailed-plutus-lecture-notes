@@ -45,5 +45,5 @@ The Plutus Pioneer Course aims to provide:
 
 ***Footnotes:***
 
-1. Currently limited to the Plutus implementation via Haskell. Although, there will be opportunities in the future to implement these contracts using alternative languages in the future. Such languages include Glow and may include Solidity)
+1. Currently limited to the Plutus implementation via Haskell. Although, there will be opportunities in the future to implement these contracts using alternative languages in the future. Such languages include Glow and may include Solidity.
 
