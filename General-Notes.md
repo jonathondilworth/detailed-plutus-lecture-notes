@@ -27,8 +27,8 @@ Topics Discussed (not already mentioned):
 > "Constraints Liberate, Liberties Constrain" <br />
 > — Runar Bjarnason
 
-* Similarly, you could say: Less is More, inofar as: if you trancate the scope of an application, the less you allow it do, the easier it is to control. Thus, it follows: the less likely it is to cause catestropic failure. Furthermore, it allows for an increased capacity to predict states and behaviour given any set of constraints.
-* Designing applications such that they're "deterministic, pure, replayable, sandboxed state machines" (Michael Peyton-Jones) means as developers we're much less likely to introduce bugs into our applications (*possibly* mathematically provable).
+* Similarly, you could say: Less is More, insofar as: if you truncate the scope of an application, the less you allow it do, the easier it is to control. Thus, it follows: the less likely it is to cause catastrophic failure. Furthermore, it allows for an increased capacity to predict states and behaviour given any set of constraints.
+* Designing applications such that they're "deterministic, pure, replay-able, sandboxed state machines" (Michael Peyton-Jones) means as developers we're much less likely to introduce bugs into our applications (*possibly* mathematically provable).
 
 The Plutus Pioneer Course aims to provide:
 
