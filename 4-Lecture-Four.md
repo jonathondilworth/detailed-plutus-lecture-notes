@@ -240,7 +240,20 @@ Conclusion: only programs that can effect the world are useful.
 
 **Finally!** We've managed to implement something in Haskell that **ACTUALLY DOES SOMETHNG!** How, you ask? Well, we use something called *the magic* of the **Type System**. Since Haskell is statically typed [[4]](#4) since every expression in Haskell must have a type. Thus, it is possible to create a type constructor (for the compiler) that indicates that the type that it pre-fixes is to construct input and/or output (IO) of the post-fixed type. For example: <code>hello :: IO String</code> and <code>world :: IO Int</code> are of different types. This is because the <code>IO</code> *type constructor* is of type <code>IO String</code> with respect to <code>hello</code>. However, <code>world</code> has the type constructor <code>IO int</code>.
 
-**Consider the following.**
+### 4. Type Constructors
+
+See the following IO Type Constructor.
+
+	foobar :: IO Int
+	foobar = ...
+	
+The IO type constructor is described as by Lars as a 'recipe' to compute an Int and this computation can invoke side effects. Lars insists that it does not break referential transparency, so I can only assume that by recipe he essentially means: some code exists, which may be impure. However, the code / behaviour of the program outside of this impurity (arbitrary IO) itself never changes. Thus, the only thing that can change is the actual Input (or/and Output, depending on what the function that uses IO does). It must therefore follow that referential transparency is not broken.
+
+<hr />
+
+### 5. More Info! Plus Some Code!
+
+**Consider the following code, for a moment:**
 
 <pre><code>import Data.Char
 main :: IO ()
@@ -282,7 +295,7 @@ main = do
 * Finally, all we're doing is outputting to console the concatenation of three strings (or [Char]s).
 * All in all, a very simple program; but for anyone not use to programming in Haskell, it's good to run through this stuff.
 	
-### 3.1 So, Why Are We Running This With Cabal?
+### 5.2 So, Why Are We Running This With Cabal?
 <span id="s31"></span>
 Recall that there may be additional packages that we require in order to compile and consequently run the Haskell we are writing. Why? Well, because there may be elements of Plutus that we require (although that isn't necessarily the case with this small script) in order to allow our off-chain code (and when we compile on-chain code, we will definitely need those additional packages!) to interface with the Plutus Backend. It should be fairly self-evident at this point, but that is the reason for package management, see the <code>.devcontainer</code> that cabal is using for this exercise below.
 
@@ -350,7 +363,7 @@ library
 
 <hr>
 
-*Note: I will need to revisit this portion of the lecture notes and potentially brush up on them...*
+*Note: I will need to revisit this portion of the lecture notes and potentially brush up on them... But, I think I'm doing OKAY...*
 
 ### Function: Map & toUpper & toLower, IO String, IO [Char]
 
@@ -367,17 +380,55 @@ In Haskell [Char] is a list of characters, which equates to a string. So, when y
 
 **EXAMPLE:**
 
+We are only interested in the case where f is IO. Thus, if we use fmap, in combinatin to map toUpper... Well, you can guess what happens! Remember <code>String = [Char]</code>. This type of usage of <code>fmap</code> is typically used for (in our case) transforming user input after it has been entered into, say, the console.
+
 <pre><code>fmap :: (a -> b) -> f a -> f b
 x = fmap (map toUpper) getLine
 putStrLn x
 </code></pre>
 
-See the following IO Type Constructor.
+**IO Chaining:**
 
-	foobar :: IO Int
-	foobar = ...
-	
-The IO type constructor is described as by Lars as a 'recipe' to compute an Int and this computation can invoke side effects. Lars insists that it does not break referential transparency, so I can only assume that by recipe he essentially means: some code exists, which may be impure. However, the code / behaviour of the program outside of this impurity (arbitrary IO) itself never changes. Thus, the only thing that can change is the actual Input (or/and Output, depending on what the function that uses IO does). It must therefore follow that referential transparency is not broken.
+Okay, so we've seen how we are able to take user input and transform it whilst maintaining the referential transparency. What we have no yet encountered is essentially a double <code>>></code>. This is a chaining operation called **sequence to operator**. Recall that putStrLn has a unit result <code>()</code> and so if we chain two putStrLn functions together:
+
+<pre><code>putStrLn "Learning" >> putStrLn "Haskell"</code></pre>
+
+The LHS function is executed first *(note: as the result is simply (), nothing special happens anyway, but if a type result existed then the >> operator would simply ignore it)*, then the RHS is executed. In short: given two *'recipes'* the <code>>></code> operator will executed LHS, throw away the result, then execute RHS & attaches the second recipe.
+
+### Bind Chaining | Important: The RHS Result Is Not Ignored
+
+**Warning: <code>:t (>>=)</code> will start talking about a Monad constraint if executed in the repl, but for now, let's just worry about the IO.**
+
+<pre><code>-- written like: >>= | this does not ignore the first result
+:t (>>=)
+(>>=) :: Monad m => m a -> (a -> m b) -> m b
+</code></pre>
+
+If a recipe exists that performs side effects and obtains an 'IO a', then that 'a' is passed to a function where: given 'a' it provides a function that returns 'IO b' then these two can be combined such that a new recipe exists that gives b. Essentially mapping the output from the first IO into the second function via 'bind chaining' - For example:
+
+<pre><code>getLine >>= putStrLn</code></pre>
+
+Will wait for user input, and instead of simply throwing it away (as is the case with simple IO chaining), it feeds the IO into the second function, which will output it to console:
+
+<pre><code>Plutus ... > getLine >>= putStrLn
+HelloWorldIO
+HelloWorldIO
+Plutus ... > 
+</code></pre>
+
+#### *Note: I need to jump ahead. I'm spending too much time right now on this particular lecture. I can write Haskell, too much time documenting everything - however I will come back to finish up these lecture notes...*
+
+### Images
+
+![./img/h-io.jpg](./img/h-io.jpg)
+
+![./img/h-use-map.jpg](./img/h-use-map.jpg)
+
+![./img/h-type-fmap.jpg](./img/h-type-fmap.jpg)
+
+![./img/h-value-chain-signature.jpg](./img/h-value-chain-signature.jpg)
+
+![./img/h-value-chain.jpg](./img/h-value-chain.jpg)
 
 ### References
 
@@ -393,8 +444,8 @@ The IO type constructor is described as by Lars as a 'recipe' to compute an Int 
 
 <a href="#fn3" id="fn3">3.</a> To my limited mathematical knowledge: A mathematical function is defined (almost as though it is some kind of constant) as having an input and facilitating an output. A 'fruity' question I had to ask myself was: how exactly can you implement a mathematical, functional programming language within a discrete system? The obvious answer being: discrete mathematics... However, now we have to apply a **whole bunch** of constraints to such a language, which is probably why it's so safe? At least, perhaps one reason why? These are my notes, so take them for what they're worth, which may be absolutely nothing.
 
-<a href="#fn4" id="fn4">4.</a>
+<a href="#fn4" id="fn4">4.</a> A function does not need to do any arbitrary IO, but functions tend to return something, even if it's just unit data: <code>()</code>.
 
-<a href="#fn5" id="fn5">5.</a>
+<a href="#fn5" id="fn5">5.</a> Given a function f(x) = x ... **Given input x, the output is deterministic**.
 
 <a href="#fn6" id="fn6">6.</a> Although there may be some edge cases that we're not going to worry about for now about how we call foo which ***may*** change its value.
