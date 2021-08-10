@@ -1,5 +1,8 @@
 # Lecture Four
 
+> “Unless you try to do something beyond what you have already mastered you will never grow.” <br />
+> — Ralph Waldo Emerson
+
 ### 1. Introduction
 
 *Currently Being Written...*
@@ -8,15 +11,15 @@ During this lecture, we're going to cover *a lot*. Firstly, we'll be briefly dis
 
 ### 2. An 'Advanced' Haskell Primer
 
-*... see below?*
+As I have previously stated, I have done **some** Haskell during my undergraduate degree and then a refresher during my postgrad. However, it has been quite a while; and if I'm completely honest, I never wrote **that much**. I mean, when you compare the couple of hundred (potentially, I can't remember) lines of Haskell I wrote with the tens of thousands of lines of ARM assembly I was forced to write, well, it puts things in perspective. If anyone needs an ARM assembly guy, I'm your man.
 
-Summary:
+**Some Important Points To Consider**
 
-* Monads = Burritos (Ask Lars????).
+* According to Lars, Monads are very similar to burritos; and guess what, I **LOVE** burritos.
 * Monads are usually the first stumbling block for people who are not use to Haskell.
-* Brief introduction to Monads.
-* Before we get to Haskell, let's look at Java (Unsafe and Useful!)
-* Haskell: IO Monad.
+* We're going to enter into Haskell **very gently within these notes**.
+* Then, we'll provide a brief introduction to Monads.
+* **HOWEVER...** Before we get to Haskell, let's look at (the dreaded) Java (Unsafe and Useful!)
 
 ### 2.1 Imagine: Mainstream A "Unsafe" "Useful" Language: Java
 
@@ -247,19 +250,134 @@ main = do
         let bigName = map toUpper name
         putStrLn $ "hey " ++ bigName ++ ", how are you?!"
 </code></pre>
+
+**Now, let's get some stuff explained.**
+
+* This above code is not being ran within a ghci.
+* It's saved within a .hs (Haskell Extension) file.
+* It's then being compiled using cabal <code>cabal run [SCRIPT_NAME].hs</code>.
+* The reason for this is because is outlined within the [next subsection](#s31).
+* I would like to remind you that Haskell is Beautiful and **Pure**.
+* Unfortunately, IO introduces a degree of terribleness into a beautifully pure language. Thus rendering it potentially impure. However, this does now mean our computer doesn't just turn into a radiator for those cold December months! *The one thing Haskell actually use to be good for!*
+* Pure functions may be parameterless or they may not be. We can, however, know (for certain) that they will **always** return the same value (given that a parameterised pure function is provided with the same parameter[s]).
+* Impure functions *spoil everything!* They introduce indeterminism into what would otherwise be deterministic (insofar as we can control any values passed to parameterised functions).
+* Impure functions **do not always return the same value.**
+* Impure functions **can only be implemented within impure functions...** So, I suppose we have to thank God (or Simon Peyton Jones) that the <code>main</code> main function (which is executed when the script is ran after having been compiled) is itself... Impure!
+* You cannot implement impure functions within pure functions. If you do, prepare yourself for 'a domestic' with the compiler.
+
+**Now that we've got 'some stuff' explained, let us break down the above script.**
+
+* We need to be able to take input from the user, which typically comes as text.
+* Text is of type string; and in Haskell String is the same as [Char].
+* This means we need to import Data.Char.
+* main :: IO () -- we're declaring the main function of our Haskell program & providing a function signature: The function is called <code>main</code> and it uses an IO type constructor of type (empty, nothing) unit.
+* Being declarative about our use of functions is a **good thing** and it's **good practice**.
+* Then we go on to define our function, main, which is the program itself (remember!?).
+* The program is defined in terms of a <code>do</code> block.
+* A <code>do</code> block is essentially the same as what you might use curly brackets for in a language like Java.
+* Next line is simple, output the text proceeding the function name to console.
+* Again, the next line simply takes the input from the console and assigns it to <code>name</code>.
+* Now, we're going to assign the result of the <code>map</code> function to <code>name</code>.
+* map takes two parameters, the first is (in this case) a function itself: toUpper, which - as you have might guessed: takes every character of a string and converts it to an upper case character. The second parameter is the result of the input provided by the user stored within name, which was obtained using getLine (a function Haskell implements itself).
+* Finally, all we're doing is outputting to console the concatenation of three strings (or [Char]s).
+* All in all, a very simple program; but for anyone not use to programming in Haskell, it's good to run through this stuff.
 	
+### 3.1 So, Why Are We Running This With Cabal?
+<span id="s31"></span>
+Recall that there may be additional packages that we require in order to compile and consequently run the Haskell we are writing. Why? Well, because there may be elements of Plutus that we require (although that isn't necessarily the case with this small script) in order to allow our off-chain code (and when we compile on-chain code, we will definitely need those additional packages!) to interface with the Plutus Backend. It should be fairly self-evident at this point, but that is the reason for package management, see the <code>.devcontainer</code> that cabal is using for this exercise below.
+
+<pre><code>{
+    "name": "Plutus Starter Project",
+    "image": "plutus-devcontainer:latest",
+
+    "remoteUser": "plutus",
+    
+    "mounts": [
+        // This shares cabal's remote repository state with the host. We don't mount the whole of '.cabal', because
+        // 1. '.cabal/config' contains absolute paths that will only make sense on the host, and
+        // 2. '.cabal/store' is not necessarily portable to different version of cabal etc.
+        "source=${localEnv:HOME}/.cabal/packages,target=/home/plutus/.cabal/packages,type=bind,consistency=cached",
+    ],
+
+    "settings": {
+        // Note: don't change from bash so it runs .bashrc
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    
+    // IDs of extensions inside container
+    "extensions": [
+        "haskell.haskell"
+    ],
+}
+</code></pre>
+
+So, this <code>.devcontainer</code> is mounting our cached cabal packages from our Plutus repo; and it's doing this as we've built the cabal project file for this week, which contains references to the dependencies within Plutus, in addition to the execution paths for any programs we may need to run. See below.
+
+<pre><code>Cabal-Version:       2.4
+Name:                plutus-pioneer-program-week03
+Version:             0.1.0.0
+Author:              Lars Bruenjes
+Maintainer:          brunjlar@gmail.com
+Build-Type:          Simple
+Copyright:           © 2021 Lars Bruenjes
+License:             Apache-2.0
+License-files:       LICENSE
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Week03.Homework1
+                     , Week03.Homework2
+                     , Week03.Parameterized
+                     , Week03.Solution1
+                     , Week03.Solution2
+                     , Week03.Vesting
+  build-depends:       aeson
+                     , base ^>=4.14.1.0
+                     , containers
+                     , data-default
+                     , playground-common
+                     , plutus-contract
+                     , plutus-ledger
+                     , plutus-ledger-api
+                     , plutus-tx-plugin
+                     , plutus-tx
+                     , text
+  default-language:    Haskell2010
+  ghc-options:         -Wall -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas -fno-strictness -fno-spec-constr -fno-specialise
+</code></pre>
+
+
+
 <hr>
 
-IO is a type constructor...
+*Note: I will need to revisit this portion of the lecture notes and potentially brush up on them...*
+
+### Function: Map & toUpper & toLower, IO String, IO [Char]
+
+In Haskell [Char] is a list of characters, which equates to a string. So, when you: <code>map toUpper</code> "a lower case string" within the repl, you'll see "A LOWER CASE STRING" returned. A similar function exists called toLower, I won't go into that - I think you can guess what it does.
+
+### Functor, fmap | Getting Slightly More Complicated
+
+* Important in Haskell
+* fmap :: (a -> b) -> f a -> f b
+* This essentially reads: there exists a function called fmap
+* I imagine this stands for function map or function mapping
+* It takes a parameter a, which it then passes to b
+* This means it can take something like the function <code>map</code> and <code>toUpper</code>, then you can innovate the function <code>getLine</code> which results in a mapping from IO (input from the user / console) to the toUpper function, converting any string input to upper case (the mapping of one functions output to another's input, resulting in a final output). Thus, turning one IO actions into another's IO actions (embedded impure functions).
+
+**EXAMPLE:**
+
+<pre><code>fmap :: (a -> b) -> f a -> f b
+x = fmap (map toUpper) getLine
+putStrLn x
+</code></pre>
+
+See the following IO Type Constructor.
 
 	foobar :: IO Int
 	foobar = ...
 	
-The IO type constructor is described as by Lars as a 'recipe' to produce an Int. He insists that it does not break referential transparency, so I can only assume that by recipe he essentially means: some code exists, which may be pre-fixed to a data-type of type *(INSERT TYPE HERE)*. The code / behaviour of the program outside of this arbitrary IO itself never changes, in fact, nothing can possibly change, the only thing that can change is the actual Input (or/and Output, depending on what the function that uses IO does).
-
-**THUS: referential transparency is maintained, I believe?**
-
-# Continue with this tomorrow / later.
+The IO type constructor is described as by Lars as a 'recipe' to compute an Int and this computation can invoke side effects. Lars insists that it does not break referential transparency, so I can only assume that by recipe he essentially means: some code exists, which may be impure. However, the code / behaviour of the program outside of this impurity (arbitrary IO) itself never changes. Thus, the only thing that can change is the actual Input (or/and Output, depending on what the function that uses IO does). It must therefore follow that referential transparency is not broken.
 
 ### References
 
