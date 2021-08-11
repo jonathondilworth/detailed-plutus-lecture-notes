@@ -70,11 +70,11 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 ### 9. Table of Contents
 
- - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' (E)UTxO Model, Local Plutus Playground, Compiling Smart Contracts
- - [Lecture Two](2-Lecture-Two.md): (E)UTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
+ - [Lecture One](1-Lecture-One.md): BTC: UTxO and Cardanos' EUTxO Model, Local Plutus Playground, Compiling Smart Contracts
+ - [Lecture Two](2-Lecture-Two.md): EUTxO Catch Up, Redeemers, Context, Datum, Data Type: Data, More Smart Contracts
  - [Lecture Three](3-Lecture-Three.md): Problems in the Playground, EUTxO Refresh, TxInfo & ScriptPurpose, On-Chain, Off-chain, Time, Examples
  - [Lecture Four](4-Lecture-Four.md): Monads, The EmulatorTrace Monad, Contract Monad, Homework
- - [Lecture Five](): -
+ - [Lecture Five](5-Lecture-Five.md): EUTxO Values, Plutus: Native Tokens (Minting and Burning)
  - [Lecture Six](): -
  - [Lecture Seven](): -
  - [Lecture Eight](): -

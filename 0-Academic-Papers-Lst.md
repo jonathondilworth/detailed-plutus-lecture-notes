@@ -2,7 +2,7 @@
 
 I will be printing out each paper, reading and annotating it. At which point I will scan the paper (so long as it's not too long) and will upload it to the repo under **'examined_papers'**.
 
-1. [Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol](https://eprint.iacr.org/2017/573.pdf)
+1. [Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol](https://eprint.iacr.org/2016/889.pdf)
 2. [Ouroboros Praos: An adaptively-secure, semi-synchronous proof-of-stake protocol](https://eprint.iacr.org/2017/573.pdf)
 3. [Stake-Bleeding Attacks on Proof-of-Stake Blockchains](https://eprint.iacr.org/2018/248.pdf)
 4. [TwinsCoin: A Cryptocurrency via Proof-of-Work and Proof-of-Stake](https://eprint.iacr.org/2017/232.pdf)

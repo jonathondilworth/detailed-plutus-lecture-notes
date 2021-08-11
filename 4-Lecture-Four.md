@@ -395,7 +395,7 @@ Okay, so we've seen how we are able to take user input and transform it whilst m
 
 The LHS function is executed first *(note: as the result is simply (), nothing special happens anyway, but if a type result existed then the >> operator would simply ignore it)*, then the RHS is executed. In short: given two *'recipes'* the <code>>></code> operator will executed LHS, throw away the result, then execute RHS & attaches the second recipe.
 
-### Bind Chaining | Important: The RHS Result Is Not Ignored
+### Chain Binding | Important: The RHS Result Is Not Ignored
 
 **Warning: <code>:t (>>=)</code> will start talking about a Monad constraint if executed in the repl, but for now, let's just worry about the IO.**
 
@@ -416,7 +416,47 @@ HelloWorldIO
 Plutus ... > 
 </code></pre>
 
+**Yet Another Haskell Program (To Be Compiled):**
+
+<pre><code>main :: IO ()
+main = foo
+
+foo :: IO ()
+foo = getLine >>= \t ->
+		getLine >>= \s ->
+		putStrLn (s ++ t)
+</code></pre>
+
+*Note: You can rewrite this using <code>do</code> blocks.*
+
+<pre><code>main :: IO ()
+main = do
+		getLine >>= \t ->
+		getLine >>= \s ->
+		putStrLn (s ++ t)
+</code></pre>
+
+### Func: Return
+
+<pre><code>
+Plutus ... > return "Haskell" :: IO String
+"Haskell"
+</code></pre>
+
+### Characters and Strings
+
+Characters are individual quotes, strings are double quotes. However, a list of characters is essentially a string: <br /><br /> <code>IO String === IO [Char]</code>.
+
+### Concatenation using Semicolon (Careful!)
+
+<code>Plutus ... > 'A' : " little dog" <br />
+"A little dog"</code>
+
+*Has to be a character followed by a string*
+
 #### *Note: I need to jump ahead. I'm spending too much time right now on this particular lecture. I can write Haskell, too much time documenting everything - however I will come back to finish up these lecture notes...*
+
+**We're literally not even half way through...**
 
 ### Images
 
