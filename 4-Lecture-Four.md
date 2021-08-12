@@ -458,6 +458,89 @@ Characters are individual quotes, strings are double quotes. However, a list of 
 
 **We're literally not even half way through...**
 
+<hr />
+
+### Comments On Code Implementation
+
+*Please Keep The Following In Consideration Before Rendering Judgement.*
+
+Firstly, I am in no way anywhere near as qualified as any of the individuals developing the majority of Haskell applications for production environments. I am, simply, a student of Haskell (hopefully, not for long — I believe I pick things up fairly quickly). Some additional observations:
+
+* I believe Haskell programmers air more so on the side of mathematicians than most software engineers, probably because most software engineers are using imperative OOP, not declarative functional.
+* Due to the above observation, Haskell programmers tend to use single letters to assign values to variables or during function declaration. This is in opposition to what 'conventional wisdom' from 'Uncle Bob' [[REF]]() would teach us: the process of reading code is similar to what you might consider an identity function <code>f(x) = x</code>, essentially, you shouldn't really need to comment code because 'good' code should be readable and understandable.
+* This is why I have occasionally been somewhat skeptical of programmatic 'magic' - you'll see what I see in a second.
+* In regards to the implementation of Maybe.hs and Monad.hs (week four); whilst the first instance of reading three strings as potential Integers is, admittedly, a little ugly and, yes, there is a principal called DRY (Don't Repeat Yourself). However, at the same time there is another principal called KISS (Keep It Simple Stupid).
+* Yes, whilst the implementation of foo is ugly, it is simple and easy to understand.
+* The use of bindMaybe and the implementation of foo' is a little nicer, but requires a small amount of basic Haskell knowledge (no issues with this really).
+* Now, whilst it's expressed somewhat eloquently in two lines of code, the implementation of foo'' requires a little bit more thought when deconstructing what is actually being expressed. For me, it's a little like one of those moments where you're a bit like: 'hang on, what exactly is going on here...?' — it reminds me of being a junior developer and encountering dependency injection (in Laravel) for the first time. Upon this 'discovery' a mid-level developer told me: *don't worry about it, it's just "Laravel Magic"* — not exactly the explanation you are looking for as an inspiring developer!
+* The crux of the argument boils down to the following: is it better to write somewhat verbose code that is self-explanatory, or does it make more sense to abstract complexity away from the 'main thread' (as it were). For those who understand what is going on (because they have contributed to building the abstraction mechanisms, it is fantastic — because it minimises amount of required code to read, which is what we spend most our time doing. However, for those who approach it without having had the privilege of being enrolled in something like the pioneer program, it may hinder (their) progress.
+* The last thing I would want is to hinder the magic involved in learning something new due to frustration.
+* For this reason, I, myself, will always try my very best to take the time to explain these things to people.
+* This section of the lecture notes are purely academic and philosophical masturbation (really, that is what I'm doing here). But, these are interesting questions to think about and raise.
+* My personal opinion: Blockchains and Distributed Ledgers is a multi-disciplinary, novel subject. It requires (arguably) a postgraduate level of education to jump into it fairly quickly, unless one is incredibly bright. With this in mind, I do believe foo'' was the most appropriate implementation, but for a junior level developer, it may be a bit much. They would likely prefer the implementation of foo.
+
+*My 2 cents.*
+
+**Maybe.hs**
+
+<pre><code>module Week04.Maybe where
+
+import Text.Read (readMaybe)
+import Week04.Monad
+
+foo :: String -> String -> String -> Maybe Int
+foo x y z = case readMaybe x of
+    Nothing -> Nothing
+    Just k  -> case readMaybe y of
+        Nothing -> Nothing
+        Just l  -> case readMaybe z of
+            Nothing -> Nothing
+            Just m  -> Just (k + l + m)
+
+bindMaybe :: Maybe a -> (a -> Maybe b) -> Maybe b
+bindMaybe Nothing  _ = Nothing
+bindMaybe (Just x) f = f x
+
+foo' :: String -> String -> String -> Maybe Int
+foo' x y z = readMaybe x `bindMaybe` \k ->
+             readMaybe y `bindMaybe` \l ->
+             readMaybe z `bindMaybe` \m ->
+             Just (k + l + m)
+
+foo'' :: String -> String -> String -> Maybe Int
+foo'' x y z = threeInts (readMaybe x) (readMaybe y) (readMaybe z)
+</code></pre>
+
+**Monad.hs**
+
+<pre><code>module Week04.Monad where
+
+-- (>>=)      :: IO a            -> (a -> IO b)            -> IO b
+-- bindMaybe  :: Maybe a         -> (a -> Maybe b)         -> Maybe b
+-- bindEither :: Either String a -> (a -> Either String b) -> Either String b
+-- bindWriter :: Writer a        -> (a -> Writer b)        -> Writer b
+--
+-- return              :: a -> IO a
+-- Just                :: a -> Maybe a
+-- Right               :: a -> Either String a
+-- (\a -> Writer a []) :: a -> Writer a
+
+threeInts :: Monad m => m Int -> m Int -> m Int -> m Int
+threeInts mx my mz =
+    mx >>= \k ->
+    my >>= \l ->
+    mz >>= \m ->
+    let s = k + l + m in return s
+
+threeInts' :: Monad m => m Int -> m Int -> m Int -> m Int
+threeInts' mx my mz = do
+    k <- mx
+    l <- my
+    m <- mz
+    let s = k + l + m
+    return s
+</code></pre>
+
 ### Images
 
 ![./img/h-io.jpg](./img/h-io.jpg)

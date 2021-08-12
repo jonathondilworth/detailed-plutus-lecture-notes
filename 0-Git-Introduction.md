@@ -33,9 +33,39 @@ In this case, you only allow access to the codebase to immediate trusted parties
 
 ### 3. The Typical Case
 
-The way in which open source projects (and private projects ran by private companies) are *typically* developed is through the use of a service such as GitHub. 
+The way in which open source projects (and private projects ran by private companies) are *typically* developed is through the use of a service such as GitHub. Open source software is available to view by anyone and, for the most part, anybody can contribute (subject to review and the project maintainers acceptance). The process of contributing to an open source project requires some prerequisite knowledge of how Git works, which we cover get into in [§x.x](). Private companies keep their proprietary code restricted, for obvious reasons<sup><a href="#fn2">2</a></sup>, thus 
 
 *Continue Writing This At A Later Date...*
+
+### 4. Pulling Down An Open Source Codebase
+
+#### 4.1 Git: Clone
+
+#### 4.2 Basic --Config Variables
+
+### 5. What Is A Codebase?
+
+#### 5.1 Data Structures
+
+#### 5.2 Git: Pull
+
+#### 5.3 Git: Add
+
+#### 5.4 Git: Commit
+
+#### 5.5 Git: Push
+
+#### 5.6 Git: Branch
+
+#### 5.7 Git: Checkout
+
+#### 5.8 Git: Extra
+
+### 6. Using Git With The Plutus Pioneer Project
+
+### 7. Conclusions
+
+### 8. Further Reading
 
 ### References
 
@@ -54,8 +84,6 @@ In Concurrency: the Works of Leslie Lamport (pp. 203-226). <br />
 Baltakatei. (2020). StackExchange. <br />
 The Web Of Trust Model.<br />
 Available at: <https://crypto.stackexchange.com/questions/80629/what-is-the-pgp-web-of-trust-strongset/> <br />
-
-
 
 ### Footnotes
 
