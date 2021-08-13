@@ -33,13 +33,13 @@ In this case, you only allow access to the codebase to immediate trusted parties
 
 ### 3. The Typical Case
 
-The way in which open source projects (and private projects ran by private companies) are *typically* developed is through the use of a service such as GitHub. Open source software is available to view by anyone and, for the most part, anybody can contribute (subject to review and the project maintainers acceptance). The process of contributing to an open source project requires some prerequisite knowledge of how Git works, which we cover get into in [§5.8](#s58). Private companies keep their proprietary code restricted, for obvious reasons<sup><a href="#fn2">2</a></sup>, thus 
+The way in which open source projects (and private projects ran by private companies) are *typically* developed is through the use of a service such as GitHub. Open source software is available to view by anyone and, for the most part, anybody can contribute (subject to review and the project maintainers acceptance). The process of contributing to an open source project requires some prerequisite knowledge of how Git works, which we cover get into in [§5.7](#s57). Private companies keep their proprietary code restricted, for obvious reasons<sup><a href="#fn2">2</a></sup>, thus 
 
 *Continue Writing This At A Later Date...*
 
 ### 4. Basic Git Commands and Repositories
 
-During this section we're gong to run through the very basics of git. Firstly, how to configure a basic git user, downloading (cloning) repositories and finding out who has changed what.
+During this section we are gong to run through the very basics of git. Firstly, how to configure a basic git user, downloading (cloning) repositories and finding out who has changed what.
 
 #### 4.1 Git: Simple Configuration
 
@@ -68,7 +68,7 @@ All should go well and you should now have a file called: plutus-pioneer-program
 
 Configuration variables, such as the one above are extremely useful because sometimes you'll find that you may need to know who pushed a specific commit. This is possible by running <code>git log</code> within the repository directory.
 
-As you can see from the image below, this provides you with the commit hash (which we'll learn more about in [§5.4]()) some information about the branch the author has been operating on [[§5.6]()], the author name and e-mail, the date and the commit message.
+As you can see from the image below, this provides you with the commit hash (which we'll learn more about in [§5.4](#s54)) some information about the branch the author has been operating on [[§5.6](#s56)], the author name and e-mail, the date and the commit message.
 
 ![](./img/git-log.jpg)
 
@@ -88,48 +88,90 @@ If you wanted to just stick with **really basic**, a repository is essentially j
 
 #### 5.1 Data Structures
 
+According to Wikipedia (the fountain of all knowledge):
+
+> Git has two data structures: <br />
+> 1. A mutable index (also called stage or cache) that caches information about the working directory and the next revision to be committed; and an immutable, append-only object database. <br />
+> 2. The index serves as a connection point between the object database and the working tree.
+
+*Note: An immutable, append only, object database? That sounds familiar, kind of, right?*
+
+For now (as a beginner), I don't think you need to worry too much about the underlying data structures, but it is a good thing to do, to check out under the hood. If you're going to use branches (which we will briefly discuss in [§5.6](#s56), then, for sure, take some extra time to really understand what it means to create a new branch, make modifications, open a pull request and merge your changes into another branch, which will likely eventually find its way to staging and then production.
+
+You may be trying to get an intuition about git for the first time right now, in which case, some of the more complicated elements of the underlying data structures and algorithms that power this version control system (VCS). This may put you off investing the time to learn it. However, regardless of what you do, if you want to develop software of any kind, there is no getting away from version control systems, so **you will need to know this stuff**. On the other hand, the way I see it is that there are more pressing matters at hand. For example, I keep asking myself: **WHY THE HELL AM I DOING WRITING A BASIC GUIDE FOR GIT WHEN I SHOULD BE LEARNING HASKELL!?!??!?** Ultimately it was due to a few questions that popped up on the discord. I thought: well, if three or four questions have popped up, I might as well throw together a very basic guide, as that is all that's really required for participation in the pioneer program. But, I should really know better. Things always take longer than you have planned, which is why you triple your time estimate; because believe me, that then becomes a more realistic delivery date. **Remember that all you junior devs!**
+
+*Note: I do also enjoy helping others and writing, so when Lars' voice gets a little bit too much for me, I take a step back and start writing about git! That was a joke by the way, Lars has an incredible voice. The fifth lecture during the second iteration was delivered brilliantly and eloquently, I really enjoyed that lecture. The fourth lecture, however, it was like an information overload! Sorry!*
+
+**Some More Interesting Reads:**
+
+1. [Git Is A Purely Functional Data Structure](https://blog.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/)
+2. [Git Internals](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
+3. *Note: We'll slowly add more to this list over time...*
+
 #### 5.2 Git: Pull
 
-[Read More Here]()
+This is pretty simple actually. Running <code>git pull</code> within a git repo directory will simply pull down the latest contributions everybody has made. It can get a little hairy if you're all an unorganised mess and you're editing the same files. Then you get something called a merge conflict [§5.7](#s57).
+
+[Read More Here](https://git-scm.com/docs/git-pull)
 
 #### 5.3 Git: Add
+
+Again, this is simple and easy to understand. Whenever you change something in your local repo, you can run a command called <code>git status</code> and it shows you which files you've changed, created or deleted. These files need 'adding' to the next commit. So, there are two ways of doing this.
+
+**1. The Cautious Way:**
+
+This is what I do, because sometimes other files and found their way into my local repo and they need removing. Alternatively, something isn't ready yet to commit and push. Although, I don't worry about that in this project because it's essentially a documentation project.
+
+So, the cautious way is adding files one at a time. This is accomplished by running the following command: <code>git add [INSERT RELATIVE FILE PATH HERE]</code>.
+
+**2. The... "Ahhh, everything will be just fine" Method:**
+
+Simply run <code>git add .</code> and all the changes you've made will be appended to your commit. One of the reasons why this may be risky at times is, well, for a number of reasons really. But, the one I have seen happen (thankfully the repo was not open source), the dev accidentally pushed a bunch of passwords up to the repo (keys are usually protected, as you would typically store keys in a folder that the project manager has **made sure** resides within the [.gitignore](https://git-scm.com/docs/gitignore) file). So yeah, maybe just watch out if you're new to this!
+
+![](./img/fine.jpg)
 
 [Read More Here](https://git-scm.com/docs/git-add)
 
 #### 5.4 Git: Commit
+<span id="s54"></span>
+Once you have a bunch of new changes together using the <code>git add</code> command, you can bundle them together in the form of a commit. A commit will be seen by other individuals when they run <code>git log</code>, they can then checkout to that commit and look at your changes. Alternatively, if they're using GitHub / a centralised method of hosting the repo, it's usually a lot easier to view commits and the changes that you have made. It's made easy through the use of a web GUI.
+
+Right, so in order to bundle all your changes together, say, at the end of the day, or when you've finished a particular feature, you run the following command: <code>git commit -m "I am inserting a message here to describe what my changes do."</code>.
+
+*Simple As.*
 
 [Read More Here](https://git-scm.com/docs/git-commit)
 
 #### 5.5 Git: Push
 
+Right, so all your changes are only held on your own computer locally. But what about the rest of the team? They need to see your changes, they also need to pull them into their own codebases. Reason being: they might need a feature you are responsible for creating in order to move forwards with their work. Thus, you require a way of pushing your commit to the repo. To be clear, you add modified files, then you commit, then you push (and it's recommended that you perhaps try pulling before doing any of this in case there are any merge conflicts).
+
+After having committed your changes, go ahead and run <code>git push</code>.
+
 [Read More Here](https://git-scm.com/docs/git-push)
 
 #### 5.6 Git: Branch
+<span id="s56"></span>
+*I wouldn't worry about this too much for now. Just remember if you need to change branches or load an alternative commit, you can run either: <code>git branch</code>, this shows you all the available branches, then you can <code>git checkout [BRANCH_NAME]</code> to that branch. Alternatively, you can <code>git log</code>, find an old commit hash and do the same.
 
-[Read More Here](https://git-scm.com/docs/git-branch)
+[Read More Here: Branch](https://git-scm.com/docs/git-branch)
 
-#### 5.7 Git: Checkout
+[Read More Here: Checkout](https://git-scm.com/docs/git-checkout)
 
-[Read More Here](https://git-scm.com/docs/git-checkout)
+#### 5.7 Git: Extra Reading
+<span id="s57"></span>
 
-#### 5.8 Git: Extra
-
-* [Merging Branches]()
-* [Opening Pull Requests](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
-* [Detached Head]()
-* [Additional Further Reading]()
+* [Merging Branches](https://git-scm.com/docs/git-merge) | When you need to merge new code you have written with the rest of the codebase.
+* [Opening Pull Requests](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) | Making a request to implement changes to repos.
+* [Detached Head](https://git-scm.com/docs/git-checkout#_detached_head) | This will come in useful, you can be banging your head against the wall for a long time if you don't understand this.
+* [Additional Further Reading](https://lab.github.com/) | GitHub have provided a lot of good reading material. My advice: check it out (no pun intended).
 
 ### 6. Using Git With The Plutus Pioneer Project
 
-*Continue Writing This At A Later Date.*
-
-### 7. Conclusions
-
-*Continue Writing This At A Later Date.*
-
-### 8. Further Reading
-
-*Continue Writing This At A Later Date.*
+* Regularly pull down the latest changes to the program.
+* Regularly pull down the latest changes to Plutus.
+* When you need to revert back to a previous lecture or lesson, go to your plutus-pioneer-program folder, find the week and check the commit hash in cabal.project. You can then checkout to that previous code. You MAY have to rebuild cabal, I'm not too sure. I have had a few people ask me about this.
+* When you need to get back to the main branch, you should be able to checkout to main or master (not sure what it's called). You may get a detached head, depending on what kind of changes have been pushed to the repos. Good luck with that ;) You should be able to just run <code>git pull origin main</code>, if that doesn't work, perhaps try running <code>git log</code> and checking out to the latest commit. That may not work either though... I mean, it's up to you to figure it out! That's part of the fun, but you can always hard reset. See additional reading.
 
 ### References
 
