@@ -7,7 +7,7 @@ So, let's learn how to write smart contracts in Haskell! [Watch this video](http
 
 ### 1. Introduction
 
-Within this set of lecture notes, some information about UTxO [[1]](#1) (and extended UTxOs [[2]](#2)) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program [[3]](#3). This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a (E)UTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it's called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses [[4]](#4).
+Within this set of lecture notes, some information about UTxO [[1]](#1) (and extended UTxOs [[2]](#2)) is initially discussed (the constraints required for consumption). The notion of on-chain and off-chain scripts is discussed. A reminder of what a EUTxO model is, is presented in detail (including information about datum, redeemers and context). We discuss some of the exercises demonstrated within the second lecture of the second cohort of the Plutus Pioneer Program [[3]](#3). This mainly includes how to implement validation on-chain (validators, mkValidator in Haskell, which compiles down to plutus-core). We do this through the use of a redeemer (initially very naively using a gift smart contract, which essentially means the redeemer always evaluates to True, then we switch to having the redeemer always evaluate to False - essentially never allowing the consumption of a EUTxO - burning... We then defined a redeemer as a form of Data, initially a tuple (bool, bool), if the tuple bool values are equal, then the UTxO can be consumed... Then a Haskell type report (I believe it's called - similar to an object, expect for each property Haskell creates a function, if I understand correctly). This performed the same function as the tuple (the same constraints)... We also learn how to create script addresses [[4]](#4).
 
 #### 1.1 Catch Up | EUTxO - Additional Information
 
@@ -20,13 +20,13 @@ Previously a pioneer brought up the notion of "what if we didn't add any kind of
 * On-chain Logic is about Validation (can a UTxO be consumed?)
 * Off-chain logic is about initiating transactions that effect the state of any given UTxO for which you hold the required redeemer (think of it somewhat like a key to sign a digital signature, except, it's not..)
 
-### 2. The Difference: (E)UTxO VS UTxO
+### 2. The Difference: EUTxO VS UTxO
 
 A simple UTxO model [[1]](#1) usually takes a hash of some form of public key and uses this as the address. The redeemer for the UTxO model can then simply derive the public key and then sign the transaction using the paired private key (ensuring they are in fact the person who holds the private key in their wallet; and so a UTxO is consumed by signing the UTxO and a new UTxO is created with inputs and outputs.
 
 (Extended)UTxOs have a number of address types, one of which is a script addresses. At this address a smart contract can exist on-chain that can run arbitrary logic [[2]](#2).
 
-Transactions that want to consume an (E)UTxO sitting at a script address are validated by a node, the node will run the script and depending on the result of the script (typically TRUE / FALSE, but other more complicated outputs can exist I believe) consumption is permitted or non-permitted.
+Transactions that want to consume an EUTxO sitting at a script address are validated by a node, the node will run the script and depending on the result of the script (typically TRUE / FALSE, but other more complicated outputs can exist I believe) consumption is permitted or non-permitted.
 
 ### 2.1 Redeemers
 
@@ -34,7 +34,7 @@ A redeemer is an arbitrary piece of data that is fed to the script (similar to a
 
 ### 2.2 Datum
 
-Datum is a 'string', a piece of data that sits at the output of any given (E)UTxO. It's great for providing an area to store the output state of a UTxO script or possibly even a 'linked-list' of (E)UTxOs.
+Datum is a 'string', a piece of data that sits at the output of any given EUTxO. It's great for providing an area to store the output state of a UTxO script or possibly even a 'linked-list' of EUTxOs.
 
 ### 2.3 Context
 
@@ -388,7 +388,7 @@ So we know it's compiled, now we need to generate an address for the script. Whi
 	
 Now when you reload the script in the repl, you'll see you have a hash and an scrAddress.
 
-*Lars then goes on to gloss over the off-chain code..*
+*Lars then goes on to gloss over the off-chain code.. Thank You!*
 
 ### Gift.hs | Whole Programme
 
@@ -603,7 +603,7 @@ This does, however, enable PlutusTx to compile our Haskell down into plutus-core
 	scrAddress :: Ledger.Address
 	scrAddress = scriptAddress validator
 
-	-- ! now we can use the validator on-chain to validate or invalidate (E)UTxOs
+	-- ! now we can use the validator on-chain to validate or invalidate EUTxOs
 	
 See Images:
 

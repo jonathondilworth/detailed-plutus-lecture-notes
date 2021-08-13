@@ -75,7 +75,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
  - [Lecture Three](3-Lecture-Three.md): Problems in the Playground, EUTxO Refresh, TxInfo & ScriptPurpose, On-Chain, Off-chain, Time, Examples
  - [Lecture Four](4-Lecture-Four.md): Monads, The EmulatorTrace Monad, Contract Monad, Homework
  - [Lecture Five](5-Lecture-Five.md): EUTxO Values, Plutus: Native Tokens (Minting and Burning)
- - [Lecture Six](): -
+ - [Lecture Six](6-Lecture-Six.md): Oracles, Core module, Swap module, Funds Module, Test Module, PAB & Front-ends
  - [Lecture Seven](): -
  - [Lecture Eight](): -
  - [Lecture Nine](): -
@@ -90,7 +90,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 ### 11. Nomenclature
 
 * UTxO: A model of accounting used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' has access to (in the context of 'cryptocurrencies'<sup><a href="#fn1">1</a></sup>.
-* (E)UTxO: An extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic [[8]](#8).
+* EUTxO: An extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic [[8]](#8).
 * Plutus-Platform: an application development platform for developing distributed applications using the Cardano blockchain [[5]](#5).
 * Compiler: A compiler takes some source code, and produces an output in another language, while the retaining meaning of the source. <code>Source -> (analysis) -> Compiler -> (Synthesis) -> Target.</code> [[4]](#4)
 * plutus-tx: The compiler which is responsible for transforming Plutus (which is a subset of Haskell) into Plutus-core [[6]](#6).

@@ -17,9 +17,9 @@ Note that you can modify the value of 120s to any amount, this will set the time
 
 <hr>
 
-### 3. Quick Refresh On The (E)UTxO Model
+### 3. Quick Refresh On The EUTxO Model
 
-(E)UTxO stands for **Extended Unspent Transaction Output Model**.
+EUTxO stands for **Extended Unspent Transaction Output Model**.
 
 *Let me just bring you back up to speed on UTxO...*
 
@@ -27,9 +27,9 @@ This model is similar to how BitCoin (BTC) manages unspent digital assets held b
 
 Given a simple UTxO, there is a **redeemer** and a **validator**. In order to spend any unspent transaction output, the redeemer can be thought of as a cryptographic key which is passed to the validator. Once any given UTxO is attempted to be spent, the validator is then responsible for verifying the chain of ownership by using the redeemer to verify that the UTxO belongs to whichever wallet is attempting to create a new UTxO.
 
-***With an (E)UTxO model, you have a script at a given address, a redeemer, context and datum...*** Validation must still occur in order to spend any given (E)UTxO. However, the script address is contains a reference to a set of instructions. The instructions **(the script)** contains arbitrary logic, some of which is responsible for creating a validator (plus a possible set of numerous constraints under which the validator may or may not verify the chain of ownership of any given (E)UTxO).
+***With an EUTxO model, you have a script at a given address, a redeemer, context and datum...*** Validation must still occur in order to spend any given EUTxO. However, the script address is contains a reference to a set of instructions. The instructions **(the script)** contains arbitrary logic, some of which is responsible for creating a validator (plus a possible set of numerous constraints under which the validator may or may not verify the chain of ownership of any given EUTxO).
 
-Furthermore, the (E)UTxO model has the ability to facilitate ownership of multiple types of asset (for example non fungible tokens can exist within a (E)UTxO model. Even the ownership of other coins can be transferred from one wallet to another given the EUTxO model).
+Furthermore, the EUTxO model has the ability to facilitate ownership of multiple types of asset (for example non fungible tokens can exist within a EUTxO model. Even the ownership of other coins can be transferred from one wallet to another given the EUTxO model).
 
 ### 3.1 EUTxO Scripts
 
@@ -794,7 +794,7 @@ mkKnownCurrencies []</code></pre>
 To summarise what has been discussed within this lecture:
 
 * Playground Memory Issues
-* Quick Refresh On The (E)UTxO Model
+* Quick Refresh On The EUTxO Model
 * EUTxO Scripts
 * Other Important Purposes of ScriptPurpose
 * Context - TxInfo (Acronym for Transaction Info)
@@ -830,4 +830,4 @@ plutus-ledger-api-0.1.0.0: Interface to the Plutus ledger for the Cardano ledger
 
 <a id="ft1">1.</a> The description is that of a pending transaction. This is the view as seen by validator scripts, so some details are stripped out. [[1]](#1)
 
-<a id="ft2">2.</a> In order to produce a validator, which, in turn may consume any given UTxO (or not consume it!), we must provide (even if they're empty arguments) a datum (typically of type 'record' & implements isData), a redeemer (typically a set of functions or executable code which makes checks against unspent transaction output details) and the context (is of type: ScriptContext). We also understand that empty arguments must be in the form of unit data: <code>()</code> and if we're doing something useful, we'll likely be providing genuine arguments. Thus, the datum will likely contain some data (as you may expect) to be used in conjunction with the redeemer, which will be defined as a set of functions to likely draw from the ScriptContext; the compiled product of which (the validator) may then decide as to whether or not to spend the (E)UTxO in consideration. At least, this is **my understanding thus far.**
+<a id="ft2">2.</a> In order to produce a validator, which, in turn may consume any given UTxO (or not consume it!), we must provide (even if they're empty arguments) a datum (typically of type 'record' & implements isData), a redeemer (typically a set of functions or executable code which makes checks against unspent transaction output details) and the context (is of type: ScriptContext). We also understand that empty arguments must be in the form of unit data: <code>()</code> and if we're doing something useful, we'll likely be providing genuine arguments. Thus, the datum will likely contain some data (as you may expect) to be used in conjunction with the redeemer, which will be defined as a set of functions to likely draw from the ScriptContext; the compiled product of which (the validator) may then decide as to whether or not to spend the EUTxO in consideration. At least, this is **my understanding thus far.**

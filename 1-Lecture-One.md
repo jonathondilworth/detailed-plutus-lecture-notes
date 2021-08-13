@@ -7,7 +7,7 @@ You could *possibly* say the same about *distributed ledger technologies* and *b
 
 ### 1. Introduction
 
-Within this set of notes the following information will be presented. Firstly, the courses administration details are provided. Secondly, a coverage of the course content is outlined. Shortly thereafter, details about Plutus, the difficulty of the program and the (pseudo-optional) pre-requisites are given. Furthermore, an extensive explanation of the (E)UTxO model (which facilitates the possibility of transactions on the Cardano network — **Cardanos unique accounting model**) is fully explained. In addition, building an example contract is presented, which includes how to setup a NIX shell, how to start Plutus-playground-server and enable it to be locally accessible from the browser. Smart Contract compilation is demonstrated and an example of how to use the Plutus platform in whole is shown. As pioneers we are then encouraged to try this ourselves.
+Within this set of notes the following information will be presented. Firstly, the courses administration details are provided. Secondly, a coverage of the course content is outlined. Shortly thereafter, details about Plutus, the difficulty of the program and the (pseudo-optional) pre-requisites are given. Furthermore, an extensive explanation of the EUTxO model (which facilitates the possibility of transactions on the Cardano network — **Cardanos unique accounting model**) is fully explained. In addition, building an example contract is presented, which includes how to setup a NIX shell, how to start Plutus-playground-server and enable it to be locally accessible from the browser. Smart Contract compilation is demonstrated and an example of how to use the Plutus platform in whole is shown. As pioneers we are then encouraged to try this ourselves.
 
 *Note: this document contains information pulled in from the Plutus Pioneer Lecture series in addition to information provided by reliable sources, such as videos, papers and statements made by employees of IOHK. Furthermore, to provide some background information on models such as UTxO (unextended), other academic sources (papers and books) have also been referenced.*
 
@@ -22,7 +22,7 @@ Within this set of notes the following information will be presented. Firstly, t
 
 **The Plutus Platform:**
 
-- Smart Contacts on Cardano via (E)UTxO
+- Smart Contacts on Cardano via EUTxO
 - Writing Smart Contracts with Haskell (Local, Production)
 - Compiling Haskell to Plutus-core using Plutus-Tx
 - Details Surrounding Plutus-core (GHC Plug-in)
@@ -54,7 +54,7 @@ Within this set of notes the following information will be presented. Firstly, t
 
 *Why So Difficult?*
 
-* Using (E)UTxO Model — Less intuitive than other similar technological implementations (E.G. ETH Accounting Model).
+* Using EUTxO Model — Less intuitive than other similar technological implementations (E.G. ETH Accounting Model).
 * Plutus is brand new and under rapid development, thus is changing all the time.
 * Due to constant changes, we're required to regularly update project dependencies.
 * Tooling is not ideal...
@@ -70,14 +70,14 @@ However,
 
 * Haskell courses and documentation has been made available to help pioneers learn.
 
-### 2. The (E)UTxO Model
+### 2. The EUTxO Model
 
 > “Any fool can know. The point is to understand.”
 > — Albert Einstein [[1]](#1)
 
-### 2.1 What is (E)UTxO?
+### 2.1 What is EUTxO?
 
-(E)UTxO abbreviates: "Extended Unspent Transaction Output", but to understand the extended model, we must first examine the unextended model: UTxO, firstly implemented by BitCoin [[2]](#2).
+EUTxO abbreviates: "Extended Unspent Transaction Output", but to understand the extended model, we must first examine the unextended model: UTxO, firstly implemented by BitCoin [[2]](#2).
 
 Within the next section I flip between the simple UTxO model that BTC implements and will specify when switching to talk about the extended version, as implemented by Cardano. 
 
@@ -88,7 +88,7 @@ Within the next section I flip between the simple UTxO model that BTC implements
 
 *What are unspent transaction outputs? Simply put: They are outputs — which can be thought of as remaining financial change — from previous transactions on the Blockchain that are still currently 'unspent' — Imagine you go to a shop, you buy a drink, you give the shopkeeper a £20 note, and you are given £19 back in change. That £19 is an unspent transaction output from the original transaction of the purchase of a drink.*
 
-UTxO is a model of accounting and is used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' <sup>[1](#ft1)</sup> on a blockchain data structure has access to <sup>[2](#ft2)</sup>. Each wallet address on a permission-less blockchain such as BTC is associated to a set of cryptographic 'tools' which lock any funds (BTC, Digital Currency) that are tied to the above mentioned wallet. Spending funds (e.g. sending BTC from one wallet to another) equates to the transfer of ownership of BTC from one private key owner to another [[3]](#3). This is accomplished by signing a transaction with the initiators private key, which can only be confirmed by verifying the signature using the initiators public key.
+UTxO is a model of accounting and is used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' <sup>[1](#ft1)</sup> on a blockchain data structure has access to <sup>[2](#ft2)</sup>. Each wallet for a blockchain such as BTC is associated to a set of cryptographic 'tools' which lock any funds (BTC, Digital Currency) that are tied to the above mentioned wallet. Spending funds (e.g. sending BTC from one wallet to another) equates to the transfer of ownership of BTC from one private key owner to another [[3]](#3). This is accomplished by signing a transaction with the initiators private key, which can only be confirmed by verifying the signature using the initiators public key.
 
 **It is important to note that you can only use complete UTxOs as input. So, if Alice has 100 BTC and wishes to send 10 BTC to bob, Alice creates a transaction which consumes 100 BTC as input and creates two outputs, 90 BTC (for Alice) and 10 BTC (for Bob). This is similar to the example mentioned above regarding the use of a £20 note.**
 
@@ -96,7 +96,7 @@ You would therefore think that the sum of all input for any give Tx must equal t
 
 <img src="https://latex.codecogs.com/svg.latex?\sum_{i=0}^{X}%20Tx_{i}%20=%20\sum_{o=0}^{Y}%20Tx_{o}">
 
-However, this is not the case. Firstly, transaction fees must be considered. *Furthermore, on Cardano (that implements the (E)UTxO model, uses ADA and not BTC) native tokens have been rolled out. Thus, minting and burning of native tokens creates an imbalance between the cumulative inputs and resulting outputs of a transaction. However, this is content for later lecture (according to Lars).*
+However, this is not the case. Firstly, transaction fees must be considered. *Furthermore, on Cardano (that implements the EUTxO model, uses ADA and not BTC) native tokens have been rolled out. Thus, minting and burning of native tokens creates an imbalance between the cumulative inputs and resulting outputs of a transaction. However, this is content for later lecture (according to Lars).*
 
 *Note: This is all accomplished through the use of a software wallets implementing transaction algorithms <sup>[3](#ft3)</sup>. Furthermore, technically BTC does implement basic 'smart contracts', which is to say, the transactional algorithms may utilise BitCoin Script (which includes a validator for identifying addresses and a redeemer to unlock the ability to spend funds[[5]](#5)). As far as I understand, BitCoin Script is essentially a wrapper for managing public-private key cryptographic implementation and unlocking funds to spend through the use of digital signatures [[6]](#6).*
 
@@ -118,15 +118,15 @@ Within this 'simple advanced' transaction, the outputs generated by the initiate
 
 <img src="https://latex.codecogs.com/svg.latex?\big(Bob%20\%20|%20{%20\%20\Big[%20\sum_{i=0}^{X}%20Tx_{i}^{Bob}%20\Big]\%20-%20(110%20\div%202)%20}%20\%20\big)%20=%205%20\%20BTC">
 
-### 2.4 And God Said Let There Be (E)UTxO
+### 2.4 And God Said Let There Be EUTxO
 
 Cardano implements an extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic.
 
 Firstly, Cardano implements addresses differently to other cryptocurrencies (blockchains and distributed ledger technologies). Instead of using a simple hash-based derived address (using a public key as input), addresses in Cardano are generated using a derivation scheme outlined [here](https://developers.cardano.org/docs/get-started/cardano-serialization-lib/generating-keys/).<sup>[4](#fn4)</sup> These addresses are referential in nature and point to scripts containing arbitrary logic. These scripts are programmes which are (ideally) deterministic, pure, replay-able state-machines. Somewhat similar to the aforementioned $validators$, but are far more general in nature. They are, however, still used to determine whether a given UTxO may be consumed based on the $redeemer$ input, which is now also arbitrary in nature and has replaced simple digital signature based input.
 
-Secondly, transaction outputs also contains a component called $datum$ *(which is the singular noun for data)*. $Datum$ is useful for identifying state. This means that the (E)UTxO is at least as powerful as the ETH model.
+Secondly, transaction outputs also contains a component called $datum$ *(which is the singular noun for data)*. $Datum$ is useful for identifying state. This means that the EUTxO is at least as powerful as the ETH model.
 
-**(E)UTxO Advantage: Validation of UTxO Off-Chain**
+**EUTxO Advantage: Validation of UTxO Off-Chain**
 
 It is possible to check that a transaction will validate within your wallet before ever sending it to the chain.
 
@@ -134,9 +134,9 @@ It is possible to check that a transaction will validate within your wallet befo
 
 Unspent transaction outputs can be consumed by others before your transaction has the opportunity to reach the chain (after being verified by your wallet software). In this instance, your transaction will simply be dropped back into the pool of transactions to be verified (so long as all the inputs are still there) and attempts to verify your transaction will continue.
 
-**Scope: (E)UTxO Model Scripts, Redeemers and Datam**
+**Scope: EUTxO Model Scripts, Redeemers and Datam**
 
-The implementation of scripts within the (E)UTxO model ensures that the scope is limited to the transaction (or a small chain or transactions) that are attempting to be facilitated by a user. This means the state of the entire blockchain does not need to be known (as is the case with ETH). Furthermore, there is an appropriate degree of scope that enables to ability to create smart contracts which are (ideally) deterministic in nature, meaning: the output is predictable. This makes it more difficult to introduce bugs into the software.
+The implementation of scripts within the EUTxO model ensures that the scope is limited to the transaction (or a small chain or transactions) that are attempting to be facilitated by a user. This means the state of the entire blockchain does not need to be known (as is the case with ETH). Furthermore, there is an appropriate degree of scope that enables to ability to create smart contracts which are (ideally) deterministic in nature, meaning: the output is predictable. This makes it more difficult to introduce bugs into the software.
 
 ### 3. Plutus Platform, Smart Contracts & Nix
 

@@ -460,7 +460,17 @@ Characters are individual quotes, strings are double quotes. However, a list of 
 
 <hr />
 
-### Comments On Code Implementation
+### Maybe.hs
+
+Maybe is a great way to handle IO once it has entered into the program. The purpose of Maybe is to pre-fix the term to a return type. In short, it's essentially saying: in an ideal world, you would get the following return type, but since we do not live in a utopian paradise, you may not get what you're looking for. Hence: Maybe.
+
+<code>foo :: String -> String -> String -> Maybe Int</code>
+
+Upon defining <code></code> and allowing it to execute, one should notice that if any type submitted as a parameter to the function is not a simple value wrapped in a string, the function will return <code>Nothing</code>, which is essentially an exception in Haskell. However, if all three values are Integers wrapped within Strings, it will return the summation of the parameters.
+
+![](./img/kajdhjas.jpg)
+
+#### Maybe.hs Implementation & My Own Personal Comments
 
 *Please Keep The Following In Consideration Before Rendering Judgement.*
 
@@ -540,6 +550,47 @@ threeInts' mx my mz = do
     let s = k + l + m
     return s
 </code></pre>
+
+### Either
+
+Either is a function that would be used / called when you're looking to implement code that (when it breaks) returns helpful error messages. Although, it could be used for all kinds of things, that is the use case we are specifically looking at.
+
+* Two Type Constructors as parameters, for example, the type constructors: <code>Left</code> and <code>Right</code>.
+* One Return Type
+* <code>type Either :: * -> * -> *</code>
+* <code>data Either a b = Left a | Right b</code>
+* Problem with Maybe: it returns <code>nothing</code>, so there is no error message.
+* RHS: Type: Just
+* LHS: Type: (some kind of error), you could implement this as a String.
+
+
+
+<pre><code>module week04.Either where 
+
+import Text.Read (readMaybe)
+
+readEither :: Read a => String -> String a
+readEither s = case readMaybe s of:
+	Nothing -> Left $ "Error! Cannot Parse: " ++ s
+	Just a  -> Right a
+</code></pre>
+
+Now, it becomes possible to implement our code previously written for <code>Text.Read</code> by replacing <code>Maybe</code> with <code>Either</code> and <code>readMaybe</code> with <code>readEither</code>.
+
+*Note: We also need to replace the 'Nothing Exceptions' and the Just ... to Left and Right return values respectively. Furthermore, we need to adjust the next portion of code too, in order to reflect our changes*
+
+<pre><code>bindEither :: Either String a -> (a -> Either String b) -> Either String b
+bindEither (Left err) _ = Left err
+bindEither (Right x) f = f x
+
+foo' :: String -> String -> String -> Either String Int
+foo' x y z = readEither x `bindEither` \k ->
+             readEither y `bindEither` \s ->
+             readEither z `bindEither` \m ->
+             Right (k + l + m)
+</code></pre>
+
+<hr />
 
 ### Images
 
