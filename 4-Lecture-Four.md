@@ -5,7 +5,9 @@
 
 ### 1. Introduction
 
-*Currently Being Written...*
+*Currently Being Reviewed... Plan On Adding More Notes In The Future*
+
+*Note: Combinational Lecture (4) and Parts Of LearnYouAHaskellForGreaterGood*
 
 During this lecture, we're going to cover *a lot*. Firstly, we'll be briefly discussing the possibility and extent of on-chain arbitrary logic (even though this lecture focuses on a Haskell Primer and off-chain logic). So, we'll have a quick chat about: validation logic, plutus script, network nodes, context, IO and native tokens. When it comes to the meat and potatoes, the off-chain code and the Haskell primer... We're going to examine what monads are, specifically the contract monad, as implemented by the wallet. Furthermore, we'll review some off-chain checks / validation, then building the transactions themselves too (to be deployed to our own / nearest node). Oh yes, how did I forget. We'll also be discussing safe vs unsafe and useful vs non-useful. Lastly, IO (that stands for Input Output, just in case you didn't know) and the effects that can be had using Haskell IO.
 
@@ -365,11 +367,11 @@ library
 
 *Note: I will need to revisit this portion of the lecture notes and potentially brush up on them... But, I think I'm doing OKAY...*
 
-### Function: Map & toUpper & toLower, IO String, IO [Char]
+### 6. Basic: Function: Map & toUpper & toLower, IO String, IO [Char]
 
 In Haskell [Char] is a list of characters, which equates to a string. So, when you: <code>map toUpper</code> "a lower case string" within the repl, you'll see "A LOWER CASE STRING" returned. A similar function exists called toLower, I won't go into that - I think you can guess what it does.
 
-### Functor, fmap | Getting Slightly More Complicated
+### 7. Concept: Functor, fmap | Getting Slightly More Complicated
 
 * Important in Haskell
 * fmap :: (a -> b) -> f a -> f b
@@ -395,7 +397,7 @@ Okay, so we've seen how we are able to take user input and transform it whilst m
 
 The LHS function is executed first *(note: as the result is simply (), nothing special happens anyway, but if a type result existed then the >> operator would simply ignore it)*, then the RHS is executed. In short: given two *'recipes'* the <code>>></code> operator will executed LHS, throw away the result, then execute RHS & attaches the second recipe.
 
-### Chain Binding | Important: The RHS Result Is Not Ignored
+### 8. Concept: Chain Binding | Important: The RHS Result Is Not Ignored
 
 **Warning: <code>:t (>>=)</code> will start talking about a Monad constraint if executed in the repl, but for now, let's just worry about the IO.**
 
@@ -423,52 +425,114 @@ main = foo
 
 foo :: IO ()
 foo = getLine >>= \t ->
-		getLine >>= \s ->
-		putStrLn (s ++ t)
+      getLine >>= \s ->
+      putStrLn (s ++ t)
 </code></pre>
 
 *Note: You can rewrite this using <code>do</code> blocks.*
 
 <pre><code>main :: IO ()
 main = do
-		getLine >>= \t ->
-		getLine >>= \s ->
-		putStrLn (s ++ t)
+       getLine >>= \t ->
+       getLine >>= \s ->
+       putStrLn (s ++ t)
 </code></pre>
 
-### Func: Return
+### 9. Function: Return
 
-<pre><code>
-Plutus ... > return "Haskell" :: IO String
+<pre><code>Plutus ... > return "Haskell" :: IO String
 "Haskell"
 </code></pre>
 
-### Characters and Strings
+### 10. Characters and Strings
 
 Characters are individual quotes, strings are double quotes. However, a list of characters is essentially a string: <br /><br /> <code>IO String === IO [Char]</code>.
 
-### Concatenation using Semicolon (Careful!)
+### 11. Concatenation using Semicolon (Careful!)
 
 <code>Plutus ... > 'A' : " little dog" <br />
 "A little dog"</code>
 
 *Has to be a character followed by a string*
 
-#### *Note: I need to jump ahead. I'm spending too much time right now on this particular lecture. I can write Haskell, too much time documenting everything - however I will come back to finish up these lecture notes...*
+### 12. Elegantly Solving Problems With Functional Programming
 
-**We're literally not even half way through...**
+Believe it, or not, there is something called 'Reverse Polish Notation' which, when used appropriately, solves the issue of precedence within mathematical equations. For example, instead of writing <code>(4 + 3) * 10</code> we would write <code>4 3 + 10 *</code>. Now, because <code>4 + 3 = 7</code> the expression has equivalence <code>7 10 *</code>.
 
+> Coffee Time: Imagine you were tasked with rewriting hundreds of equations from their 'standard' form into 'Reverse Polish Notation' - what data structure do you think would be most appropriate to use? <br /><br />
+> I'll give you a hint: one of the operators it uses sounds a lot like an oven in Welsh!
+
+### 12.1 Implementing Reverse Polish Notion With A Stack
+
+Consider the following RPN equation:
+
+*Note: I actually really enjoyed writing about 10,000 lines of ARM Assembly, and this kinda reminds me of it, hah. Assembly language programming is good fun, you should give it a go all you 'Haskellers!'*
+
+<pre><code>10 4 3 + 2 * -
 <hr />
+PUSH(10)		# 10
+PUSH(4)			# 10 4
+PUSH(3)			# 10 4 3
+				# + operator, we need to add the previous two numbers together
+POP				# 10 4 3	|		
+POP				# 10 		|		3 + 4 = 7
+PUSH(7)			# 10 7		|
+PUSH(2)			# 10 7 2	|
+				#	* operator, we need to multiply the previous two numbers
+POP				# 10 7	2	|		
+POP				# 10		|		2 * 7 = 14
+				# - operator, we need to subtract the previous two numbers
+POP				# 10 14		|
+				#			|		14 - 10 = -4
+PUSH(-4)		# -4		|
 
-### Maybe.hs
+RETURN			# -4
+</code></pre>
+
+### 12.2 To hell implementing this the 'normal' way
+
+<pre><code>module Week04.RPNSolution where
+import Data.List
+
+foldingFunction :: [Double] -> String -> Maybe [Double]
+foldingFunction (x:y:ys) "*" = (y * x):ys
+foldingFunction (x:y:ys) "+" = (y + x):ys
+foldingFunction (x:y:ys) "-" = (y - x):ys
+foldingFunction xs s = liftM (:xs) (readMaybe s)
+
+RPNSolution :: String -> Double
+RPNSolution :: head . fodl foldingFunction [] . words
+
+readMaybe :: (Read a) => String -> Maybe a
+readMaybe st = case reads st of [(x, "")] -> Just x
+                                _ -> Nothing
+</code></pre>
+
+<pre><code>import Data.List
+
+solveRPN :: String -> Maybe Double
+solveRPN st = do
+	[result] <- foldM foldingFunction [] (words st)
+	return result
+</code></pre>
+
+<pre><code>> solveRPN "1 2 * 4 +"
+Just 6.0
+> solveRPN "1 8 aslj"
+Nothing
+</code></pre>
+
+### 13. To Boldly Go Where Only A Few Men Have Gone Before: Monads
+
+Functors are a particularly useful concept for mapping values. Furthermore, Applicative Functors allow us to view values as values with contexts, whilst being able to use normal functions on those values whilst preserving the meaning of the context. The next step is Monads. Get ready, strap in.
+
+### 13.1 Maybe.hs
 
 Maybe is a great way to handle IO once it has entered into the program. The purpose of Maybe is to pre-fix the term to a return type. In short, it's essentially saying: in an ideal world, you would get the following return type, but since we do not live in a utopian paradise, you may not get what you're looking for. Hence: Maybe.
 
 <code>foo :: String -> String -> String -> Maybe Int</code>
 
 Upon defining <code></code> and allowing it to execute, one should notice that if any type submitted as a parameter to the function is not a simple value wrapped in a string, the function will return <code>Nothing</code>, which is essentially an exception in Haskell. However, if all three values are Integers wrapped within Strings, it will return the summation of the parameters.
-
-![](./img/kajdhjas.jpg)
 
 #### Maybe.hs Implementation & My Own Personal Comments
 
@@ -491,7 +555,7 @@ Firstly, I am in no way anywhere near as qualified as any of the individuals dev
 
 *My 2 cents.*
 
-**Maybe.hs**
+### 3.2 Maybe.hs
 
 <pre><code>module Week04.Maybe where
 
@@ -521,7 +585,7 @@ foo'' :: String -> String -> String -> Maybe Int
 foo'' x y z = threeInts (readMaybe x) (readMaybe y) (readMaybe z)
 </code></pre>
 
-**Monad.hs**
+### 13.3 Monad.hs
 
 <pre><code>module Week04.Monad where
 
@@ -551,7 +615,7 @@ threeInts' mx my mz = do
     return s
 </code></pre>
 
-### Either
+### 13.4 Either
 
 Either is a function that would be used / called when you're looking to implement code that (when it breaks) returns helpful error messages. Although, it could be used for all kinds of things, that is the use case we are specifically looking at.
 
@@ -562,8 +626,6 @@ Either is a function that would be used / called when you're looking to implemen
 * Problem with Maybe: it returns <code>nothing</code>, so there is no error message.
 * RHS: Type: Just
 * LHS: Type: (some kind of error), you could implement this as a String.
-
-
 
 <pre><code>module week04.Either where 
 
@@ -589,6 +651,10 @@ foo' x y z = readEither x `bindEither` \k ->
              readEither z `bindEither` \m ->
              Right (k + l + m)
 </code></pre>
+
+*Note: At this point I simply watched the remainder of the lecture. I may come back and add more notes when there is more time available. For now, I need to get Lecture Five and Six written up & move on to lecture 7 ASAP. I have to say though, this has been the most difficult lecture yet. Five and Six are not that bad, well, I'm half way through six.*
+
+*Note: Lars was no kidding when he said this is not easy... I'm pretty use to working A LOT, but moving to declarative functional is very strange. If you don't really know much Haskell, or worse, if you've never come across it in your life, you'll be required to put in 50 to 60 hour weeks to get this course done IMO - about 30 hours of Haskell and 20 - 30 hours of Plutus.*
 
 <hr />
 
