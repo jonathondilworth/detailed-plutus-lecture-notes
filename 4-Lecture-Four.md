@@ -423,7 +423,7 @@ Plutus ... >
 <pre><code>main :: IO ()
 main = foo
 
-foo :: IO ()
+foo :: IO ()xs
 foo = getLine >>= \t ->
       getLine >>= \s ->
       putStrLn (s ++ t)
@@ -454,77 +454,6 @@ Characters are individual quotes, strings are double quotes. However, a list of 
 "A little dog"</code>
 
 *Has to be a character followed by a string*
-
-### 12. Elegantly Solving Problems With Functional Programming
-
-Believe it, or not, there is something called 'Reverse Polish Notation' which, when used appropriately, solves the issue of precedence within mathematical equations. For example, instead of writing <code>(4 + 3) * 10</code> we would write <code>4 3 + 10 *</code>. Now, because <code>4 + 3 = 7</code> the expression has equivalence <code>7 10 *</code>.
-
-> Coffee Time: Imagine you were tasked with rewriting hundreds of equations from their 'standard' form into 'Reverse Polish Notation' - what data structure do you think would be most appropriate to use? <br /><br />
-> I'll give you a hint: one of the operators it uses sounds a lot like an oven in Welsh!
-
-### 12.1 Implementing Reverse Polish Notion With A Stack
-
-Consider the following RPN equation:
-
-*Note: I actually really enjoyed writing about 10,000 lines of ARM Assembly, and this kinda reminds me of it, hah. Assembly language programming is good fun, you should give it a go all you 'Haskellers!'*
-
-<pre><code>10 4 3 + 2 * -
-<hr />
-PUSH(10)		# 10
-PUSH(4)			# 10 4
-PUSH(3)			# 10 4 3
-				# + operator, we need to add the previous two numbers together
-POP				# 10 4 3	|		
-POP				# 10 		|		3 + 4 = 7
-PUSH(7)			# 10 7		|
-PUSH(2)			# 10 7 2	|
-				#	* operator, we need to multiply the previous two numbers
-POP				# 10 7	2	|		
-POP				# 10		|		2 * 7 = 14
-				# - operator, we need to subtract the previous two numbers
-POP				# 10 14		|
-				#			|		14 - 10 = -4
-PUSH(-4)		# -4		|
-
-RETURN			# -4
-</code></pre>
-
-### 12.2 To hell implementing this the 'normal' way
-
-<pre><code>module Week04.RPNSolution where
-import Data.List
-
-foldingFunction :: [Double] -> String -> Maybe [Double]
-foldingFunction (x:y:ys) "*" = (y * x):ys
-foldingFunction (x:y:ys) "+" = (y + x):ys
-foldingFunction (x:y:ys) "-" = (y - x):ys
-foldingFunction xs s = liftM (:xs) (readMaybe s)
-
-RPNSolution :: String -> Double
-RPNSolution :: head . fodl foldingFunction [] . words
-
-readMaybe :: (Read a) => String -> Maybe a
-readMaybe st = case reads st of [(x, "")] -> Just x
-                                _ -> Nothing
-</code></pre>
-
-<pre><code>import Data.List
-
-solveRPN :: String -> Maybe Double
-solveRPN st = do
-	[result] <- foldM foldingFunction [] (words st)
-	return result
-</code></pre>
-
-<pre><code>> solveRPN "1 2 * 4 +"
-Just 6.0
-> solveRPN "1 8 aslj"
-Nothing
-</code></pre>
-
-### 13. To Boldly Go Where Only A Few Men Have Gone Before: Monads
-
-Functors are a particularly useful concept for mapping values. Furthermore, Applicative Functors allow us to view values as values with contexts, whilst being able to use normal functions on those values whilst preserving the meaning of the context. The next step is Monads. Get ready, strap in.
 
 ### 13.1 Maybe.hs
 
