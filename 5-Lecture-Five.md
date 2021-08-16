@@ -17,7 +17,7 @@
 
 All jokes aside *(I told you this going to be a somewhat creative technical document, you were warned)*, I suppose the first question is: What Is A Native Token?
 
-*At this point, I think most 'techy' people do understand the concept of Cardano's Native Tokens, NFTs (I would love to see fractional NFTs by the way [[2]](#2), and perhaps some nicer ways of implementing NFT payloads without bloating the chain) and perhaps even the notion of wrapped tokens. I do have to continually remind myself that this is an extremely new multi-disciplinary subject that... Without trying to sound arrogant (because I don't understand some of this stuff myself) most people just do not understand this technology.*
+*At this point, I think most 'techy' people do understand the concept of Cardano's Native Tokens, NFTs (I would love to see fractional NFTs by the way [[2]](#2), and perhaps some nicer ways of implementing NFT payloads without bloating the chain).*
 
 ### 2.1 What Is A Native Token?
 
