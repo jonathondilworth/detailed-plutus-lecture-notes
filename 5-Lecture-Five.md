@@ -108,7 +108,152 @@ Prelude Plutus.V1.Ledger.Value Plutus.V1.Ledger.Ada Week05.Free> flattenValue v
 Prelude Plutus.V1.Ledger.Value Plutus.V1.Ledger.Ada Week05.Free>
 </code></pre>
 
+### 4. Minting Policies
+
+* Refresher On validation
+* No public key address, script address
+* UTxO sits at such a script address
+* Tx tries to consume UTxO as an input
+* For each script input, the co-responding validation script is run
+* Validation script (as input) gets:
+	* Datum (comes from the UTxO)
+	* Redeemer, which comes from the Tx
+	* Context (pretty sure context is part of the UTxO)
+		* two fields: ScriptPurpose, txInfo
+	* Every ScriptPurpose until now always had the Spending txOutRef
+	* txOutRef is a reference to the UTxO we're trying to consume
+	* txInfo has all the context information about the Tx which is trying to be validated
+* For monetary policies, for minting policies: if the txForgeField (txInfoForge is != 0)
+* Then txInfoForge can contain a bag of asset classes (map => map) [Value]
+* IFF txInfoForge is != 0, then for every CurrencySymbol in this bag that is being forged:
+* The co-responding script sitting @ hash(Currencysymbol) is going to be ran
+* These minting policy scripts only have 2 validator inputs: redeemer and the context
+* Minting Policy Script only have 2 inputs: Redeemer and the Context, No datum
+* Tx provides redeemer (bool) + redeemer for all script inputs
+* To summerise:
+* IFF the Transaction Forge Field (Context -> txInfo -> txInfoForge) is non-zero...
+* Meaning that a Value type sits within that transaction attribute...
+* And remember, Value is a map->map, like an indexing data structure... THEN:
+* For each currency symbol:
+* A hash of the symbol is taken which produces a script address, AND
+* The script at that address is executed, AND
+* For each script where the redeemer returns True,
+* A Transaction is created which will create or burn the Native Token associated with that script...
+* It will do so in accordance with the scripts arbitrary logic...
+* The fee to be paid depends on the computational complexity of the script located at the address derived from hashing the currency symbol, so long as the redeemer returned True.
+
+<pre><code>{-# LANGUAGE DataKinds           #-}
+{-# LANGUAGE DeriveAnyClass      #-}
+{-# LANGUAGE DeriveGeneric       #-}
+{-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE NoImplicitPrelude   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell     #-}
+{-# LANGUAGE TypeApplications    #-}
+{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE TypeOperators       #-}
+
+module Week05.Free where
+
+import           Control.Monad          hiding (fmap)
+import           Data.Aeson             (ToJSON, FromJSON)
+import           Data.Text              (Text)
+import           Data.Void              (Void)
+import           GHC.Generics           (Generic)
+import           Plutus.Contract        as Contract
+import           Plutus.Trace.Emulator  as Emulator
+import qualified PlutusTx
+import           PlutusTx.Prelude       hiding (Semigroup(..), unless)
+import           Ledger                 hiding (mint, singleton)
+import           Ledger.Constraints     as Constraints
+import qualified Ledger.Typed.Scripts   as Scripts
+import           Ledger.Value           as Value
+import           Playground.Contract    (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+import           Playground.TH          (mkKnownCurrencies, mkSchemaDefinitions)
+import           Playground.Types       (KnownCurrency (..))
+import           Prelude                (IO, Show (..), String)
+import           Text.Printf            (printf)
+import           Wallet.Emulator.Wallet
+
+{-# INLINABLE mkPolicy #-}
+mkPolicy :: () -> ScriptContext -> Bool
+mkPolicy () _ = True
+
+policy :: Scripts.MintingPolicy
+policy = mkMintingPolicyScript $$(PlutusTx.compile [|| Scripts.wrapMintingPolicy mkPolicy ||])
+
+curSymbol :: CurrencySymbol
+curSymbol = scriptCurrencySymbol policy
+
+data MintParams = MintParams
+    { mpTokenName :: !TokenName
+    , mpAmount    :: !Integer
+    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+
+type FreeSchema = Endpoint "mint" MintParams
+
+mint :: MintParams -> Contract w FreeSchema Text ()
+mint mp = do
+    let val     = Value.singleton curSymbol (mpTokenName mp) (mpAmount mp)
+        lookups = Constraints.mintingPolicy policy
+        tx      = Constraints.mustMintValue val
+    ledgerTx <- submitTxConstraintsWith @Void lookups tx
+    void $ awaitTxConfirmed $ txId ledgerTx
+    Contract.logInfo @String $ printf "forged %s" (show val)
+
+endpoints :: Contract () FreeSchema Text ()
+endpoints = mint' >> endpoints
+  where
+    mint' = endpoint @"mint" >>= mint
+
+mkSchemaDefinitions ''FreeSchema
+
+mkKnownCurrencies []
+
+test :: IO ()
+test = runEmulatorTraceIO $ do
+    let tn = "ABC"
+    h1 <- activateContractWallet (Wallet 1) endpoints
+    h2 <- activateContractWallet (Wallet 2) endpoints
+    callEndpoint @"mint" h1 $ MintParams
+        { mpTokenName = tn
+        , mpAmount    = 555
+        }
+    callEndpoint @"mint" h2 $ MintParams
+        { mpTokenName = tn
+        , mpAmount    = 444
+        }
+    void $ Emulator.waitNSlots 1
+    callEndpoint @"mint" h1 $ MintParams
+        { mpTokenName = tn
+        , mpAmount    = -222
+        }
+    void $ Emulator.waitNSlots 1
+</code></pre>
+
+Similarly to validators for spending, when we are producing a validator that implements some kind of monetary policy, such as minting Native Tokens (known as a minting policy), we provide similar parameters. However, it should be noted that there is simply no purpose for a datum parameter, it is non-sensical, thus, we only provide two parameters. The two parameters we provide are, as you might expect: the redeemer and the context.
+
+For a policy we require a redeemer because we need to know whether minting and / or burning of a given token is permitted. The redeemer is required to satisfy the arbitrary logic found at the script address. The context is required because we must have access to every CurrencySymbol (which is derived through: context.txInfo.txInfoForge :: Value) such that we can derive the script addresses (by applying a hashing algorithm to the CurrencySymbol ByteString). 
+
+As the Value is a mapping from X to a mapping of Y to Z, where X and Y are ByteStrings and Z is an Integer, it is possible to have multiple CurrencySymbols that point to multiple Tokens with varying degrees of amount. See the image below.
+
+![./img/map-to-map.jpg](./img/map-to-map.jpg)
+
+*Note: Ada Lovelace is not part of the data structure. She existed a long time ago...*
+
+The above example is **the simplest** example you might expect to see, because it's a minting policy which always returns True. This is demonstrated through the static nature of the <code>mkPolicy</code> function within free.hs (I have also included the section which compiles the policy to Plutus-core):
+
+<pre><code>{-# INLINABLE mkPolicy #-}
+mkPolicy :: () -> ScriptContext -> Bool
+mkPolicy () _ = True
+policy :: Scripts.MintingPolicy
+policy = mkMintingPolicyScript $$(PlutusTx.compile [|| Scripts.wrapMintingPolicy mkPolicy ||])
+</pre></code>
+
+
 <hr />
+
 
 -
 
@@ -170,10 +315,14 @@ no starch press. <br />
 
 ### Footnotes
 
-1. ajsjhasdasd
+1. TODO: Add Footnote
 
 ### Appendix
 
 Value.hs
 
+TODO: Add Value.hs
+
 Ada.hs
+
+TODO: Add Ada.hs
