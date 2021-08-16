@@ -108,62 +108,14 @@ Prelude Plutus.V1.Ledger.Value Plutus.V1.Ledger.Ada Week05.Free> flattenValue v
 Prelude Plutus.V1.Ledger.Value Plutus.V1.Ledger.Ada Week05.Free>
 </code></pre>
 
-
-
 <hr />
 
 -
 
 **Random Notes Whilst Listening To Lecture...**
 
-* No other native tokens apart from ADA from genesis -- no minting / burning
-* Addresses & Values (UTxO), EUTxO: Address (Script Pointer), Value, Datum
-	* Set { Inputs }, Set { Outputs } + Validator, Redeemer, Datum & Context
-* Relevant Types: Plutus-Ledger-Api
-	* Plutus.V1.Ledger.Value
-	* Plutus.V1.Ledger.Ada
-* Value :: Map CurrencySymbol (Map TokenName Integer) -- ByteStrings Represent a Coin (AssetClass)
-* Native Tokens are identified by CurrencySymbol & TokenName
-* CurrencySymbol is simply a New Type Wrapper around a ByteString
-* Ada will be its own AssetClass, whilst other Native Tokens are their own.
-* A value = how many units of each asset class are contained within
-* import Plutus.v1.ledger.Value
-* import Plutus.v1.ledger.Ada
-* Override xOverloadedStrings
-* :t adaSymbol
-* :t adaToken
-* :t lovelaceValueOf
-* lovelaceValueOf 100 -- produces a value of 100 lovelace
-* We can combine values:
-* lovelaceValueOf 10 <> lovelaceValueOf 100 -- value: 110 lovelace
-* :t singleton 
-	* singleton :: CurrencySmybol -> TokenName -> Integer -> Value
-* singleton "a8ff" "ABC" 7 -- token called ABC, of value 7, with a8ff symbol
-* What goes up must come down, what goes in must come out (except for, of course: the fees!)
-* This is why we need a minting policy (which is why I assume we get a policy ID? a function of the entire minting process maybe? Like a hash(mint)?
-* Fees depend on script memory use + number of instructions and size of transaction in bytes (not in value)
-* YES! I guessed it correctly! Lecture five is so much more fluid than lecture four, lecture four felt like part of a Haskell course, it's fairly intuitive, I'm just kicking myself for spending so much time documenting progress.
-* Cannot mint or burn ADA because there hash(<empty>) is non-sensical, I suppose you could say hash(<empty>) is null (I suppose, the Haskell word would be: nothing).
-
-
-<hr />
-
-These notes take AGES to compile. I'm going to crack on with the lectures for a while, then return to making these notes.
-
-
-Currency Symvol, takes aby string
-
-<hr />
-
-* Native Tokens
-* minting Policy: conditions minted & burned
 * UTxO : Address & Value
 * EUTxO : Address & Value & Datum
-* Value : Plutuis-Ledger-Api Plutus-v1-Ledger-Value *.ada.hs ... .Value.hs
-* Each Native Token (AssetClass) is identified by a CurrencySymbol and a TokenName
-* CurrencySymbol and a TokenName are both just 'New Type' Wrapper around a ByteStrings (TokenName, UnTokenName, ByteString)
-* AssetClass : an AssetClass is just a pair defined as : AssetClass DataType Wrapper Tuple (ByteString(CurrencySymbol), ByteString(TokenName))
-* <code>NT = {as\_0, as\_1, ..., as_n} | as : AssetClass</code>
 * newType New Type : Value
 	* Value
 		* getValue :: Map CurrencySymbol (Map TokenName Integer)
@@ -171,17 +123,6 @@ Currency Symvol, takes aby string
 		* Value === Map AssetClass Integer
 		* This makes sense, because the value is an AssetClass which contains an Integer (Value) - although I would have thought this would need to be a floating point number.
 		* Value returns the number of units which are in each AssetClass
-
-* TokenName and CurrencySymbol implement the IsString class, so we can use -xoverloadedstrings to enter string literals
-* Ledger.Symbol type: currency symbol
-* 
-
-**Add Title:**
-
-
-
-
-
 * The new types: TokenName and CurrencySymbol implement the IsString class, so we can use -XOverLoadedStrings to enter string literals.
 * Since TokenName and CurrencySymbol are both just essentially wrappers for a ByteString, we can enter string literals to their constructors.
 * Values Containing Native Tokens
@@ -212,10 +153,6 @@ Currency Symvol, takes aby string
 * total amount of ada in the system is fixxed
 * only custom native tokens can have custom minting policies and can be minted + burned under certain conditions
 * Next we'll look at a minting policy script, it's similar to validation script, but not identical
-
-
-
-
 
 ### References
 
