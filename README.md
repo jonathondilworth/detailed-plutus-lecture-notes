@@ -2,6 +2,10 @@
 
 *The Second Cohort Of The Plutus Pioneer Programme*
 
+*14th AUG: Exciting times! Alonzo Purple Test Net is available to a subset of the pioneers. The Hard Fork on the Main Net is due 12th of September (what a great birthday present). We will see the implementation of MetaData, Native Assets and SMART CONTRACT FUNCTIONALITY. The one thing I would warn people about, and this is purely my own subjective opinion, is: don't expect too much to happen all at once. I get this feeling that people think that as soon as smart contracts are available the price of ADA is going to explode. Firstly, it's never been about the price. Secondly, we're writing Smart Contracts in Haskell (which isn't HUGELY adopted within industry [[9]](#9)), I believe we've chosen the right tool for the job, but adoption may take some time. Furthermore, the Catalyst projects may take a while to get going and finally, there are literally only a couple of thousand developers (at most) that can write Plutus. Plutus is basically Haskell, so maybe I'm overblowing it here, but you do still need to know the gotchas. For example: compiling parameterised validators, if I remember correctly, requires a specific knowledge of Plutus, because standard oxford brackets simply will not compile. It would be nice to see hundreds of new products and platforms instantaneously using Cardano Smart Contracts, but I'm just a little skeptical. However, I do hold the following opinion: THE ONLY WAY FROM HERE IS UP.* 
+
+***In my humble opinion, Cardano is to Blockchains what UNIX is to Kernels.***
+
 ### 1. Authors Note
 
 I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems [[1]](#1), Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup>[1](#fn1)</sup> are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
@@ -95,6 +99,9 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 * Compiler: A compiler takes some source code, and produces an output in another language, while the retaining meaning of the source. <code>Source -> (analysis) -> Compiler -> (Synthesis) -> Target.</code> [[4]](#4)
 * plutus-tx: The compiler which is responsible for transforming Plutus (which is a subset of Haskell) into Plutus-core [[6]](#6).
 * plutus-core: What high level languages are to assembly language, Plutus is to Plutus-core [[7]](#7). From what I understand, plutus-core is essentially: System F omega with (equi-)recursive types.
+* AssetClass: A native token that exists on the Cardano blockchain.
+* Minting: the process of creating a set of native tokens or an NFT.
+* Burning: the process of destroying a native token.
 
 *More Items Are Continued To Be Added As Time Elapses.*
 
@@ -146,6 +153,11 @@ Input Output Hong Kong (IOHK). <br />
 Chakravarty, M.M., Chapman, J., MacKenzie, K., Melkonian, O., Jones, M.P. and Wadler, P., 2020, February.  <br />
 The extended UTXO model. <br />
 In International Conference on Financial Cryptography and Data Security (pp. 525-539). Springer, Cham. <br />
+
+<a href="#9" id="9">[9]</a>
+Rabai, B.A., 2015. <br />
+Programming Language Use in US Academia and Industry. <br />
+Informatics in Education, 14(2), pp.143-160. <br />
 
 ### 14. Footnotes
 
