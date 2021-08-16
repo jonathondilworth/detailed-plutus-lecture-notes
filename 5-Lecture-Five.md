@@ -7,7 +7,7 @@
 
 ### 1. Introduction
 
-*Currently Being Written*
+Within this particular set of lecture notes we will be addressing Native Tokens on Cardano. Firstly, a discussion surrounding the building blocks of any such Native Token is provided. Secondly, the definition of a Native Token is presented, along with how any such token may be contrasted with Ada / Lovelace. Furthermore, the concepts and implementation details surrounding Policies (to create or destroy Native Tokens under well defined constraints) are demonstrated. Finally, an investigation into Non Fungible Tokens (NFTs) and how they relate to Native Tokens is surveyed.
 
 **Let it be known that I have had to take some time out to put together a catalyst proposal. Watch this space.**
 
@@ -232,9 +232,9 @@ test = runEmulatorTraceIO $ do
     void $ Emulator.waitNSlots 1
 </code></pre>
 
-Similarly to validators for spending, when we are producing a validator that implements some kind of monetary policy, such as minting Native Tokens (known as a minting policy), we provide similar parameters. However, it should be noted that there is simply no purpose for a datum parameter, it is non-sensical, thus, we only provide two parameters. The two parameters we provide are, as you might expect: the redeemer and the context.
+Similarly to validators for spending, when we are producing a 'validator' that implements some kind of monetary policy, such as minting Native Tokens (known as a minting policy), we provide similar arguments as we would to a spending validator. However, it should be noted that there is simply no purpose for a datum parameter for any given policy, it is non-sensical. Thus, there exists only two parameters for any given policy. The two arguments we typically provide are (although, you can have parameterised policies, just as you may parameterised validators), as you might expect: the redeemer and the context.
 
-For a policy we require a redeemer because we need to know whether minting and / or burning of a given token is permitted. The redeemer is required to satisfy the arbitrary logic found at the script address. The context is required because we must have access to every CurrencySymbol (which is derived through: context.txInfo.txInfoForge :: Value) such that we can derive the script addresses (by applying a hashing algorithm to the CurrencySymbol ByteString). 
+At the very least we require a redeemer because we need to know whether minting and / or burning of a given token is permitted. The redeemer is required to satisfy the arbitrary logic found at the script address. Furthermore, the context is also required because we must have access to every CurrencySymbol (which is derived through: context.txInfo.txInfoForge :: Value) such that we can produce the script addresses (by applying a hashing algorithm to the CurrencySymbol(s) ByteString). 
 
 As the Value is a mapping from X to a mapping of Y to Z, where X and Y are ByteStrings and Z is an Integer, it is possible to have multiple CurrencySymbols that point to multiple Tokens with varying degrees of amount. See the image below.
 
@@ -242,20 +242,294 @@ As the Value is a mapping from X to a mapping of Y to Z, where X and Y are ByteS
 
 *Note: Ada Lovelace is not part of the data structure. She existed a long time ago...*
 
-The above example is **the simplest** example you might expect to see, because it's a minting policy which always returns True. This is demonstrated through the static nature of the <code>mkPolicy</code> function within free.hs (I have also included the section which compiles the policy to Plutus-core):
+The above example is **the simplest** example you might expect to see, because it's a minting policy which always returns True (you can mint or burn as many tokens as you like). This is demonstrated through the nature of the <code>mkPolicy</code> function within free.hs (I have also included the section which compiles the policy to Plutus-core and the procedure used to generate a script address):
 
-<pre><code>{-# INLINABLE mkPolicy #-}
+<pre><code>{-# INLINABLE mkPolicy #-} -- required for the oxford brackets
 mkPolicy :: () -> ScriptContext -> Bool
 mkPolicy () _ = True
 policy :: Scripts.MintingPolicy
 policy = mkMintingPolicyScript $$(PlutusTx.compile [|| Scripts.wrapMintingPolicy mkPolicy ||])
+curSymbol :: CurrencySymbol
+curSymbol = scriptCurrencySymbol policy
 </pre></code>
 
+In the above instance, we are using (for the most part) typed Haskell to compile to Plutus-core (because, well, you should). The problem that we would normally encounter when utilising the oxford brackets is solved using a library function, as indicated in the above snippet by <code>Scripts.wrapMintingPolicy</code>.
 
-<hr />
+Notice how the declaration of <code>mkPolicy</code> takes (as its arguments): unit and ScriptContext with a return type of Bool. The reason why we're able to use unit as an argument for the redeemer is because it does implements the isData instance, otherwise we would also have to create a typed redeemer. So, within this example, regardless of the script context and the redeemer, the policy is **always going to return True.**
+
+Finally, in terms on on-chain code, the script address is produced by declaring a CurrencySymbol and assigning the result of <code>scriptCurrencySymbol policy</code> to it. This takes the compiled policy script and hashes it to leave us with the address at which the script will sit.
+
+**Off-Chain Code:**
+
+	data MintParams = MintParams
+	    { mpTokenName :: !TokenName
+	    , mpAmount    :: !Integer
+	    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+	
+	type FreeSchema = Endpoint "mint" MintParams
+	
+	mint :: MintParams -> Contract w FreeSchema Text ()
+	mint mp = do
+	    let val     = Value.singleton curSymbol (mpTokenName mp) (mpAmount mp)
+	        lookups = Constraints.mintingPolicy policy
+	        tx      = Constraints.mustMintValue val
+	    ledgerTx <- submitTxConstraintsWith @Void lookups tx
+	    void $ awaitTxConfirmed $ txId ledgerTx
+	    Contract.logInfo @String $ printf "forged %s" (show val)
+	
+	endpoints :: Contract () FreeSchema Text ()
+	endpoints = mint' >> endpoints
+	  where
+	    mint' = endpoint @"mint" >>= mint
+	
+	mkSchemaDefinitions ''FreeSchema
+	
+	mkKnownCurrencies []
+
+**Run Outside The Playground:**
+
+	test :: IO ()
+	test = runEmulatorTraceIO $ do
+	    let tn = "ABC"
+	    h1 <- activateContractWallet (Wallet 1) endpoints
+	    h2 <- activateContractWallet (Wallet 2) endpoints
+	    callEndpoint @"mint" h1 $ MintParams
+	        { mpTokenName = tn
+	        , mpAmount    = 555
+	        }
+	    callEndpoint @"mint" h2 $ MintParams
+	        { mpTokenName = tn
+	        , mpAmount    = 444
+	        }
+	    void $ Emulator.waitNSlots 1
+	    callEndpoint @"mint" h1 $ MintParams
+	        { mpTokenName = tn
+	        , mpAmount    = -222
+	        }
+	    void $ Emulator.waitNSlots 1
+
+### 4.1 Realistic Policies
+
+**Policies Should Maintain Well Defined Constraints**
+
+	{-# LANGUAGE DataKinds           #-}
+	{-# LANGUAGE DeriveAnyClass      #-}
+	{-# LANGUAGE DeriveGeneric       #-}
+	{-# LANGUAGE FlexibleContexts    #-}
+	{-# LANGUAGE NoImplicitPrelude   #-}
+	{-# LANGUAGE OverloadedStrings   #-}
+	{-# LANGUAGE ScopedTypeVariables #-}
+	{-# LANGUAGE TemplateHaskell     #-}
+	{-# LANGUAGE TypeApplications    #-}
+	{-# LANGUAGE TypeFamilies        #-}
+	{-# LANGUAGE TypeOperators       #-}
+	
+	module Week05.Signed where
+	
+	import           Control.Monad          hiding (fmap)
+	import           Data.Aeson             (ToJSON, FromJSON)
+	import           Data.Text              (Text)
+	import           Data.Void              (Void)
+	import           GHC.Generics           (Generic)
+	import           Plutus.Contract        as Contract
+	import           Plutus.Trace.Emulator  as Emulator
+	import qualified PlutusTx
+	import           PlutusTx.Prelude       hiding (Semigroup(..), unless)
+	import           Ledger                 hiding (mint, singleton)
+	import           Ledger.Constraints     as Constraints
+	import qualified Ledger.Typed.Scripts   as Scripts
+	import           Ledger.Value           as Value
+	import           Playground.Contract    (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+	import           Playground.TH          (mkKnownCurrencies, mkSchemaDefinitions)
+	import           Playground.Types       (KnownCurrency (..))
+	import           Prelude                (IO, Show (..), String)
+	import           Text.Printf            (printf)
+	import           Wallet.Emulator.Wallet
+	
+	{-# INLINABLE mkPolicy #-}
+	mkPolicy :: PubKeyHash -> () -> ScriptContext -> Bool
+	mkPolicy pkh () ctx = txSignedBy (scriptContextTxInfo ctx) pkh
+	
+	policy :: PubKeyHash -> Scripts.MintingPolicy
+	policy pkh = mkMintingPolicyScript $
+	    $$(PlutusTx.compile [|| Scripts.wrapMintingPolicy . mkPolicy ||])
+	    `PlutusTx.applyCode`
+	    (PlutusTx.liftCode pkh)
+	
+	curSymbol :: PubKeyHash -> CurrencySymbol
+	curSymbol = scriptCurrencySymbol . policy
+	
+	data MintParams = MintParams
+	    { mpTokenName :: !TokenName
+	    , mpAmount    :: !Integer
+	    } deriving (Generic, ToJSON, FromJSON, ToSchema)
+	
+	type SignedSchema = Endpoint "mint" MintParams
+	
+	mint :: MintParams -> Contract w SignedSchema Text ()
+	mint mp = do
+	    pkh <- pubKeyHash <$> Contract.ownPubKey
+	    let val     = Value.singleton (curSymbol pkh) (mpTokenName mp) (mpAmount mp)
+	        lookups = Constraints.mintingPolicy $ policy pkh
+	        tx      = Constraints.mustMintValue val
+	    ledgerTx <- submitTxConstraintsWith @Void lookups tx
+	    void $ awaitTxConfirmed $ txId ledgerTx
+	    Contract.logInfo @String $ printf "forged %s" (show val)
+	
+	endpoints :: Contract () SignedSchema Text ()
+	endpoints = mint' >> endpoints
+	  where
+	    mint' = endpoint @"mint" >>= mint
+	
+	mkSchemaDefinitions ''SignedSchema
+	
+	mkKnownCurrencies []
+	
+	test :: IO ()
+	test = runEmulatorTraceIO $ do
+	    let tn = "ABC"
+	    h1 <- activateContractWallet (Wallet 1) endpoints
+	    h2 <- activateContractWallet (Wallet 2) endpoints
+	    callEndpoint @"mint" h1 $ MintParams
+	        { mpTokenName = tn
+	        , mpAmount    = 555
+	        }
+	    callEndpoint @"mint" h2 $ MintParams
+	        { mpTokenName = tn
+	        , mpAmount    = 444
+	        }
+	    void $ Emulator.waitNSlots 1
+	    callEndpoint @"mint" h1 $ MintParams
+	        { mpTokenName = tn
+	        , mpAmount    = -222
+	        }
+	    void $ Emulator.waitNSlots 1
 
 
--
+### 5. Non Fungible Tokens
+
+	{-# LANGUAGE DataKinds           #-}
+	{-# LANGUAGE DeriveAnyClass      #-}
+	{-# LANGUAGE DeriveGeneric       #-}
+	{-# LANGUAGE FlexibleContexts    #-}
+	{-# LANGUAGE NoImplicitPrelude   #-}
+	{-# LANGUAGE OverloadedStrings   #-}
+	{-# LANGUAGE ScopedTypeVariables #-}
+	{-# LANGUAGE TemplateHaskell     #-}
+	{-# LANGUAGE TypeApplications    #-}
+	{-# LANGUAGE TypeFamilies        #-}
+	{-# LANGUAGE TypeOperators       #-}
+	
+	module Week05.NFT where
+	
+	import           Control.Monad          hiding (fmap)
+	import qualified Data.Map               as Map
+	import           Data.Text              (Text)
+	import           Data.Void              (Void)
+	import           Plutus.Contract        as Contract
+	import           Plutus.Trace.Emulator  as Emulator
+	import qualified PlutusTx
+	import           PlutusTx.Prelude       hiding (Semigroup(..), unless)
+	import           Ledger                 hiding (mint, singleton)
+	import           Ledger.Constraints     as Constraints
+	import qualified Ledger.Typed.Scripts   as Scripts
+	import           Ledger.Value           as Value
+	import           Playground.Contract    (printJson, printSchemas, ensureKnownCurrencies, stage, ToSchema)
+	import           Playground.TH          (mkKnownCurrencies, mkSchemaDefinitions)
+	import           Playground.Types       (KnownCurrency (..))
+	import           Prelude                (IO, Semigroup (..), Show (..), String)
+	import           Text.Printf            (printf)
+	import           Wallet.Emulator.Wallet
+	
+	{-# INLINABLE mkPolicy #-}
+	mkPolicy :: TxOutRef -> TokenName -> () -> ScriptContext -> Bool
+	mkPolicy oref tn () ctx = traceIfFalse "UTxO not consumed"   hasUTxO           &&
+	                          traceIfFalse "wrong amount minted" checkMintedAmount
+	  where
+	    info :: TxInfo
+	    info = scriptContextTxInfo ctx
+	
+	    hasUTxO :: Bool
+	    hasUTxO = any (\i -> txInInfoOutRef i == oref) $ txInfoInputs info
+	
+	    checkMintedAmount :: Bool
+	    checkMintedAmount = case flattenValue (txInfoForge info) of
+	        [(cs, tn', amt)] -> cs  == ownCurrencySymbol ctx && tn' == tn && amt == 1
+	        _                -> False
+	
+	policy :: TxOutRef -> TokenName -> Scripts.MintingPolicy
+	policy oref tn = mkMintingPolicyScript $
+	    $$(PlutusTx.compile [|| \oref' tn' -> Scripts.wrapMintingPolicy $ mkPolicy oref' tn' ||])
+	    `PlutusTx.applyCode`
+	    PlutusTx.liftCode oref
+	    `PlutusTx.applyCode`
+	    PlutusTx.liftCode tn
+	
+	curSymbol :: TxOutRef -> TokenName -> CurrencySymbol
+	curSymbol oref tn = scriptCurrencySymbol $ policy oref tn
+	
+	type NFTSchema = Endpoint "mint" TokenName
+	
+	mint :: TokenName -> Contract w NFTSchema Text ()
+	mint tn = do
+	    pk    <- Contract.ownPubKey
+	    utxos <- utxoAt (pubKeyAddress pk)
+	    case Map.keys utxos of
+	        []       -> Contract.logError @String "no utxo found"
+	        oref : _ -> do
+	            let val     = Value.singleton (curSymbol oref tn) tn 1
+	                lookups = Constraints.mintingPolicy (policy oref tn) <> Constraints.unspentOutputs utxos
+	                tx      = Constraints.mustMintValue val <> Constraints.mustSpendPubKeyOutput oref
+	            ledgerTx <- submitTxConstraintsWith @Void lookups tx
+	            void $ awaitTxConfirmed $ txId ledgerTx
+	            Contract.logInfo @String $ printf "forged %s" (show val)
+	
+	endpoints :: Contract () NFTSchema Text ()
+	endpoints = mint' >> endpoints
+	  where
+	    mint' = endpoint @"mint" >>= mint
+	
+	mkSchemaDefinitions ''NFTSchema
+	
+	mkKnownCurrencies []
+	
+	test :: IO ()
+	test = runEmulatorTraceIO $ do
+	    let tn = "ABC"
+	    h1 <- activateContractWallet (Wallet 1) endpoints
+	    h2 <- activateContractWallet (Wallet 2) endpoints
+	    callEndpoint @"mint" h1 tn
+	    callEndpoint @"mint" h2 tn
+	    void $ Emulator.waitNSlots 1
+
+
+### References
+
+<a href="#1" id="1">[1]</a> Isaac, A.M., 2018. <br />
+Computational thought from Descartes to Lovelace. <br />
+The Routledge Handbook of the Computational Mind, pp.9-22. <br />
+
+<a href="#2" id="2">[2]</a> Algorand, MAY 07, 2021. <br />
+How Algorand Democratizes the Access to the NFT Market with Fractional NFTs. <br />
+<https://www.algorand.com/resources/blog/algorand-nft-market-fractional-nfts> <br />
+
+<a href="#3" id="3">[3]</a> Lipovaca, M., 2011. <br />
+Learn you a haskell for great good!: a beginner's guide. <br />
+no starch press. <br />
+
+### Footnotes
+
+1. TODO: Add Footnote
+
+### Appendix
+
+Value.hs
+
+TODO: Add Value.hs
+
+Ada.hs
+
+TODO: Add Ada.hs
 
 **Random Notes Whilst Listening To Lecture...**
 
@@ -298,31 +572,3 @@ policy = mkMintingPolicyScript $$(PlutusTx.compile [|| Scripts.wrapMintingPolicy
 * total amount of ada in the system is fixxed
 * only custom native tokens can have custom minting policies and can be minted + burned under certain conditions
 * Next we'll look at a minting policy script, it's similar to validation script, but not identical
-
-### References
-
-<a href="#1" id="1">[1]</a> Isaac, A.M., 2018. <br />
-Computational thought from Descartes to Lovelace. <br />
-The Routledge Handbook of the Computational Mind, pp.9-22. <br />
-
-<a href="#2" id="2">[2]</a> Algorand, MAY 07, 2021. <br />
-How Algorand Democratizes the Access to the NFT Market with Fractional NFTs. <br />
-<https://www.algorand.com/resources/blog/algorand-nft-market-fractional-nfts> <br />
-
-<a href="#3" id="3">[3]</a> Lipovaca, M., 2011. <br />
-Learn you a haskell for great good!: a beginner's guide. <br />
-no starch press. <br />
-
-### Footnotes
-
-1. TODO: Add Footnote
-
-### Appendix
-
-Value.hs
-
-TODO: Add Value.hs
-
-Ada.hs
-
-TODO: Add Ada.hs
