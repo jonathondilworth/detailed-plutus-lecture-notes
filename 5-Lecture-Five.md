@@ -312,7 +312,7 @@ Finally, in terms on on-chain code, the script address is produced by declaring 
 
 More realistic policies will implement some additional constraints. Sometimes these constraints will be fairly basic, such as this example shown below. At least this policy doesn't return True regardless of ANY constraints.
 
-To see the full file, click [here]()
+To see the full file, click [here](#rp).
 
 **On-Chain Code:**
 
@@ -338,6 +338,8 @@ Right, let's get some points down here:
 * We assign the ```PubKeyHash``` from the script context (as it provides txInfo, which in turn provides the public key hash) as is returned by txSignedBy, to our policy (Bool).
 * Now, we need to do the same little trick we did with the validators and compile the parameters separately from the policy (as this is a parameterised policy) using liftCode.
 * Finally we generate a CurrencySymbol (which, when hashed = script address).
+
+<span id="rp"></span>
 
 **See The Entire File Here:**
 
@@ -437,7 +439,39 @@ Right, let's get some points down here:
 
 ### 5. Non Fungible Tokens
 
-*I'll get round to describing these soon...*
+Within this section we are going to briefly discuss Non Fungible Tokens (NFTs).
+
+Let's quickly recap on what we've learnt thus far:
+
+* It's possible to create a Native Token on Cardano.
+* A Native Token is an AssetClass which is constructed using a CurrencySymbol and a TokenName.
+* Both CurrencySymbols and TokenNames are simple wrappers for a ByteString.
+* Whilst ByteStrings can be implemented using String literals when XOverloadedStrings is set, the CurrencySymbol must be written in hexadecimal.
+* A policy script is responsible for minting or burning tokens.
+* Once the policy script has been compiled to Plutus-core, it is hashed and can therefore sit within the CurrencySymbol field (as part of an asset class).
+* This allows us to generate a script address by compiling the Haskell to Plutus-core and hashing the result. We can therefore always know the script address of any Native Token, as it is made available through the CurrencySymbol.
+* The first policy script we wrote was about as simple as you get, we simply created a policy that always returned True, compiled it and generated its CurrencySymbol.
+* The next script was slightly more 'real-world' - it only allowed a the appropriate signatory to mint or burn scripts (we parameterised the policy and passed the Public Hash Key required to verifiable sign minting and/or burning of tokens to it).
+* However, during both of these examples, there was no limit as to how many tokens you could mint (or burn). This is where NFTs begin to creep into the picture.
+
+NFTs have been (in a sense) available on Cardano for a while now. However, they're not 'true' NFTs, as they've been minted as a Native Token under particular constraints which make it highly unlikely or impossible to have two of the same Native Tokens. Assuming the aforementioned statement, the implementation of NFTs through the current Native Token implementation is possible. However, this 'work-around' makes it difficult for an average user to verify whether or not any such Native Token being described as Non Fungible is in fact a genuine NFT.
+
+A better idea (as is described below in code) may be to use the consumption of a UTxO (as they are unique: Transactions have fees, which means an INPUT MUST EXIST - where do inputs come from? Well, it's part of the output from a previous transaction. Meaning unspent transaction outputs are verifiably unique: you identify a Tx, find the appropriate UTxO which acts as input to the policy transaction) as a means of ensuring that only one token exists. In this instance we're creating a policy to access a potential unspent transaction output (which may or may not exist), IFF it does exist, the (strangely) the CurrencySymbol and TokenName must exist and the 'amount' MUST EQUAL ONE.
+
+Again, once this policy has been compiled, a script address may be created for it.
+
+*Some Notes:*
+
+* Making A Policy Which Takes a transaction output reference as a parameter, in addition to the expected: TokenName and ScriptContext.
+* The context for this transaction is grabbed. Thus, we extract the set of all inputs and compare it to see if it matches the provided output reference.
+* Then we can check that we're only minting one token.
+* We can check to ensure that the CurrencySymbol WILL equal the hash of this compiled script.
+* And we can check that the tokenNames match.
+
+The policy can then be executed and this ensures that only a single token exists. Thus, it is non fungible.
+
+The off-chain code implements the mint function, which (as I'm starting to get much better at reading Haskell now) is pretty self-explanatory. It's essentially checking that the UTxO matches the input to this Tx, along with a bunch of other constraints associated with verifying the policy to verify some additional conditions, then finally waits on network verification to write to mint.
+
 
 	{-# LANGUAGE DataKinds           #-}
 	{-# LANGUAGE DeriveAnyClass      #-}
