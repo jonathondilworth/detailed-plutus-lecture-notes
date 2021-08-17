@@ -310,7 +310,36 @@ Finally, in terms on on-chain code, the script address is produced by declaring 
 
 ### 4.1 Realistic Policies
 
-**Policies Should Maintain Well Defined Constraints**
+More realistic policies will implement some additional constraints. Sometimes these constraints will be fairly basic, such as this example shown below. At least this policy doesn't return True regardless of ANY constraints.
+
+To see the full file, click [here]()
+
+**On-Chain Code:**
+
+	{-# INLINABLE mkPolicy #-}
+	mkPolicy :: PubKeyHash -> () -> ScriptContext -> Bool
+	mkPolicy pkh () ctx = txSignedBy (scriptContextTxInfo ctx) pkh
+	
+	policy :: PubKeyHash -> Scripts.MintingPolicy
+	policy pkh = mkMintingPolicyScript $
+	    $$(PlutusTx.compile [|| Scripts.wrapMintingPolicy . mkPolicy ||])
+	    `PlutusTx.applyCode`
+	    (PlutusTx.liftCode pkh)
+	
+	curSymbol :: PubKeyHash -> CurrencySymbol
+	curSymbol = scriptCurrencySymbol . policy
+	
+Right, let's get some points down here:
+
+* Due to the way in which we're using Haskell Templating and Oxford Brackets, we have to allow ```mkPolicy``` to be ```INLINABLE```
+* During the last section, parameterised policies were mentioned, here we have an example.
+* Since a redeemer and a ScriptContext are required to create a policy, we're also parameterising our ```mkPolicy``` function with a ```PubKeyHash```.
+* Our policy then takes a public key hash, unit (as a redeemer, since there is no additional arbitrary logic to satisfy) and the contexts.
+* We assign the ```PubKeyHash``` from the script context (as it provides txInfo, which in turn provides the public key hash) as is returned by txSignedBy, to our policy (Bool).
+* Now, we need to do the same little trick we did with the validators and compile the parameters separately from the policy (as this is a parameterised policy) using liftCode.
+* Finally we generate a CurrencySymbol (which, when hashed = script address).
+
+**See The Entire File Here:**
 
 	{-# LANGUAGE DataKinds           #-}
 	{-# LANGUAGE DeriveAnyClass      #-}
@@ -407,6 +436,8 @@ Finally, in terms on on-chain code, the script address is produced by declaring 
 
 
 ### 5. Non Fungible Tokens
+
+*I'll get round to describing these soon...*
 
 	{-# LANGUAGE DataKinds           #-}
 	{-# LANGUAGE DeriveAnyClass      #-}
