@@ -70,7 +70,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 ### 7. Why These Notes May Be Helpful
 
-*In Progress*
+First and foremost, these notes are likely most helpful to me. You do not understand something unless you can explain it. So, if you can write it, you can explain **something**, whether or not that **something** is correct is another matter. My hope is that most of what I do write **is correct** or that somebody reads it and corrects me (either via a direct message, but I would encourage open collaboration). However, once I have finished this program (and I will), and once I have got a **real firm grasp** on Haskell (and I will) and finally, after I have meticulously written and re-written every set of lecture notes (and I will), then this repo may be hugely benefitial to other people. That is the aim with this paricular set of notes and that is why I believe these notes may be hepful.
 
 ### 8. Contributing
 
@@ -93,7 +93,7 @@ But, to reduce the scope a little bit and be somewhat more realistic, the intend
 
 ### 10. Summary
 
-*In Progress*
+As an accepted candidate for the second cohort (my first cohort e-mail landed in my junk mail), I have decided to write a set of notes for each and every lecture in the hope that it will help me learn, but in addition, it will help others. These are not strictly technical notes, there is some creative flair (at least I would like to think so), so you may even enjoy the read. I have a few years experience in industry as a web developer, software engineer and machine learning engineer. I got my UG @ the University of Manchester and my PG @ the University of Edinburgh. Formatting is suppose to be (be isn't hugely) consistent. My intended audience is mainly other Plutus Pioneers or those who wish to learn and are outside of the program. Anyone is free to contribute and feel free to flick through each lecture as is listed above.
 
 ### 11. Nomenclature
 
@@ -174,33 +174,28 @@ Informatics in Education, 14(2), pp.143-160. <br />
 
 15.2: Contracts can remain 'stale' forever (if nobody changes their state by initiating a change of state at that 'script' or EUTxO address).
 
-### 16. Appendix B
+### 16. Appendix: Additional Images
+
+Plutus/V1/Ledger/Value.hs
+
+![./img/map-to-map.jpg](./img/map-to-map.jpg)
+ 
+
+### 17. Appendix: Additional Tables
 
 *In Progress*
 
  
 
-### 17. Appendix: Additional Images
+### 18. Appendix: Additional Literature
 
 *In Progress*
 
  
 
-### 18. Appendix: Additional Tables
-
-*In Progress*
-
- 
-
-### 19. Appendix: Additional Literature
-
-*In Progress*
-
- 
-
-### 20. TODO
+### 19. TODO
 
 1. Correct any errors within any of my current lecture notes.
 2. Continue to include references and footnotes within all lecture notes.
 3. Finish the *In Progress* sections within this README.md.
-4. Catch up to and finish Lecture Seven ASAP.
+4. Catch up to and finish Lecture Eight ASAP.

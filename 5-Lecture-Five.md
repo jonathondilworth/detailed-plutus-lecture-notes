@@ -27,7 +27,7 @@ To answer that question, we are **required** to understand [AssetClasses](https:
 
 So, we have a type 'newtype' AssetClass which takes a 'newtype' [CurrencySymbol](https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Value.html#t:CurrencySymbol) and a 'newtype' [TokenName](https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-ledger-api/html/Plutus-V1-Ledger-Value.html#t:TokenName). Don't worry, CurrencySymbol and TokenName are both just wrappers for a [ByteString](https://alpha.marlowe.iohkdev.io/doc/haddock/plutus-tx/html/PlutusTx-Builtins.html#t:ByteString). Further, if one sets <code>-XOverloadedStrings</code> then you can simply use a string literal for any ByteString (the CurrencySymbol does have to be written in hexadecimal though). This does in fact mean that a Native Token is defined by the combination of a CurrencySymbol and a TokenName. **There is one exception, and we'll get to that now.**
 
-### 2.2 Ada Lovelace
+### 2.2 Ada Lovelace
 
 Apart from being one of the first ever programmers on the planet and correct about Babbage and his vision for computing... Lovelace is in fact an AssetClass (when it comes to Cardano anyway). Meaning, it is a Native Token (of sorts). However, Native Tokens can be minted (otherwise how would one bring one into existence), and burnt (destroyed). But, you cannot mint anymore Lovelace / Ada, what gives?
 

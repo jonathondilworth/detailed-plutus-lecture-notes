@@ -81,7 +81,7 @@ EUTxO abbreviates: "Extended Unspent Transaction Output", but to understand the 
 
 Within the next section I flip between the simple UTxO model that BTC implements and will specify when switching to talk about the extended version, as implemented by Cardano. 
 
-### 2.2 UTxO Explained
+### 2.2 UTxO Explained
 
 >"If you want to get money, you have to consume an output that is laying around and in turn you get more outputs."
 > — Michael Peyton-Jones
