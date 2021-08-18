@@ -84,12 +84,12 @@ First and foremost, these notes are likely most helpful to me. You do not unders
  - [Lecture Four](4-Lecture-Four.md): Monads, The EmulatorTrace Monad, Contract Monad, Homework
  - [Lecture Five](5-Lecture-Five.md): EUTxO Values, Plutus: Native Tokens (Minting and Burning)
  - [Lecture Six](6-Lecture-Six.md): Oracles, Core module, Swap module, Funds Module, Test Module, PAB & Front-ends
- - [Lecture Seven](): -
- - [Lecture Eight](): -
- - [Lecture Nine](): -
+ - [Lecture Seven](): Committal Schemes, State Machines, Maintaining State Using Datum, NFTs and 'Thread' 
+ - [Lecture Eight](): More State Machines? And Testing... *Note: Not Yet Quite There...*
+ - [Lecture Nine](): Marlowe
  - [Lecture Ten](): -
 
-*Note: Currently Writing Notes On All Lectures Marked With '-'*
+*Note: Currently Unwritten Notes are Marked With '-' unless stated otherwise.*
 
 ### 10. Summary
 
@@ -174,12 +174,17 @@ Informatics in Education, 14(2), pp.143-160. <br />
 
 15.2: Contracts can remain 'stale' forever (if nobody changes their state by initiating a change of state at that 'script' or EUTxO address).
 
-### 16. Appendix: Additional Images
+### 16. Appendix B: Images
 
-Plutus/V1/Ledger/Value.hs
+**16.1: Plutus/V1/Ledger/Value.hs Constructor:**
 
 ![./img/map-to-map.jpg](./img/map-to-map.jpg)
- 
+
+<br />
+
+**16.2: Committal Scheme:**
+
+![./img/commit-scheme.jpg](./img/commit-scheme.jpg)
 
 ### 17. Appendix: Additional Tables
 
@@ -197,5 +202,4 @@ Plutus/V1/Ledger/Value.hs
 
 1. Correct any errors within any of my current lecture notes.
 2. Continue to include references and footnotes within all lecture notes.
-3. Finish the *In Progress* sections within this README.md.
 4. Catch up to and finish Lecture Eight ASAP.

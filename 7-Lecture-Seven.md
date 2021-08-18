@@ -36,6 +36,10 @@ There are a lot of variants of committal schemes, but the simplest to explain is
 
 Please see the below image for additional details.
 
+<br />
+
 ![./img/commit-scheme.jpg](./img/commit-scheme.jpg)
 
-*To be Continued...*
+### 3. Applications: State Machines
+
+What is an application? Usually it is something that runs and applies itself to change the state of something in a useful manner. Haskell wasn't much good for that, up until recently. Plutus-core which is implemented by compiling it from Haskell is what is used to trigger the validate transactions (of many kinds) on the Cardano blockchain.
