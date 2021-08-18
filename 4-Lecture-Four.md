@@ -1,7 +1,8 @@
 # Lecture Four
 
-> “Unless you try to do something beyond what you have already mastered you will never grow.” <br />
-> — Ralph Waldo Emerson
+> “To imagine a language is to imagine a form of life.” <br />
+> — Ludwig Wittgenstein
+
 
 ### 1. Introduction
 

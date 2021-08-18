@@ -1,8 +1,13 @@
 # Lecture Six
 
-> INSERT QUOTE HERE
+> “Unless you try to do something beyond what you have already mastered you will never grow.” <br />
+> — Ralph Waldo Emerson
 
 ### 1. Introduction
+
+*Note: You always write your introduction last.*
+
+### 2. 
 
 * Case Study
 * How Can We Create A Complete App / Executable / Front-End / DApp / Test-Net / Mock-Chain
@@ -28,3 +33,6 @@
 <hr />
 
 ***Again - focusing on listening to lectures and getting work done, will return to lecture notes.***
+
+<hr />
+
