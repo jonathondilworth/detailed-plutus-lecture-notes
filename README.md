@@ -99,6 +99,17 @@ As an accepted candidate for the second cohort (my first cohort e-mail landed in
 
 * UTxO: A model of accounting used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' has access to (in the context of 'cryptocurrencies'<sup><a href="#fn1">1</a></sup>.
 * EUTxO: An extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic [[8]](#8).
+* Cardano-node: core component for facilitating PoS consensus through the operation of a <code>pool</code>. It is important to note that others can delegate to a <code>pool</code>, but as of right now, will not earn the same kind of annual RoA (return on ada) as an operator (if I understand Ouroborous 2019 correctly, although it does seem to try and reward more equally, I would, however, think that you're going to see a distribution of stake that follows a fairly random walk amongst the majority of DPoS. I was reading that paper **a while ago**, but if I remember correctly, it was optimal to have as any DPoS wallets as possible with a with a fairly even distribution of ADA across the participants, whilst the SPO had as much ADA as possible, which almost strikes a little bit of fear into me. The reason why is because it sounds as though the larger the ownership - stake - the larger the reward, so long as the threshold for being an SPO is passed and you can encourage people to delegate to your pool; it encourages centralisation, doesn't it? I just hope I did the math wrong!).
+* cardano-cli: command line interface for Cardano.
+* cardano-wallet: HTTP server and command line for managing on-chain UTxOs.
+* cardano-db-sync: postgreSQL for storing blocks and transactions.
+* cardano-graphql: similar to FB api, it's easy to understand why. You have a load of wallets with keys in them (think of these as 'people' - they're not though, they're wallets) and you have a bunch of connections between them called Unspent Transaction Outputs. You also have a load of transactions, so a graph seems like an appropriate data structure to me to represent this kind of data (wallets and Txs are nodes, UTxOs are edges).
+* cardano-rosetta: DevOps for Blockchain? This is pretty new to me, but I am familiar with Terraform, Packer, Ansible, I think I aspired (at one point) to master kubernettes and some other technology that I can't remember, but that was obviously quite short lived.
+* cardano-addresses: for backing up wallets (key phrases) - a module.
+* cardano-ledger-specs: formal specification for current release.
+* bech32: Haskell implementation of bech32 (I'm going to pretend I know what that means).
+* smash: powers SPOs - metadata aggregation server and keeps track of whos staking what.
+* ouroboros-network: they used fancy words, I'm just going to call this the Cardano Blockchain Consensus Algorithm. 
 * Plutus-Platform: an application development platform for developing distributed applications using the Cardano blockchain [[5]](#5).
 * Compiler: A compiler takes some source code, and produces an output in another language, while the retaining meaning of the source. <code>Source -> (analysis) -> Compiler -> (Synthesis) -> Target.</code> [[4]](#4)
 * plutus-tx: The compiler which is responsible for transforming Plutus (which is a subset of Haskell) into Plutus-core [[6]](#6).

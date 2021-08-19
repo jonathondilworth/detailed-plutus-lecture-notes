@@ -43,3 +43,17 @@ Please see the below image for additional details.
 ### 3. Applications: State Machines
 
 What is an application? Usually it is something that runs and applies itself to change the state of something in a useful manner. Haskell wasn't much good for that, up until recently. Plutus-core which is implemented by compiling it from Haskell is what is used to trigger the validate transactions (of many kinds) on the Cardano blockchain.
+
+Instead of planning to build arbitrary applications, in this instance, although arbitrary logic is executed by any given script, it's very much a case of freedom within limitations. When you are building safety-critical systems or financial systems, you really do want to think extremely carefully about how you're going to implement any given system (and what tools you're going to use).
+
+The fundamental concept of the Blockchain Ledger is that transactions have outputs with AssetClasses tied to them. So, we have a bunch of transactions on-chain (txId) that have (potentially) a bunch of outputs (known as Unspent Transaction Outputs), until somebody comes along and spends it. But not just anybody, it has to be the wallet that holds the private key in order to produce a digital signature AND satisfy the limited arbitrary logic implemented by that script (in order to validate). **Right, so nothing new here, it's the same as Bitcoin Script, having a validator, having a redeemer, you've heard it all before.** Except, you do also understand that we have a datum output (because, well - it will become apparent as to why this may come in useful in a moment). Furthermore, we are able to access the contexts, which provides us with all kinds of information about the Tx.
+
+![./img/ext-ctx-datum.jpg](./img/ext-ctx-datum.jpg)
+
+As is demonstrated in the above image, you can essentially initiate a chain of transactions using the datum output and the 
+
+|      | A :  | A:0 | A:1 |
+|------|------|-----|-----|
+| B :  | S0   | S1  | S2  |
+|  B:0 |   -  | S3  |  -  |
+| B:1  |   -  | S4  |  -  |
