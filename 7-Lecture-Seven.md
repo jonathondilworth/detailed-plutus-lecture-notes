@@ -50,10 +50,123 @@ The fundamental concept of the Blockchain Ledger is that transactions have outpu
 
 ![./img/ext-ctx-datum.jpg](./img/ext-ctx-datum.jpg)
 
-As is demonstrated in the above image, you can essentially initiate a chain of transactions using the datum output and the 
+As is demonstrated in the above image, you can essentially initiate a chain of transactions using the datum output and the state. Further, since 
+
+<center>
 
 |      | A :  | A:0 | A:1 |
 |------|------|-----|-----|
-| B :  | S0   | S1  | S2  |
-|  B:0 |   -  | S3  |  -  |
-| B:1  |   -  | S4  |  -  |
+| B :  | S0   |  -  |  -  |
+|  B:0 |   -  | S1  | S2  |
+| B:1  |   -  | S2  | S1  |
+
+**Quick Explaination!**
+
+Right, so for some reason I had a bit of a brain fart when implementing this table for the first time. It's been **quite a while** since I've had to draw out a state transition table. But, what it's essentially saying is that you:
+
+</center>
+
+* Can only start at S0
+* S1 is a final state (ALICE WINS)
+* S2 is a final state (BOB WINS)
+* Assuming that Bob is (as the last player to 'roll') is always going to tell the truth. All we would have to do to ensure he wasn't pretending to win and causing a dispute would be to apply the same hashing technique to his choice as Alice did to hers.
+
+### Some Code! Let's work through the EvenOdd Example
+
+<pre><code>{-# LANGUAGE DataKinds             #-}
+{-# LANGUAGE DeriveAnyClass        #-}
+{-# LANGUAGE DeriveGeneric         #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE ScopedTypeVariables   #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeApplications      #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE TypeOperators         #-}
+	
+module Week07.EvenOdd
+( Game (..)
+, GameChoice (..)
+, FirstParams (..)
+, SecondParams (..)
+, GameSchema
+, endpoints
+) where
+	
+import           Control.Monad        hiding (fmap)
+import           Data.Aeson           (FromJSON, ToJSON)
+import qualified Data.Map             as Map
+import           Data.Text            (Text)
+import           GHC.Generics         (Generic)
+import           Ledger               hiding (singleton)
+import           Ledger.Constraints   as Constraints
+import qualified Ledger.Typed.Scripts as Scripts
+import           Ledger.Ada           as Ada
+import           Ledger.Value
+import           Playground.Contract  (ToSchema)
+import           Plutus.Contract      as Contract
+import qualified PlutusTx
+import           PlutusTx.Prelude     hiding (Semigroup(..), unless)
+import           Prelude              (Semigroup (..), Show (..), String)
+import qualified Prelude
+</code></pre>
+
+What we're essentially doing is implementing that state transition table / DFA as a game where player one rolls a two sided die, or chooses a binary value after the game has been init'd. Then player two does the same. If player one has picked the same value as player two, player one wins. If Player two has picked a different value, then player two wins! Fairly straight forwards...
+
+So, this is a parameterised smart contract. We would like to inject the Game data structure and importing a bunch of stuff - this is just the top of the module, standard imports, module name and data structure.
+
+<pre><code>data Game = Game
+    { gFirst          :: !PubKeyHash
+    , gSecond         :: !PubKeyHash
+    , gStake          :: !Integer
+    , gPlayDeadline   :: !POSIXTime
+    , gRevealDeadline :: !POSIXTime
+    , gToken          :: !AssetClass
+    } deriving (Show, Generic, FromJSON, ToJSON, Prelude.Eq, Prelude.Ord)
+
+PlutusTx.makeLift ''Game
+
+data GameChoice = Zero | One
+    deriving (Show, Generic, FromJSON, ToJSON, ToSchema, Prelude.Eq, Prelude.Ord)
+
+instance Eq GameChoice where
+    {-# INLINABLE (==) #-}
+    Zero == Zero = True
+    One  == One  = True
+    _    == _    = False
+
+PlutusTx.unstableMakeIsData ''GameChoice
+
+data GameDatum = GameDatum ByteString (Maybe GameChoice)
+    deriving Show
+
+instance Eq GameDatum where
+    {-# INLINABLE (==) #-}
+    GameDatum bs mc == GameDatum bs' mc' = (bs == bs') && (mc == mc')
+
+PlutusTx.unstableMakeIsData ''GameDatum
+
+data GameRedeemer = Play GameChoice | Reveal ByteString | ClaimFirst | ClaimSecond
+    deriving Show
+
+PlutusTx.unstableMakeIsData ''GameRedeemer
+
+{-# INLINABLE lovelaces #-}
+lovelaces :: Value -> Integer
+lovelaces = Ada.getLovelace . Ada.fromValue
+
+{-# INLINABLE gameDatum #-}
+gameDatum :: TxOut -> (DatumHash -> Maybe Datum) -> Maybe GameDatum
+gameDatum o f = do
+    dh      <- txOutDatum o
+    Datum d <- f dh
+    PlutusTx.fromBuiltinData d
+</code></pre>
+
+**Creating a data type: Game:**
+
+Within the game data structure, we're assigning names to the two players. We're also providing times (for timeouts, as are important to avoid funds getting locked within a contract. gToken is an NFT that enables us to allow this script to live at a unique address.
+
+*Woring on Catalyst Proposal - Will be back to this soon.*
