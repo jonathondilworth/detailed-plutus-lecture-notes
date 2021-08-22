@@ -24,7 +24,7 @@ This section explores specific information surrounding the project's problem dom
 
 * Scams are rife within the Cryptocurrency community leading to real problems for real people.
 
-*We want to create Cardano Community Hubs in South American countries to raise awareness (and education) of Cardano, onboard more users (and developers) and provide opportunity to those who wouldn't otherwise have it. It's difficult to raise awareness and adoption when accessibility to good infrastructure, development platforms and educational programs within native languages and cultures do not exist. The lack of awareness and access to good educational programs costs millions of dollars every month to Cardano users in these areas, as is demonstrated by the video Charles Hoskinson posted on his YouTube channel on the 18th of AUG, 2021.*
+*We want to create Cardano Community Hubs in South American countries to raise awareness (and education) of Cardano, onboard more users (and developers) and provide opportunity to those who wouldn't otherwise have it. It's difficult to raise awareness and adoption when accessibility to good infrastructure, development platforms and educational programs within native languages and cultures do not exist. The lack of awareness and access to good educational programs costs millions of dollars every month to Cardano users in these areas, as is demonstrated by the video Charles Hoskinson posted on his YouTube channel on the 18th of AUG, 2021. [[1]](#1)*
 
 #### 3.3 Domain-Specific Project Constraints
 
@@ -38,11 +38,21 @@ This section explores specific information surrounding the project's problem dom
 
 #### 3.4 Domain-Specific Literature Review
 
-*INSERT LIT REVIEW HERE*
+**Potential for Technological Adoption and Growth In Columbia**
+
+Even though Columbia has a fairly low 'Per Capita Income' in USD, the ability for the country to change (with respect to efficiency, which is a function of technology and thus, technological adoption) is high when compared with neighbouring countries such as Peru [[2]](#2). Furthermore, Columbia provides metropolitan environments, allowing for better public infrastructure such as transport, communication, power and finance. It is shown that these qualities help to facilitate growth dynamism in technological hubs (within developing countries) [[3]](#3).
+
+**Top Down Approaches To Technological Adoption**
+
+**Selecting Localities For Technological Adoption**
+
+**Effectiveness of Distance Learning**
+
+*Continue Writing Literature Review*
 
 ### 4. Project Related Research Questions
 
-*INSERT Project Related Research Questions HERE*
+*Insert related research questions here...*
 
 ### 5. Project Solution Space
 
@@ -134,7 +144,11 @@ The decision to use a top down approach has been made due to issues surrounding 
 
 Due to the aforementioned constraints (outlined in §3.3), we felt that the typical bottom up approach of creating meet-up groups was simply incompatible. Therefore we produce a top down game theoretic 'self-perpetuating' adoption model. The model can be described as top down, as we're targeting domains that decrease in granularity the further through the topology you get. Furthermore, we describe our model as game-theoretic because it utilises a set of incentive mechanisms to produce our pool of potential candidates. Thereafter, the interconnectivity between each eventual pool, in addition to their connection to our pioneers and our community at large will help maintain retention. When new developers and community members obtain a larger degree of awareness and education through the Cardano Community Hubs, we anticipate that they will experience a degree of improvement in relation to their financial status and potential for a larger degree of autonomy within their lifestyles. These positive effects will result in a self-perpetuating model, hence, that is how we have defined our solution.
 
+<center>
+
 ![./img/PROP-TOP-DOWN.png](./img/PROP-TOP-DOWN.png)
+
+</center>
 
 #### 6.4 Implementation Details
 
@@ -246,6 +260,20 @@ How do you know your model works?
 * Furthermore, we would continually iterate on our proposed methodologies in order to maximise performance, as defined by the KPIs within the project briefing.
 
 <hr />
+
+### References
+
+<a href="#1" id="1">[1]</a> Charles Hoskinson, 2021. <br />
+Scams Within The Cryptocurrency Space. <br />
+Published As A Youtube Video: <https://youtu.be/NKTnM5WzCBA>
+
+<a href="#2" id="2">[2]</a> Taskin, F. and Zaim, O., 1997. <br />
+Catching-up and innovation in high-and low-income countries. <br />
+Economics letters, 54(1), pp.93-100.
+
+<a href="#3" id="3">[3]</a> Vijayabaskar, M. and Krishnaswamy, G., 2004. <br />
+Understanding Growth Dynamism and its Constraints in High Technology Clusters in Developing Countries: A Study of Bangalore, Southern India,“. <br />
+Innovation, Learning, and Technological Dynamism of Developing Countries, United Nations Press, New York, pp.178-201.
 
 ### Footnotes
 
