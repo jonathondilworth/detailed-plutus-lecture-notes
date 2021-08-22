@@ -24,6 +24,8 @@ This section explores specific information surrounding the project's problem dom
 
 * Scams are rife within the Cryptocurrency community leading to real problems for real people.
 
+*We want to create Cardano Community Hubs in South American countries to raise awareness (and education) of Cardano, onboard more users (and developers) and provide opportunity to those who wouldn't otherwise have it. It's difficult to raise awareness and adoption when accessibility to good infrastructure, development platforms and educational programs within native languages and cultures do not exist. The lack of awareness and access to good educational programs costs millions of dollars every month to Cardano users in these areas, as is demonstrated by the video Charles Hoskinson posted on his YouTube channel on the 18th of AUG, 2021.*
+
 #### 3.3 Domain-Specific Project Constraints
 
 * Resources (People and Funding)
