@@ -203,6 +203,10 @@ Informatics in Education, 14(2), pp.143-160. <br />
 
 ![./img/commit-scheme.jpg](./img/commit-scheme.jpg)
 
+**I'm So Proud Of Myself :D**
+
+![./img/purp.jpg](./img/purp.jpg)
+
 ### 17. Appendix: Additional Tables
 
 *In Progress*
