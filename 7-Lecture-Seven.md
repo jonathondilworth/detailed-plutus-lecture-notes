@@ -169,4 +169,6 @@ gameDatum o f = do
 
 Within the game data structure, we're assigning names to the two players. We're also providing times (for timeouts, as are important to avoid funds getting locked within a contract. gToken is an NFT that enables us to allow this script to live at a unique address.
 
-*Woring on Catalyst Proposal - Will be back to this soon.*
+*Working on Catalyst Proposal - Will be back to this soon.*
+
+*Working on Alonzo Purple Test Net - Will be Back To This Soon!*

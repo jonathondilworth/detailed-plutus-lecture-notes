@@ -221,7 +221,7 @@ Right, so here is the Validator:
 * feesPaid ensures the reader is paying his taxes!
 
 > Death, Haskell and Taxes <br />
-> - Jon Dilworth
+> — Jon Dilworth
 
 Remember guys, this is all declarative functional, I think it looks a bit confusing because it looks almost like a procedural script, but Haskell is actually REALLY LAZY, most of this won't even be executed, due to the switch statement based on the redeemer.
 
@@ -245,7 +245,9 @@ Remember guys, this is all declarative functional, I think it looks a bit confus
 	oracleAddress :: Oracle -> Ledger.Address
 	oracleAddress = scriptAddress . oracleValidator
 	
-Again, to be brief, we're essentially just compiling the script to plutus-core, which (as the script is parameterised) requires lift code. Usual deal, compile, create the validator and then use the validator (which, remember - contains the NFT -> CurrencySymbol, so it's always going to be unique, so we get a unique address that, I believe we can reuse. I think next lecture we talk about state machines and this is kind of how it works. Datum holds state, the address remains the same, and you 
+Again, to be brief, we're essentially just compiling the script to plutus-core, which (as the script is parameterised) requires lift code. Usual deal, compile, create the validator and then use the validator (which, remember - contains the NFT -> CurrencySymbol, so it's always going to be unique, so we get a unique address that, I believe we can reuse. I think next lecture we talk about state machines and this is kind of how it works. Datum holds state, the address remains the same, and you can change the business logic of what is essentially an automaton by changing the Datum state. That's what I got from reading about it, but we'll leave it until L7.
+
+*In this instance, the off-chain code could be anything, so... let's leave it there for now.*
 
 ### Footnotes
 
