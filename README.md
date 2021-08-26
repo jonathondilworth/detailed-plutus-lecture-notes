@@ -4,7 +4,7 @@
 
 ***In my humble opinion, Cardano is to Blockchains what Linux is to Kernels.***
 
-*Cardano has essentially become my job... I do love this community though :)*
+*I mean, a Blockchain is technically just a data structure, right? But, Cardano is the entire operating system... Plus, similarities between open source development, I guess it would be better to compare it to Git actually. 'Cardano is to Blockchains what Git is to SCM' - anyone remember SVN? Queue: Angry Linus!*
 
 ***Currently Working On: Alonzo Purple Test Net & Proof-Of-Burn Challenge***
 
@@ -17,12 +17,6 @@ I've been using distributed ledgers and blockchain consensus algorithms for over
 I would like to express my gratitude to IOHK for constructing this program and accepting me as a candidate. Furthermore, I would like to thank my family for their continual support in my efforts to pursue a career path which isn't thought to be conventional.
 
 I believe I can speak for the entire community when I extend my sincerest thanks to the world class engineers and scientists who have contributed to building Cardano as of current. Charles, you will are and will continue to be an inspiration to us all and to the world. I hope we can all collectively strive to make positive societal change.
-
-### 1.1 Updates
-
-*14th AUG: Exciting times! Alonzo Purple Test Net is available to a subset of the pioneers. The Hard Fork on the Main Net is due 12th of September (what a great birthday present). We will see the implementation of MetaData, Native Assets and SMART CONTRACT FUNCTIONALITY. The one thing I would warn people about, and this is purely my own subjective opinion, is: don't expect too much to happen all at once. I get this feeling that people think that as soon as smart contracts are available the price of ADA is going to explode. Firstly, it's never been about the price. Secondly, we're writing Smart Contracts in Haskell (which isn't HUGELY adopted within industry [[9]](#9)), I believe we've chosen the right tool for the job, but adoption may take some time. Furthermore, the Catalyst projects may take a while to get going and finally, there are literally only a couple of thousand developers (at most) that can write Plutus. Plutus is basically Haskell, so maybe I'm overblowing it here, but you do still need to know the gotchas. For example: compiling parameterised validators, if I remember correctly, requires a specific knowledge of Plutus, because standard oxford brackets simply will not compile. It would be nice to see hundreds of new products and platforms instantaneously using Cardano Smart Contracts, but I'm just a little skeptical. However, I do hold the following opinion:*
-
-There is only one way from here on, and that's up.
 
 ### 2. Preface
 
@@ -203,7 +197,7 @@ Informatics in Education, 14(2), pp.143-160. <br />
 
 ![./img/commit-scheme.jpg](./img/commit-scheme.jpg)
 
-**I'm So Proud Of Myself :D**
+**The things in life that make you happy...**
 
 ![./img/purp.jpg](./img/purp.jpg)
 
