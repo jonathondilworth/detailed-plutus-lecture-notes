@@ -6,7 +6,32 @@
 
 *I mean, a Blockchain is technically just a data structure, right? But, Cardano is the entire operating system... Plus, similarities between open source development, I guess it would be better to compare it to Git actually. 'Cardano is to Blockchains what Git is to SCM' - anyone remember SVN? Queue: Angry Linus!*
 
-***Currently Working On: Alonzo Purple Test Net & Proof-Of-Burn Challenge***
+***Currently Working On: Alonzo Test Net & General Goals - See Below***
+
+***Goals:***
+
+* ***Investigate Various Addressing Schemes For Cardano, From Super-Legacy to Alonzo.***
+* ***Give PoB Implementation A Good Go.***
+* ***Finish Lecture Notes On Remaining Lectures.***
+* ***Re-Implement All Homework From L1 to L10.***
+* ***Work With Individuals On The Ground (From My Catalyst Team) In South America To Prepare For Next Funding Round.***
+* ***Get Our Catalyst Proposal Ready For Next Funding Iteration.***
+
+*I would like to create a course that allows undergraduate students to get up to date quite quickly on distributed ledgers and blockchain consensus algorithms. As such, my aim would be to introduce them to all the pre-requisites that I have identified below. Shortly thereafter, I would introduce them to Distributed Ledger Technologies 1 (DLTs 1 | GEN.1, BTC style ecosystems), then I would introduce them to DLTs 2 (Introduction to Cardano).*
+
+*Course Outline:*
+
+* Basic Introduction to Networking
+* Introduction to Distributed Systems
+* Game Theory Primer
+* Cryptography 1.0
+* Cryptography 2.0
+* Algorithms Primer
+* Introduction to Distributed Ledger Technologies 1.0 (BTC eco-system)
+* Introduction to Distributed Ledger Technologies 2.0 (This would actually be Intro to Cardano)
+* Advanced DLTs (Developing on Cardano)
+
+[Please See This Link For Detailed Course Outline](0-course-outline.md)
 
 ### 1. Authors Note
 
