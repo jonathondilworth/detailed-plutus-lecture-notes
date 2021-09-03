@@ -44,7 +44,7 @@ TODO: ADD SECTION
 
 **3.3.2 South America As A Selected Region For Bootstrapping Accelerated Technological Adoption**
 
-There has been a large amount of discussion surrounding cryptocurrencies within South America for the last three to four months, however, it has been primarily focused on BitCoin [[REF]](). Nation states are behaving similarly to individuals during 2010 to 2011 (and beyond), insofar as they are viewing distributed ledger technologies (and blockchain consensus algorithms) through the narrow lens of finance [[REF]]()<sup>X</sup>. This is demonstrated by the nationalisation of BitCoin as a currency within El Salvador [[REF]](). It is interesting to note that anything BitCoin can do, Cardano can do<sup>Y</sup>. Furthermore, anything Ethereum can do<sup>C</sup>, Cardano can also do, subject to the Alonzo hard fork scheduled for the 12th of September [[REF]](). It follows that it would be within the interest of anybody or any nation with an aim of adopting (or bootstrapping) BitCoin or Etherum to also consider Cardano.
+There has been a large amount of discussion surrounding cryptocurrencies within South America for the last three to four months, however, it has been primarily focused on BitCoin [[5]](#5). Although other cryptocurrencies are mentioned briefly, the focal point of many circulating articles points to mining (Proof-of-Work) [[4]](#4) as a means of introducing these 'currencies'. Nation states are behaving similarly to individuals during 2010 to 2011 (and beyond), insofar as they are viewing distributed ledger technologies (and blockchain consensus algorithms) through the narrow lens of finance [[REF]]()<sup>X</sup>. This is demonstrated by the nationalisation of BitCoin as a currency within El Salvador [[REF]](). It is interesting to note that anything BitCoin can do, Cardano can do<sup>Y</sup>. Furthermore, anything Ethereum can do<sup>C</sup>, Cardano can also do, subject to the Alonzo hard fork scheduled for the 12th of September [[REF]](). It follows that it would be within the interest of anybody or any nation with an aim of adopting (or bootstrapping) BitCoin or Etherum to also consider Cardano.
 
 TODO: INSERT STATISTICS REGARDING TECHNOLOGICAL ADOPTION OF BITCOIN IN SOUTH AMERICA
 
@@ -52,17 +52,13 @@ TODO: INSERT STATISTICS REGARDING TECHNOLOGICAL ADOPTION OF ETH IN SOUTH AMERICA
 
 TODO: INSERT STATISTICS REGARDING TECHNOLOGICAL ADOPTION OF ADA IN SOUTH AMERICA
 
-EXPECTATION: BITCOIN > ETH ~= ADA
-
-THEREFORE: WE CAN BEAT ETH IN SOUTH AMERICA IF WE GET THERE FIRST?
-
 **3.3.3 What Does BitCoin actually do?**
 
 Bitcoin provides the global community with a fantastic proof-of-concept. It allows for consensus between participants of many type (all of whom have a probability of behaving maliciously) through the application of a Byzantine Fault Tolerant network protocol [[REF]](). For once in life: we can all agree, not to disagree<sup>A</sup>! Thus, BitCoin (rather expensively) [[REF]]() allows us to implement a decentralised (and distributed) ledger that records events, specifically the consumption of unspent transaction outputs [[REF]](). This does indeed mean that societies can circumvent barter and implement money (fairly nicely) through the use of distributed ledger technologies, such as BitCoin or Cardano [[REF//LECTURE-ONE-UNIVERSITY-OF-EDINBURGH]](). As South America has shown (and demonstrated) such a keen interest in BitCoin, one would expect to see the same degree of interest in other technologies, specifically Cardano (as it is shown to demonstrate the utilitarian properties and more, as has been explained above).
 
 **3.3.4 Reasoning For Required Education Within South America**
 
-The creation of Cardano Community Hubs within South American countries is required to raise awareness (and education) of Cardano. Parties exist who identify vulnerabilities within this space and exploit them for their own personal gain (as has been seen again and again in history) [[REF]]() [[REF]]() [[REF]](). Thus, the responsibility for governance (concerning this space) falls within the hands of the people who already reside within it. Unfortunately many of these individuals do not speak the same language and are not embedded within the same cultural norms [[REF]]() as certain localities. Thus, it becomes increasing important to onboard users (and developers) who do reside within these localities and do adopt these norms to facilitate opportunity and education for those who wouldn't otherwise have it. In any case, it remains difficult to raise adoption which promotes awareness (and vigilance<sup>B</sup>) when accessibility to good infrastructure, development platforms and educational programs within native languages and cultures do not already exist. It is exactly this lack of awareness and access to good educational programs that costs millions of dollars every month to the limited number of early adopters within these localities, thereby creating a bad reputation for Cardano and hindering its growth. This is demonstrated by the video Charles Hoskinson posted on his YouTube channel on the 18th of AUG, 2021 [[1]](#1).
+The creation of Cardano Community Hubs within South American countries is required to raise awareness (and education) of Cardano. It is the opinion of many individuals within South American countries that the use of cryptocurrencies would become increasing adopted given the introduction of further education [[4]](#4) [[5]](#5). Furthermore, Parties exist who identify vulnerabilities within this space and exploit them for their own personal gain (as has been seen again and again in history) [[REF]]() [[REF]]() [[REF]](). Thus, the responsibility for governance (concerning this space) falls within the hands of the people who already reside within it. Unfortunately many of these individuals do not speak the same language and are not embedded within the same cultural norms [[REF]]() as certain localities. Thus, it becomes increasing important to onboard users (and developers) who do reside within these localities and do adopt these norms to facilitate opportunity and education for those who wouldn't otherwise have it. In any case, it remains difficult to raise adoption which promotes awareness (and vigilance<sup>B</sup>) when accessibility to good infrastructure, development platforms and educational programs within native languages and cultures do not already exist. It is exactly this lack of awareness and access to good educational programs that costs millions of dollars every month to the limited number of early adopters within these localities, thereby creating a bad reputation for Cardano and hindering its growth. This is demonstrated by the video Charles Hoskinson posted on his YouTube channel on the 18th of AUG, 2021 [[1]](#1).
 
 **3.3.5 Reasoning For Selected South American Countries for Technological Adoption and Growth**
 
@@ -352,7 +348,7 @@ How do you know your model works?
 
 ### References
 
-<a href="#1" id="1">[1]</a> Charles Hoskinson, 2021. <br />
+<a href="#1" id="1">[1]</a> Charles Hoskinson., 2021. <br />
 Scams Within The Cryptocurrency Space. <br />
 Published As A Youtube Video: <https://youtu.be/NKTnM5WzCBA>
 
@@ -363,6 +359,26 @@ Economics letters, 54(1), pp.93-100.
 <a href="#3" id="3">[3]</a> Vijayabaskar, M. and Krishnaswamy, G., 2004. <br />
 Understanding Growth Dynamism and its Constraints in High Technology Clusters in Developing Countries: A Study of Bangalore, Southern India,“. <br />
 Innovation, Learning, and Technological Dynamism of Developing Countries, United Nations Press, New York, pp.178-201.
+
+<a href="#4" id="4">[4]</a> PRNewsWire., 2021. <br />
+Official Recognition of Cryptocurrency's Potential on Display in South America. <br />
+Available at: <https://www.prnewswire.com/news-releases/official-recognition-of-cryptocurrencys-potential-on-display-in-south-america-301309799.html> <br />
+Accessed: 03/09/2021
+
+<a href="#5" id="5">[5]</a> M. QUIROZ-GUTIERREZ., 2021. <br />
+Support for making Bitcoin legal tender grows in Latin America <br />
+Available at: <https://fortune.com/2021/06/28/free-bitcoin-legal-tender-el-salvador-mexico-panama-how-can-i-use-spend-crypto-uses/> <br />
+Accessed: 03/09/2021
+
+<a href="#6" id="6">[6]</a> S. Escobar., 2021. <br />
+Latin America Embraces Bitcoin. What’s Next for Crypto in Emerging Markets?<br />
+Available at: <https://www.barrons.com/articles/bitcoin-el-salvador-emerging-markets-51626719533><br />
+Accessed: 03/09/2021
+
+
+
+
+
 
 ### Footnotes
 
