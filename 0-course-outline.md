@@ -13,6 +13,7 @@
 			* ***Eight Principals You Should Never Forget About (Network Based) Distributed Systems***
 			* ***Transactions Within Distributed Systems***
 			* ***Concurrency Control Within Transactions***
+			* ***Semaphores***
 			* ***'Co-Ordinators'***
 			* ***Deadlock***
 			* ***Phantom Deadlock***
