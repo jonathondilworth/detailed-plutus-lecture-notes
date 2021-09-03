@@ -4,7 +4,11 @@
 
 *Feedback Is SUPER WELCOME, drop me an e-mail [here](mailto:jon@dilworth.dev), Thanks!*
 
+### 1. Introduction
+
 This Specific Course Would Be Tailored To Younger Individuals With An Interest In Computer Science (perhaps they're entering their first year or University).
+
+### 1.1 Course Structure
 
 * ***Course Outline:***
 	* ***Guide For CS UnderGrads: Introduction to Cardano.***
@@ -43,10 +47,29 @@ This Specific Course Would Be Tailored To Younger Individuals With An Interest I
 			* ***2: (OPTIONAL) KEK & DEK***
 		* ***Introduction to Distributed Ledger Technologies 1.0***
 			* ***(IN PROGRESS - CURRENTLY AN UNORDERED LIST)***
+			* ***What Is A Distributed Ledger Technology That Utilises Consensus?***
+			* ***Remember: Linked-Lists***
+			* ***Introduction To The Blockchain Data Structure***
+			* ***Considerations: A Block***
+			* ***How To Maintain Immutability***
+			* ***Merkle Trees***
+			* ***...***
 			* ***Addressing: Encoding Hash Output, e.g... base58***
 			* ***I will require time to build out this course...***
 		* ***Introduction to Distributed Ledger Technologies 2.0***
+			* ***(IN PROGRESS - CURRENTLY AN UNORDERED LIST)***
+			* ***Developing on Cardano***
 			* ***I will require time to build out this course...***
 		* ***Advanced DLTs***
+			* ***(IN PROGRESS - CURRENTLY AN UNORDERED LIST)***
+			* ***Porting The EVM to Cardano Using IELE => KEVM***
+			* ***Looking Forwards: Building Compilers || Porting X-VMs to Cardano***
 			* ***I will require time to build out this course...***
+
+### 2. Resources
+
+1. [https://youtu.be/JG2ESDGwHHY](https://youtu.be/JG2ESDGwHHY) | Fallacies of Distributed Computing
+
+
+
 
