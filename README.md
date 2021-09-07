@@ -2,6 +2,8 @@
 
 *The Second Cohort Of The Plutus Pioneer Programme*
 
+***Note: Due To Personal Circumstances, I have had to take a period of time away from this project. I am, however, returning to it soon. I hope to refine this repo such that it may be helpful for the third cohort.***
+
 ***In my humble opinion, Cardano is to Blockchains what Linux is to Kernels.***
 
 *I mean, a Blockchain is technically just a data structure, right? But, Cardano is the entire operating system... Plus, similarities between open source development, I guess it would be better to compare it to Git actually. 'Cardano is to Blockchains what Git is to SCM' - anyone remember SVN? Queue: Angry Linus!*
