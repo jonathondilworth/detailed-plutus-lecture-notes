@@ -19,6 +19,10 @@
 * ***Work With Individuals On The Ground (From My Catalyst Team) In South America To Prepare For Next Funding Round.***
 * ***Get Our Catalyst Proposal Ready For Next Funding Iteration.***
 
+<hr />
+
+*Additional Goal, Requirement For Potential Catalyst Project*
+
 *I would like to create a course that allows undergraduate students to get up to date quite quickly on distributed ledgers and blockchain consensus algorithms. As such, my aim would be to introduce them to all the pre-requisites that I have identified below. Shortly thereafter, I would introduce them to Distributed Ledger Technologies 1 (DLTs 1 | GEN.1, BTC style ecosystems), then I would introduce them to DLTs 2 (Introduction to Cardano).*
 
 *Course Outline:*
@@ -34,6 +38,8 @@
 * Advanced DLTs (Developing on Cardano)
 
 [Please See This Link For Detailed Course Outline](0-course-outline.md)
+
+<hr />
 
 ### 1. Authors Note
 
