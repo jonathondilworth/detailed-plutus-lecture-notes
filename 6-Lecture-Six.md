@@ -1,6 +1,6 @@
 # Lecture Six
 
-> “Unless you try to do something beyond what you have already mastered you will never grow.” <br />
+> "Unless you try to do something beyond what you have already mastered you will never grow." <br />
 > — Ralph Waldo Emerson
 
 ### 1. Introduction

@@ -1,23 +1,48 @@
-# Blockchain Lectures Notes (BLN) - README.md
+# Plutus Pioneer Program Lecture Notes - README
 
-*The Second Cohort Of The Plutus Pioneer Programme*
+### **The Second Cohort Of The Plutus Pioneer Program**
 
-***Note: Due To Personal Circumstances, I have had to take a period of time away from this project. I am, however, returning to it soon. I hope to refine this repo such that it may be helpful for the third cohort.***
+<details>
 
-***In my humble opinion, Cardano is to Blockchains what Linux is to Kernels.***
+<summary>**Some Important Notes On Motivation**</summary>
 
-*I mean, a Blockchain is technically just a data structure, right? But, Cardano is the entire operating system... Plus, similarities between open source development, I guess it would be better to compare it to Git actually. 'Cardano is to Blockchains what Git is to SCM' - anyone remember SVN? Queue: Angry Linus!*
+In short (TLDR), the message here is: **if your primary motivation is to make money, you probably do not belong within the technical domain of this industry (even if it is directly related to finance).** Furthermore, a spot of conventional wisdom: you should always consider the consequences of your actions. We're not here to be greedy, we're here to make a difference and to help one another (in addition to ourselves).
 
-***Currently Working On: Alonzo Test Net & General Goals - See Below***
+If you have not seen the film (or read the book): The Big Short, I recommend doing so. I will be referencing this blog post: 'What The Big Short Can Teach Us About Passion & Drive, Free to Pursue' directly for quotes found therein. **You can read the entire blog post that was not written by me here (warning: not secured by https):** http://www.freetopursue.com/blog/2016/3/22/the-big-short-and-drive
 
-***Goals:***
+**Direct References To The Aforementioned Blog Post And Film:**
 
-* ***Investigate Various Addressing Schemes For Cardano, From Super-Legacy to Alonzo.***
-* ***Give PoB Implementation A Good Go.***
-* ***Finish Lecture Notes On Remaining Lectures.***
-* ***Re-Implement All Homework From L1 to L10.***
-* ***Work With Individuals On The Ground (From My Catalyst Team) In South America To Prepare For Next Funding Round.***
-* ***Get Our Catalyst Proposal Ready For Next Funding Iteration.***
+*Dr. Michael Burry loves his work in the financial sector so much that he digs into the minutia because it fascinates him. Like an archeologist, he wants to find and excavate the unheard of.*
+
+*Burry and Baum do what they do because they have a deep desire to do something significant. They want to win at what they do but winning isn’t about the money. It’s about getting it right, even if they could be vilified in the process. In this sense, they’re driven from the inside out. Money is a secondary consideration, far behind their own personal drive ignited and sustained by the intangible. That’s what makes them amazing.*
+
+*[Baum is] disgusted by the industry and wants justice for the average [person].*
+
+*We love these guys because they represent the best of what we seek in others and want to find in ourselves. That is, when money isn’t a significant part of the equation.*
+
+<small>**A Quick Book Recommendation: Pink, D.H., 2011. Drive: The surprising truth about what motivates us. Penguin. ISBN-10: 1786891700, ISBN-13: 978-1786891709**</small>
+
+</details>
+
+<details>
+
+<summary>Progress, Current Projects, Goals and Declarations.</summary>
+
+**Currently Working On: Plutus Pioneer Program & Alonzo Test Net**
+
+**Goals:**
+
+* Publish My Own Computation & Functional Programming Learning Materials And Notes.
+* Finish Lecture Notes On Remaining Lectures.
+* Re-Implement All Homework From L1 to L10.
+* Work On Catalyst Proposal For Next Funding Iteration (See Proposal In Repo).
+* Investigate Various Addressing Schemes For Cardano, From Super-Legacy to Alonzo.
+
+<small>
+
+*Notes: Towards the end of the second cohort, I had to take some time away. The intention is to catch up to the end of the program now (11/09/21). Some testing materials (from the Alonzo purple testing period) have now been published, they're mainly Byron / Shelly though. Any lecture notes published within 'haskell-notes' are learning materials INSPIRED BY the Computation & FK course at the University of Edinburgh which I am watching online.* ***THEY WILL NOT CONTAIN ANY CONTENT OWNED BY THE UNIVERSITY OF EDINBURGH.*** *If anyone has any concerns, <a href="mailto: jon@dilworth.dev">please contact me</a>.*
+
+</small>
 
 <hr />
 
@@ -41,28 +66,66 @@
 
 <hr />
 
+</details>
+
+<details>
+
+<summary>Quotes Of Note.</summary>
+
+>"Anyone not shocked by quantum mechanics has not yet understood it." <br />
+> — Niels Bohr
+
+> "Plutus Platform Learning is Difficult" <br />
+> — Lars Brünjes
+
+> “Any fool can know. The point is to understand.” <br />
+> — Albert Einstein
+
+>"If you want to get money, you have to consume an output that is laying around and in turn you get more outputs." <br />
+> — Michael Peyton-Jones
+
+> "Haskell is useless" <br />
+> — Simon Peyton Jones
+
+> "Us geeky Haskell guys started with a completely useless language, in the end a program with no effect, there is no point in running it is there? You have this black box, you press go and it gets hot! There's no output, why did you run the program? The reason you run a program is to have an effect! But, nevertheless, we put up with that embarrassment for many years!" <br />
+> — Simon Peyton Jones
+
+> “To imagine a language is to imagine a form of life.” <br />
+> — Ludwig Wittgenstein
+
+>"It might be true that there are six billion people in the world and counting. Nevertheless, what you do makes a difference. It makes a difference, first of all, in material terms. It makes a difference to other people and it sets an example." <br />
+> ― Robert Solomon, Waking Life
+
+> “Unless you try to do something beyond what you have already mastered you will never grow.” <br />
+> — Ralph Waldo Emerson
+
+> "Constraints Liberate, Liberties Constrain" <br />
+> — Runar Bjarnason
+
+</details>
+
 ### 1. Authors Note
 
-I have made the decision to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical, but creative. This is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems [[1]](#1), Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique and understanding aspects of how this whole system fits together requires an element of creative thinking and problem solving. Similarly, these technologies <sup>[1](#fn1)</sup> are novel in nature, as such, it may be required to do some creative writing in order to explore new potential ideas.
+I have decided to begin making notes and documenting all lectures and exercises found within the Plutus Pioneer Program (cohort two). The writing style will be two-fold: technical but creative. The choice of style is for numerous reasons. Firstly, writing does aid the cognitive ability to solve problems [[1]](#1). In addition, Plutus is a new platform, Plutus-core is a new language, Haskell is somewhat unique, and understanding aspects of how this whole system fits together requires an element of creative thinking and problem-solving. Similarly, these technologies <sup>[1](#fn1)</sup> are novel in nature; as such, it may be a requirement to do some creative writing to explore new potential ideas.
 
-I've been using distributed ledgers and blockchain consensus algorithms for over ten years. I remember buying BTC at \$3 and seeing it hit \$7 was mind blowing for me (at the time). It's a shame I never held on to many, but I just look back and laugh. Why? Because it's not about money, although most people would disagree (this is one of the reasons why I feel somewhat at home within the Cardano community). It's about technology and ultimately: changing the world. It's a strange thought: we are individuals, we have choices, and if we decide to do so, we can make a real difference here. If there is anything worth pursuing, it's making a difference. This is why I decided to devote as much time as possible to the difficult task of participating within the Plutus Pioneer Program and brushing up on Haskell.
+Let it be known that it's not about money, although most people would disagree (this is one of the reasons why I feel somewhat at home within the Cardano community). It's about technology and, ultimately: changing the world. It's a strange thought: we are individuals, we have choices, and if we decide to do so, we can make a real difference here. If there is anything worth pursuing, it's making a difference. This is why I decided to devote as much time as possible to the difficult task of participating within the Plutus Pioneer Program and brushing up on Haskell.
 
-I would like to express my gratitude to IOHK for constructing this program and accepting me as a candidate. Furthermore, I would like to thank my family for their continual support in my efforts to pursue a career path which isn't thought to be conventional.
+**I would like to express my gratitude to IOHK for constructing this program and accepting me as a candidate. Furthermore, I would like to thank my family for their continual support in my efforts to pursue a career path that isn't thought to be conventional.**
 
-I believe I can speak for the entire community when I extend my sincerest thanks to the world class engineers and scientists who have contributed to building Cardano as of current. Charles, you will are and will continue to be an inspiration to us all and to the world. I hope we can all collectively strive to make positive societal change.
+I believe I can speak for the entire community when I extend my sincerest thanks to the world-class engineers and scientists who have contributed to building Cardano as of current. Charles, you are and will continue to be an inspiration to us. I hope we can all collectively strive to make positive societal change.
 
 ### 2. Preface
 
-This set if notes, written in a casual, formal, yet creative style has been cultivated through the activity of participating within the second cohort of the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/). I felt it to be important to document my own experience with the program in order to gain the most from it. Furthermore, it is my hope that the notes themselves (and perhaps even through the contribution of others) will be able to help other aspiring developers for time to come.
+This set of notes, written in a casual, formal, yet creative style, has been cultivated by participating within the second cohort of the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/). I felt it necessary to document my own experience with the program to gain the most from it. Furthermore, I hope the notes found herein will help other aspiring developers for the time to come. Any contributions by others are encouraged.
 
-To be completely honest, I'm not hugely qualified to write any of this! Which is why I would hugely appreciate any corrections via contribution. I do however hold the following qualifications:
+To be completely honest, I'm not hugely qualified to write any of this! This is why I would hugely appreciate any corrections via contribution. I do, however hold the following qualifications:
 
 * A First Class Honours Degree in Computer Science from the University of Manchester.
-* A Postgraduate Diploma in Artificial Intelligence / Informatics (I hope to write my thesis on this very subject after COVID-19 has 'blown over', thus obtaining my MSc) from the University of Edinburgh.
+* A Postgraduate Diploma in Artificial Intelligence / Informatics from the University of Edinburgh. I hope to return to write my thesis on this subject after COVID-19 has 'blown over' to get my MSc (finally).
 
-*Note: for what it's worth I hold a good few years experience in industry writing web applications... Not exactly what you would call academic.*
+*Note: I hold a good few years of experience developing web applications in the industry. Not exactly what you would call academic.*
 
-I wrote this set of notes in an ad-hoc style manner. As the lectures were released, I've done my best to keep up with work, in addition to following the lectures, implementing the homework's and keeping these detailed notes.
+I am writing this set of notes in an ad-hoc style manner. As the lectures are released, I am doing my best to keep up with work, follow the classes, implement the homework, and keep these detailed notes.
 
 ### 3. Foreword
 
@@ -70,7 +133,7 @@ I wrote this set of notes in an ad-hoc style manner. As the lectures were releas
 
 ### 4. Formatting
 
-As these are technical notes, the format for each set of lecture notes will be written to a pseudo-technical specification. This means each set of notes should follow a template, making it easier for readers to break down and understand. Each set of notes will be presented in accordance with the following schema:
+The format for each set of lecture notes will follow a pseudo-technical specification. Thus, each set of notes should follow a template, making it easier for readers to break down and understand. Each set of notes will be presented in accordance with the following schema:
 
 * Introductory Lecture Information
 * Incremental Sections (1. → N.)
@@ -89,19 +152,28 @@ I will be doing my best to keep to the above schema for each set of notes, but t
 
 ### 5. Content Within This Repo
 
-The contents of this repo is two-fold. Firstly (and most importantly), the content is a set of pseudo-academically written notes for the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/) [[3]](#3), which follow the formatting as outlined in §5. Secondly, a set of academic papers which I have deemed to be of greatest importance **to me** is also provided. In addition, these papers will (slowly, but surly) be printed out, annotated and scanned. Shortly thereafter, these scans will be re-uploaded to this repo.
+The contents of this repo are two-fold. Firstly (and most importantly), the content is a set of pseudo-academically written notes for the [Plutus Pioneer Program](https://testnets.cardano.org/en/plutus-pioneer-program/) [[3]](#3), which follow the formatting outlined in §5. Secondly, a collection of academic papers I have deemed to be of most significant importance **to me** is also provided. In addition, these papers will (slowly but surely) be printed out, annotated and scanned. Shortly thereafter, these scans will be re-uploaded to this repo.
 
-This repo will **forever and always** remain open, unless instructed otherwise by a member of the Cardano organisation or by an employee of IOHK.
+This repo will **forever (and always)** remain open unless instructed otherwise by a member of the Cardano organisation or by an employee of IOHK.
 
 ### 6. Intended Audience
 
-These notes are for anybody and everybody (somewhat vague, I know), but the audience could range from those who are current Plutus Pioneers, individuals who are just following the programme, developers from other communities, or even legislators (however, I highly doubt they would be reading my notes / documentation on Cardano). But ultimately, we are all here for the same reason, we believe in what we're building and the best way to approach adoption is to allow everybody to see what you're doing, at least, that would be my intuition.
+These notes are for anybody and everybody (somewhat vague, I know), but the audience could range from those who are:
 
-But, to reduce the scope a little bit and be somewhat more realistic, the intended audience is really for those who are looking to develop on Cardano.
+* Current Plutus Pioneers.
+* Individuals who are just following the programme.
+* Developers from other communities.
+* Even legislators (I highly doubt they would be reading my notes/documentation on Cardano).
+
+But ultimately, we are all here for the same reason, we believe in what we're building, and the best way to approach adoption is to allow everybody to see what you're doing; at least, that would be my intuition.
+
+**TLDR:** The intended audience is those looking to develop on Cardano.
 
 ### 7. Why These Notes May Be Helpful
 
-First and foremost, these notes are likely most helpful to me. You do not understand something unless you can explain it. So, if you can write it, you can explain **something**, whether or not that **something** is correct is another matter. My hope is that most of what I do write **is correct** or that somebody reads it and corrects me (either via a direct message, but I would encourage open collaboration). However, once I have finished this program (and I will), and once I have got a **real firm grasp** on Haskell (and I will) and finally, after I have meticulously written and re-written every set of lecture notes (and I will), then this repo may be hugely benefitial to other people. That is the aim with this paricular set of notes and that is why I believe these notes may be hepful.
+First and foremost, these notes are likely most helpful to me. You do not understand something unless you can explain it. So, if you can write it, you can explain something; whether or not that something is correct is another matter. I hope that most of what I write is accurate or that somebody reads it and corrects me (I encourage open collaboration). 
+
+However, once I finish this program and have a firm grasp of Haskell (after meticulously writing and rewriting every set of lecture notes), this repo may be hugely beneficial to other people. That is the aim of this project.
 
 ### 8. Contributing
 
@@ -115,16 +187,16 @@ First and foremost, these notes are likely most helpful to me. You do not unders
  - [Lecture Four](4-Lecture-Four.md): Monads, The EmulatorTrace Monad, Contract Monad, Homework
  - [Lecture Five](5-Lecture-Five.md): EUTxO Values, Plutus: Native Tokens (Minting and Burning)
  - [Lecture Six](6-Lecture-Six.md): Oracles, Core module, Swap module, Funds Module, Test Module, PAB & Front-ends
- - [Lecture Seven](): Committal Schemes, State Machines, Maintaining State Using Datum, NFTs and 'Thread' 
- - [Lecture Eight](): More State Machines? And Testing... *Note: Not Yet Quite There...*
- - [Lecture Nine](): Marlowe
- - [Lecture Ten](): -
+ - [Lecture Seven](7-Lecture-Seven.md): Committal Schemes, State Machines, Maintaining State Using Datum, NFTs and 'Thread' 
+ - [Lecture Eight](): More State Machines? And Testing... *Nope! Not Yet Quite There...* '-'
+ - [Lecture Nine](): Marlowe (Domain Specific Language for Cardano) '-'
+ - [Lecture Ten](): '-'
 
 *Note: Currently Unwritten Notes are Marked With '-' unless stated otherwise.*
 
 ### 10. Summary
 
-As an accepted candidate for the second cohort (my first cohort e-mail landed in my junk mail), I have decided to write a set of notes for each and every lecture in the hope that it will help me learn, but in addition, it will help others. These are not strictly technical notes, there is some creative flair (at least I would like to think so), so you may even enjoy the read. I have a few years experience in industry as a web developer, software engineer and machine learning engineer. I got my UG @ the University of Manchester and my PG @ the University of Edinburgh. Formatting is suppose to be (be isn't hugely) consistent. My intended audience is mainly other Plutus Pioneers or those who wish to learn and are outside of the program. Anyone is free to contribute and feel free to flick through each lecture as is listed above.
+As an accepted candidate for the second cohort (my first cohort e-mail landed in my junk mail), I have decided to write a set of notes for every lecture in the hope that it will help me learn, but in addition, it will help others. Although these are not strictly technical notes, there is some creative flair (at least I would like to think so), so you may even enjoy the read. I have a few years of experience in industry as a web developer, software engineer and machine learning engineer. I got my UG @ the University of Manchester and my PG @ the University of Edinburgh. Formatting is supposed to be (be isn't hugely) consistent. My intended audience is mainly other Plutus Pioneers or those who wish to learn outside the program. Anyone is free to contribute, and feel free to flick through each lecture as is listed above.
 
 ### 11. Nomenclature
 
@@ -253,3 +325,11 @@ Informatics in Education, 14(2), pp.143-160. <br />
 4. Catch up to and finish Lecture Ten ASAP.
 5. Continue to work on Plutus' Alonzo Purple Test Net.
 6. Continue to work on submission for Catalyst.
+
+<hr />
+
+<small>**A Final Note From The Author: My Sincerest Thanks**</small>
+
+<small>*Having these notes featured in two of the e-mails sent out for the pioneers meant* ***A LOT*** *to me (during a difficult time of my life). My thanks go out all individuals associated with IOHK who have provided such an amazing degree of encouragement.*</small>
+
+<small>***This technology and this community has changed my life.***</small>

@@ -72,7 +72,7 @@ However,
 
 ### 2. The EUTxO Model
 
-> “Any fool can know. The point is to understand.”
+> “Any fool can know. The point is to understand.” <br />
 > — Albert Einstein [[1]](#1)
 
 ### 2.1 What is EUTxO?
@@ -83,7 +83,7 @@ Within the next section I flip between the simple UTxO model that BTC implements
 
 ### 2.2 UTxO Explained
 
->"If you want to get money, you have to consume an output that is laying around and in turn you get more outputs."
+>"If you want to get money, you have to consume an output that is laying around and in turn you get more outputs." <br />
 > — Michael Peyton-Jones
 
 *What are unspent transaction outputs? Simply put: They are outputs — which can be thought of as remaining financial change — from previous transactions on the Blockchain that are still currently 'unspent' — Imagine you go to a shop, you buy a drink, you give the shopkeeper a £20 note, and you are given £19 back in change. That £19 is an unspent transaction output from the original transaction of the purchase of a drink.*
