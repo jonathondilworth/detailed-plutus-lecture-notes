@@ -46,7 +46,7 @@
 --out-file protocol.json
 </pre></code>
 <pre><code>./cardano-cli transaction build-raw \
---tx-in 86594137f6c58ca2cf94cd05bea3259b20b3f2fd07edb4e14a402ec0e5d72f5a#0 \
+--tx-in <>#0 \
 --tx-out $ADDRESSTWO+1000000000000 \
 --tx-out $ADDRESS+0 \
 --invalid-hereafter 0 \
@@ -69,7 +69,7 @@
 
 </pre></code>
 <pre><code>./cardano-cli transaction build-raw \
---tx-in 86594137f6c58ca2cf94cd05bea3259b20b3f2fd07edb4e14a402ec0e5d72f5a#0 \
+--tx-in <>#0 \
 --tx-out $ADDRESSTWO+100000000000 \
 --tx-out $ADDRESS+899999823103 \
 --invalid-hereafter 394549 \
