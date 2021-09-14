@@ -6,7 +6,7 @@
 
 <summary>Some Important Notes On Motivation.</summary>
 
-&nbsp;
+<span style="line-height: 1.85;"></span>
 
 In short (TLDR), the message here is: **if your primary motivation is to make money, you probably do not belong within the technical domain of this industry (even if it is directly related to finance).** Furthermore, a spot of conventional wisdom: you should always consider the consequences of your actions. We're not here to be greedy, we're here to make a difference and to help one another (in addition to ourselves).
 
@@ -30,7 +30,7 @@ If you have not seen the film (or read the book): The Big Short, I recommend doi
 
 <summary>Progress, Current Projects, Goals and Declarations.</summary>
 
-&nbsp;
+<span style="line-height: 1.85;"></span>
 
 **Currently Working On: Plutus Pioneer Program & Alonzo Test Net**
 
@@ -76,7 +76,7 @@ If you have not seen the film (or read the book): The Big Short, I recommend doi
 
 <summary>Quotes Of Note.</summary>
 
-&nbsp;
+<span style="line-height: 1.85;"></span>
 
 >"Anyone not shocked by quantum mechanics has not yet understood it." <br />
 > — Niels Bohr
