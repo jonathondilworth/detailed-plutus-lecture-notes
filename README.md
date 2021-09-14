@@ -4,7 +4,9 @@
 
 <details>
 
-<summary>**Some Important Notes On Motivation**</summary>
+<summary>Some Important Notes On Motivation.</summary>
+
+&nbsp;
 
 In short (TLDR), the message here is: **if your primary motivation is to make money, you probably do not belong within the technical domain of this industry (even if it is directly related to finance).** Furthermore, a spot of conventional wisdom: you should always consider the consequences of your actions. We're not here to be greedy, we're here to make a difference and to help one another (in addition to ourselves).
 
@@ -27,6 +29,8 @@ If you have not seen the film (or read the book): The Big Short, I recommend doi
 <details>
 
 <summary>Progress, Current Projects, Goals and Declarations.</summary>
+
+&nbsp;
 
 **Currently Working On: Plutus Pioneer Program & Alonzo Test Net**
 
@@ -71,6 +75,8 @@ If you have not seen the film (or read the book): The Big Short, I recommend doi
 <details>
 
 <summary>Quotes Of Note.</summary>
+
+&nbsp;
 
 >"Anyone not shocked by quantum mechanics has not yet understood it." <br />
 > — Niels Bohr
@@ -201,7 +207,7 @@ As an accepted candidate for the second cohort (my first cohort e-mail landed in
 ### 11. Nomenclature
 
 * UTxO: A model of accounting used to identify how much 'money' (in this case: a digital 'currency') any 'wallet' has access to (in the context of 'cryptocurrencies'<sup><a href="#fn1">1</a></sup>.
-* EUTxO: An extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of numerous inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic [[8]](#8).
+* EUTxO: An extended model of UTxO. The fundamentals remain the same. Thus, transactions are made up of inputs, which themselves are unspent transaction outputs. However, there are some modifications to the model which are important. These modifications allow for more general transactions through the use of arbitrary logic [[8]](#8).
 * Cardano-node: syncs to the Cardano Blockchain and talks between all of the Cardano subcomponents. It doesn't have to be set up as a stake pool, however, it is possible to set up a stake pool. It may be a core component for facilitating PoS consensus through the operation of a <code>pool</code>. It is important to note that others can delegate to a <code>pool</code>, but as of right now, will not earn the same kind of annual RoA (return on ada) as an operator.
 * cardano-cli: command line interface for Cardano.
 * cardano-wallet: HTTP server and command line for managing on-chain UTxOs.
@@ -302,7 +308,7 @@ Informatics in Education, 14(2), pp.143-160. <br />
 
 ![./img/commit-scheme.jpg](./img/commit-scheme.jpg)
 
-**The things in life that make you happy...**
+**I am proud to be part of this community. I look forward to what the future holds.**
 
 ![./img/purp.jpg](./img/purp.jpg)
 
@@ -322,9 +328,12 @@ Informatics in Education, 14(2), pp.143-160. <br />
 
 1. Correct any errors within any of my current lecture notes.
 2. Continue to include references and footnotes within all lecture notes.
+3. Restructure lecture notes to reflect format in §4.
 4. Catch up to and finish Lecture Ten ASAP.
-5. Continue to work on Plutus' Alonzo Purple Test Net.
+5. Continue to work on Plutus Public Test Net.
 6. Continue to work on submission for Catalyst.
+
+*Work On Developing My Own Haskell Notes Too (in haskell-notes)*
 
 <hr />
 
