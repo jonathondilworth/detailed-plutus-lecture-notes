@@ -8,7 +8,7 @@
 
 <span style="line-height: 1.85;"></span>
 
-In short (TLDR), the message here is: **if your primary motivation is to make money, you may have some difficulties working within the technical domain of this industry (even if it is directly related to finance).** Furthermore, **in my humble opinion**: you should always consider the consequences of your actions. As software engineers, we do have an obligation to society insofar as a doctor or a nurse has an obligation to act ethically.
+In short (TLDR), the message here is: **if your primary motivation is to make money, you may have some difficulties working within the technical domain of this industry (even if it is directly related to finance).** Furthermore, you should always consider the consequences of your actions. As software engineers, we do have an obligation to society insofar as a doctor or a nurse has an obligation to act ethically.
 
 If you have not seen the film (or read the book): The Big Short, I recommend doing so. I will be referencing this blog post: 'What The Big Short Can Teach Us About Passion & Drive, Free to Pursue' directly for quotes found therein. **You can read the entire blog post that was not written by me here (warning: not secured by https):** http://www.freetopursue.com/blog/2016/3/22/the-big-short-and-drive
 
