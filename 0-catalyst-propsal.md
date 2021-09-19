@@ -1,3 +1,11 @@
+# UPDATE: 19TH SEPT 2021, The First Pioneer Leaves For South America
+
+One of our team members (currently a small group of seven of us = our team) has left for South America. We understand that the magnitude of this project is going to stretch our efforts far beyond six months. Thus, our first 'pioneer' is going to visit as many cities as possible outlined within the proposal before the next round of funding. The intentionality here is to aid us find our feet and to connect with individuals who are known to us living in South America. Then we can start preparing to approach academics and academic insitutions. *Really, we're not going to know if this will work until a couple of us are down there trying to build the foundations.*
+
+**It's an exciting day :)**
+
+<hr />
+
 **NOTE: WE ARE WAITING FOR THE NEXT ROUND OF FUNDING, WE SIMPLY DO NOT HAVE ENOUGH TIME TO PLAN THIS EXTREMELY LARGE PROJECT TO THE POINT THAT WE FEEL IT IS PRESENTABLE TO MEMBERS OF CATALYST.**
 
 **OUR ETHOS: APPLY THE GREATEST DEGREE OF ACADEMIC RIGOUR TO OUR PROJECT, AS INSPIRED BY CARDANO AND IOHK - SLOW AND STEADY WINS THE RACE.**
