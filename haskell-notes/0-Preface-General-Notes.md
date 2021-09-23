@@ -1,8 +1,14 @@
-# Authors Note
+# Preface ++ General Notes
 
-*So I've temporarily ran into a roadblock, I'm waiting on a patch panel and some networking equipment to arrive before I can finish my home office. Time to put down the drill, I'm a computer scientist, well at least I tell myself that, I probably shouldn't be handling drills anyway...*
+<small><code>| (++) :: [a] -> [a] -> [a]</code></small>
 
-Perhaps you noticed, I'm a tad interested in Blockchains and Distributed Ledgers (and have been for a while now). However, I was somewhat disheartened by the sheer number of individuals willing to [take advantage of others](https://youtu.be/Y6vHVINBi0s) <sup><a href="#1">1</a></sup> during the early days, it drove me away (rather unfortunately, otherwise I would be on a yacht right now, I am only kidding, **life is not ALL about money, you do need enough, but please don't waste your time doing something that makes you unhappy**). On that somewhat inspiring note, let's got into some exciting stuff! Allow me to explain what I'm doing here.
+<small>*So I've temporarily ran into a roadblock, I'm waiting on a patch panel and some networking equipment to arrive before I can finish my home office. Time to put down the drill, I'm a computer scientist, well at least I tell myself that, I probably shouldn't be handling drills anyway...*</small>
+
+**Note: If you don't enjoy rambling, perhaps you should skip straight to the lectures notes!**
+
+<hr />
+
+Perhaps you noticed? I'm a tad interested in Blockchains and Distributed Ledgers (and have been for a while now). However, I was somewhat disheartened by the sheer number of individuals willing to [take advantage of others](https://youtu.be/Y6vHVINBi0s) <sup><a href="#1">1</a></sup> during the early days, it drove me away (rather unfortunately, otherwise I would be on a yacht right now, I am only kidding, **life is not ALL about money, you do need enough, but please don't waste your time doing something that makes you unhappy**). On that somewhat inspiring note, let's got into some exciting stuff! Allow me to explain what I'm doing here.
 
 ### What's Going On?
 
