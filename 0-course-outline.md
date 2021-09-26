@@ -63,12 +63,14 @@ This Specific Course Would Be Tailored To Younger Individuals With An Interest I
 		* ***Advanced DLTs***
 			* ***(IN PROGRESS - CURRENTLY AN UNORDERED LIST)***
 			* ***Porting The EVM to Cardano Using IELE => KEVM***
-			* ***Looking Forwards: Building Compilers || Porting X-VMs to Cardano***
+			* ***Looking Forwards: Building Compilers || Porting X-VMs to Cardano (LLVM)***
 			* ***I will require time to build out this course...***
 
 ### 2. Resources
 
 1. [https://youtu.be/JG2ESDGwHHY](https://youtu.be/JG2ESDGwHHY) | Fallacies of Distributed Computing
+
+TODO: Add more resources.
 
 
 
