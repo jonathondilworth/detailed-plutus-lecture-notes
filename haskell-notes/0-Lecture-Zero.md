@@ -100,6 +100,8 @@ Who teaches FP as introductory courses for Computer Science / Informatics?
 
 You all know what a parabola looks like, right? If not, Google is your friend!
 
+[https://www.google.com/search?q=f(x)+%3D+x%5E2&oq=f(x)+%3D+x%5E2](https://www.google.com/search?q=f(x)+%3D+x%5E2&oq=f(x)+%3D+x%5E2)
+
 **Types:**
 
 * Integer: whole number
