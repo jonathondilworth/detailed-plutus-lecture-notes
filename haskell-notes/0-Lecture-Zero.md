@@ -112,3 +112,36 @@ You all know what a parabola looks like, right? If not, Google is your friend!
 * Pictures (?)
 
 *This is the part where you work through the tutorial by yourself.*
+
+### 5.1. Function Composition
+
+**The Way In Which Functions Are Read In Haskell:**
+
+> An extract from "Thinking Functionally With Haskell: <br /><br />
+> "In mathematics one can encounter expressions like $logsinx$. To the mathematician that means $log(sinx)$, since the alternative $(log sin) x$ doesn't make sense. But in Haskell one has to say what one means, and one has to write $log\ (sin\ x)$ because $log\ sin\ x$ is read by Haskell as $(log\ sin)\ x$."
+
+**Thus, we declare functions:**
+
+*(If using GHCi, import Data.Int)*
+
+<code>sq :: Int -> Int</code>
+
+And assign functions:
+
+<code>f x = x * x</code>
+
+And call functions:
+
+<code>f 10</code>
+
+Which results in:
+
+<code>100</code>
+
+![./img/function-example.png](./img/function-example.png)
+
+> "The order of composition is from right to left because we write functions to the left of the arguments to which they are applied."
+
+*Authors note: when I was in sixth form, I wrote a program in PHP (of all languages) to calculate the inverse of a 3x3 matrix. Why in the heck didn't anybody tell me this stuff existed!? The number of loops and crazy code I had to smush together to get that thing to work...*
+
+*To be continued... (Unfortunately, I no longer have all the time in the world, but I'm doing my best to make time.)*
