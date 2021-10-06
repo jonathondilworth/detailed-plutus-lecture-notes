@@ -1,4 +1,27 @@
-# UPDATE: 19TH SEPT 2021, The First Pioneer Leaves For South America
+### UPDATE: 6TH OCT 2021, Latin America: Bogotá, Restrictive Columbian Cryptocurrency Laws, The Proliferation Of Cryptocurrencies Regardless Of Legislation
+
+Having one of our guys literally 'on the ground' in Columbia has been extremely insightful from MY perspective (sitting in my office, in the United Kingdom). The existence of a "restrictive legal environment towards virtual currencies" within the country has not seemed to stop the people from adopting BTC and BCH (primarily). Apparently there exists a real thirst for adoption, but a huge lack of education (in general, not just relating to virtual currency, but education generally, as 35% of the population lives beneath the poverty line). It's interesting to note that the proliferation of virtual currency **appears to be widespread**<sup>SEE NOTE</sup>, even given the following extract from [[9]](#9):
+
+"Colombia’s restrictive legal environment towards virtual currencies suggests it is challenging to operate a cryptocurrency business within the country. The Financial Superintendence of Colombia (SFC) has virtually prohibited banks from providing financial services to cryptocurrency companies. Consequently, cryptocurrency firms in Colombia may not utilize banking institutions. Furthermore, Colombian officials declared in 2014 that regulated financial institutions shall not possess or invest in cryptocurrencies. Consequently, cryptocurrency-related companies may not seek investments from regulated financial institutions. Accordingly, cryptocurrency-oriented businesses in Colombia must operate without the assistance of banking and financial institutions."
+
+It seems that:
+
+* People are interested in virtual currencies.
+* Businesses are open to taking virtual currencies, even though they cannot interface (legally) with a bank if they do.
+* People are 'bartering' using these currencies (BTC/BCH) and people are generally open to learning more about them.
+* Top down adoption may be impossible in countries such as Columbia, a different approach may need to be taken.
+* The fact financial institutions cannot engage in trading cryptocurrencies may allow for faster adoption of **genuine decentralisation**.
+* There appears to be a lack of any kind of law enforcement when it comes to the people and their use of virtual currencies.
+* The whole situation sounds very 'interesting' to say the least.
+* We're going to need more time, more data and more experiences relayed before we can begin making sense of what exactly is going on.
+
+***NOTE:*** *It's still early days, three weeks is not merely enough time to begin gathering anywhere near enough data to make epistemically objective statements about the adoption of virtual currencies within Columbia, never-mind Latin America. However, we are in the middle of beginning this process.*
+
+I would be very interested in hearing from anyone who has travelled to South America recently and what their experiences were like (regarding the adoption of virtual currencies, specifically cryptocurrencies such as BCH, BTC, ETH and any other digital assets - apparently everybody believes that anything other than BTC and BCH is some kind of "pyramid scheme").
+
+In short, I've been having some very interesting conversations with our pioneer. This was a quick update, apologies for any spelling or grammatical mistakes.
+
+### UPDATE: 19TH SEPT 2021, The First Pioneer Leaves For South America
 
 One of our team members (currently a small group of seven of us = our team) has left for South America. We understand that the magnitude of this project is going to stretch our efforts far beyond six months. Thus, our first 'pioneer' is going to visit as many cities as possible outlined within the proposal before the next round of funding. The intentionality here is to aid us find our feet and to connect with individuals who are known to us living in South America. Then we can start preparing to approach academics and academic insitutions. *Really, we're not going to know if this will work until a couple of us are down there trying to build the foundations.*
 
@@ -32,11 +55,11 @@ This section explores specific information surrounding the project's problem dom
 
 #### 3.1 Defining The Problem Domain
 
-* Cardano is not globally recognised.
-* Except for the ongoing projects in Africa, primarily English-speaking people with western values deem Cardano attractive.
+* The lacking existence of adoption tied to Blockchain related technologies within Africa and Latin America [[7]](#7) remains prevalent.
+* 'BitCoin Maximalism' [[8]](#8) within Latin America is overshadowing the possibility of alternative adoption models.
+* Education within our industry is difficult when language barriers and cultural obstacles are required to navigate.
 * Adoption within our community is typically found online rather than from individuals on the ground interacting with their local communities.
-* It is not easy to establish a global ecosystem when building Cardano-based communities in person, physically.
-* Genuinely raising awareness, adoption and application development on the Cardano platform whilst also changing the lives of those involved is complex.
+* Genuinely raising awareness, adoption and application development on Cardano whilst also changing the lives of those involved is complex.
 
 #### 3.2 Extensions To The Problem Domain
 
@@ -383,7 +406,18 @@ Latin America Embraces Bitcoin. What’s Next for Crypto in Emerging Markets?<br
 Available at: <https://www.barrons.com/articles/bitcoin-el-salvador-emerging-markets-51626719533><br />
 Accessed: 03/09/2021
 
+<a href="#7" id="7">[7]</a> Hileman, G. and Rauchs, M., 2017. <br />
+Global cryptocurrency benchmarking study. <br />
+Cambridge Centre for Alternative Finance, 33, pp.33-113.
 
+<a href="#8" id="8">[8]</a> Buterin, V., 2014. <br />
+On Bitcoin Maximalism, and Currency and Platform Network Effects.<br />
+Ethereum Blog, November, 20, p.2014.
+
+<a href="#9" id="9">[9]</a> Freeman Law, 05/2021. <br />
+Colombia and Cryptocurrency.
+Available at: <https://freemanlaw.com/cryptocurrency-old-2/colombia/> <br />
+Accessed: 06/10/2021
 
 
 
