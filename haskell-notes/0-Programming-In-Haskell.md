@@ -78,3 +78,95 @@ sum [42, 32, 64]
 
 -
 
+*So.. To recap:*
+
+If we define a recursive sum function as follows:
+
+<pre><code>summ :: Num a => [a] -> a
+summ [] = 0
+summ (x:xs) = x + sum xs
+</code></pre>
+
+We're telling Haskell that our function <code>summ</code> takes a 'Generic Number' type in the function signature (so, really it's quite flexible in terms of what we can provide as a number, similarly if we were to say that it was a type that could be ordered: Ord a, then any Type Class that is order-able is accepted as a parameter, so long as the condition is satisfied such that each parameter a is of that class. Otherwise the compiler will get angry).
+
+Then, we're assigning an initial value of zero to the to summ in the instance where an empty list is passed to the function.
+
+Further, when a list that contains values (of Type Num) is passed to summ, the function is going to take each 'first' element <code>x</code> in the list (since the cons of each first element equates to the full list) for each value of the list <code>xs</code> ... <code>(x:xs)</code>, and it's going to <code>+</code> (add) until the empty list is reached (and the summation of all elements has been computed).
+
+It's really kind of a strange way of thinking about how these operations are carried out. **It's easy enough to read, it's easy enough to understand, but it's kind of difficult to come up with this stuff on your own.** It is as though you have to change the way you've been looking at problems this whole time. It's weirdly horribly elegant.
+
+**Similar, let's say we want to take the product of every element within a list:**
+
+<pre><code>pd :: Num a => [a] -> a
+pd [] = 1
+pd (x:xs) = x * pd xs 
+</code></pre>
+
+Let's work through this one:
+
+<pre><code>pd [5,7,1,2,4]
+-- apply pd
+5 * pd [7,1,2,4]
+-- again
+5 * ( 7 * pd [1,2,4])
+-- again
+5 * ( 7 * (1 * pd [2,4]))
+-- again
+5 * ( 7 * (1 * ( 2 * pd [4])))
+-- again
+5 * ( 7 * (1 * ( 2 * ( 4 pd []))))
+-- again, remember pd [] = 1
+5 * ( 7 * (1 * ( 2 * ( 4 * 1))))
+-- the answer!
+280
+</code></pre>
+
+**An Implementation of QuickSort, Reverse QuickSort and Chapter Exercises Can Be Found In Exercises.**
+
+### Chapter 2. First Steps
+
+* some notes on GHC and GHCi
+* some notes on installation
+* The Prelude (no, not Bach) - It's called the Standard Prelude, essentially a bunch of functions that are bundled with GHC.
+* **head** [1,2,3] returns 1
+* **tail** [1,2,3] returns [2,3]
+* [1,2,3] **!!** 2 (zero-based-index) returns 3
+* **take** 2 [1,2,3] returns [1,2]
+* **drop** 1 [2,1,3] returns [1,3]
+* **length** [1,2,3,4] returns 4
+* **sum** [1,2,3,4,5] returns 15
+* **product** [1,2,3,4,5] returns 120
+* [3,2,1] **++** [6,5,4] returns [3,2,1,6,5,4]
+* **reverse** [5,4,3,2,1] returns [1,2,3,4,5]
+
+**Some Important Stuff!**
+
+Some Familiarity... Mathematics, function notation:
+
+$f(a,b) + cd$ means add the result of c $\times$ d to the value of $f(a,b)$, whatever that happens to be.
+
+* Multiplication of two values is often denoted silently... $cd$
+* The application of a function to its arguments is usually denoted by enclosing the arguments in parentheses: $f(a,b)$
+* In Haskell things are a little, different. The application of arguments to functions is denoted silently using whitespace, and multiplication is explicit: <code>f a b + c*d</code>
+* NOTE: Function Application has higher priority than all other operators!
+* <code>f a b c + d === (f a b c) + d</code>
+* <code>f(g(x)) === f (g x)</code>
+* <code>f(x, g(y)) === f x (g y)</code>
+* <code>f(x)g(y) === (f x) * (g y)</code>
+
+*(Includes some information on Haskell scripts and GHCi)*
+
+* You can write division as a function: <code>div (f x) (g x)</code>
+* It is, however, more natural to write: <code>f x `div` g x</code>
+* Reloading scripts in GHCi: <code>:reload</code>
+
+**The Layout Rule**
+
+Each definition at the same level must begin in precisely the same column. Like indentation in Python, only by convention in Haskell you use the same column and don't simply indent by 2 spaces, for example.
+
+**DON'T USE TABS.**
+
+**Nested Comments: {- -}**
+
+*(Types and Classes Up Next)*
+
