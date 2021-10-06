@@ -74,11 +74,7 @@ sum [42, 32, 64]
 * *Zero Is The Identity For Addition* (When I think of identity, if I think of: $f(x) = x$)
 * $0 + x = x\ $  and $\ x + 0 = x\ |\ ∀\ x\ ∈ $ ... the set of ... Real numbers? Haskell has to deal with floating point values, so long as the bounds of 'Real Numbers' falls within the discrete domain of what is computable, then, I imagine (and I've never come across this before BTW, I would think of this as a **base case**, but I've never seen it expressed like this..? It just looks like a demonstration of the associative property) by numbers, the author means: real numbers. *Jeez, I need to brush up on my maths!*
 
-
-...
-
-Right, I am not too sure what is part of the UoE course and what isn't. I don't want to implement any answers in these rough notes that may be copied, so I'm going to leave it here for now... I'll catch up on the online lectures and I'm fairly certain (given there is a weekend coming up) I can get through the first half of this book in a couple of days.
-
-**Yes, I am that boring...**
-
 *Note: these ARE rough notes, they're not presented in the same fashion as the Plutus notes, these are mainly for me and my own learning. To be continued...*
+
+-
+
