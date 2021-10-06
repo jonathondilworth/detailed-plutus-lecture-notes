@@ -1,10 +1,18 @@
 ### Online Materials
 
-Course by the University of Edinburgh (Computation and Introduction to Functional Programming)
+-
 
-That is what these notes will **mainly** be based on, however, I may wander off in my own direction depending on other resources in use.
+*(Note: I am having some trouble finding the assignments for the UoE course... The GitHub page is for competitions and for video captions. Further, the assignments information on the 21-22 DRPS course explorer seems to point a generic page about coursework and exams. If I happen to accidentally publish any materials from another source that provides a solution to the course exercises, please [let me know!](mailto:jon@dilworth.dev) - Thanks)*
+
+-
+
+**Course by the University of Edinburgh (Computation and Introduction to Functional Programming)**
+
+That is what these notes will **mainly** be based on, however, I may wander off in my own direction depending on other resources in use ***(which I am currently doing, working through Graham Hutton's Programming In Haskell)***.
 
 You can find the course here: [https://media.ed.ac.uk/channel/INF1A%3A+Introduction+to+Computation+%5B2020_2021%5D/179956591](https://media.ed.ac.uk/channel/INF1A%3A+Introduction+to+Computation+%5B2020_2021%5D/179956591)
+
+-
 
 ### Books / eBooks
 
@@ -18,6 +26,8 @@ Please see the list below (these are the resources I am using):
 	* Not yet had a chance to give it a proper look.
 * Learn You a Haskell for Great Good! (Maran Lipovaca)
 	* Great resource in general, it's what I always used until the point came where I said to myself, I really need to invest **even more time and effort** into this.
+
+-
 
 ### Additional Optional Resources
 
