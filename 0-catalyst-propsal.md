@@ -1,6 +1,6 @@
 ### UPDATE 10TH OCT 2021, Latin America: Bogotá, Serious Financial Issues Associated With Legitimate Institutions, Thoughts On Cryptocurrencies Spoken Through Limited Interactions With Randomly Sampled Individuals
 
-A sound recording during a taxi journey which we have consent to use demonstrates that there appears to be some fairly serious issues surrounding financial institutions and the economy of South American countries in general. Of course, we understand the sample size is fairly small, however the general sentiment does seem to reflect that of the collective. We can make this media available to vetted individuals on request, however, it's only a short interaction. I'm simply updating the proposal to show that we're making progress here. We may be moving slowly, but we're doing so purposefully. Future informal interactions which are recorded will be filtered through a formal process afterwards. In addition, we are currently developing formal methods for data collection.
+A sound recording during a taxi journey which we have consent to use demonstrates that there appears to be some fairly serious issues surrounding financial institutions and the economy of South American countries in general. Of course, we understand the sample size is fairly small, however the general sentiment does seem to reflect that of the collective. We can make this media available to vetted individuals on request, however, it's only a short interaction. I'm simply updating the proposal to show that we're making progress here. We may be moving slowly, but we're doing so purposefully. Future informal interactions which are recorded will be filtered through a formal process afterwards. In addition, we are currently developing formal methods for data collection. 
 
 *Note: After having spoken with many locals, we reached consensus on a project name: 'dejando huellas' (leaving footprints).*
 
@@ -431,3 +431,7 @@ Accessed: 06/10/2021
 ### Footnotes
 
 You would need people in every country trying to generate awareness and adoption of Cardano.
+
+### Disclaimer
+
+Alsthough I am based within the UK (J.Dilworth), two team members (G.Clemente & L.W.London) moving around Latin American is not always the safest of journeys. Furthermore, information travels quickly. Thus, we reserve the right to withhold certain materials for the protection of our team. We will publish as much information as we feel is appropriate. In addition, MOST of our initial data will comee through two mediums. The first: simply recording interactions. The second: implementing a formal methodology data collection after after having designed one.
