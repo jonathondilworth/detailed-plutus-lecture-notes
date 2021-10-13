@@ -132,7 +132,7 @@ Returns: <code>[5,6,7,8,9,10]</code>
 
 Within languages there are reserved keywords. In Haskell we can simply define a variable using <code>let</code> if we want, such as <code>let myList = [1,2]</code>, however we could just write <code>myList = [1,2]</code> - so why even bother with let? There is a very god reason...
 
-When it comes to scope (which essentially means whether you're able to access a memory location that contains a variable, a function, something like that. You don't really want to create all your variables such that they're global, it means that whenever you want to use the same name again, for example <code>xs</code>, we then loose our old <code>xs</code> (and it gets spewed up by garbage collection).
+**Scope is important** and is controlled (to a degree) by let and where you place let (is it within the **scope** of the current execution of the program? But, what is scope? Scope is the set of accessible memory locations within any given instance. Whether you're able to access a memory location that contains a variable or not is defined by the current scope of your program. You don't really want to create all your variables (which can also be functions) such that they're global, as you may want to access a previously defined 'x' or 'xs', but if you've defined new variables with the same name, well, you've lost your old ones! Both variables (with the same name) continue to exist in memory, but garbage collection works in the same fashion as you would typically expect (garbage collection meaning unused variables are 'freed' too allow for the new assignment of value to previously used, but now unused - since they're no longer in global scope - variables). We're not writing C, and we're not writing code for embedded devices (I don't think..?), so it's not hugely important to be able to free up memory super quick-time! Although, If I was sitting in these lectures I would probably ask: what process is responsible for garbage collection and how efficient is it? **NOTE: OFF-TOPIC**. Since the launch of Alonzo, we're finding that most people need at least 8GB of RAM to run a relay node, but 16GB is preferable. 16GB of RAM and 60+ GB of storage (and at least 2 CPUs) from a VPS provider (cloud instance) is costing me ~$240 a month, which, if I wasn't earning anything back from that, would be quite a bit of money! So I'm pretty interested in how we can optimise cardano-node, cardano SPs and perhaps even the Plutus compiler, though I have absolutely no idea how to write the target language (System F Omega with Recursive Type Classes?), albeit it would be interesting to know / learn how to optimise for the best time and space based computational complexity. With this said, I am simply a student of Haskell and Plutus right now, I just happen to be quite interested in compilers and have written A-LOT of assembly language (in ARM), so this is more: intellectual... I'm going to leave the next word out, but Linus Torvalds uses the phrase when discussing various processes that don't include contributing to the Kernel or writing C in a way that he approves of. Okay, I got a little off-topic here, but essentially, **we have Scope and when something is out of scope it is gobbled up by garbage collection in a typical manner.** 
 
 So, we need a solution. We can use the reserved keyword <code>let</code> and then define a variable as we would do usually. However, if we follow that up with <code>in</code>, then the variable is only accessible within the <code>in</code> *clause*.
 
@@ -143,15 +143,31 @@ So, we need a solution. We can use the reserved keyword <code>let</code> and the
 <interactive>:40:1: error: Variable not in scope: hello
 </code></pre>
 
-
+The above illustrates the notion of scope.
 
 ### Recursion 
+
+*A Recursive Definition: a list is either EMPTY, or constructed with an element and a list. Recursive functions in Haskell typically take the constructed form where you usually see something like: rL (x:xs) = x + rL xs, or where further functions are applied to the same pattern: rL xs = head xs : rL tail xs*
 
 A list is either:
 
 * Empty: []
 * Constructed: x:xs
 	* x is the head (an element), xs is the tail (a list).
-	* *(To Be Continued)*
+	* remember that if xs := [a] then tail xs = [].
+	* Further, if xs := [] then xs is the empty list (often the base case).
+	* The null function is true if its argument is [].
 
+Right, apparently recursion is so fantastic that we can use it to define "EVERYTHING A COMPUTER CAN DO!" - However, I must add a caviet (and a word of warning) -- sorry! Don't mean to spoil the party!
 
+**Recursion is a fantastic way of solving problems. However, it can, on occasion, cause problems.** Computers implement executable code using a stack. If your recursive function does a little too much (or calls itself too many times), you run the risk of causing a stack overflow.
+
+**Why? && How?**
+
+Well, computers are discrete systems (this is why we study discrete mathematics, or at least, it's one reason why), as such they cannot hold the result of the first function call if the current function call in memory if it insists on additional memory to continue processing the recursive nature of its implementation. So, whilst recursion is actually quite a beautiful and eloquent it can be problematic.
+
+*Note: I label it as beautiful because a lot of processes that exist within the phenomenal universe are recursive in nature, it's eloquent because it's the complete opposite of me! Thus, it expresses itself very concisely. However the planet, and mathematics are both continuous, meaning they allow for the concept of infinity, this is why we can run into things like Asymptotes in Mathematics. But again, computers are discrete, not infinite. So, recursion cannot implement everything a computer can do, within a computer (the ambiguity of language! Again, interesting stuff, go read authors from Phil of Mind and Phil of Language, I personally think computer scientists should draw from some of these disciplines, it's always good to have a little diversity in the way that you think IMO. Solving problems is creative, not always analytical. Apologies for the waffle.*
+
+Thus, sometimes one has to take the route of practicality over beauty and eloquence! I leant this rather unfortunate principal both in university and in industry. We have to get the product out the door by the time we told clients we would, so we can't spend all day implementing things as perfectly as we would want to. This is called bad project management! Further, open source is a MUCH BETTER way of doing collective work, it's much more rewarding. I would encourage anyone reading these notes (I don't know why you would still be reading at this point, I must have already bored you to death) to participate in some kind of open source project! Anyway, the show must go on!
+
+Oh, that seems to be the end. On to the next.

@@ -76,7 +76,7 @@ sum [42, 32, 64]
 
 *Note: these ARE rough notes, they're not presented in the same fashion as the Plutus notes, these are mainly for me and my own learning. To be continued...*
 
--
+<hr />
 
 *So.. To recap:*
 
@@ -170,3 +170,35 @@ Each definition at the same level must begin in precisely the same column. Like 
 
 *(Types and Classes Up Next)*
 
+<hr />
+
+### Types and Classes
+
+* Type Inference: Types are recognised at compile time. Haskell does a great job of inferring types. For example, you can have fairly loose type-classes, like Num? Where you can either be working with an Integer, float, double, whatever.
+
+**When writing our functions, we can choose to give them an explicit type declaration.** This is considered to be 'good' when you're building robust code.
+
+* What exactly is a Type? It can be thought of as a collection (perhaps a set) of values. For instance: Bool is a Type which can take on the value True or False.
+* Every expression must have a type. At compile time, in order to evaluate an expression, each operand must belong to the same type-class, such that the set of operations defined by the expression is computable.
+
+* **Haskell Programs are TYPE SAFE** because type inference precedes evaluation.
+
+* Bool := {TRUE || FALSE }
+* Char: individual characters separated by single quotes 'a', 'b'
+* String (x:xs) = x : String xs | base case: [] 
+* Int (fixed-precision) an Integer with an assigned 'space' in memory (2^63 - 1 .. -2^63) <- prone to overflow if values are too large (fall outside the specified memory).
+* Integer (arbitrary-precision) better performance typically, also avoid the potential of unforeseen results.
+* Float (single-precision floating point numbers), precision depends on the magnitude of the number, since a floating point value (in memory) is required to store (32 bits, or 64 bits, I'm going to go ahead and say these are 64 bit floating point values) a signed bit, 11 bits for the exponent and the remaining 52 bits for the Mantissa.
+* Double x2 precision floating point number.
+
+#### Lists
+
+* Singleton Lists: ['a'], [1], AND [[]].
+* Apparently you can get an infinite list (discrete system?)
+* Curried Functions (not so obvious):
+	* consider add' :: Int -> (Int -> Int)
+	* add' x y = x + y
+	* the return type can be fed as the parameters into another function that takes (Int -> Int)
+* Polymorphic Types
+	* length as an example, provides the length of a list irrespective of the element type within the list.
+	* We typically denote this kind of declaration using lowercase a, b, c, etc: length :: [a] -> Int
