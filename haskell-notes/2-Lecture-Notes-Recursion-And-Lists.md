@@ -158,7 +158,7 @@ A list is either:
 	* Further, if xs := [] then xs is the empty list (often the base case).
 	* The null function is true if its argument is [].
 
-Right, apparently recursion is so fantastic that we can use it to define "EVERYTHING A COMPUTER CAN DO!" - However, I must add a caviet (and a word of warning) -- sorry! Don't mean to spoil the party!
+Right, apparently recursion is so fantastic that we can use it to define "EVERYTHING A COMPUTER CAN DO!" - However, I must add a caveat (and a word of warning) -- sorry! Don't mean to spoil the party!
 
 **Recursion is a fantastic way of solving problems. However, it can, on occasion, cause problems.** Computers implement executable code using a stack. If your recursive function does a little too much (or calls itself too many times), you run the risk of causing a stack overflow.
 
@@ -168,6 +168,6 @@ Well, computers are discrete systems (this is why we study discrete mathematics,
 
 *Note: I label it as beautiful because a lot of processes that exist within the phenomenal universe are recursive in nature, it's eloquent because it's the complete opposite of me! Thus, it expresses itself very concisely. However the planet, and mathematics are both continuous, meaning they allow for the concept of infinity, this is why we can run into things like Asymptotes in Mathematics. But again, computers are discrete, not infinite. So, recursion cannot implement everything a computer can do, within a computer (the ambiguity of language! Again, interesting stuff, go read authors from Phil of Mind and Phil of Language, I personally think computer scientists should draw from some of these disciplines, it's always good to have a little diversity in the way that you think IMO. Solving problems is creative, not always analytical. Apologies for the waffle.*
 
-Thus, sometimes one has to take the route of practicality over beauty and eloquence! I leant this rather unfortunate principal both in university and in industry. We have to get the product out the door by the time we told clients we would, so we can't spend all day implementing things as perfectly as we would want to. This is called bad project management! Further, open source is a MUCH BETTER way of doing collective work, it's much more rewarding. I would encourage anyone reading these notes (I don't know why you would still be reading at this point, I must have already bored you to death) to participate in some kind of open source project! Anyway, the show must go on!
+Thus, sometimes one has to take the route of practicality over beauty and eloquence! I leant this rather unfortunate principle both in university and in industry. We have to get the product out the door by the time we told clients we would, so we can't spend all day implementing things as perfectly as we would want to. This is called bad project management! Further, open source is a MUCH BETTER way of doing collective work, it's much more rewarding. I would encourage anyone reading these notes (I don't know why you would still be reading at this point, I must have already bored you to death) to participate in some kind of open source project! Anyway, the show must go on!
 
 Oh, that seems to be the end. On to the next.
