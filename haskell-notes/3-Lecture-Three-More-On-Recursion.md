@@ -52,6 +52,8 @@ Prelude> enumFromToBy 0 100 3
 Prelude> -- I thought this was worth pointing out
 </code></pre>
 
+*Authors question about readability, although <code>[x | x <- [1..100], x `mod` 3 == 0]</code> and the <code>enumFromToBy</code> function are not equivalent, they are doing more or less the same thing. Typically the way I think most people are taught when learning programming and implementing this kind of counting function is to use a modulo operator. As such, if I was actually taking this course as an undergraduate, how would a one liner function using a list comprehension and a modulo operator constraint be marked against the provided solution? Assuming enumFromToBy call called correctly and counted from zero instead of one. To me, it's pretty darn readable and even more concise: "generate a list of x where x is drawn from a list of integers between zero and one hundred, such that for each x, x must be completely divisible by 3", in fact, I find the enumFromToBy more difficult to read. Hang on a moment, I forgot we were talking about recursion...*
+
 **A question that was asked: does Haskell have a limit on recursion?** Well yes and no, the compiler can't possibly know how deep a recursive call is going to continue for *(although, I have spent some time trying to understand an article telling me that computation based on Lambda calculus makes this somehow possible? Okay, well I did pure CS, not CS and Mathematics, so I don't know what to make of this claim, can the compiler catch a potentially infinite recursive call at compile time?)*. And we're running our code on a Turing Machine, thus the Halting Problem remains to be a problem.
 
 <hr />

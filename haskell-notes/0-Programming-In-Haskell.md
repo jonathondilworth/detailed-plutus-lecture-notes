@@ -176,6 +176,8 @@ Each definition at the same level must begin in precisely the same column. Like 
 
 * Type Inference: Types are recognised at compile time. Haskell does a great job of inferring types. For example, you can have fairly loose type-classes, like Num? Where you can either be working with an Integer, float, double, whatever.
 
+*Every expression must have a type. Type Inference is evaluating any given expression (without explicit types) at compile time, if you've done something wrong, you'll get a type error. e.g. True == 3. Where as other languages are not as fussy. For example, in PHP the exact same code will return 1, which also is considered to be True. In fact, any value that is not NULL or False is True (in PHP), unless you specify an equivalence operator: 3 === True.*
+
 **When writing our functions, we can choose to give them an explicit type declaration.** This is considered to be 'good' when you're building robust code.
 
 * What exactly is a Type? It can be thought of as a collection (perhaps a set) of values. For instance: Bool is a Type which can take on the value True or False.
@@ -191,7 +193,7 @@ Each definition at the same level must begin in precisely the same column. Like 
 * Float (single-precision floating point numbers), precision depends on the magnitude of the number, since a floating point value (in memory) is required to store (32 bits, or 64 bits, I'm going to go ahead and say these are 64 bit floating point values) a signed bit, 11 bits for the exponent and the remaining 52 bits for the Mantissa.
 * Double x2 precision floating point number.
 
-#### Lists
+#### Other Types (and Function Signatures)
 
 * Singleton Lists: ['a'], [1], AND [[]].
 * Apparently you can get an infinite list (discrete system?)
@@ -201,4 +203,46 @@ Each definition at the same level must begin in precisely the same column. Like 
 	* the return type can be fed as the parameters into another function that takes (Int -> Int)
 * Polymorphic Types
 	* length as an example, provides the length of a list irrespective of the element type within the list.
-	* We typically denote this kind of declaration using lowercase a, b, c, etc: length :: [a] -> Int
+	* We typically denote this kind of declaration using lowercase a, b, c, etc: length :: [a] -> Int... Examples below:
+
+```haskell
+fst :: (a,b) -> a
+head :: [a] -> a
+take :: Int -> [a] -> [a]
+zip :: [a] -> [b] -> [(a,b)]
+id :: a -> a
+```
+
+**OVERLOADED TYPES**
+
+Let's say we want a type that represents either an Integer OR a floating point value (Float or Double). As both Integer and Float fall into types that can be used by arithmetic operators, it would be nice if we could declare functions with these type of *class constraints*. Well, we can.
+
+```haskell
+(*) :: Num a => a -> a -> a
+``` 
+
+**Num** for *Numbers* is an overloaded class constraint.
+
+#### Other Interesting Things
+
+* Ordered Types
+* Showable Types
+* Readable Types
+* Numeric Types (which we just went over)
+* Integral Types
+* Factorial Types
+
+### Exercises
+
+1. What are the types of the following values?
+
+```haskell
+['a', 'b', 'c'] -- a :: [Char]
+('a','b','c') -- a :: (Char, Char, Char)
+[(False,'0'),(True,'1')] -- a :: [(Bool, Char)]
+([False,True],['0','1']) -- a :: ([Bool], [Char])
+[tail, init, reverse] -- a :: [[a] -> [a]]
+```
+
+
+
