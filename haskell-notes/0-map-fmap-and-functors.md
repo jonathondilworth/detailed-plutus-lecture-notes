@@ -162,3 +162,5 @@ oldDirectory = GovDirectory
 newDirectory :: GovDirectory Person
 newDirectory = personFromTuple <$> oldDirectory
 ```
+
+Right, I've spent most of my day on this Haskell stuff. As lovingly frustrating as it is, it's time to context switch to something else.
