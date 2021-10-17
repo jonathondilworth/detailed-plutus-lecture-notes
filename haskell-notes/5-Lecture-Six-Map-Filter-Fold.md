@@ -107,13 +107,15 @@ Okay, cool. It looks like my intuition was fairly spot on, except for the fact t
 
 #### 6. "the people who invented C were ignorant... They were not educated in these ideas."
 
-Right, so even though this statement holds true for the **inventors of C** (most likely), I cannot help but feel that there is somewhat of a biased opinion here (C is bad, Haskell is good - which is, as John Searle would phrase it, epistemically subjective [[7]](#7). Note: it's also worth reviewing this reference [[7]](#7) if you're interested in Philosophy of Mind, Philosophy of Language and Artificial Intelligence). *Again, this may have been a tongue-in-cheek statement?* However, I would always posit that for any task that involves engineering of software, there is an appropriate tool for the job.
+*You can skip this section, it's just a bunch of rambling really!*
 
-One individual who I hold in high regard is Linus Torvalds (and I think we all know how he feels about C!). Now, Linus spent eight years at university studying mostly mathematics, the only reason he graduated as a computer science major is because he believed it would be easier to get a job. Thus, I can only assume that he was aware of these ideas. Nevertheless, he seems to have devoted himself to implementing micro-optimisations in the Linux kernel (in C, and doesn't have very nice things to say about other languages!). As uninviting he may seem, you have to have respect for the guy. Take Git for example (something other than the Kernel), whose underlying data structure is comparable to a Blockchain, insofar as git is suppose to be distributed (regardless of how we use central repos hosted on say: GitHub). In addition, you could even argue that Git utilises a consensus algorithm which is highly BFT because it uses the web-of-trust model. Considering all of this pre-dates novel distributed ledgers and blockchain consensus algorithms, I can't help but hold both sets of individuals (contributors to GHC/Plutus and the Cardano Blockchain AND contributors and maintainers of the Kernel) in high regard.
+Right, so I can't really comment on this, but it's never stopped me in the past. I cannot help but feel that there is somewhat of a biased opinion here: C is bad? Haskell is good? Which is, as John Searle would phrase it, epistemically subjective [[7]](#7). Note: it's also worth reviewing this reference [[7]](#7) if you're interested in Philosophy of Mind, Philosophy of Language and Artificial Intelligence). *Again, this may have been a tongue-in-cheek statement?* However, I would always posit that for any task that involves engineering of software, there is an appropriate tool for the job. *With this said, I would like to add that entering into programming with a mathematical framed mind is likely advantageous, as I have heard various people who I look up to echo this sentiment.*
 
 In summary: we can all have a bit of a poke at one another for a bit of fun, but ultimately: given a software engineering task there are multiple tools available to us; and there will always be a subset of tools which provide optimal implementations given the constraints of the task. I do think this is important to keep in mind insofar as it's important to keep somewhat of an open mind.
 
-With that said, the lecturer is in fact correct. If you review Simon Peyton Jones' video on Useful and Useless languages (which is a funny watch), there is more and more cross-fertilisation going on. For example, I remember using LINQ for my undergraduate project during third year. LINQ in C# draws a lot from functional programming.
+With that said, the lecturer is in fact correct. If you review Simon Peyton Jones' video on Useful and Useless languages (which is a funny watch), there is more and more cross-fertilisation going on. For example, I remember using LINQ for my undergraduate project during third year. LINQ in C# draws elements from functional programming.
+
+*Edit: I guess C is somewhat tolerable, or a necessary evil after all! [[8]](#8)*
 
 *End of opinionated monologue! It was quickly written out, I apologise for any spelling or grammatical mistakes!*
 
@@ -244,3 +246,8 @@ Consciousness in Artificial Intelligence. <br />
 Talks At Google. <br />
 Available at: <https://youtu.be/rHKwIYsPXLg?t=98> <br />
 Last accessed: 17th October, 2021.
+
+<a href="#8" id="8">8</a>. Simon L. Peyton Jones and Philip Wadler. 1993. <br />
+Imperative functional programming. <br />
+In Proceedings of the 20th ACM SIGPLAN-SIGACT symposium on Principles of programming languages (POPL '93).<br />
+Association for Computing Machinery, New York, NY, USA, 71–84.
