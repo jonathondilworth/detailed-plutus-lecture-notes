@@ -1,20 +1,14 @@
 # More On Recursion
 
-You can skip the big block of text if you're not interested in performance or *reflections on trusting trust!*
+You can skip the big block of text if you're not interested in performance.
 
 <hr />
 
 **Somewhat off-topic, but it is introduced near the beginning of the lecture: How important is performance?**
 
-Well, you're reading my notes, and you can likely tell that I am somewhat verbose, so I'm afraid you'll have to suffer a degree of 'pondering' as my friend 'Quasar' from the IOG discord server would put it. -- sorry!
-
 Well, if we're writing in a fairly high level language, we likely shouldn't worry too much... Compilers can do a pretty decent job these days. As such, we can leave people who write compilers (and Linus Torvalds: [Youtube Video: "I worry about single instructions..."](https://youtu.be/dmfDaxYhi9I?t=1304)) to worry about micro-optimisation. However, if you're program is unnecessarily slow, perhaps there is a trade-off between clarity and making something that takes... I don't know, how about O(2^n) time complexity to run. If OTHER PEOPLE are going to be using your software, it becomes more of an issue... Electronjs instantly springs to mind, I've been told it's much better now, but I remember installing an IDE built on electronjs, and it was SLOW.
 
 See the following Quora question as to [Why-are-desktop-apps-made-with-electron-js-framework-slow](https://www.quora.com/Why-are-desktop-apps-made-with-electron-js-framework-slow) - you can also review [their website for tips on how to improve performance](https://www.electronjs.org/docs/latest/tutorial/performance), is you feel so inclined.
-
-**Even more off-topic:** I believe the Daedalus wallet is also implemented on top of electron. **Even even more off-topic:** When you download Deadalus, you get cardano-node too, so I assume you also get Plutus-tx for interfacing with smart contracts? I'm curious as to where the compiler for Plutus exists (for off-chain code to push a redeemer to a smart contract address). If there is an IR during the compilation pipeline from Plutus to Plutus-core, does this make the compiler vulnerable to attacks such as those outlined in reflections on trusting trust by Thompson? Esp. since an IR source language is similar it's target language (and both are difficult to read and write, System F Omega), could a routine not exist within a fake wallet to inject a malicious IR into the compilation pipeline? *I am by no means an expert, but I'm just sort of, thinking out loud. If this is a valid consideration, has it been thought about?* Assumptions: somebody downloaded a fake wallet. References: [Unraveling Recursion: Compiling an IR with Recursion to System F](https://homepages.inf.ed.ac.uk/wadler/papers/mpc-2019/unraveling.pdf) and [Reflections on Trusting Trust](https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf).
-
-**WOWZERS. We got pretty seriously off-topic.**
 
 <hr />
 
@@ -54,7 +48,7 @@ Prelude> -- I thought this was worth pointing out
 
 *Authors question about readability, although <code>[x | x <- [1..100], x `mod` 3 == 0]</code> and the <code>enumFromToBy</code> function are not equivalent, they are doing more or less the same thing. Typically the way I think most people are taught when learning programming and implementing this kind of counting function is to use a modulo operator. As such, if I was actually taking this course as an undergraduate, how would a one liner function using a list comprehension and a modulo operator constraint be marked against the provided solution? Assuming enumFromToBy call called correctly and counted from zero instead of one. To me, it's pretty darn readable and even more concise: "generate a list of x where x is drawn from a list of integers between zero and one hundred, such that for each x, x must be completely divisible by 3", in fact, I find the enumFromToBy more difficult to read. Hang on a moment, I forgot we were talking about recursion...*
 
-**A question that was asked: does Haskell have a limit on recursion?** Well yes and no, the compiler can't possibly know how deep a recursive call is going to continue for *(although, I have spent some time trying to understand an article telling me that computation based on Lambda calculus makes this somehow possible? Okay, well I did pure CS, not CS and Mathematics, so I don't know what to make of this claim, can the compiler catch a potentially infinite recursive call at compile time?)*. And we're running our code on a Turing Machine, thus the Halting Problem remains to be a problem.
+**A question that was asked: does Haskell have a limit on recursion?** Well yes and no, the compiler can't possibly know how deep a recursive call is going to continue for, can it? And we're running our code on a Turing Machine, thus the Halting Problem remains to be a problem.
 
 <hr />
 

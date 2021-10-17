@@ -1,5 +1,7 @@
 #### Quick (and sloppy, I guess?) Introduction to map, fmap and Functors
 
+*Note: after having reviewed Lecture Six on the UoE FP course, this makes more sense to be now.*
+
 *I'm sort of in flow here -- struggling with difficult problems and then overcoming them is quite a good way of learning a new 'paradigm' of programming.*
 
 Okay, so quickly... <code>map</code> has a f-signature: <code>map :: (a -> b) -> [a] -> [b]</code> where you provide a function (even though it doesn't really look like that from the signature IMHO) and a list of elements. Then you're going to **map** that function to every element within the list, such that:

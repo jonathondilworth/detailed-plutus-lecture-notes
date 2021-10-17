@@ -40,3 +40,5 @@ Prelude>
 <hr />
 
 *I don't particularly want to skip any content, but I feel as though I should probably go and actually write some Haskell programs, basically just sitting in GHCi and writing basic functions. e.g. I'll go and have a look at some stuff from Monday Morning Haskell. I think I've got a fairly good intuition regarding some of this early content. May come back to this...*
+
+*Update: Going back to learning from first princps.*
