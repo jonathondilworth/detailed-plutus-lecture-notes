@@ -4,35 +4,11 @@
 
 <details>
 
-<summary>Some Important Notes On Motivation And Behaviour.</summary>
-
-<span style="line-height: 1.85;"></span>
-
-In short (TLDR), the message here is: **if your primary motivation is to make money, you may have some difficulties working within the technical domain of this industry (even if it is directly related to finance).** Furthermore, you should always consider the consequences of your actions. As software engineers, we do have an obligation to society insofar as a doctor or a nurse has an obligation to act ethically.
-
-If you have not seen the film (or read the book): The Big Short, I recommend doing so. I will be referencing this blog post: 'What The Big Short Can Teach Us About Passion & Drive, Free to Pursue' directly for quotes found therein. **You can read the entire blog post that was not written by me here (warning: not secured by https):** http://www.freetopursue.com/blog/2016/3/22/the-big-short-and-drive
-
-**Direct References To The Aforementioned Blog Post And Film:**
-
-*Dr. Michael Burry loves his work in the financial sector so much that he digs into the minutia because it fascinates him. Like an archeologist, he wants to find and excavate the unheard of.*
-
-*Burry and Baum do what they do because they have a deep desire to do something significant. They want to win at what they do but winning isn’t about the money. It’s about getting it right, even if they could be vilified in the process. In this sense, they’re driven from the inside out. Money is a secondary consideration, far behind their own personal drive ignited and sustained by the intangible. That’s what makes them amazing.*
-
-*[Baum is] disgusted by the industry and wants justice for the average [person].*
-
-*We love these guys because they represent the best of what we seek in others and want to find in ourselves. That is, when money isn’t a significant part of the equation.*
-
-<small>**A Quick Book Recommendation: Pink, D.H., 2011. Drive: The surprising truth about what motivates us. Penguin. ISBN-10: 1786891700, ISBN-13: 978-1786891709**</small>
-
-</details>
-
-<details>
-
 <summary>Progress, Current Projects, Goals and Declarations.</summary>
 
 <span style="line-height: 1.85;"></span>
 
-**Currently Working On: Plutus Pioneer Program & Alonzo Test Net**
+**Currently Working On: Learning Haskell From First Principles.**
 
 **Goals:**
 
@@ -40,35 +16,12 @@ If you have not seen the film (or read the book): The Big Short, I recommend doi
 * Finish Lecture Notes On Remaining Lectures.
 * Re-Implement All Homework From L1 to L10.
 * Work On Catalyst Proposal For Next Funding Iteration (See Proposal In Repo).
-* Investigate Various Addressing Schemes For Cardano, From Super-Legacy to Alonzo.
 
 <small>
 
-*Notes: Towards the end of the second cohort, I had to take some time away. The intention is to catch up to the end of the program now (11/09/21). Some testing materials (from the Alonzo purple testing period) have now been published, they're mainly Byron / Shelly though. Any lecture notes published within 'haskell-notes' are learning materials INSPIRED BY the Computation & FK course at the University of Edinburgh which I am watching online.* ***THEY WILL NOT CONTAIN ANY CONTENT OWNED BY THE UNIVERSITY OF EDINBURGH.*** *If anyone has any concerns, <a href="mailto: jon@dilworth.dev">please contact me</a>.*
+*Notes: Towards the end of the second cohort, I had to take some time away. The intention is to catch up to the end of the program now. Any lecture notes published within 'haskell-notes' are learning materials INSPIRED BY the Computation & FK course at the University of Edinburgh (and the various books outlined as resources by the course) which I am watching online.* ***THEY WILL NOT CONTAIN SOLUTIONS TO PROBLEM SETS.*** *If anyone has any concerns, <a href="mailto: jon@dilworth.dev">please contact me</a>.*
 
 </small>
-
-<hr />
-
-*Additional Goal, Requirement For Potential Catalyst Project*
-
-*I would like to create a course that allows undergraduate students to get up to date quite quickly on distributed ledgers and blockchain consensus algorithms. As such, my aim would be to introduce them to all the pre-requisites that I have identified below. Shortly thereafter, I would introduce them to Distributed Ledger Technologies 1 (DLTs 1 | GEN.1, BTC style ecosystems), then I would introduce them to DLTs 2 (Introduction to Cardano).*
-
-*Course Outline:*
-
-* Basic Introduction to Networking
-* Introduction to Distributed Systems
-* Game Theory Primer
-* Cryptography 1.0
-* Cryptography 2.0
-* Algorithms Primer
-* Introduction to Distributed Ledger Technologies 1.0 (BTC eco-system)
-* Introduction to Distributed Ledger Technologies 2.0 (This would actually be Intro to Cardano)
-* Advanced DLTs (Developing on Cardano)
-
-[Please See This Link For Detailed Course Outline](0-course-outline.md)
-
-<hr />
 
 </details>
 
@@ -342,3 +295,4 @@ Informatics in Education, 14(2), pp.143-160. <br />
 <small>*Having these notes featured in two of the e-mails sent out for the pioneers meant* ***A LOT*** *to me (during a difficult time of my life). My thanks go out all individuals associated with IOHK who have provided such an amazing degree of encouragement.*</small>
 
 <small>***This technology and this community has changed my life.***</small>
+s
