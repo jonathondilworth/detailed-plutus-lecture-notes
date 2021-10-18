@@ -14,13 +14,11 @@
 
 ### 1. I'm A Fool
 
-*Note: I didn't see the first two lectures in the course I'm following, but since I've been reading* **A TON** *of Plutus, I know how to use Cabal, Nix, GHC, GHCi, etc. So I didn't miss too much. So, we're actually going to start on the second lecture. I'll revisit the initial primer if requested or required.*
+Take my word for it.
 
 ### 2. Haskell: List Comprehensions
 
 I can't quite remember if this was the 'nerdy thing' one of the guys from the aforementioned video was talking about (he may have been referring to to LINQ, which is a pseudo-SQL kind of shorthanded language for C# if I recall correctly). Please note: I've not written C# in years either! But, I do remember LINQ, because I thought: this is kind of weird...
-
-<small>*Coffee Time: The way in which I write, some people may enjoy this style, others may prefer precise technical documentation. I tend to just write based on my stream of consciousness. If you don't like it, that's fine.*</small>
 
 Right, **let's get busy!**
 

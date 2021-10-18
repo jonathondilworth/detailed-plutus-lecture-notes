@@ -6,9 +6,7 @@ You can skip the big block of text if you're not interested in performance.
 
 **Somewhat off-topic, but it is introduced near the beginning of the lecture: How important is performance?**
 
-Well, if we're writing in a fairly high level language, we likely shouldn't worry too much... Compilers can do a pretty decent job these days. As such, we can leave people who write compilers (and Linus Torvalds: [Youtube Video: "I worry about single instructions..."](https://youtu.be/dmfDaxYhi9I?t=1304)) to worry about micro-optimisation. However, if you're program is unnecessarily slow, perhaps there is a trade-off between clarity and making something that takes... I don't know, how about O(2^n) time complexity to run. If OTHER PEOPLE are going to be using your software, it becomes more of an issue... Electronjs instantly springs to mind, I've been told it's much better now, but I remember installing an IDE built on electronjs, and it was SLOW.
-
-See the following Quora question as to [Why-are-desktop-apps-made-with-electron-js-framework-slow](https://www.quora.com/Why-are-desktop-apps-made-with-electron-js-framework-slow) - you can also review [their website for tips on how to improve performance](https://www.electronjs.org/docs/latest/tutorial/performance), is you feel so inclined.
+Basically just me ranting about electronjs. Not sure how I got here, it's been a long weekend.
 
 <hr />
 
@@ -46,9 +44,9 @@ Prelude> enumFromToBy 0 100 3
 Prelude> -- I thought this was worth pointing out
 </code></pre>
 
-*Authors question about readability, although <code>[x | x <- [1..100], x `mod` 3 == 0]</code> and the <code>enumFromToBy</code> function are not equivalent, they are doing more or less the same thing. Typically the way I think most people are taught when learning programming and implementing this kind of counting function is to use a modulo operator. As such, if I was actually taking this course as an undergraduate, how would a one liner function using a list comprehension and a modulo operator constraint be marked against the provided solution? Assuming enumFromToBy call called correctly and counted from zero instead of one. To me, it's pretty darn readable and even more concise: "generate a list of x where x is drawn from a list of integers between zero and one hundred, such that for each x, x must be completely divisible by 3", in fact, I find the enumFromToBy more difficult to read. Hang on a moment, I forgot we were talking about recursion...*
+*Removed stupidity*
 
-**A question that was asked: does Haskell have a limit on recursion?** Well yes and no, the compiler can't possibly know how deep a recursive call is going to continue for, can it? And we're running our code on a Turing Machine, thus the Halting Problem remains to be a problem.
+**A question that was asked: does Haskell have a limit on recursion?** It goes until you're OOM (out of memory, not out of mana).
 
 <hr />
 
@@ -81,7 +79,7 @@ Prelude> factRec 5 == facto 5
 True
 </code></pre>
 
-* Apparently we can count forever? [1..], won't we eventually run out of memory? or since we do not need to remember any bound here, we can overwrite memory and continue to count (forever)?
+* Apparently we can count forever? [1..], won't we eventually run out of memory? I'll take it on faith!
 * Brief discussion of zip, which is a mapping function, such that: zip [1..3] ['a', 'b', 'c'] returns three tuples within a list, where each value of the first list has been paired with each value from the second list. But you can also do cool stuff like: zip [0..] ['abcdefghijkjasjdhgahfdjanvs']
 * (zip [1,2,3] ['a','b','c']) == (zip [1,2,3] "abc")
 * zero-based indexing is good.

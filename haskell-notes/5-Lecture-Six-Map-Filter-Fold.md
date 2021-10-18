@@ -107,17 +107,7 @@ Okay, cool. It looks like my intuition was fairly spot on, except for the fact t
 
 #### 6. "the people who invented C were ignorant... They were not educated in these ideas."
 
-*You can skip this section, it's just a bunch of rambling really!*
-
-Right, so I can't really comment on this, but it's never stopped me in the past. I cannot help but feel that there is somewhat of a biased opinion here: C is bad? Haskell is good? Which is, as John Searle would phrase it, epistemically subjective [[7]](#7). Note: it's also worth reviewing this reference [[7]](#7) if you're interested in Philosophy of Mind, Philosophy of Language and Artificial Intelligence). *Again, this may have been a tongue-in-cheek statement?* However, I would always posit that for any task that involves engineering of software, there is an appropriate tool for the job. *With this said, I would like to add that entering into programming with a mathematical framed mind is likely advantageous, as I have heard various people who I look up to echo this sentiment.*
-
-In summary: we can all have a bit of a poke at one another for a bit of fun, but ultimately: given a software engineering task there are multiple tools available to us; and there will always be a subset of tools which provide optimal implementations given the constraints of the task. I do think this is important to keep in mind insofar as it's important to keep somewhat of an open mind.
-
-With that said, the lecturer is in fact correct. If you review Simon Peyton Jones' video on Useful and Useless languages (which is a funny watch), there is more and more cross-fertilisation going on. For example, I remember using LINQ for my undergraduate project during third year. LINQ in C# draws elements from functional programming.
-
 *Edit: I guess C is somewhat tolerable, or a necessary evil after all! [[8]](#8)*
-
-*End of opinionated monologue! It was quickly written out, I apologise for any spelling or grammatical mistakes!*
 
 #### 7. Filter Pattern
 
