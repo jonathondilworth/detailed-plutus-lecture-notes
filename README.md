@@ -4,6 +4,16 @@
 
 <details>
 
+<summary>A Quick Note</summary>
+
+My intention insofar as bringing up ANYTHING within these notes is almost entirely for my own educational benefit. I am, in essence, exploring my thoughts through the written medium. However, if anybody would care to critique my thoughts, such feedback is appreciated more than you may know! It's welcomed, in fact! I am of the opinion that "a foolish consistency is the hobgoblin of little minds" and that to "fall into the vulgar mistake of dreaming I am persecuted when I am contradicted" is a fairly abhorrent trait. Thus, any feedback from ANYBODY is very much appreciated. Please be as blunt and as forthcoming as you wish.
+
+*I am essentially trying to grabble with some of these issues individually and I do regret not facilitating the confidence to take more of an active role within the second cohort of the PPP whilst it was being run, which may be why you see me as more active now, than then.*
+
+</details>
+
+<details>
+
 <summary>Progress, Current Projects, Goals and Declarations.</summary>
 
 <span style="line-height: 1.85;"></span>
