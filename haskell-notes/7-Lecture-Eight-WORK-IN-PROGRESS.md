@@ -8,24 +8,28 @@ We went through quite a bit during this lecture. In fact, I'm going to rewatch i
 
 ##### Recapping
 
-* DATA! Numbers and Strings
-* Functions over that data
+* DATA! Numbers and Strings (You would think: Primitive Types, right? Nope!)
+* Functions over that data (For example: <code>map func [1..]</code>)
 * Recursion
-* Comprehensions
+* List Comprehensions (which I personally think are awesome)
 * Higher Order Functions (Patterns which can be captured: .e.g. foldr)
 * Phil is God (Delivered these data types from above! Gifted unto you!)
 
-*Paused video.*
 
-Where does the data come from? My intuition is: IO, right? Alternatively, you just define the values within your program, but that really does limit the number of potential use cases, right, or wrong? *I briefly read Imperative Functional Programming, am I correct in saying that the IO Monad essentially came out of that paper, or was it just optimisations for the compiler? I admit, I need to put more time into reading about the history of Haskell and I didn't give that paper the time it deserved, I briefly skimmed over it.*
+~~*Paused video.*~~
 
-*Unpaused video.*
+~~Where does the data come from? My intuition is: IO, right? Alternatively, you just define the values within your program, but that really does limit the number of potential use cases, right, or wrong? *I briefly read Imperative Functional Programming, am I correct in saying that the IO Monad essentially came out of that paper, or was it just optimisations for the compiler? I admit, I need to put more time into reading about the history of Haskell and I didn't give that paper the time it deserved, I briefly skimmed over it.*~~
 
-Okay, I believe I got a little lost! No problem, it's all a learning process.
+~~*Unpaused video.*~~
 
-<hr />
+~~Okay, I believe I got a little lost! No problem, it's all a learning process.~~
 
-Okay, so we're going to talk about data declarations and some more on functions. We're looking at Turing complete programs.
+**Where does the data come from?!**
+
+* Turing Complete: Any computation possible via a Turing Machine.
+* Haskell is Turing Complete.
+
+Okay, so we're going to talk about data declarations and some more on functions.
 
 *Yes, I'm ready (:*
 
@@ -58,13 +62,15 @@ Essentially, no matter what data types you're dealing with, if they evaluate to 
 
 Question Asked: Are there primitives within the language? Answer: Yes, furthermore the most important data types are Bools and Naturals.
 
-*paused video*
+*Edit: maybe I'm more awake now and I can actually make sense.*
 
-Okay, so I ask myself why? Here is my intuition. If you can express everything using the NAND calculus (Booleans and the above operators on Bools), well you can create a formal language that extends to any computable function. I really don't have any intuition as to why the set of natural numbers is super important, I would have intuitively thought it would be set of real numbers? **These are just my thoughts! I may be super naive, I'm just trying to learn.**
+```haskell
+Prelude> :t True
+True :: Bool
+Prelude> -- about as primitive as you can get in a functional language, right?
+```
 
-*unpause*
-
-Okay, I may be super stupid, I'm not sure I quite a followed the explanation... Again, I think I'll rewatch this later.
+~~Okay, I may be super stupid, I'm not sure I quite a followed the explanation... Again, I think I'll rewatch this later.~~
 
 <hr />
 
@@ -110,5 +116,6 @@ append (Cons x xs) ys    =  Cons x (append xs ys)
 (x:xs) ++ ys    =   x : (xs ++ ys)
 ```
 
-*My intuition: lists are either empty or they Cons with an element or the head of another list, which is itself an element?*
+Would I be correct in saying this is a recursive data type? The data type List takes an argument: a, and returns either Nil or cons a (List a) until the base case is satisfied, which is Nil..?
 
+*My intuition: lists are either empty or they Cons with an element or the head of another list, which is itself an element?*
