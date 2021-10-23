@@ -6,9 +6,7 @@
 
 <summary>A Quick Note</summary>
 
-My intention insofar as bringing up ANYTHING within these notes is almost entirely for my own educational benefit. I am, in essence, exploring my thoughts through the written medium. However, if anybody would care to critique my thoughts, such feedback is appreciated more than you may know! It's welcomed, in fact! I am of the opinion that "a foolish consistency is the hobgoblin of little minds" and that to "fall into the vulgar mistake of dreaming I am persecuted when I am contradicted" is a fairly abhorrent trait. Thus, any feedback from ANYBODY is very much appreciated. Please be as blunt and as forthcoming as you wish.
-
-*I am essentially trying to grabble with some of these issues individually and I do regret not facilitating the confidence to take more of an active role within the second cohort of the PPP whilst it was being run, which may be why you see me as more active now, than then.*
+My intention insofar as bringing up ANYTHING within these notes is almost entirely for my own educational benefit (I am sharing these notes **in the hope that they may be helpful**. I am, in essence, exploring my thoughts through the written medium. However, if anybody would care to critique my thoughts, such feedback is appreciated more than you may know! It's welcomed, in fact! Please be as blunt and as forthcoming as you wish.
 
 </details>
 
@@ -17,6 +15,16 @@ My intention insofar as bringing up ANYTHING within these notes is almost entire
 <summary>Progress, Current Projects, Goals and Declarations.</summary>
 
 <span style="line-height: 1.85;"></span>
+
+**More Recent Development**
+
+I've been speaking with a few artists, poets to be specific and we're interested in assisting the small group of individuals who are working towards creating an NFT poetry space on Cardano. I've been working with an individual from Berlin and we wanted to see if we could do something a bit 'out there'. Thus, I floated the idea of converting poems to images and then applying artistic style transfer to them. We've already created a proof of concept as can be seen below.
+
+![./img/poet.png](img/poet.png)
+
+In order to generate a collection, we'll need a Cardano-node running on mainnet (which is already up on a cloud instance) and we'll need to mint a collection of poems generated using a RNN architecture (this is yet to be completed). More on this project as it progresses.
+
+*Note: we're not sure if we would like to contain the poem within the image or simply within the metadata, as they are small strings. There are various applications that we have been discussing by opting to contain the poem within the NFT itself. We could then implement some additional functionality through interactions between an NFT UTxO Input to a smart contract, various other potential parties and the PAB.*
 
 **Currently Working On: Learning Haskell From First Principles.**
 
@@ -305,4 +313,3 @@ Informatics in Education, 14(2), pp.143-160. <br />
 <small>*Having these notes featured in two of the e-mails sent out for the pioneers meant* ***A LOT*** *to me (during a difficult time of my life). My thanks go out all individuals associated with IOHK who have provided such an amazing degree of encouragement.*</small>
 
 <small>***This technology and this community has changed my life.***</small>
-s
