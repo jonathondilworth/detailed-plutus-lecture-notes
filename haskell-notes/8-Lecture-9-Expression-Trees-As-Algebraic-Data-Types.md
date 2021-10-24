@@ -24,20 +24,35 @@ This seemed to capture the essence of Haskell quite nicely. Thus, I thought it w
 > "Uniformity and simplicity are a virtue!" <br />
 > — Prof Philip Wadler, University of Edinburgh
 
+**Data Types**
+
+A <code>data</code> type appears to be defining some kind of structure.
+
 *How many people feel that they understand recursive data types? Paused video.*
 
-As far as I understand, recursive data types (so long as we're talking data structures here) are sturctures that can be parsed recursively. So, an obvious example would be a tree, as you can recursively search a tree using a BFS or a DPS, right, or wrong? I guess we'll see.
+As far as I understand, recursive data types are essentially value containing values (where the cardinality of the set of values is arbitrary, thus the instantiation of such a type will result in a recursively parseable data structure). So, an obvious example would be a tree, as you can recursively search a tree using a BFS or a DPS, right? I guess we'll see.
 
 *Unpaused video*
 
-Expression Trees are an example of a recursive data type. Right, so I guess trees sprung to mind because of the lecture title, but I didn't even realise that until after the fact! Sounds like I'm on the right path.
-
-*Paused video AGAIN, at nine minutes!*
-
-*You know, I was initially confused - what is lit? etc. I was just being stupid, lit is literal, duh. I've paused the video at 9 minutes and I'm fairly certain that these expressions are essentially being built as trees, such that they can then be evaluated, given some constraint(s).*
+Expression Trees are an example of a recursive data type. A tree is in fact a data structure, so, great.
 
 *Somewhat off-topic: An example of this that instantly sprung to mind was Abstract Syntax Trees within compilers. If you represent the source input as an Abstract Syntax Tree (after lexing / tokenisation), you can recursively parse it, then annotate it and finally translate it to an intermediary representation, or into its target language.*
 
-*Unpaused video*
+```haskell
+data Exp   =  Lit Int
+           |  Add Exp Exp
+           |  Mul Exp Exp
+           deriving (Eq, Show)
+```
 
-I am fairly certain I'm correct. However, I believe there is some required reading that I may have skipped as I've just been watching the lectures. Thus, I'm going to come back to this after checking up on any pre-requisite reading and actually doing any assigned reading.
+I think it is important to take a moment and examine what exactly we're expressing (no pun intended) here with the above code.
+
+An Exp (expression) as we're defining it (as a data type) can be a literal Int, the addition of two expressions (notice, an expression is the type itself, thus this data type is recursive), or the multiplication of two expressions. Furthermore, as as an expression can be (sigh) expressed in terms of itself, you may have an arbitrary number of expressions within an expression. Again, this can be then parsed and evaluated recursively.
+
+For symbols which are constructors, the first 'letter' is always a <code>:</code>, in addition you also have to close the constructor with another <code>:</code>.
+
+Outlines some information regarding order of precedence.
+
+Some notes on Symbol infix notation.
+
+It's kind of strange how my immediate thoughts in this lecture were associated with abstract syntax trees and I'm coming to learn that the entire point of recursive data types is to define your own a set of rules for a given type. As such, you are essentially building your own small programming language within Haskell. This allows us to be extremely expressive. Right, so functional languages are DSLs for DSLs (this is almost like taking a trip down the rabbit hole, recursively!).
