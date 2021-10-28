@@ -2,13 +2,7 @@
 
 ### **The Second Cohort Of The Plutus Pioneer Program**
 
-<details>
-
-<summary>A Quick Note</summary>
-
-My intention insofar as bringing up ANYTHING within these notes is almost entirely for my own educational benefit (I am sharing these notes **in the hope that they may be helpful**. I am, in essence, exploring my thoughts through the written medium. However, if anybody would care to critique my thoughts, such feedback is appreciated more than you may know! It's welcomed, in fact! Please be as blunt and as forthcoming as you wish.
-
-</details>
+*Taken from my Haskell Notes: I really like how much emphasis is put on asking questions! Something that I've often found difficult. You see this again and again from: [Phil Wadler](https://media.ed.ac.uk/playlist/dedicated/179956591/1_0wugzt69/1_ihw6pzqo) (at 20:09) and [Simon P Jones](https://youtu.be/6COvD8oynmI?t=19) during their lectures. Great culture within the world of Haskell.*
 
 <details>
 
@@ -78,6 +72,21 @@ In order to generate a collection, we'll need a Cardano-node running on mainnet 
 
 > "Constraints Liberate, Liberties Constrain" <br />
 > — Runar Bjarnason
+
+> "If you stumble on syntax, everything else becomes difficult." <br />
+> — Simon Peyton Jones
+
+</details>
+
+<details>
+
+<summary>Feedback</summary>
+
+I've had a great time having 'an attempt' at learning Plutus (and I have learnt a lot), interacting with the community has been fun, the lectures have been fantastic, and there are a lot of fantastic people here in general.
+
+The one thing I noticed / struck me (whilst relearning Haskell through lectures by Phil Wadler @ Edinburgh) was the sheer emphasis put on asking questions (as though it is somewhat of a requirement, literally looking around a room of hundreds asking for people to either nod or raise their hand). In addition, you see the same with public lectures by Simon Peyton Jones (not quite as forceful!). I've never had any teachers or lecturers like that before. I was (un?)fortunate insofar as I never really had to ask many questions during my UG. Thus, it would seem to me to be within the spirit of Haskell to REALLY EMPHASISE the importance of asking questions from the outset (the first lecture of the next cohort). Plutus (as we were warned) has been bloody difficult and I would be lying if I said I'd exhausted my list of questions when given the opportunity to ask them. Perhaps applying a similar philosophy to asking questions as we have done to answering them would seem to me to be a good thing? My 2-cents.
+
+Finally, I would like to add that the commitment from Matthew Capps has been awesome, he has always been there to provide encouragement and to attempt to keep people engaged within conversations.
 
 </details>
 
