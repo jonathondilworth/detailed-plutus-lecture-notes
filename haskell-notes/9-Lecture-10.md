@@ -8,7 +8,7 @@ These notes are a collection of thoughts drawn from watching lectures nine, ten 
 
 <summary>Note On Asking Questions</summary>
 
-*Authors Note: Prof Wadlers statement about schools and not asking too many questions: I can relate to having attended a public secondary school in rural Wales. Perhaps the way I think is different, but when the head of mathematics explained to the class that A-Level mathematics is really difficult, I raised my hand and explained my thoughts: if you took all of mathematics and were to draw a line between the easiest mathematics in the world and the hardest, A-Level mathematics would likely be closer to the easiest point, rather than the hardest point. To have the head of mathematics laugh at you and encourage others to laugh at your expense for making a remark you thought was valid didn't feel good. Shortly thereafter I dropped Further Pure Mathematics, which I deeply regret. I am not blaming anyone besides myself for having done so (although it may sound like it), I am simply explaining that, yes, asking questions that are considered unconventional within an educational system that mainly embodies this idea of 'do this and do not ask too many questions about it', well it raises the point that we do have a bit of a problem (in some places, with some teachers). Anyway, fairly off-topic.*
+*Authors Note: Prof Wadlers statement about schools and not asking too many questions: I can relate to having attended a public secondary school in rural Wales. TLDR: it is a problem because I find it difficult to ask questions to this day... Working on it.*
 
 </details>
 
@@ -495,6 +495,31 @@ Prelude Data.List> -- quite a bit to take in for L9 and  L10
 Prelude Data.List> -- when you pass in strings, you're generating all possible environments
 ```
 
-**TODO: Add Tests...**
+*Some Additional Materials*
+
+```haskell
+Prelude> :{
+Prelude| data Exp = Lit Int
+Prelude|          | Add Exp Exp
+Prelude|          | Div Exp Exp
+Prelude|          deriving (Show, Eq)
+Prelude|
+Prelude| evalE :: Exp -> Int
+Prelude| evalE (Lit n)   =   n
+Prelude| evalE (Add p q) =   evalE p + evalE q
+Prelude| evalE (Div p q) =   evalE p `div` evalE q
+Prelude| :}
+Prelude> :{
+Prelude| e :: Exp
+Prelude| e = Div (Lit 3) (Add (Lit 4) (Lit 4))
+Prelude| :}
+Prelude> evalE e
+0
+Prelude> -- why zero? Because Lit Int (Int, not Num)
+```
+
+![../img/expt.JPG](../img/expt.JPG)
 
 *You create your own luck.*
+
+**You should test.**
