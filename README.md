@@ -24,10 +24,14 @@ In order to generate a collection, we'll need a Cardano-node running on mainnet 
 
 **Goals:**
 
-* Publish My Own Computation & Functional Programming Learning Materials And Notes.
+* ~~Publish My Own Computation & Functional Programming Learning Materials And Notes.~~
+  * I've ran through the intro course to FP and I still need to do some more reading and implement exercises, but I am A LOT more comfortable than I was with Haskell.
+  * Just tidy these up and make them more presentable, they were kind of more for my own re-learning.
+* I'm currently working through the Blockchains and Distributed Ledger course @ UoE, it is based on ETH, but I have all the lectures recorded when Allegos was teaching and I think it's a good idea to have a wide view of this industry / domain (from a technical standpoint). I'm four lectures in and one assignment down; and I already feel like: wow this is easy (as compared to PPP). You can check my notes here: [https://github.com/jonathondilworth/blockchaincourse/tree/master/My%20Notes](https://github.com/jonathondilworth/blockchaincourse/tree/master/My%20Notes)
 * Finish Lecture Notes On Remaining Lectures.
 * Re-Implement All Homework From L1 to L10.
-* Work On Catalyst Proposal For Next Funding Iteration (See Proposal In Repo).
+* ~~Work On Catalyst Proposal For Next Funding Iteration (See Proposal In Repo).~~ Not really too sure what we're doing about this. Visited cities now include: Bogata, Medellin and Cali. Basically, it is rather difficult to know who you can trust down there. People are obviously frustrated with their government, their financial system and each other (contextual) to the point where it's just a very difficult situation. So, we'll be revisiting this at some point. But we've had a couple of guys down there on and off for two months (almost three) now; they've witnessed two shootings, experienced one attempted kidnapping (although, this may have just been an attempted robery, it's very hard to tell) and have learnt... Enough about some of the difficulties that are being faced within Columbia. So, we'll be regrouping and essentially just figuring out what to do.
+* Yeah, I need to get all this stuff done; been working through it all for months now, slow and steady wins the race.
 
 <small>
 
