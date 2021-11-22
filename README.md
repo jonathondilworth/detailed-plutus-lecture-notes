@@ -10,32 +10,31 @@
 
 <span style="line-height: 1.85;"></span>
 
-**More Recent Development**
-
-I've been speaking with a few artists, poets to be specific and we're interested in assisting the small group of individuals who are working towards creating an NFT poetry space on Cardano. I've been working with an individual from Berlin and we wanted to see if we could do something a bit 'out there'. Thus, I floated the idea of converting poems to images and then applying artistic style transfer to them. We've already created a proof of concept as can be seen below.
-
-![./img/poet.png](img/poet.png)
-
-In order to generate a collection, we'll need a Cardano-node running on mainnet (which is already up on a cloud instance) and we'll need to mint a collection of poems generated using a RNN architecture (this is yet to be completed). More on this project as it progresses.
-
-*Note: we're not sure if we would like to contain the poem within the image or simply within the metadata, as they are small strings. There are various applications that we have been discussing by opting to contain the poem within the NFT itself. We could then implement some additional functionality through interactions between an NFT UTxO Input to a smart contract, various other potential parties and the PAB.*
-
-**Currently Working On: Learning Haskell From First Principles.**
+**Currently Working On: Learning Haskell For Reals (Finished Intro to FP, Now Taking IOG Haskell Course).**
 
 **Goals:**
 
+* Publishing Details Notes With Lots Of Questions On Haskell Based On IOGs Haskell Program here: [https://github.com/jonathondilworth/haskell-notes](https://github.com/jonathondilworth/haskell-notes)
 * ~~Publish My Own Computation & Functional Programming Learning Materials And Notes.~~
   * I've ran through the intro course to FP and I still need to do some more reading and implement exercises, but I am A LOT more comfortable than I was with Haskell.
   * Just tidy these up and make them more presentable, they were kind of more for my own re-learning.
-* I'm currently working through the Blockchains and Distributed Ledger course @ UoE, it is based on ETH, but I have all the lectures recorded when Allegos was teaching and I think it's a good idea to have a wide view of this industry / domain (from a technical standpoint). I'm four lectures in and one assignment down; and I already feel like: wow this is easy (as compared to PPP). You can check my notes here: [https://github.com/jonathondilworth/blockchaincourse/tree/master/My%20Notes](https://github.com/jonathondilworth/blockchaincourse/tree/master/My%20Notes)
+* I'm also (concurrently!) working through the Blockchains and Distributed Ledger course @ UoE, it is based on ETH, but I have all the lectures recorded when Allegos was teaching and I think it's a good idea to have a wide view of this industry / domain (from a technical standpoint). I'm five lectures in and one assignment down; and I already feel like: wow this is easy (as compared to PPP). You can check my notes here: [https://github.com/jonathondilworth/blockchaincourse/tree/master/My%20Notes](https://github.com/jonathondilworth/blockchaincourse/tree/master/My%20Notes)
 * Finish Lecture Notes On Remaining Lectures.
 * Re-Implement All Homework From L1 to L10.
-* ~~Work On Catalyst Proposal For Next Funding Iteration (See Proposal In Repo).~~ Not really too sure what we're doing about this. Visited cities now include: Bogata, Medellin and Cali. Basically, it is rather difficult to know who you can trust down there. People are obviously frustrated with their government, their financial system and each other (contextual) to the point where it's just a very difficult situation. So, we'll be revisiting this at some point. But we've had a couple of guys down there on and off for two months (almost three) now; they've witnessed two shootings, experienced one attempted kidnapping (although, this may have just been an attempted robery, it's very hard to tell) and have learnt... Enough about some of the difficulties that are being faced within Columbia. So, we'll be regrouping and essentially just figuring out what to do.
-* Yeah, I need to get all this stuff done; been working through it all for months now, slow and steady wins the race.
+* ~~Work On Catalyst Proposal For Next Funding Iteration (See Proposal In Repo).~~ Not really too sure what we're doing about this. Visited cities now include: Bogata, Medellin and Cali. Unfortunately, we've come to the conclusion that operating a top-down approach OR a bottom-up approach (regarding adoption) using individuals on the ground is actually kind of dangerous in both instances (due to fairly serious civil unrest within these areas). We were not operating with security, it was literally, go out there and see what happens. TLDR: To be continued...
+* Yeah, I need to get all this stuff done; been working through it all for months now, slow and steady wins the race; plus, I work hard, but at a snails pace.
 
 <small>
 
-*Notes: Towards the end of the second cohort, I had to take some time away. The intention is to catch up to the end of the program now. Any lecture notes published within 'haskell-notes' are learning materials INSPIRED BY the Computation & FK course at the University of Edinburgh (and the various books outlined as resources by the course) which I am watching online.* ***THEY WILL NOT CONTAIN SOLUTIONS TO PROBLEM SETS.*** *If anyone has any concerns, <a href="mailto: jon@dilworth.dev">please contact me</a>.*
+**Recent Development**
+
+I've been speaking with a few artists, poets to be specific and we're interested in assisting the small group of individuals who are working towards creating an NFT poetry space on Cardano. I've been working with an individual from Berlin and we wanted to see if we could do something a bit 'out there'. Thus, I floated the idea of converting poems to images and then applying artistic style transfer to them. We've already created a proof of concept as can be seen below.
+
+![img/poet.png](img/poet.png)
+
+In order to generate a collection, we'll need a Cardano-node running on mainnet (which is already up on a cloud instance) and we'll need to mint a collection of poems generated using a RNN architecture (this is yet to be completed). More on this project as it progresses.
+
+Note: we're not sure if we would like to contain the poem within the image or simply within the metadata, as they are small strings. There are various applications that we have been discussing by opting to contain the poem within the NFT itself. We could then implement some additional functionality through interactions between an NFT UTxO Input to a smart contract, various other potential parties and the PAB.
 
 </small>
 
