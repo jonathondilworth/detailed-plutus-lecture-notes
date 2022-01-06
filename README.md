@@ -1,5 +1,7 @@
 # Plutus Pioneer Program Lecture Notes - README
 
+**NOTE: These lecture notes are fairly outdated now. They'll be updated and maintained as we move forwards through any additional PPP cohorts.**
+
 ### **The Second Cohort Of The Plutus Pioneer Program**
 
 *Taken from my Haskell Notes: I really like how much emphasis is put on asking questions! Something that I've often found difficult. You see this again and again from: [Phil Wadler](https://media.ed.ac.uk/playlist/dedicated/179956591/1_0wugzt69/1_ihw6pzqo) (at 20:09) and [Simon P Jones](https://youtu.be/6COvD8oynmI?t=19) during their lectures. Great culture within the world of Haskell.*
