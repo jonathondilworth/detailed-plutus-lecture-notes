@@ -62,8 +62,6 @@ build-and-serve-docs
 
 ![./server.png](./img/server.png)
 
-*Server seems to do this on Mac M1, will ask about / look for a fix soon.*
-
 **Client**
 
 ![./client.png](./img/client.png)
