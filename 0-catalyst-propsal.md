@@ -1,6 +1,6 @@
 <details>
 
-<summaryUpdates.</summary>
+<summary>Updates.</summary>
 
 ### UPDATE 10TH OCT 2021, Latin America: Bogotá, Serious Financial Issues Associated With Legitimate Institutions, Thoughts On Cryptocurrencies Spoken Through Limited Interactions With Randomly Sampled Individuals
 
