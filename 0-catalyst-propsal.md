@@ -1,3 +1,7 @@
+<details>
+
+<summary>Updates</sumary>
+
 ### UPDATE 10TH OCT 2021, Latin America: Bogotá, Serious Financial Issues Associated With Legitimate Institutions, Thoughts On Cryptocurrencies Spoken Through Limited Interactions With Randomly Sampled Individuals
 
 A sound recording during a taxi journey which we have consent to use demonstrates that there appears to be some fairly serious issues surrounding financial institutions and the economy of South American countries in general. Of course, we understand the sample size is fairly small, however the general sentiment does seem to reflect that of the collective. We can make this media available to vetted individuals on request, however, it's only a short interaction. I'm simply updating the proposal to show that we're making progress here. We may be moving slowly, but we're doing so purposefully. Future informal interactions which are recorded will be filtered through a formal process afterwards. In addition, we are currently developing formal methods for data collection. 
@@ -39,6 +43,8 @@ One of our team members (currently a small group of seven of us = our team) has 
 
 **OUR ETHOS: APPLY THE GREATEST DEGREE OF ACADEMIC RIGOUR TO OUR PROJECT, AS INSPIRED BY CARDANO AND IOHK - SLOW AND STEADY WINS THE RACE.**
 
+</details>
+	
 *TODO: Do we require an abstract for a proposal?*
 
 *TODO: Add Acknowledgements.*
